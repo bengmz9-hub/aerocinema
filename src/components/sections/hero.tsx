@@ -14,7 +14,6 @@ export default function Hero() {
 
   return (
     <section className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-black">
-      {/* Vídeo de fondo */}
       <video
         ref={videoRef}
         autoPlay
