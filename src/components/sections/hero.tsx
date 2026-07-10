@@ -21,17 +21,12 @@ export default function Hero() {
         muted
         playsInline
         preload="auto"
-        onLoadedData={() => setIsLoaded(true)}
-        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-out ${
-          isLoaded ? "opacity-60" : "opacity-0"
-        }`}
+        className="absolute inset-0 h-full w-full object-cover opacity-50"
         src="https://assets.mixkit.co/videos/preview/mixkit-top-view-of-a-beautiful-beach-14023-large.mp4"
       />
 
-      {/* Overlay oscuro cinematográfico: base + viñeta + degradado inferior */}
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.65)_100%)]" />
+      {/* Overlay suavizado para no tapar el contenido */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
 
       {/* Marco de encuadre — guiño al visor de cámara del dron */}
       <div className="pointer-events-none absolute inset-6 hidden border border-white/15 sm:inset-10 sm:block md:inset-14">
