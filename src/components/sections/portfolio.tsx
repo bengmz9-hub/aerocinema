@@ -9,6 +9,7 @@ interface PortfolioItem {
   description: string;
   span: string;
   aspect: string;
+  image: string;
 }
 
 const items: PortfolioItem[] = [
@@ -19,6 +20,7 @@ const items: PortfolioItem[] = [
     description: "Rompientes, calas y horizontes infinitos vistos desde la altura del viento.",
     span: "sm:col-span-4 sm:row-span-2",
     aspect: "aspect-[16/9] sm:aspect-auto",
+    image: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=1200&auto=format&fit=crop",
   },
   {
     id: "montana",
@@ -27,6 +29,7 @@ const items: PortfolioItem[] = [
     description: "Crestas, niebla baja y luz de amanecer sobre roca viva.",
     span: "sm:col-span-2 sm:row-span-1",
     aspect: "aspect-[4/5] sm:aspect-auto",
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "eventos",
@@ -35,6 +38,7 @@ const items: PortfolioItem[] = [
     description: "Festivales, rodajes y celebraciones narradas desde el aire.",
     span: "sm:col-span-2 sm:row-span-1",
     aspect: "aspect-[4/5] sm:aspect-auto",
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "demanda",
@@ -43,6 +47,7 @@ const items: PortfolioItem[] = [
     description: "Tu idea, tu localización, tu encuadre. Sin límites fijos.",
     span: "sm:col-span-2 sm:row-span-1",
     aspect: "aspect-square sm:aspect-auto",
+    image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
@@ -77,14 +82,12 @@ export default function Portfolio() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent transition-opacity duration-500 group-hover:opacity-70" />
 
-              <div
-                className={`absolute inset-0 scale-105 bg-neutral-900 transition-transform duration-700 ease-out group-hover:scale-100 ${
+              <img
+                src={item.image}
+                alt={item.title}
+                className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-100 scale-105 transition-opacity duration-500 ${
                   isHovered ? "opacity-90" : "opacity-70"
                 }`}
-                style={{
-                  backgroundImage:
-                    "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.06), transparent 60%)",
-                }}
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
