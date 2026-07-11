@@ -1,10 +1,10 @@
 'use client';
 
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'; // Ajusta la ruta si tu archivo utilitario está en otro directorio
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -15,61 +15,67 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center w-full px-4">
-      <header className="flex items-center justify-between w-full max-w-4xl px-6 py-3 border border-white/10 bg-black/50 backdrop-blur-lg rounded-full shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
-        
-        {/* LOGO: Cinematic branding */}
-        <Link href="/" className="font-syne text-sm font-extrabold tracking-[0.2em] text-white transition-opacity hover:opacity-80">
-          AERO<span className="text-zinc-400 font-normal">CINEMA</span>
+    <div className="fixed top-6 inset-x-0 max-w-2xl mx-auto z-50 px-4">
+      <nav 
+        className="flex items-center justify-between w-full px-6 py-2.5 rounded-full border border-white/[0.08] bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]"
+      >
+        {/* LOGO MINIMALISTA */}
+        <Link 
+          href="/" 
+          className="text-xs font-semibold tracking-[0.25em] text-white/90 hover:text-white transition-colors"
+        >
+          AERO<span className="text-white/40 font-light">CINEMA</span>
         </Link>
-        
-        {/* MENU: Floating tab tracker with layoutId */}
+
+        {/* MENÚ CON TRACKING DE FONDO DE ACETERNITY */}
         <ul className="flex items-center gap-1">
-          {navItems.map((item, index) => {
+          {navItems.map((item, idx) => {
             const isActive = pathname === item.href;
             return (
-              <li
+              <li 
                 key={item.href}
                 className="relative"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
               >
                 <Link
                   href={item.href}
                   className={cn(
-                    "relative z-10 px-4 py-2 text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 block rounded-full",
-                    isActive ? "text-white" : "text-zinc-400 hover:text-white"
+                    "relative block px-4 py-2 text-xs tracking-wider text-zinc-400 transition-colors duration-300 rounded-full",
+                    isActive && "text-white font-medium"
                   )}
                 >
-                  {item.label}
+                  {/* Animación del fondo magnético al hacer hover */}
+                  <AnimatePresence>
+                    {hoveredIdx === idx && (
+                      <motion.span
+                        layoutId="navHoverBackground"
+                        className="absolute inset-0 bg-white/[0.06] rounded-full -z-10"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, transition: { duration: 0.15 } }}
+                        exit={{ opacity: 0, transition: { duration: 0.15 } }}
+                      />
+                    )}
+                  </AnimatePresence>
+                  
+                  <span className="relative z-10">{item.label}</span>
                 </Link>
-                <AnimatePresence>
-                  {hoveredIndex === index && (
-                    <motion.span
-                      layoutId="hoverBackground"
-                      className="absolute inset-0 rounded-full bg-white/10"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1, transition: { duration: 0.15 } }}
-                      exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                    />
-                  )}
-                </AnimatePresence>
               </li>
             );
           })}
         </ul>
 
-        {/* BUTTON CONTACTO: Floating design */}
+        {/* BOTÓN CONTACTO INTEGRADO DE FORMA SUTIL */}
         <Link 
           href="/contacto" 
-          className="text-[10px] uppercase tracking-[0.2em] font-medium border border-white/20 rounded-full px-4 py-2 text-white transition-all duration-300 hover:bg-white hover:text-black hover:border-white"
+          className="text-[11px] uppercase tracking-widest font-medium text-black bg-white px-4 py-2 rounded-full hover:bg-zinc-200 transition-all active:scale-95"
         >
           Contacto
         </Link>
-      </header>
+      </nav>
     </div>
   );
 }
