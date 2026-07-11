@@ -53,10 +53,21 @@ export default function Navbar() {
                     {hoveredIdx === idx && (
                       <motion.span
                         layoutId="navHoverBackground"
-                        className="absolute inset-0 bg-white/[0.06] rounded-full -z-10"
+                        className="absolute inset-0 bg-white/[0.06] rounded-full -z-10 will-change-transform"
+                        style={{ transformZ: 0 }} // Fuerza aceleración por hardware 3D
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, transition: { duration: 0.15 } }}
-                        exit={{ opacity: 0, transition: { duration: 0.15 } }}
+                        animate={{ 
+                          opacity: 1, 
+                          transition: { 
+                            type: "spring", 
+                            stiffness: 380, 
+                            damping: 30 
+                          } 
+                        }}
+                        exit={{ 
+                          opacity: 0, 
+                          transition: { duration: 0.1 } 
+                        }}
                       />
                     )}
                   </AnimatePresence>
