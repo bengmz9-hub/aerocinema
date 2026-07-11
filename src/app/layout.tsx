@@ -1,19 +1,34 @@
-import type { Metadata } from 'next';
-import './globals.css';
+import type { Metadata } from "next";
+import { Syne, Space_Grotesk } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+
+const syne = Syne({ 
+  subsets: ["latin"],
+  variable: "--font-syne",
+});
+
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ["latin"],
+  variable: "--font-space",
+});
 
 export const metadata: Metadata = {
-  title: 'Drones',
-  description: 'Landing page para Drones',
+  title: "AeroCinema | Fotografía y Vídeo con Drones",
+  description: "Contenido visual aéreo premium para paisajes, propiedades y eventos.",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="es" className="dark">
-      <body>{children}</body>
+      <body className={`${syne.variable} ${spaceGrotesk.variable} antialiased bg-zinc-950 text-white font-space`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
