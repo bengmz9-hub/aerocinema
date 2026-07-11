@@ -7,8 +7,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { portfolioData } from '@/data/videos';
 
 const heroVideo = 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4';
+const featuresVideo = 'https://videos.pexels.com/video-files/2814421/2814421-uhd_2560_1440_24fps.mp4';
 
-// Datos de categorías con imágenes estéticas optimizadas para el efecto Zoom-Out
 const categories = [
   {
     key: 'paisajes',
@@ -139,7 +139,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========== SECCIÓN CATEGORÍAS (CON EFECTO ZOOM OUT EN BUCLE) ========== */}
+      {/* ========== SECCIÓN CATEGORÍAS ========== */}
       <section className="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
         <div
           ref={catS.ref}
@@ -169,29 +169,24 @@ export default function HomePage() {
                   transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms`,
                 }}
               >
-                {/* Contenedor de imagen animada con Zoom Out infinito */}
                 <div className="absolute inset-0 w-full h-full overflow-hidden">
                   <motion.img
                     src={cat.thumbnail}
                     alt={cat.title}
                     className="w-full h-full object-cover will-change-transform"
-                    animate={{
-                      scale: [1.25, 1.0],
-                    }}
+                    animate={{ scale: [1.25, 1.0] }}
                     transition={{
                       duration: 8,
                       repeat: Infinity,
                       repeatType: "reverse",
                       ease: "easeInOut",
-                      delay: i * 0.4, // Desfase para evitar sincronía robótica
+                      delay: i * 0.4,
                     }}
                   />
                 </div>
 
-                {/* Filtros oscuros superpuestos */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
 
-                {/* Textos inferiores */}
                 <div className="absolute bottom-0 left-0 right-0 p-8 z-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
                   <span className="text-zinc-400 text-[10px] uppercase tracking-wider font-light">
                     {cat.count} archivos indexados
@@ -236,7 +231,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========== FEATURES ========== */}
+      {/* ========== FEATURES WITH NEW UNIQUE VIDEO ========== */}
       <section className="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
@@ -270,8 +265,9 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Tarjeta con el nuevo vídeo cinemático independiente de Pexels */}
           <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.05]">
-            <video src={heroVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+            <video src={featuresVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
