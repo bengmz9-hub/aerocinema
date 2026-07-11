@@ -8,25 +8,25 @@ import { portfolioData } from '@/data/videos';
 
 const heroVideo = 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4';
 
-// Estructura de categorías conectada a tu base de datos real
+// Datos de categorías con imágenes estéticas optimizadas para el efecto Zoom-Out
 const categories = [
   {
     key: 'paisajes',
     title: 'Paisajes',
     count: portfolioData.paisajes?.length || 0,
-    thumbnail: portfolioData.paisajes?.[0]?.url || '',
+    thumbnail: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop',
   },
   {
     key: 'propiedades',
     title: 'Propiedades',
     count: portfolioData.propiedades?.length || 0,
-    thumbnail: portfolioData.propiedades?.[0]?.url || '',
+    thumbnail: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
   },
   {
     key: 'eventos',
     title: 'Eventos',
     count: portfolioData.eventos?.length || 0,
-    thumbnail: portfolioData.eventos?.[0]?.url || '',
+    thumbnail: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop',
   },
 ];
 
@@ -62,13 +62,11 @@ export default function HomePage() {
   const [loaded, setLoaded] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Control del efecto Zoom Out mediante el Scroll real del usuario
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
   
-  // La escala pasa de 1.2 (lente drone cerca) a 1.0 (zoom out estático/fluido) al hacer scroll
   const videoScale = useTransform(scrollYProgress, [0, 0.5], [1.2, 1.0]);
   const videoBlur = useTransform(scrollYProgress, [0, 0.5], ["blur(0px)", "blur(4px)"]);
 
@@ -80,33 +78,19 @@ export default function HomePage() {
   const heroS = useScrollReveal();
   const catS = useScrollReveal();
   const statsS = useScrollReveal();
-  const ctaS = useScrollReveal();
 
   return (
     <main ref={containerRef} className="min-h-screen bg-black text-white overflow-x-hidden">
       
-      {/* ========== HERO CON ZOOM OUT ON SCROLL ========== */}
+      {/* ========== HERO ========== */}
       <section className="relative h-screen w-full overflow-hidden">
-        <motion.div 
-          style={{ scale: videoScale, filter: videoBlur }}
-          className="absolute inset-0 w-full h-full will-change-transform"
-        >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-            src={heroVideo}
-          />
+        <motion.div style={{ scale: videoScale, filter: videoBlur }} className="absolute inset-0 w-full h-full will-change-transform">
+          <video autoPlay muted loop playsInline preload="auto" className="w-full h-full object-cover" src={heroVideo} />
         </motion.div>
 
-        {/* Capas de degradado cinemático */}
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
 
-        {/* Contenido Hero */}
         <div ref={heroS.ref} className="relative z-10 h-full flex flex-col justify-center px-6 lg:px-8 max-w-7xl mx-auto w-full">
           <div
             className="max-w-3xl"
@@ -155,7 +139,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========== SECCIÓN CATEGORÍAS ========== */}
+      {/* ========== SECCIÓN CATEGORÍAS (CON EFECTO ZOOM OUT EN BUCLE) ========== */}
       <section className="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
         <div
           ref={catS.ref}
@@ -178,31 +162,41 @@ export default function HomePage() {
               <Link
                 key={cat.key}
                 href={`/portfolio/${cat.key}`}
-                className="group relative overflow-hidden rounded-2xl aspect-[3/4] block bg-zinc-900 border border-white/[0.05]"
+                className="group relative overflow-hidden rounded-2xl aspect-[3/4] block bg-zinc-900 border border-white/[0.05] shadow-lg"
                 style={{
                   opacity: catS.visible ? 1 : 0,
                   transform: catS.visible ? 'translateY(0)' : 'translateY(20px)',
                   transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms`,
                 }}
               >
-                <video
-                  src={cat.thumbnail}
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  onMouseEnter={(e) => e.currentTarget.play().catch(() => {})}
-                  onMouseLeave={(e) => { e.currentTarget.pause(); e.currentTarget.currentTime = 0; }}
-                />
+                {/* Contenedor de imagen animada con Zoom Out infinito */}
+                <div className="absolute inset-0 w-full h-full overflow-hidden">
+                  <motion.img
+                    src={cat.thumbnail}
+                    alt={cat.title}
+                    className="w-full h-full object-cover will-change-transform"
+                    animate={{
+                      scale: [1.25, 1.0],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                      delay: i * 0.4, // Desfase para evitar sincronía robótica
+                    }}
+                  />
+                </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90" />
+                {/* Filtros oscuros superpuestos */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
 
-                <div className="absolute bottom-0 left-0 right-0 p-8" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                  <span className="text-zinc-500 text-[10px] uppercase tracking-wider font-light">
+                {/* Textos inferiores */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 z-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                  <span className="text-zinc-400 text-[10px] uppercase tracking-wider font-light">
                     {cat.count} archivos indexados
                   </span>
-                  <h3 className="text-2xl font-serif font-bold tracking-wide mt-1 text-white uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                  <h3 className="text-2xl font-serif font-bold tracking-wide mt-1 text-white uppercase transition-transform duration-300 group-hover:translate-x-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
                     {cat.title}
                   </h3>
                   <div className="flex items-center gap-2 mt-4 text-xs tracking-wider uppercase text-zinc-400 group-hover:text-white transition-colors font-medium">
@@ -277,38 +271,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.05]">
-            <video src={portfolioData.paisajes?.[1]?.url || heroVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
-          </div>
-        </div>
-      </section>
-
-      {/* ========== CTA ========== */}
-      <section className="py-32 px-6 lg:px-8 max-w-5xl mx-auto text-center">
-        <div
-          ref={ctaS.ref}
-          style={{
-            opacity: ctaS.visible ? 1 : 0,
-            transform: ctaS.visible ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 0.8s ease, transform 0.8s ease',
-          }}
-        >
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight font-serif uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
-            ¿INICIAMOS EL VUELO?
-          </h2>
-          <p className="mt-4 text-zinc-400 text-sm max-w-xl mx-auto font-light" style={{ fontFamily: 'var(--font-montserrat)' }}>
-            Escríbenos para detallar los requerimientos de tu producción. Desarrollamos planes de vuelo y presupuestos a medida.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
-            <Link
-              href="/portfolio/paisajes"
-              className="group inline-flex items-center gap-3 px-8 py-3.5 bg-white text-black text-xs uppercase tracking-wider font-semibold rounded-full transition-all duration-300 hover:bg-zinc-200 hover:scale-105 active:scale-95"
-            >
-              Ver trabajos
-              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-            </Link>
-            <button className="inline-flex items-center gap-3 px-8 py-3.5 border border-white/20 text-white text-xs uppercase tracking-wider font-medium rounded-full transition-all duration-300 hover:bg-white/5 hover:border-white/40">
-              Solicitar Cotización
-            </button>
+            <video src={heroVideo} autoPlay muted loop playsInline className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
