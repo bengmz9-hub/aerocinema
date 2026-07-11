@@ -56,7 +56,7 @@ export default function Navbar() {
                       <motion.span
                         layoutId="navHoverBackground"
                         className="absolute inset-0 bg-white/[0.06] rounded-full -z-10 will-change-transform"
-                        style={{ transformZ: 0 }}
+                        style={{ transform: "translateZ(0)" }}
                         initial={{ opacity: 0 }}
                         animate={{ 
                           opacity: 1, 
