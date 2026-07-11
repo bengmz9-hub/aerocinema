@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { portfolioData } from '@/data/videos';
 
 const heroVideo = 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4';
-const featuresVideo = 'https://videos.pexels.com/video-files/2814421/2814421-uhd_2560_1440_24fps.mp4';
+const featuresVideo = 'https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4';
 
 const categories = [
   {
