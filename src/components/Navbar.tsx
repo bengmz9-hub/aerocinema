@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <div className="fixed top-6 inset-x-0 max-w-2xl mx-auto z-50 px-4">
       <nav 
-        className="flex items-center justify-between w-full px-6 py-2.5 rounded-full border border-white/[0.08] bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]"
+        className="flex items-center justify-between w-full px-6 py-2.5 rounded-full border border-white/[0.12] bg-gradient-to-b from-zinc-700/30 via-zinc-800/40 to-zinc-950/60 backdrop-blur-xl shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)]"
       >
         {/* LOGO MINIMALISTA */}
         <Link 
