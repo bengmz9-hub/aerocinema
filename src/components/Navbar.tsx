@@ -25,7 +25,7 @@ export default function Navbar() {
         {/* LOGO MINIMALISTA */}
         <Link 
           href="/" 
-          className="text-xs font-semibold tracking-[0.25em] text-white/90 hover:text-white transition-colors"
+          className="font-syncopate text-lg tracking-[0.3em] font-bold text-white/90 hover:text-white transition-colors"
         >
           AERO<span className="text-white/40 font-light">CINEMA</span>
         </Link>

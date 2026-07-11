@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Syne, Space_Grotesk } from "next/font/google";
+import { Syncopate, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const syne = Syne({ 
+const syncopate = Syncopate({ 
   subsets: ["latin"],
-  variable: "--font-syne",
+  weight: ["700"],
+  variable: "--font-syncopate",
 });
 
 const spaceGrotesk = Space_Grotesk({ 
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${syne.variable} ${spaceGrotesk.variable} antialiased bg-zinc-950 text-white font-space`}>
+      <body className={`${syncopate.variable} ${spaceGrotesk.variable} antialiased bg-zinc-950 text-white font-space`}>
         <Navbar />
         {children}
       </body>
