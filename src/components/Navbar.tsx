@@ -18,20 +18,21 @@ export default function Navbar() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <div className="fixed top-6 inset-x-0 max-w-2xl mx-auto z-50 px-4">
+    // Aumentamos el ancho máximo a max-w-4xl para que respire más de izquierda a derecha
+    <div className="fixed top-6 inset-x-0 max-w-4xl mx-auto z-50 px-6">
       <nav 
-        className="flex items-center justify-between w-full px-6 py-2.5 rounded-full border border-white/[0.12] bg-gradient-to-b from-zinc-700/30 via-zinc-800/40 to-zinc-950/60 backdrop-blur-xl shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)]"
+        className="flex items-center justify-between w-full px-8 py-3 rounded-full border border-white/[0.12] bg-gradient-to-b from-zinc-700/30 via-zinc-800/40 to-zinc-950/60 backdrop-blur-xl shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)]"
       >
-        {/* LOGO: Estilo clásico Serif Cinematográfico */}
+        {/* LOGO: Escalado a text-sm para darle más peso visual */}
         <Link 
           href="/" 
-          className="font-serif font-bold tracking-[0.25em] text-xs text-white/90 hover:text-white transition-colors"
+          className="font-serif font-bold tracking-[0.25em] text-sm text-white/90 hover:text-white transition-colors"
           style={{ fontFamily: 'var(--font-cinzel)' }}
         >
           AERO<span className="font-normal text-white/50">CINEMA</span>
         </Link>
 
-        {/* MENÚ: Montserrat Light, compacto y muy espaciado */}
+        {/* MENÚ: Se mantiene intacto en tamaño y espaciado */}
         <ul className="flex items-center gap-1">
           {navItems.map((item, idx) => {
             const isActive = pathname === item.href;
@@ -73,10 +74,10 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* BOTÓN CONTACTO: Acorde al estilo Montserrat */}
+        {/* BOTÓN CONTACTO: Escalado a text-xs para equilibrar el peso con el logotipo */}
         <Link 
           href="/contacto" 
-          className="text-[9px] uppercase tracking-[0.2em] font-normal text-black bg-white px-4 py-2 rounded-full hover:bg-zinc-200 transition-all active:scale-95"
+          className="text-xs uppercase tracking-[0.2em] font-normal text-black bg-white px-5 py-2 rounded-full hover:bg-zinc-200 transition-all active:scale-95"
           style={{ fontFamily: 'var(--font-montserrat)' }}
         >
           Contacto
