@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Syncopate, Space_Grotesk } from "next/font/google";
+import { Cinzel, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const syncopate = Syncopate({ 
+const cinzel = Cinzel({
   subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-syncopate",
+  variable: "--font-cinzel",
+  weight: ["400", "700"],
 });
 
-const spaceGrotesk = Space_Grotesk({ 
+const mt = Montserrat({
   subsets: ["latin"],
-  variable: "--font-space",
+  variable: "--font-montserrat",
+  weight: ["300", "400"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${syncopate.variable} ${spaceGrotesk.variable} antialiased bg-zinc-950 text-white font-space`}>
+      <body className={`${cinzel.variable} ${mt.variable} antialiased bg-zinc-950 text-white font-sans`}>
         <Navbar />
         {children}
       </body>

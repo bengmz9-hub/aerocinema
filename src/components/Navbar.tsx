@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils'; // Ajusta la ruta si tu archivo utilitario está en otro directorio
+import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/', label: 'Inicio' },
@@ -22,15 +22,16 @@ export default function Navbar() {
       <nav 
         className="flex items-center justify-between w-full px-6 py-2.5 rounded-full border border-white/[0.12] bg-gradient-to-b from-zinc-700/30 via-zinc-800/40 to-zinc-950/60 backdrop-blur-xl shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)]"
       >
-        {/* LOGO MINIMALISTA */}
+        {/* LOGO: Estilo clásico Serif Cinematográfico */}
         <Link 
           href="/" 
-          className="font-syncopate text-lg tracking-[0.3em] font-bold text-white/90 hover:text-white transition-colors"
+          className="font-serif font-bold tracking-[0.25em] text-xs text-white/90 hover:text-white transition-colors"
+          style={{ fontFamily: 'var(--font-cinzel)' }}
         >
-          AERO<span className="text-white/40 font-light">CINEMA</span>
+          AERO<span className="font-normal text-white/50">CINEMA</span>
         </Link>
 
-        {/* MENÚ CON TRACKING DE FONDO DE ACETERNITY */}
+        {/* MENÚ: Montserrat Light, compacto y muy espaciado */}
         <ul className="flex items-center gap-1">
           {navItems.map((item, idx) => {
             const isActive = pathname === item.href;
@@ -44,30 +45,23 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "relative block px-4 py-2 text-xs tracking-wider text-zinc-400 transition-colors duration-300 rounded-full",
-                    isActive && "text-white font-medium"
+                    "relative block px-3.5 py-2 text-[10px] tracking-[0.2em] uppercase font-light text-zinc-400 transition-colors duration-300 rounded-full",
+                    isActive && "text-white font-normal"
                   )}
+                  style={{ fontFamily: 'var(--font-montserrat)' }}
                 >
-                  {/* Animación del fondo magnético al hacer hover */}
                   <AnimatePresence>
                     {hoveredIdx === idx && (
                       <motion.span
                         layoutId="navHoverBackground"
                         className="absolute inset-0 bg-white/[0.06] rounded-full -z-10 will-change-transform"
-                        style={{ transformZ: 0 }} // Fuerza aceleración por hardware 3D
+                        style={{ transformZ: 0 }}
                         initial={{ opacity: 0 }}
                         animate={{ 
                           opacity: 1, 
-                          transition: { 
-                            type: "spring", 
-                            stiffness: 380, 
-                            damping: 30 
-                          } 
+                          transition: { type: "spring", stiffness: 380, damping: 30 } 
                         }}
-                        exit={{ 
-                          opacity: 0, 
-                          transition: { duration: 0.1 } 
-                        }}
+                        exit={{ opacity: 0, transition: { duration: 0.1 } }}
                       />
                     )}
                   </AnimatePresence>
@@ -79,10 +73,11 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* BOTÓN CONTACTO INTEGRADO DE FORMA SUTIL */}
+        {/* BOTÓN CONTACTO: Acorde al estilo Montserrat */}
         <Link 
           href="/contacto" 
-          className="text-[11px] uppercase tracking-widest font-medium text-black bg-white px-4 py-2 rounded-full hover:bg-zinc-200 transition-all active:scale-95"
+          className="text-[9px] uppercase tracking-[0.2em] font-normal text-black bg-white px-4 py-2 rounded-full hover:bg-zinc-200 transition-all active:scale-95"
+          style={{ fontFamily: 'var(--font-montserrat)' }}
         >
           Contacto
         </Link>
