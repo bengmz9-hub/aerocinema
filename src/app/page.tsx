@@ -146,7 +146,7 @@ export default function HomePage() {
 
       {/* ========== SECCIÓN CATEGORÍAS CON FONDO ANIMADO ========== */}
       <SpecialtiesBackground>
-        <div className="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
+        <section className="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
           <div
             ref={catS.ref}
             style={{
@@ -178,7 +178,6 @@ export default function HomePage() {
                     transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms`,
                   }}
                 >
-                  {/* Imagen interna de la tarjeta */}
                   <div className="absolute inset-0 w-full h-full overflow-hidden">
                     <motion.img
                       src={cat.thumbnail}
@@ -195,10 +194,8 @@ export default function HomePage() {
                     />
                   </div>
 
-                  {/* Degradado interno de la tarjeta */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
 
-                  {/* Textos de la tarjeta */}
                   <div className="absolute bottom-0 left-0 right-0 p-8 z-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
                     <span className="text-zinc-400 text-[10px] uppercase tracking-wider font-light">
                       {cat.count} archivos indexados
@@ -215,7 +212,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </div>
+        </section>
       </SpecialtiesBackground>
 
       {/* ========== STATS ========== */}
