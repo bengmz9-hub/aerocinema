@@ -144,7 +144,7 @@ export default function HomePage() {
       {/* Showcase de Drone */}
       <DroneImageShowcase />
 
-      {/* ========== SECCIÓN CATEGORÍAS ========== */}
+      {/* ========== SECCIÓN CATEGORÍAS CON FONDO ANIMADO ========== */}
       <SpecialtiesBackground>
         <div className="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
           <div
@@ -157,8 +157,11 @@ export default function HomePage() {
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="w-12 h-px bg-white/20" />
-              <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase" style={{ fontFamily: 'var(--font-montserrat)' }}>Catálogo Aéreo</span>
+              <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                Catálogo Aéreo
+              </span>
             </div>
+            
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16 font-serif uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
               Explora por especialidad
             </h2>
@@ -175,6 +178,7 @@ export default function HomePage() {
                     transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms`,
                   }}
                 >
+                  {/* Imagen interna de la tarjeta */}
                   <div className="absolute inset-0 w-full h-full overflow-hidden">
                     <motion.img
                       src={cat.thumbnail}
@@ -191,8 +195,10 @@ export default function HomePage() {
                     />
                   </div>
 
+                  {/* Degradado interno de la tarjeta */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
 
+                  {/* Textos de la tarjeta */}
                   <div className="absolute bottom-0 left-0 right-0 p-8 z-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
                     <span className="text-zinc-400 text-[10px] uppercase tracking-wider font-light">
                       {cat.count} archivos indexados
