@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ArrowRight, ChevronDown, MapPin, Calendar, Award } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { portfolioData } from '@/data/videos';
-import DroneImageShowcase from '@/components/DroneImageShowcase';
 import SpecialtiesBackground from '@/components/SpecialtiesBackground';
 
 const heroVideo = 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4';
@@ -140,9 +139,6 @@ export default function HomePage() {
           <ChevronDown size={14} />
         </div>
       </section>
-
-      {/* Showcase de Drone */}
-      <DroneImageShowcase />
 
       {/* ========== SECCIÓN CATEGORÍAS CON FONDO ANIMADO ========== */}
       <SpecialtiesBackground>
