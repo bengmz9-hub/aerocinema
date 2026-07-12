@@ -6,6 +6,7 @@ import { ArrowRight, ChevronDown, MapPin, Calendar, Award } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { portfolioData } from '@/data/videos';
 import DroneImageShowcase from '@/components/DroneImageShowcase';
+import SpecialtiesBackground from '@/components/SpecialtiesBackground';
 
 const heroVideo = 'https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4';
 const featuresVideo = 'https://videos.pexels.com/video-files/3209828/3209828-hd_1920_1080_25fps.mp4';
@@ -144,70 +145,72 @@ export default function HomePage() {
       <DroneImageShowcase />
 
       {/* ========== SECCIÓN CATEGORÍAS ========== */}
-      <section className="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div
-          ref={catS.ref}
-          style={{
-            opacity: catS.visible ? 1 : 0,
-            transform: catS.visible ? 'translateY(0)' : 'translateY(30px)',
-            transition: 'opacity 0.8s ease, transform 0.8s ease',
-          }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-12 h-px bg-white/20" />
-            <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase" style={{ fontFamily: 'var(--font-montserrat)' }}>Catálogo Aéreo</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16 font-serif uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
-            Explora por especialidad
-          </h2>
+      <SpecialtiesBackground>
+        <div className="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
+          <div
+            ref={catS.ref}
+            style={{
+              opacity: catS.visible ? 1 : 0,
+              transform: catS.visible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'opacity 0.8s ease, transform 0.8s ease',
+            }}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-12 h-px bg-white/20" />
+              <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase" style={{ fontFamily: 'var(--font-montserrat)' }}>Catálogo Aéreo</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16 font-serif uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
+              Explora por especialidad
+            </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {categories.map((cat, i) => (
-              <Link
-                key={cat.key}
-                href={`/portfolio/${cat.key}`}
-                className="group relative overflow-hidden rounded-2xl aspect-[3/4] block bg-zinc-900 border border-white/[0.05] shadow-lg"
-                style={{
-                  opacity: catS.visible ? 1 : 0,
-                  transform: catS.visible ? 'translateY(0)' : 'translateY(20px)',
-                  transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms`,
-                }}
-              >
-                <div className="absolute inset-0 w-full h-full overflow-hidden">
-                  <motion.img
-                    src={cat.thumbnail}
-                    alt={cat.title}
-                    className="w-full h-full object-cover will-change-transform"
-                    animate={{ scale: [1.25, 1.0] }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      repeatType: "reverse",
-                      ease: "easeInOut",
-                      delay: i * 0.4,
-                    }}
-                  />
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-8 z-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                  <span className="text-zinc-400 text-[10px] uppercase tracking-wider font-light">
-                    {cat.count} archivos indexados
-                  </span>
-                  <h3 className="text-2xl font-serif font-bold tracking-wide mt-1 text-white uppercase transition-transform duration-300 group-hover:translate-x-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
-                    {cat.title}
-                  </h3>
-                  <div className="flex items-center gap-2 mt-4 text-xs tracking-wider uppercase text-zinc-400 group-hover:text-white transition-colors font-medium">
-                    <span>Abrir Galería</span>
-                    <ArrowRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {categories.map((cat, i) => (
+                <Link
+                  key={cat.key}
+                  href={`/portfolio/${cat.key}`}
+                  className="group relative overflow-hidden rounded-2xl aspect-[3/4] block bg-zinc-900 border border-white/[0.05] shadow-lg"
+                  style={{
+                    opacity: catS.visible ? 1 : 0,
+                    transform: catS.visible ? 'translateY(0)' : 'translateY(20px)',
+                    transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms`,
+                  }}
+                >
+                  <div className="absolute inset-0 w-full h-full overflow-hidden">
+                    <motion.img
+                      src={cat.thumbnail}
+                      alt={cat.title}
+                      className="w-full h-full object-cover will-change-transform"
+                      animate={{ scale: [1.25, 1.0] }}
+                      transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                        delay: i * 0.4,
+                      }}
+                    />
                   </div>
-                </div>
-              </Link>
-            ))}
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
+
+                  <div className="absolute bottom-0 left-0 right-0 p-8 z-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                    <span className="text-zinc-400 text-[10px] uppercase tracking-wider font-light">
+                      {cat.count} archivos indexados
+                    </span>
+                    <h3 className="text-2xl font-serif font-bold tracking-wide mt-1 text-white uppercase transition-transform duration-300 group-hover:translate-x-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                      {cat.title}
+                    </h3>
+                    <div className="flex items-center gap-2 mt-4 text-xs tracking-wider uppercase text-zinc-400 group-hover:text-white transition-colors font-medium">
+                      <span>Abrir Galería</span>
+                      <ArrowRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+      </SpecialtiesBackground>
 
       {/* ========== STATS ========== */}
       <section className="py-24 px-6 lg:px-8 border-y border-white/[0.08] bg-zinc-950/50 backdrop-blur-sm">
