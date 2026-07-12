@@ -1,50 +1,23 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import React from 'react';
 
 export default function SpecialtiesBackground({ children }: { children: React.ReactNode }) {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    /* Añadimos z-0 para encapsular el orden de capas en este bloque */
-    <div 
-      ref={sectionRef} 
-      className="relative z-0 w-full overflow-hidden bg-zinc-950"
-    >
-      {/* ── Imagen de fondo con efecto zoom-out de Dron (z-20 local) ── */}
-      <div
-        className={`absolute inset-0 w-full h-full transition-transform duration-[8000ms] ease-out will-change-transform -z-20 ${
-          isVisible ? 'scale-100' : 'scale-115'
-        }`}
-      >
-        <Image
-          src="/images/drone1.jpg"
-          alt="Fondo aéreo cinematográfico"
-          fill
-          sizes="100vw"
-          className="object-cover opacity-40" /* Usamos una opacidad estándar y visible */
-          priority
-        />
-      </div>
+    <div className="relative w-full overflow-hidden bg-zinc-950 border-t border-white/[0.02]">
+      
+      {/* ── Capa de Grano Cinemático Analógico (SVG Inyectado) ── */}
+      <div 
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.015] mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
 
-      {/* ── Capa de contraste para proteger la legibilidad de las tarjetas (z-10 local) ── */}
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-transparent to-zinc-950 -z-10 pointer-events-none" />
+      {/* ── Degradado sutil para fundir los extremos de la sección ── */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black pointer-events-none" />
 
-      {/* ── Tu contenido actual (Título y Tarjetas) intacto encima (z-10 explícito) ── */}
+      {/* ── Contenido de las tarjetas ── */}
       <div className="relative z-10 w-full">
         {children}
       </div>
