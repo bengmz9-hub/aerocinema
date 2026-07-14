@@ -2,6 +2,6 @@
 @source "..";
 
 @theme {
+  --font-sans: var(--font-montserrat);
   --font-cinzel: var(--font-cinzel);
-  --font-montserrat: var(--font-montserrat);
 }
