@@ -174,29 +174,24 @@ export default function HomePage() {
                     transition: `opacity 0.6s ease ${i * 100}ms, transform 0.6s ease ${i * 100}ms`,
                   }}
                 >
+                  {/* Imagen interna de la tarjeta con transición CSS nativa */}
                   <div className="absolute inset-0 w-full h-full overflow-hidden">
-                    <motion.img
+                    <img
                       src={cat.thumbnail}
                       alt={cat.title}
-                      className="w-full h-full object-cover will-change-transform"
-                      animate={{ scale: [1.25, 1.0] }}
-                      transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                        ease: "easeInOut",
-                        delay: i * 0.4,
-                      }}
+                      className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                     />
                   </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
+                  {/* Degradado interno de la tarjeta (gradiente sutil a overlay en hover) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-all duration-500 group-hover:bg-black/40" />
 
-                  <div className="absolute bottom-0 left-0 right-0 p-8 z-10 font-montserrat">
+                  {/* Textos y contenido de la tarjeta (aparece al hacer hover) */}
+                  <div className="absolute bottom-0 left-0 right-0 p-8 z-10 font-montserrat translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                     <span className="text-zinc-400 text-[10px] uppercase tracking-wider font-light">
                       {cat.count} archivos indexados
                     </span>
-                    <h3 className="text-2xl font-cinzel font-bold tracking-wide mt-1 text-white uppercase transition-transform duration-300 group-hover:translate-x-1">
+                    <h3 className="text-2xl font-cinzel font-bold tracking-wide mt-1 text-white uppercase">
                       {cat.title}
                     </h3>
                     <div className="flex items-center gap-2 mt-4 text-xs tracking-wider uppercase text-zinc-400 group-hover:text-white transition-colors font-medium">
