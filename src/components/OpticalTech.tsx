@@ -5,7 +5,7 @@ import { Eye, Cpu, Zap, Radio } from 'lucide-react';
 
 export function OpticalTech() {
   return (
-    <section className="w-full bg-zinc-950 py-24 px-4 md:px-8 relative z-10 overflow-hidden">
+    <section className="w-full bg-transparent py-24 px-4 md:px-8 relative z-10 overflow-hidden">
       <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-zinc-500/10 rounded-full blur-[120px] pointer-events-none" />
 

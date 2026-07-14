@@ -4,4 +4,67 @@
 @theme {
   --font-sans: var(--font-montserrat);
   --font-cinzel: var(--font-cinzel);
+  --color-void-900: #070708; /* Token Vidrio de Noche / Obsidiana Real */
+}
+
+/* Forzar reset base limpio de cascada de Tailwind v4 y activar paneo suave */
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  background-color: #000000;
+  color: #f5f5f4;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  /* Midnight Basalt + Estratósfera Asimétrica + Bronce */
+  background-image:
+    /* 1. Golden Hour Memory (Cálido bronce en el horizonte inferior para dar contraste a tus fotos/vídeos) */
+    radial-gradient(
+      ellipse 110% 55% at 50% 115%,
+      rgba(180, 110, 45, 0.05) 0%,
+      transparent 60%
+    ),
+    /* 2. Fuga de luz lateral (Simula aberraciones o luz de luna asimétrica de lente real) */
+    radial-gradient(
+      ellipse 90% 40% at 85% 5%,
+      rgba(11, 18, 25, 0.2) 0%,
+      transparent 50%
+    ),
+    /* 3. Resplandor cenital difuso (Tono cian-azul propietario de cine #0b1219) */
+    radial-gradient(
+      ellipse 130% 70% at 50% -25%,
+      rgba(11, 18, 25, 0.45) 0%,
+      rgba(3, 5, 8, 0.15) 50%,
+      transparent 80%
+    ),
+    /* 4. Viñeta anamórfica lineal (Caída de luz progresiva a negro absoluto OLED) */
+    linear-gradient(
+      180deg,
+      #05080c 0%,
+      #010202 60%,
+      #000000 100%
+    );
+}
+
+/* Grano analógico fílmico de 35mm (Evita el banding de degradado en monitores SDR/8-bit) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

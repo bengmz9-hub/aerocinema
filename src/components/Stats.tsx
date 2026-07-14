@@ -40,7 +40,7 @@ export function Stats() {
   ];
 
   return (
-    <section className="w-full bg-zinc-950 py-20 px-4 md:px-8 border-t border-white/[0.05] relative z-10">
+    <section className="w-full bg-transparent py-20 px-4 md:px-8 border-t border-white/[0.05] relative z-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {statsList.map((stat, i) => (
           <div 

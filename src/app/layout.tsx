@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${cinzel.variable} ${mt.variable} antialiased bg-zinc-950 text-white font-sans`}>
+      <body className={`${cinzel.variable} ${mt.variable}`}>
         <Navbar />
         {children}
         <WhatsAppButton />

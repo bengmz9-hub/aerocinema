@@ -1,7 +1,49 @@
 'use client';
 
 import React from 'react';
-import { Shield, Award } from 'lucide-react';
+import { ShieldCheck, Award, Plane, Radar, Layers } from 'lucide-react';
+
+interface Certification {
+  title: string;
+  issuer: string;
+  code: string;
+  icon: React.ElementType;
+  featured?: boolean;
+}
+
+const certifications: Certification[] = [
+  {
+    title: "Operador UAS registrado",
+    issuer: "AESA",
+    code: "OP-UAS-ES",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Piloto certificado",
+    issuer: "AESA",
+    code: "PIL-AESA",
+    icon: Award,
+  },
+  {
+    title: "Categoría A1/A3",
+    issuer: "EASA",
+    code: "CAT-A1/A3",
+    icon: Plane,
+  },
+  {
+    title: "Categoría A2",
+    issuer: "EASA",
+    code: "CAT-A2",
+    icon: Radar,
+  },
+  {
+    title: "STS-01 (Escenarios Estándar)",
+    issuer: "EASA",
+    code: "EASA-STS-01",
+    icon: Layers,
+    featured: true,
+  },
+];
 
 export function AboutMe() {
   return (
@@ -49,23 +91,48 @@ export function AboutMe() {
             Operador técnico y piloto de UAS registrado en AESA. Especializado en capturar la geometría del territorio y la luz de cine en las costas de Málaga y los perfiles arquitectónicos de Barcelona. Cada vuelo se ejecuta bajo planificación estricta, transformando espacios aéreos controlados en piezas maestras sin fricciones legales.
           </p>
 
-          {/* Bloques de Certificaciones Técnicas */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full font-montserrat">
-            <div className="p-5 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:border-white/10 transition-colors">
-              <Shield size={18} className="text-emerald-500 mb-3" />
-              <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-1">Licencia Oficial</h4>
-              <p className="text-zinc-500 text-xs font-light leading-relaxed">
-                Habilitado bajo normativa europea EASA para escenarios estándar STS-01 y STS-02.
-              </p>
-            </div>
-            
-            <div className="p-5 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:border-white/10 transition-colors">
-              <Award size={18} className="text-zinc-400 mb-3" />
-              <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-1">Operaciones Urbanas</h4>
-              <p className="text-zinc-500 text-xs font-light leading-relaxed">
-                Gestión avanzada de coordinaciones y permisos de vuelo en entornos CTR y espacio aéreo protegido.
-              </p>
-            </div>
+          {/* Bloques de Certificaciones Técnicas - Fusión Élite AIs */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full font-montserrat">
+            {certifications.map((cert) => {
+              const Icon = cert.icon;
+              return (
+                <div
+                  key={cert.code}
+                  className={`group relative overflow-hidden rounded-xl border border-white/[0.04] bg-white/[0.01] px-5 py-4 transition-all duration-300 hover:border-white/15 hover:bg-white/[0.03] ${
+                    cert.featured ? "sm:col-span-2" : ""
+                  }`}
+                >
+                  {/* Brackets HUD de DeepSeek */}
+                  <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover:border-white/20 transition-colors duration-500" />
+                  <span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover:border-white/20 transition-colors duration-500" />
+                  <span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/10 group-hover:border-white/20 transition-colors duration-500" />
+                  <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/10 group-hover:border-white/20 transition-colors duration-500" />
+
+                  {/* Metadata de código (DeepSeek / Qwen) */}
+                  <span className="absolute top-3 right-4 font-mono text-[9px] text-white/15 tracking-widest uppercase">
+                    {cert.code}
+                  </span>
+
+                  <div className="flex items-center gap-4 relative z-10">
+                    {/* Icono + Indicador de estado de Kimi */}
+                    <div className="relative flex items-center justify-center w-9 h-9 rounded-full border border-white/[0.08] bg-white/[0.02] shrink-0 transition-colors duration-300 group-hover:border-white/20">
+                      <Icon size={16} className="text-white/40 group-hover:text-white/80 transition-colors duration-300" />
+                      <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500/80 ring-2 ring-zinc-950 animate-pulse" />
+                    </div>
+
+                    {/* Textos con jerarquía de GLM 5.2 */}
+                    <div className="min-w-0">
+                      <h4 className="text-white text-xs font-bold uppercase tracking-wider">
+                        {cert.title}
+                      </h4>
+                      <p className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mt-0.5">
+                        Emisor: {cert.issuer}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 

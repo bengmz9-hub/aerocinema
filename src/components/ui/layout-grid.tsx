@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 type Card = {
   id: number;
-  content: JSX.Element | React.ReactNode;
+  content: React.ReactNode;
   className: string;
   thumbnail: string;
 };
