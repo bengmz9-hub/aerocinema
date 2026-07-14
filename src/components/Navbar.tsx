@@ -26,8 +26,7 @@ export default function Navbar() {
         {/* LOGO: Escalado a text-sm para darle más peso visual */}
         <Link 
           href="/" 
-          className="font-serif font-bold tracking-[0.25em] text-sm text-white/90 hover:text-white transition-colors"
-          style={{ fontFamily: 'var(--font-cinzel)' }}
+          className="font-cinzel font-bold tracking-[0.25em] text-sm text-white/90 hover:text-white transition-colors"
         >
           AERO<span className="font-normal text-white/50">CINEMA</span>
         </Link>
@@ -46,10 +45,9 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "relative block px-3.5 py-2 text-[10px] tracking-[0.2em] uppercase font-light text-zinc-400 transition-colors duration-300 rounded-full",
+                    "relative block px-3.5 py-2 text-[10px] tracking-[0.2em] uppercase font-light text-zinc-400 transition-colors duration-300 rounded-full font-montserrat",
                     isActive && "text-white font-normal"
                   )}
-                  style={{ fontFamily: 'var(--font-montserrat)' }}
                 >
                   <AnimatePresence>
                     {hoveredIdx === idx && (
@@ -77,8 +75,7 @@ export default function Navbar() {
         {/* BOTÓN CONTACTO: Escalado a text-xs para equilibrar el peso con el logotipo */}
         <Link 
           href="/contacto" 
-          className="text-xs uppercase tracking-[0.2em] font-normal text-black bg-white px-5 py-2 rounded-full hover:bg-zinc-200 transition-all active:scale-95"
-          style={{ fontFamily: 'var(--font-montserrat)' }}
+          className="text-xs uppercase tracking-[0.2em] font-normal text-black bg-white px-5 py-2 rounded-full hover:bg-zinc-200 transition-all active:scale-95 font-montserrat"
         >
           Contacto
         </Link>

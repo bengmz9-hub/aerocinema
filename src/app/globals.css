@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @source "..";
+
+@theme {
+  --font-cinzel: var(--font-cinzel);
+  --font-montserrat: var(--font-montserrat);
+}

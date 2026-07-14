@@ -29,7 +29,7 @@ export default function PortfolioCategory() {
         <Link href="/" className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 hover:text-white flex items-center gap-2 mb-4">
           <ArrowLeft size={12} /> Volver al Inicio
         </Link>
-        <h1 className="text-4xl font-serif font-bold tracking-wider uppercase mb-2" style={{ fontFamily: 'var(--font-cinzel)' }}>
+        <h1 className="text-4xl font-cinzel font-bold tracking-wider uppercase mb-2">
           {category}
         </h1>
       </div>
@@ -87,9 +87,9 @@ function VideoCard({ video }: { video: VideoItem }) {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <div className="p-1 rounded-full bg-white text-black opacity-0 group-hover:opacity-100 transition-opacity"><Play size={8} fill="black" /></div>
-            <h3 className="font-serif text-base text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>{video.title}</h3>
+            <h3 className="font-cinzel text-base text-white">{video.title}</h3>
           </div>
-          <p className="text-xs text-zinc-400 line-clamp-1" style={{ fontFamily: 'var(--font-montserrat)' }}>{video.description}</p>
+          <p className="text-xs text-zinc-400 line-clamp-1 font-montserrat">{video.description}</p>
         </div>
       </div>
     </div>

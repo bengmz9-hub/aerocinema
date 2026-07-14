@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${cinzel.variable} ${mt.variable} antialiased bg-zinc-950 text-white font-sans`}>
         <Navbar />
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

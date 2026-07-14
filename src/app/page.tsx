@@ -103,23 +103,23 @@ export default function HomePage() {
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="w-12 h-px bg-white/40" />
-              <span className="text-white/60 text-[10px] font-medium tracking-[0.3em] uppercase" style={{ fontFamily: 'var(--font-montserrat)' }}>
+              <span className="text-white/60 text-[10px] font-medium tracking-[0.3em] uppercase font-montserrat">
                 Fotografía & Video Aéreo Premium
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] font-serif" style={{ fontFamily: 'var(--font-cinzel)' }}>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] font-cinzel">
               <span className="block">PERSPECTIVAS</span>
               <span className="block bg-gradient-to-r from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
                 SIN LÍMITES
               </span>
             </h1>
 
-            <p className="mt-6 text-zinc-400 text-sm md:text-base max-w-xl leading-relaxed font-light" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <p className="mt-6 text-zinc-400 text-sm md:text-base max-w-xl leading-relaxed font-light font-montserrat">
               Elevamos tu narrativa visual con capturas aéreas de alta gama. Desde paisajes puros hasta registros arquitectónicos y eventos exclusivos.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <div className="flex flex-wrap gap-4 mt-10 font-montserrat">
               <Link
                 href="/portfolio/paisajes"
                 className="group inline-flex items-center gap-3 px-8 py-3.5 bg-white text-black text-xs uppercase tracking-wider font-semibold rounded-full transition-all duration-300 hover:bg-zinc-200 hover:scale-105 active:scale-95"
@@ -135,7 +135,7 @@ export default function HomePage() {
         </div>
 
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50">
-          <span className="text-white text-[9px] tracking-[0.25em] uppercase font-light" style={{ fontFamily: 'var(--font-montserrat)' }}>Scroll</span>
+          <span className="text-white text-[9px] tracking-[0.25em] uppercase font-light font-montserrat">Scroll</span>
           <ChevronDown size={14} />
         </div>
       </section>
@@ -153,12 +153,12 @@ export default function HomePage() {
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="w-12 h-px bg-white/20" />
-              <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase" style={{ fontFamily: 'var(--font-montserrat)' }}>
+              <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-montserrat">
                 Catálogo Aéreo
               </span>
             </div>
             
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16 font-serif uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16 font-cinzel uppercase">
               Explora por especialidad
             </h2>
 
@@ -192,11 +192,11 @@ export default function HomePage() {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-95" />
 
-                  <div className="absolute bottom-0 left-0 right-0 p-8 z-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                  <div className="absolute bottom-0 left-0 right-0 p-8 z-10 font-montserrat">
                     <span className="text-zinc-400 text-[10px] uppercase tracking-wider font-light">
                       {cat.count} archivos indexados
                     </span>
-                    <h3 className="text-2xl font-serif font-bold tracking-wide mt-1 text-white uppercase transition-transform duration-300 group-hover:translate-x-1" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                    <h3 className="text-2xl font-cinzel font-bold tracking-wide mt-1 text-white uppercase transition-transform duration-300 group-hover:translate-x-1">
                       {cat.title}
                     </h3>
                     <div className="flex items-center gap-2 mt-4 text-xs tracking-wider uppercase text-zinc-400 group-hover:text-white transition-colors font-medium">
@@ -225,10 +225,10 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, i) => (
               <div key={stat.label}>
-                <div className="text-4xl md:text-5xl font-serif font-bold tracking-tight text-white" style={{ fontFamily: 'var(--font-cinzel)' }}>
+                <div className="text-4xl md:text-5xl font-cinzel font-bold tracking-tight text-white">
                   {stat.value}
                 </div>
-                <div className="mt-2 text-zinc-500 text-[10px] tracking-widest uppercase font-light" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                <div className="mt-2 text-zinc-500 text-[10px] tracking-widest uppercase font-light font-montserrat">
                   {stat.label}
                 </div>
               </div>
@@ -243,16 +243,18 @@ export default function HomePage() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <span className="w-12 h-px bg-white/20" />
-              <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase" style={{ fontFamily: 'var(--font-montserrat)' }}>Estándar Operativo</span>
+              <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-montserrat">
+                Estándar Operativo
+              </span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 font-serif uppercase" style={{ fontFamily: 'var(--font-cinzel)' }}>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 font-cinzel uppercase">
               TECNOLOGÍA ÓPTICA DE VANGUARDIA
             </h2>
-            <p className="text-zinc-400 text-sm leading-relaxed mb-12 font-light" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-12 font-light font-montserrat">
               Operamos bajo certificaciones estrictas utilizando plataformas aéreas estables y ópticas de alta fidelidad cromática para garantizar piezas maestras en bruto y editadas.
             </p>
 
-            <div className="space-y-8" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <div className="space-y-8 font-montserrat">
               {[
                 { icon: Award, title: 'Resolución Máxima', desc: 'Capturas nativas en 4K Prores con perfiles logarítmicos para etalonaje avanzado.' },
                 { icon: MapPin, title: 'Desplazamiento Logístico', desc: 'Disponibilidad operativa internacional con equipamiento adaptado a normativas locales.' },
@@ -279,9 +281,9 @@ export default function HomePage() {
       </section>
 
       {/* ========== FOOTER ========== */}
-      <footer className="py-12 px-6 lg:px-8 border-t border-white/[0.08] max-w-7xl mx-auto font-light" style={{ fontFamily: 'var(--font-montserrat)' }}>
+      <footer className="py-12 px-6 lg:px-8 border-t border-white/[0.08] max-w-7xl mx-auto font-light font-montserrat">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-zinc-500">
-          <span className="text-white font-serif font-bold tracking-widest text-sm" style={{ fontFamily: 'var(--font-cinzel)' }}>
+          <span className="text-white font-cinzel font-bold tracking-widest text-sm">
             AERO<span className="font-normal text-white/50">CINEMA</span>
           </span>
           <p>&copy; 2026 AeroCinema. Todos los derechos reservados.</p>
