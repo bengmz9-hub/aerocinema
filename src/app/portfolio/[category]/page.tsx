@@ -75,11 +75,11 @@ function VideoCard({ video }: { video: VideoItem }) {
       className={cn("relative rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.06] group cursor-pointer transition-all duration-500 hover:border-white/[0.2]", layoutClasses[video.layout])}
     >
       {isLoaded ? (
-        <video ref={videoRef} src={video.url} loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <video ref={videoRef} src={video.url} loop muted playsInline className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110" />
       ) : (
         <div className="absolute inset-0 bg-zinc-950 animate-pulse" />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
       <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
         <div className="flex justify-end">
           <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/40 text-[10px] text-zinc-300"><Clock size={10} /> {video.duration}</span>

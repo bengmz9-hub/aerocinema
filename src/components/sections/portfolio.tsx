@@ -85,12 +85,12 @@ export default function Portfolio() {
               <img
                 src={item.image}
                 alt={item.title}
-                className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-100 scale-105 transition-opacity duration-500 ${
+                className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110 transition-opacity duration-500 ${
                   isHovered ? "opacity-90" : "opacity-70"
                 }`}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               <div className="pointer-events-none absolute inset-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 <span className="absolute -top-px -left-px h-4 w-px bg-white/50" />
