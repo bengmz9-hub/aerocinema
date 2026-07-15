@@ -118,7 +118,7 @@ export default function Navbar() {
             </div>
 
             <a
-              href="#reservar"
+              href="/#contacto"
               className="group relative overflow-hidden rounded-sm border border-amber-600/20 bg-amber-600/5 px-5 py-2.5 font-sans text-[10px] uppercase tracking-[0.25em] text-amber-200/80 transition-colors duration-300 hover:text-white hover:border-amber-500/40"
             >
               <span className="relative z-10">Reservar Rodaje</span>
@@ -183,7 +183,7 @@ export default function Navbar() {
           ))}
 
           <a
-            href="#reservar"
+            href="/#contacto"
             onClick={() => setMenuOpen(false)}
             style={{ transitionDelay: menuOpen ? `${120 + NAV_ITEMS.length * 80}ms` : "0ms" }}
             className={`mt-4 border border-amber-600/30 bg-amber-600/10 px-6 py-4 text-center font-sans text-xs uppercase tracking-[0.28em] text-neutral-100 transition-all duration-500 ${
