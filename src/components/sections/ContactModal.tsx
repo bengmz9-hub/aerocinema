@@ -162,7 +162,7 @@ export default function ContactModal() {
                       Correo directo
                     </p>
                     <p className="font-sans text-xs text-white">
-                      contacto@aerocinema.com
+                      contacto@jfdronevision.com
                     </p>
                   </div>
                 </div>

@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "map": "node scripts/generate-map.js",
+    "predev": "npm run map",
+    "prebuild": "npm run map",
     "dev": "cmd /c \"if exist .next rd /s /q .next\" && next dev",
     "build": "next build",
     "start": "next start"

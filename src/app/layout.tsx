@@ -19,7 +19,7 @@ const mt = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "AeroCinema | Fotografía y Vídeo con Drones",
+  title: "JF.DroneVision | Fotografía y Vídeo con Drones",
   description: "Contenido visual aéreo premium para paisajes, propiedades y eventos.",
 };
 

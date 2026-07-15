@@ -201,7 +201,7 @@ export default function Navbar() {
             41.3851°N · 2.1734°E
           </div>
           <span className="font-sans text-[8px] uppercase tracking-[0.5em] text-white/15">
-            AeroCinema Studios
+            JF.DroneVision Studios
           </span>
         </div>
       </div>

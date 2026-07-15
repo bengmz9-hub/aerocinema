@@ -1,131 +1,245 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { ExpandableCard } from './ExpandableCard';
+import { motion, useReducedMotion, Variants } from "framer-motion";
+import { CircuitBoard, Radio, ArrowUpRight, type LucideIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { servicesItems, type ServiceItem, type SpanType, type AccentType } from "@/data/servicesData";
 
-const SERVICES_DATA = [
-  {
-    title: "Inmobiliaria de Lujo",
-    description: "01 // VILLAS & PROMO",
-    src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200",
-    details: (
-      <div className="space-y-4">
-        <p>
-          Vídeo aéreo dinámico diseñado específicamente para agencias exclusivas y promotoras de alto standing. Geolocalizamos la propiedad en su entorno, destacando accesos, parcelas y la arquitectura exterior.
-        </p>
-        <div className="border-t border-white/10 pt-4 mt-4">
-          <h5 className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Entregables Técnicos</h5>
-          <ul className="list-disc list-inside space-y-1 text-sm text-zinc-400">
-            <li>Planos recurso en 4K ProRes / D-Log</li>
-            <li>Ortomosaicos y perspectiva de linderos sutil</li>
-            <li>Edición rítmica adaptada a RRSS e inmobiliarias</li>
-            <li>Fotografías HDR editadas en Lightroom</li>
-          </ul>
-        </div>
-      </div>
-    )
+const SPAN_CLASSES: Record<SpanType, string> = {
+  large: "md:col-span-2 md:row-span-2",
+  wide: "md:col-span-2 md:row-span-1",
+  tall: "md:col-span-1 md:row-span-2",
+  default: "md:col-span-1 md:row-span-1",
+};
+
+interface AccentStyle {
+  border: string;
+  glow: string;
+  text: string;
+  corner: string;
+  hoverBorder: string;
+  hoverGlow: string;
+  iconBg: string;
+  iconText: string;
+  metricText: string;
+  statusBar: string;
+}
+
+const accentStyles: Record<AccentType, AccentStyle> = {
+  cyan: {
+    border: "border-cyan-500/20",
+    glow: "shadow-[0_0_25px_rgba(6,182,212,0.03)]",
+    text: "text-cyan-400",
+    corner: "border-cyan-500/50",
+    hoverBorder: "hover:border-cyan-400/50",
+    hoverGlow: "hover:shadow-[0_0_35px_rgba(6,182,212,0.1)]",
+    iconBg: "bg-cyan-500/5",
+    iconText: "text-cyan-400",
+    metricText: "text-cyan-400/60",
+    statusBar: "bg-cyan-400",
   },
-  {
-    title: "Hoteles & Resorts",
-    description: "02 // TURISMO PREMIUM",
-    src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=1200",
-    details: (
-      <div className="space-y-4">
-        <p>
-          Capturas en hora dorada que muestran la magnitud de resorts, alojamientos singulares, hoteles boutique y paisajes de ensueño. Elevamos la conversión visual para reservas directas en web y redes.
-        </p>
-        <div className="border-t border-white/10 pt-4 mt-4">
-          <h5 className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Entregables Técnicos</h5>
-          <ul className="list-disc list-inside space-y-1 text-sm text-zinc-400">
-            <li>Vuelos fluidos en interiores (CineWhoop si es viable)</li>
-            <li>Planos recurso del entorno natural y servicios</li>
-            <li>Corrección de color y etalonaje de marca</li>
-            <li>Formato horizontal y vertical optimizado</li>
-          </ul>
-        </div>
-      </div>
-    )
+  titanium: {
+    border: "border-white/[0.04]",
+    glow: "shadow-[0_0_20px_rgba(255,255,255,0.01)]",
+    text: "text-white",
+    corner: "border-white/20",
+    hoverBorder: "hover:border-white/20",
+    hoverGlow: "hover:shadow-[0_0_30px_rgba(255,255,255,0.04)]",
+    iconBg: "bg-white/[0.01]",
+    iconText: "text-zinc-400 group-hover:text-white",
+    metricText: "text-zinc-400/60",
+    statusBar: "bg-zinc-400",
   },
-  {
-    title: "Corporativo & Spots",
-    description: "03 // BRAND CONTENT",
-    src: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1200",
-    details: (
-      <div className="space-y-4">
-        <p>
-          Contenido aéreo de apoyo para anuncios, campañas de posicionamiento de marca, vídeos corporativos y spots industriales. Perfil de color profesional listo para su integración con cámaras de tierra.
-        </p>
-        <div className="border-t border-white/10 pt-4 mt-4">
-          <h5 className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Entregables Técnicos</h5>
-          <ul className="list-disc list-inside space-y-1 text-sm text-zinc-400">
-            <li>Grabación nativa a 10 bits en perfiles planos</li>
-            <li>Coordinación directa con directores de fotografía</li>
-            <li>Entrega de copias en bruto organizadas por códigos de tiempo</li>
-            <li>Ópticas optimizadas según el look requerido</li>
-          </ul>
-        </div>
-      </div>
-    )
+  zinc: {
+    border: "border-zinc-800/50",
+    glow: "shadow-none",
+    text: "text-zinc-300",
+    corner: "border-zinc-700",
+    hoverBorder: "hover:border-zinc-500/30",
+    hoverGlow: "hover:shadow-[0_0_30px_rgba(161,161,170,0.04)]",
+    iconBg: "bg-zinc-900/20",
+    iconText: "text-zinc-500 group-hover:text-zinc-300",
+    metricText: "text-zinc-500/70",
+    statusBar: "bg-zinc-600",
   },
-  {
-    title: "Cobertura de Eventos",
-    description: "04 // REELS CINEMÁTICOS",
-    src: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200",
-    details: (
-      <div className="space-y-4">
-        <p>
-          Documentación de festivales, eventos corporativos al aire libre, y competiciones deportivas con perspectivas imposibles. Máxima seguridad operativa garantizada.
-        </p>
-        <div className="border-t border-white/10 pt-4 mt-4">
-          <h5 className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest mb-2">Entregables Técnicos</h5>
-          <ul className="list-disc list-inside space-y-1 text-sm text-zinc-400">
-            <li>Transmisiones en tiempo real o grabación rápida</li>
-            <li>Montaje exprés de Reels / Shorts post-evento</li>
-            <li>Sistemas redundantes de seguridad en vuelo</li>
-            <li>Operación estricta bajo escenarios urbanos (STS-01)</li>
-          </ul>
+};
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.06, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 15, scale: 0.99 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.25, 1, 0.5, 1] },
+  },
+};
+
+function ServiceCard({ item }: { item: ServiceItem }) {
+  const style = accentStyles[item.accent];
+  const Icon: LucideIcon = item.icon;
+  const isLarge = item.span === "large";
+
+  return (
+    <motion.article
+      variants={itemVariants}
+      role="listitem"
+      tabIndex={0}
+      aria-labelledby={`service-${item.id}`}
+      className={cn(
+        "group relative flex flex-col overflow-hidden rounded-xl border bg-zinc-950/20",
+        "backdrop-blur-md p-6 md:p-7 justify-between",
+        "transition-all duration-500 ease-out motion-reduce:transition-none",
+        "cursor-pointer transform-gpu",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50",
+        "focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
+        "min-h-[220px]",
+        SPAN_CLASSES[item.span],
+        style.border,
+        style.glow,
+        style.hoverBorder,
+        style.hoverGlow
+      )}
+    >
+      {/* Brackets HUD */}
+      <div className={cn("absolute -top-px -left-px w-3 h-3 border-t border-l opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300", style.corner)} aria-hidden="true" />
+      <div className={cn("absolute -top-px -right-px w-3 h-3 border-t border-r opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300", style.corner)} aria-hidden="true" />
+      <div className={cn("absolute -bottom-px -left-px w-3 h-3 border-b border-l opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300", style.corner)} aria-hidden="true" />
+      <div className={cn("absolute -bottom-px -right-px w-3 h-3 border-b border-r opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300", style.corner)} aria-hidden="true" />
+
+      {/* Sensor Laser LiDAR */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/0 via-cyan-500/[0.015] to-cyan-500/0 opacity-0 group-hover:opacity-100 -translate-y-full group-hover:translate-y-full transition-all duration-1000 ease-in-out pointer-events-none z-10 motion-reduce:group-hover:opacity-0" aria-hidden="true" />
+
+      {/* Retícula de Fondo */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,182,212,0.004)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,182,212,0.004)_1px,transparent_1px)] bg-[size:32px_32px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" aria-hidden="true" />
+
+      {/* Telemetría */}
+      <div className="relative flex items-center justify-between z-20">
+        <div className="flex items-center gap-2">
+          <div className={cn("h-1 w-1 rounded-full animate-pulse motion-reduce:animate-none", style.statusBar)} aria-hidden="true" />
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-zinc-600 group-hover:text-zinc-500 transition-colors">
+            {item.index}
+          </span>
+        </div>
+        <span className={cn("font-mono text-[9px] uppercase tracking-wider", style.metricText)}>
+          {item.metrics}
+        </span>
+      </div>
+
+      {/* Icono */}
+      <div className="mt-5 relative z-20">
+        <div className={cn("inline-flex items-center justify-center rounded-lg transition-colors duration-500 group-hover:border-cyan-500/20", style.iconBg, "border", style.border, isLarge ? "h-10 w-10" : "h-8 w-8")}>
+          <Icon className={cn("transition-colors duration-500", style.iconText, isLarge ? "h-4.5 w-4.5" : "h-4 w-4")} strokeWidth={1.25} aria-hidden="true" />
         </div>
       </div>
-    )
-  }
-];
+
+      {/* Contenido */}
+      <div className="flex flex-1 flex-col justify-end mt-4 relative z-20">
+        <h3 id={`service-${item.id}`} className={cn("font-cinzel font-bold tracking-wide text-white uppercase group-hover:translate-x-1 transition-transform duration-300", isLarge ? "text-xl md:text-2xl" : "text-base")}>
+          {item.title}
+        </h3>
+        {item.subtitle && (
+          <p className="font-sans text-[10px] text-zinc-500 font-medium tracking-wide mt-0.5 uppercase">
+            {item.subtitle}
+          </p>
+        )}
+        <p className={cn("font-sans mt-2 text-zinc-400 leading-relaxed transition-colors duration-500 group-hover:text-zinc-300", isLarge ? "text-sm max-w-md md:text-[14px]" : "text-xs")}>
+          {item.description}
+        </p>
+
+        {/* Inicializar Misión */}
+        <div className="mt-4 flex items-center gap-1.5 text-cyan-400/0 opacity-0 transition-all duration-300 group-hover:text-cyan-400/80 group-hover:opacity-100 motion-reduce:group-hover:opacity-0">
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em]">
+            INITIALIZE CAPABILITY
+          </span>
+          <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" strokeWidth={1.5} />
+        </div>
+      </div>
+    </motion.article>
+  );
+}
 
 export function ServicesSection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <section className="w-full bg-transparent py-24 px-4 md:px-8 relative z-30 overflow-x-clip overflow-y-visible">
-      <div className="max-w-7xl mx-auto">
-        
-        {/* Cabecera de la Sección */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-8 h-px bg-white/20" />
-            <span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-montserrat">
-              ESPECIFICACIONES DE SERVICIO
-            </span>
-            <span className="w-8 h-px bg-white/20" />
+    <section className="relative w-full bg-transparent py-24 md:py-32 border-t border-white/[0.06] overflow-hidden" aria-labelledby="services-heading">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-30"
+        style={{
+          backgroundImage: "radial-gradient(circle at 15% 10%, rgba(255,255,255,0.03), transparent 45%)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 md:px-8">
+
+        {/* Cabecera Principal */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-white/[0.06] pb-8">
+          <motion.div
+            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <CircuitBoard className="h-4 w-4 text-cyan-500" aria-hidden="true" />
+              <span id="services-heading" className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-sans">
+                SERVICIOS OPERATIVOS // MATRIX CAPABILITIES
+              </span>
+            </div>
+            <h2 className="font-cinzel text-3xl md:text-5xl font-bold tracking-tight text-white uppercase">
+              Technical <span className="text-cyan-400 font-light">Capabilities</span>
+            </h2>
+          </motion.div>
+
+          <div className="flex items-center gap-6 font-mono text-[10px] text-zinc-500 tracking-widest border-l border-white/10 pl-6 h-10">
+            <div>SYSTEM_STATUS: <span className="text-cyan-400">OPERATIONAL</span></div>
+            <div className="hidden sm:block">FLEET_AVAL: <span className="text-cyan-400">100%</span></div>
           </div>
-          <h2 className="font-cinzel text-3xl md:text-5xl font-bold text-white tracking-tight leading-tight uppercase">
-            SOLUCIONES DE CINE AÉREO
-          </h2>
-          <p className="mt-4 font-montserrat font-light text-zinc-400 text-sm max-w-xl leading-relaxed">
-            Haz clic en cualquiera de nuestras divisiones operativas para desplegar especificaciones técnicas, metodologías y entregables estándar.
-          </p>
         </div>
 
-        {/* Grilla de Tarjetas Expandibles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-items-center">
-          {SERVICES_DATA.map((service, index) => (
-            <ExpandableCard
-              key={index}
-              title={service.title}
-              description={service.description}
-              src={service.src}
-              className="w-full"
-            >
-              {service.details}
-            </ExpandableCard>
+        {/* 🚀 Grid Corregido a 4 Columnas Directas desde MD */}
+        <motion.div
+          variants={prefersReducedMotion ? undefined : containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className={cn(
+            "grid grid-cols-1 gap-4.5 [grid-auto-rows:1fr]",
+            "md:grid-cols-4 md:auto-rows-[220px]"
+          )}
+          role="list"
+        >
+          {servicesItems.map((item, idx) => (
+            <ServiceCard key={item.id} item={item} />
           ))}
-        </div>
+        </motion.div>
+
+        {/* Telemetría Inferior */}
+        <motion.div
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="mt-12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-t border-white/[0.04] pt-6"
+        >
+          <div className="flex items-center gap-2">
+            <Radio className="h-3.5 w-3.5 text-cyan-500 animate-pulse motion-reduce:animate-none" aria-hidden="true" />
+            <span className="font-mono text-[10px] text-zinc-500 tracking-[0.15em]">SECURE_LINK // OPTICAL_FEED_ONLINE</span>
+          </div>
+          <div className="flex items-center gap-4 font-mono text-[9px] text-zinc-600 tracking-widest">
+            <span>LAT: 41.3597° N</span>
+            <span>LONG: 2.1002° E</span>
+          </div>
+        </motion.div>
 
       </div>
     </section>
