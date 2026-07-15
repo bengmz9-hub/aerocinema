@@ -68,22 +68,22 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.05 },
+    transition: { staggerChildren: 0.04 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 15, scale: 0.99 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: [0.25, 1, 0.5, 1] },
+    transition: { duration: 0.4, ease: "easeOut" },
   },
 };
 
 function ServiceCard({ item }: { item: ServiceItem }) {
-  const style = accentStyles[item.accent];
+  const style = accentStyles[item.accent] || accentStyles.zinc;
+  const spanClass = SPAN_CLASSES[item.span] || SPAN_CLASSES.default;
   const Icon: LucideIcon = item.icon;
   const isLarge = item.span === "large";
 
@@ -94,37 +94,55 @@ function ServiceCard({ item }: { item: ServiceItem }) {
       tabIndex={0}
       aria-labelledby={`service-${item.id}`}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-xl border bg-zinc-950/20",
+        "group relative flex flex-col overflow-hidden rounded-xl border bg-zinc-950/25",
         "backdrop-blur-md p-6 md:p-7 justify-between",
-        "transition-all duration-500 ease-out motion-reduce:transition-none",
+        "transition-all duration-500 ease-out",
         "cursor-pointer transform-gpu",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50",
-        "focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
         "min-h-[220px]",
-        SPAN_CLASSES[item.span],
+        spanClass,
         style.border,
         style.glow,
         style.hoverBorder,
         style.hoverGlow
       )}
     >
-      {/* Brackets HUD */}
-      <div className={cn("absolute -top-px -left-px w-3 h-3 border-t border-l opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300", style.corner)} aria-hidden="true" />
-      <div className={cn("absolute -top-px -right-px w-3 h-3 border-t border-r opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300", style.corner)} aria-hidden="true" />
-      <div className={cn("absolute -bottom-px -left-px w-3 h-3 border-b border-l opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300", style.corner)} aria-hidden="true" />
-      <div className={cn("absolute -bottom-px -right-px w-3 h-3 border-b border-r opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300", style.corner)} aria-hidden="true" />
+      {/* 📹 REPRODUCTOR WEB M LOCAL (Siempre visible al 100%, zoom elástico reactivo en hover) */}
+      <div className="absolute inset-0 z-0 opacity-100 pointer-events-none overflow-hidden rounded-xl">
+        <video
+          src={item.videoUrl}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover scale-100 group-hover:scale-103 transition-transform duration-700 ease-out"
+        />
+      </div>
 
-      {/* Sensor Laser LiDAR */}
-      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/0 via-cyan-500/[0.015] to-cyan-500/0 opacity-0 group-hover:opacity-100 -translate-y-full group-hover:translate-y-full transition-all duration-1000 ease-in-out pointer-events-none z-10 motion-reduce:group-hover:opacity-0" aria-hidden="true" />
+      {/* 🖤 DEGRADADO CINEMÁTICO INFERIOR (z-10): Invisible arriba para conservar brillo, opaco abajo en la fuente */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-transparent z-10 pointer-events-none"
+        aria-hidden="true"
+      />
 
-      {/* Retícula de Fondo */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,182,212,0.004)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,182,212,0.004)_1px,transparent_1px)] bg-[size:32px_32px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" aria-hidden="true" />
+      {/* Brackets HUD (z-20) */}
+      <div className={cn("absolute -top-px -left-px w-3 h-3 border-t border-l opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300 z-20", style.corner)} aria-hidden="true" />
+      <div className={cn("absolute -top-px -right-px w-3 h-3 border-t border-r opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300 z-20", style.corner)} aria-hidden="true" />
+      <div className={cn("absolute -bottom-px -left-px w-3 h-3 border-b border-l opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300 z-20", style.corner)} aria-hidden="true" />
+      <div className={cn("absolute -bottom-px -right-px w-3 h-3 border-b border-r opacity-40 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300 z-20", style.corner)} aria-hidden="true" />
 
-      {/* Telemetría */}
+      {/* Sensor Laser LiDAR (z-20) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/0 via-cyan-500/[0.015] to-cyan-500/0 opacity-0 group-hover:opacity-100 -translate-y-full group-hover:translate-y-full transition-all duration-1000 ease-in-out pointer-events-none z-20 motion-reduce:group-hover:opacity-0" aria-hidden="true" />
+
+      {/* Retícula HUD (z-10) */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,182,212,0.004)_1px,transparent_1px),linear-gradient(to_bottom,rgba(6,182,212,0.004)_1px,transparent_1px)] bg-[size:32px_32px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-10" aria-hidden="true" />
+
+      {/* Telemetría (z-20) */}
       <div className="relative flex items-center justify-between z-20">
         <div className="flex items-center gap-2">
           <div className={cn("h-1 w-1 rounded-full animate-pulse motion-reduce:animate-none", style.statusBar)} aria-hidden="true" />
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-zinc-600 group-hover:text-zinc-500 transition-colors">
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-zinc-400 group-hover:text-white transition-colors">
             {item.index}
           </span>
         </div>
@@ -133,29 +151,29 @@ function ServiceCard({ item }: { item: ServiceItem }) {
         </span>
       </div>
 
-      {/* Icono */}
+      {/* Icono (z-20) */}
       <div className="mt-5 relative z-20">
-        <div className={cn("inline-flex items-center justify-center rounded-lg transition-colors duration-500 group-hover:border-cyan-500/20", style.iconBg, "border", style.border, isLarge ? "h-10 w-10" : "h-8 w-8")}>
+        <div className={cn("inline-flex items-center justify-center rounded-lg border backdrop-blur-sm transition-colors duration-500 group-hover:border-cyan-500/20", style.iconBg, style.border, isLarge ? "h-10 w-10" : "h-8 w-8")}>
           <Icon className={cn("transition-colors duration-500", style.iconText, isLarge ? "h-4.5 w-4.5" : "h-4 w-4")} strokeWidth={1.25} aria-hidden="true" />
         </div>
       </div>
 
-      {/* Contenido */}
+      {/* Contenido Editorial con Contraste Reforzado (z-20) */}
       <div className="flex flex-1 flex-col justify-end mt-4 relative z-20">
         <h3 id={`service-${item.id}`} className={cn("font-cinzel font-bold tracking-wide text-white uppercase group-hover:translate-x-1 transition-transform duration-300", isLarge ? "text-xl md:text-2xl" : "text-base")}>
           {item.title}
         </h3>
         {item.subtitle && (
-          <p className="font-sans text-[10px] text-zinc-500 font-medium tracking-wide mt-0.5 uppercase">
+          <p className="font-sans text-[10px] text-zinc-300 font-semibold tracking-wide mt-0.5 uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
             {item.subtitle}
           </p>
         )}
-        <p className={cn("font-sans mt-2 text-zinc-400 leading-relaxed transition-colors duration-500 group-hover:text-zinc-300", isLarge ? "text-sm max-w-md md:text-[14px]" : "text-xs")}>
+        <p className={cn("font-sans mt-2 text-zinc-200 font-medium leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] transition-colors duration-500 group-hover:text-white", isLarge ? "text-sm max-w-md md:text-[14px]" : "text-xs")}>
           {item.description}
         </p>
 
-        {/* Inicializar Misión */}
-        <div className="mt-4 flex items-center gap-1.5 text-cyan-400/0 opacity-0 transition-all duration-300 group-hover:text-cyan-400/80 group-hover:opacity-100 motion-reduce:group-hover:opacity-0">
+        {/* Inicializar Misión (z-20) */}
+        <div className="mt-4 flex items-center gap-1.5 text-cyan-400/0 opacity-0 transition-all duration-300 group-hover:text-cyan-400 group-hover:opacity-100 motion-reduce:group-hover:opacity-0">
           <span className="font-mono text-[9px] uppercase tracking-[0.2em]">
             INITIALIZE CAPABILITY
           </span>
@@ -178,17 +196,11 @@ export function ServicesSection() {
         }}
         aria-hidden="true"
       />
-
       <div className="relative mx-auto max-w-7xl px-4 md:px-8">
 
         {/* Cabecera Principal */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-white/[0.06] pb-8">
-          <motion.div
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-          >
+          <div>
             <div className="flex items-center gap-3 mb-3">
               <CircuitBoard className="h-4 w-4 text-cyan-500" aria-hidden="true" />
               <span id="services-heading" className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-sans">
@@ -198,7 +210,7 @@ export function ServicesSection() {
             <h2 className="font-cinzel text-3xl md:text-5xl font-bold tracking-tight text-white uppercase">
               Technical <span className="text-cyan-400 font-light">Capabilities</span>
             </h2>
-          </motion.div>
+          </div>
 
           <div className="flex items-center gap-6 font-mono text-[10px] text-zinc-500 tracking-widest border-l border-white/10 pl-6 h-10">
             <div>SYSTEM_STATUS: <span className="text-cyan-400">OPERATIONAL</span></div>
@@ -206,40 +218,34 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* 🚀 Grid Corregido a 4 Columnas Directas desde MD */}
+        {/* Grid Bento Fluido */}
         <motion.div
           variants={prefersReducedMotion ? undefined : containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           className={cn(
-            "grid grid-cols-1 gap-4.5 [grid-auto-rows:1fr]",
+            "grid grid-cols-1 gap-4.5 auto-rows-fr",
             "md:grid-cols-4 md:auto-rows-[220px]"
           )}
           role="list"
         >
-          {servicesItems.map((item, idx) => (
+          {servicesItems.map((item) => (
             <ServiceCard key={item.id} item={item} />
           ))}
         </motion.div>
 
         {/* Telemetría Inferior */}
-        <motion.div
-          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="mt-12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-t border-white/[0.04] pt-6"
-        >
+        <div className="mt-12 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-t border-white/[0.04] pt-6">
           <div className="flex items-center gap-2">
-            <Radio className="h-3.5 w-3.5 text-cyan-500 animate-pulse motion-reduce:animate-none" aria-hidden="true" />
+            <Radio className="h-3.5 w-3.5 text-cyan-500 animate-pulse" aria-hidden="true" />
             <span className="font-mono text-[10px] text-zinc-500 tracking-[0.15em]">SECURE_LINK // OPTICAL_FEED_ONLINE</span>
           </div>
           <div className="flex items-center gap-4 font-mono text-[9px] text-zinc-600 tracking-widest">
             <span>LAT: 41.3597° N</span>
             <span>LONG: 2.1002° E</span>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>

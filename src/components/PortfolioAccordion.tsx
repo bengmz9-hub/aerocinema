@@ -7,57 +7,51 @@ import Link from "next/link";
 import { ArrowUpRight, Film } from "lucide-react";
 
 interface DroneProject {
-  id: number;
-  href: string;
-  thumbnail: string;
-  category: string;
+  id: string;
   title: string;
-  tag: string;
+  subtitle: string;
+  image: string;
+  description: string;
 }
 
 export function PortfolioAccordion() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const projects: DroneProject[] = [
+  const accordionItems: DroneProject[] = [
     {
-      id: 1,
-      href: "#portfolio",
-      thumbnail: "/images/portfolio-paisajes.webp",
-      category: "AERIAL REEL",
-      title: "ACANTILADOS DE COSTA",
-      tag: "Litoral · 4K"
+      id: "cinema",
+      title: "Cinematic",
+      subtitle: "FILMACIÓN AÉREA",
+      image: "/images/accordion-cinema.webp",
+      description: "Producción de contenido audiovisual de alto formato para cine, publicidad y televisión."
     },
     {
-      id: 2,
-      href: "#portfolio",
-      thumbnail: "/images/portfolio-propiedades-1.webp",
-      category: "LANDSCAPE FILM",
-      title: "VILLAS DE LUJO",
-      tag: "Arquitectura · 6K"
+      id: "realty",
+      title: "Real Estate",
+      subtitle: "INMOBILIARIA DE LUJO",
+      image: "/images/accordion-realty.webp",
+      description: "Planos espectaculares y recorridos dinámicos para destacar propiedades exclusivas."
     },
     {
-      id: 3,
-      href: "#portfolio",
-      thumbnail: "/images/portfolio-eventos.webp",
-      category: "FPV ACTION",
-      title: "COBERTURA DE FESTIVALES",
-      tag: "Nocturno · 4K"
+      id: "events",
+      title: "Events",
+      subtitle: "COBERTURA PREMIUM",
+      image: "/images/accordion-events.webp",
+      description: "Captura la magnitud de tus eventos masivos, festivales y celebraciones desde el cielo."
     },
     {
-      id: 4,
-      href: "#portfolio",
-      thumbnail: "/images/portfolio-propiedades-2.webp",
-      category: "INDUSTRIAL INSPECTION",
-      title: "COMPLEJOS INDUSTRIALES",
-      tag: "Técnico · 6K"
+      id: "fpv",
+      title: "FPV Drone",
+      subtitle: "ACCIÓN DINÁMICA",
+      image: "/images/accordion-fpv.webp",
+      description: "Vuelos de proximidad a alta velocidad y planos inmersivos imposibles de lograr con drones estándar."
     },
     {
-      id: 5,
-      href: "#portfolio",
-      thumbnail: "/images/portfolio-inspeccion.webp",
-      category: "INSPECCIÓN",
-      title: "MAPPING & TOPOGRAFÍA",
-      tag: "Técnico · REEL"
+      id: "industrial",
+      title: "Geomapping",
+      subtitle: "INGENIERÍA Y PRECISIÓN",
+      image: "/images/accordion-industrial.webp",
+      description: "Fotogrametría avanzada, nubes de puntos LiDAR y modelado 3D de alta precisión para terrenos y obras."
     }
   ];
 
@@ -75,27 +69,27 @@ export function PortfolioAccordion() {
 
         {/* Contenedor del Acordeón Líquido */}
         <div className="flex flex-col md:flex-row items-stretch gap-2.5 h-[500px] md:h-[600px] w-full max-w-7xl mx-auto mt-10">
-          {projects.map((project, index) => {
+          {accordionItems.map((project, index) => {
             const isExpanded = expandedIndex === index;
             return (
               <Link
                 key={project.id}
-                href={project.href}
+                href="#portfolio"
                 onClick={() => setExpandedIndex(isExpanded ? null : index)}
                 onMouseEnter={() => setExpandedIndex(index)}
                 onMouseLeave={() => setExpandedIndex(null)}
                 className={cn(
                   "relative group overflow-hidden rounded-xl cursor-pointer outline-none",
-                  "transition-[flex-grow] duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]", // Curva cinemática de Kimi
-                  "focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black", // Foco de Kimi
-                  "min-w-[60px] md:min-w-[90px]", // Mínimos de GLM
+                  "transition-[flex-grow] duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]",
+                  "focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+                  "min-w-[60px] md:min-w-[90px]",
                   isExpanded ? "flex-[5]" : "flex-[1]"
                 )}
-                style={{ flexBasis: 0 }} // Estructura de Claude
+                style={{ flexBasis: 0 }}
               >
-                {/* Imagen Física Optimizada (Rendimiento DeepSeek) */}
+                {/* Imagen Física Optimizada */}
                 <Image
-                  src={project.thumbnail}
+                  src={project.image}
                   alt={project.title}
                   fill
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-102"
@@ -123,7 +117,7 @@ export function PortfolioAccordion() {
                   >
                     <Film className="w-3 h-3 text-zinc-400 fill-zinc-400" />
                     <span className="font-sans text-[9px] uppercase tracking-[0.25em] text-zinc-400">
-                      {project.category} // {project.tag}
+                      {project.subtitle}
                     </span>
                   </div>
 

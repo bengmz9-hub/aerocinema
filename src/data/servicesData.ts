@@ -22,6 +22,7 @@ export interface ServiceItem {
   span: SpanType;
   accent: AccentType;
   metrics: string;
+  videoUrl: string;
 }
 
 export const servicesItems: ServiceItem[] = [
@@ -32,20 +33,22 @@ export const servicesItems: ServiceItem[] = [
     subtitle: "Resolución hasta 8K / Perfiles Logarítmicos",
     description: "Secuencias aéreas de alta fidelidad con estabilización de nivel profesional para largometrajes, spots publicitarios y producciones de alto formato.",
     icon: Video,
-    span: "large", // 2x2 Ancla superior izquierda
+    span: "large",
     accent: "titanium",
     metrics: "8K RAW / PRORES",
+    videoUrl: "/videos/filmacion.webm",
   },
   {
     id: "eventos",
     index: "SVC // 02",
     title: "Cobertura de Eventos",
     subtitle: "Discreción y Cobertura Multi-Cámara",
-    description: "Registro aéreo ultra silencioso y cinematográfico para bodas de lujo, festivales y eventos privados de alto standing.",
+    description: "Registro aéreo ultra silencioso y cinematográfico para bodas de lujo, festivals y eventos privados de alto standing.",
     icon: Camera,
     span: "default",
     accent: "zinc",
     metrics: "4K HDR // SILENT FLIGHT",
+    videoUrl: "/videos/eventos.webm",
   },
   {
     id: "inmobiliaria",
@@ -57,6 +60,7 @@ export const servicesItems: ServiceItem[] = [
     span: "default",
     accent: "cyan",
     metrics: "FPV IN DOOR / OUTDOOR",
+    videoUrl: "/videos/inmobiliaria.webm",
   },
   {
     id: "fotografia",
@@ -65,9 +69,10 @@ export const servicesItems: ServiceItem[] = [
     subtitle: "Levantamientos y Precisión de Obra",
     description: "Capturas fotogramétricas georreferenciadas de alta resolución para levantamientos topográficos, inspección técnica y documentación de obra.",
     icon: Mountain,
-    span: "wide", // 2x1 Cierra la segunda fila
+    span: "wide",
     accent: "titanium",
     metrics: "LiDAR / RTK ±2CM ACCURACY",
+    videoUrl: "/videos/fotografia.webm",
   },
   {
     id: "postproduction",
@@ -76,9 +81,10 @@ export const servicesItems: ServiceItem[] = [
     subtitle: "Pipeline Completo de Edición",
     description: "Etalonaje profesional en espacio de color ACES, montaje de ritmo dinámico y entrega final en perfiles listos para distribución cinematográfica.",
     icon: Wand2,
-    span: "tall", // 1x2 Columna izquierda de la base
+    span: "tall",
     accent: "zinc",
     metrics: "ACES 10-BIT / VFX READY",
+    videoUrl: "/videos/postproduction.webm",
   },
   {
     id: "mapeo",
@@ -87,9 +93,10 @@ export const servicesItems: ServiceItem[] = [
     subtitle: "Modelado Tridimensional de Terrenos",
     description: "Reconstrucción digital tridimensional detallada mediante fotogrametría aérea avanzada para planificación urbana e industrial.",
     icon: Compass,
-    span: "tall", // 🚀 CAMBIADO A TALL (1x2): Ahora baja en vertical al lado de Postproducción
+    span: "tall",
     accent: "zinc",
     metrics: "3D MESH / CLOUD POINTS",
+    videoUrl: "/videos/mapeo.webm",
   },
   {
     id: "briefing-cta",
@@ -98,8 +105,9 @@ export const servicesItems: ServiceItem[] = [
     subtitle: "Consultoría Técnica y Planificación",
     description: "¿Tienes un proyecto de alta complejidad? Diseñamos la estrategia de vuelo a medida, gestionamos los permisos regulatorios de AESA y ejecutamos la producción aérea con entrega garantizada.",
     icon: ArrowUpRight,
-    span: "large", // 🚀 NUEVA TARJETA GIGANTE (2x2): Sella el hueco inferior derecho por completo
-    accent: "cyan", // Destaca en cian para llamar a la acción de tus clientes
+    span: "large",
+    accent: "cyan",
     metrics: "RESPONSE WITHIN 24H",
+    videoUrl: "/videos/briefing.webm",
   },
 ];
