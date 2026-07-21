@@ -1,12 +1,12 @@
 import {
-	Video,
-	Camera,
-	Building2,
-	Mountain,
-	Wand2,
-	Compass,
 	ArrowUpRight,
+	Building2,
+	Camera,
+	Compass,
 	type LucideIcon,
+	Mountain,
+	Video,
+	Wand2,
 } from "lucide-react";
 
 export type SpanType = "large" | "wide" | "tall" | "default";

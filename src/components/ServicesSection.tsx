@@ -1,19 +1,19 @@
 "use client";
 
-import { motion, useReducedMotion, Variants } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import {
-	CircuitBoard,
-	Radio,
 	ArrowUpRight,
+	CircuitBoard,
 	type LucideIcon,
+	Radio,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import {
-	servicesItems,
+	type AccentType,
 	type ServiceItem,
 	type SpanType,
-	type AccentType,
+	servicesItems,
 } from "@/data/servicesData";
+import { cn } from "@/lib/utils";
 
 const SPAN_CLASSES: Record<SpanType, string> = {
 	large: "md:col-span-2 md:row-span-2",

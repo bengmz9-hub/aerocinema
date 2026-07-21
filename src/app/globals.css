@@ -197,7 +197,13 @@ body::after {
 
 /* 1. Golden Hour & Titanium Text Gradients */
 .text-golden-hour {
-	background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 40%, #d4af37 80%, #b46e2d 100%);
+	background: linear-gradient(
+		135deg,
+		#ffffff 0%,
+		#e2e8f0 40%,
+		#d4af37 80%,
+		#b46e2d 100%
+	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -227,7 +233,9 @@ body::after {
 		rgba(255, 255, 255, 0.03) 70%,
 		transparent 100%
 	);
-	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
 	-webkit-mask-composite: xor;
 	mask-composite: exclude;
 	opacity: 0.4;
@@ -256,4 +264,3 @@ body::after {
 .animate-blur-in {
 	animation: blurIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-

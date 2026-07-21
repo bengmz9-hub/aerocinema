@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, Montserrat, Geist } from "next/font/google";
+import { Cinzel, Geist, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";

@@ -11,7 +11,6 @@ export async function submitContactForm(data: ContactInput) {
 	try {
 		// Aquí conectarás tu servicio de email (Resend, SendGrid) o tu base de datos
 
-
 		// Simular retraso de red en producción
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 

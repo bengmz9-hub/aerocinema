@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import {
-	Mail,
+	CheckCircle2,
+	ChevronDown,
 	Compass,
 	DollarSign,
+	Mail,
 	X,
-	ChevronDown,
-	CheckCircle2,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { submitContactForm } from "@/app/actions/contact";
 
 export default function ContactModal() {

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "next/navigation";
+import { ArrowLeft, Clock, Play } from "lucide-react";
 import Link from "next/link";
-import { Play, Clock, ArrowLeft } from "lucide-react";
-import { portfolioData, VideoItem } from "../../../data/videos";
+import { useParams } from "next/navigation";
+import React, { useEffect, useRef, useState } from "react";
+import { portfolioData, type VideoItem } from "../../../data/videos";
 import { cn } from "../../../lib/utils";
 
 export default function PortfolioCategory() {

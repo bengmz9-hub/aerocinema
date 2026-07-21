@@ -9,8 +9,8 @@
  * configure (pick action + go), generating (progressive dots), and cycling
  * (prev/next + accept/discard). Feels like Spotlight, not a modal.
  */
-(function () {
-  'use strict';
+(() => {
+  
   if (typeof window === 'undefined') return;
 
   // Guard against double-init. Bun's HTML loader may process the <script> tag
@@ -374,7 +374,7 @@
   let annotSvgEl = null;
   let annotPinsEl = null;
   let annotClearChipEl = null;
-  let annotState = { comments: [], strokes: [] };
+  const annotState = { comments: [], strokes: [] };
   let annotActive = false;
   // `annotPointer` is either:
   //   { kind: 'new',   x0, y0, moved, strokeEl, strokePoints }   creating a stroke/pin
@@ -5777,7 +5777,7 @@
   }
 
   function jsxStylePropToCss(prop) {
-    let out = String(prop || '').trim().replace(/^["']|["']$/g, '');
+    const out = String(prop || '').trim().replace(/^["']|["']$/g, '');
     if (!out) return '';
     if (out.startsWith('--')) return out;
     return out.replace(/[A-Z]/g, (ch) => '-' + ch.toLowerCase()).replace(/^-ms-/, '-ms-');
@@ -7849,7 +7849,7 @@ void main() {
   }
 
   function scheduleAcceptCleanup(accepted) {
-    queueMicrotask(function() {
+    queueMicrotask(() => {
       if (pendingAcceptedSession?.id !== accepted?.id) return;
       // Svelte previews live in an adapter-owned mount rather than in source
       // wrapper markup. Promote the mounted variant before releasing the
@@ -7865,7 +7865,7 @@ void main() {
     // races. Static servers still need a fallback, but it must not keep Live
     // in SAVING or block the user's next pick.
     if (!accepted?.isSvelteComponent) {
-      setTimeout(function() {
+      setTimeout(() => {
         if (!acceptedDomAlreadyClean(accepted)) ensureAcceptedDomClean(accepted);
       }, 1200);
     }
@@ -8255,7 +8255,7 @@ void main() {
         if (restoreOriginal) showOriginalDuringDiscard(cleanupSessionId);
         else wrapper.style.display = 'none';
       }
-      setTimeout(function() {
+      setTimeout(() => {
         document.getElementById(DISCARD_STATE_STYLE_ID)?.remove();
         if (!cleanupSessionId) return;
         const lateWrapper = document.querySelector('[data-impeccable-variants="' + cleanupSessionId + '"]');
@@ -8495,22 +8495,22 @@ void main() {
   // Global bar (always visible at bottom)
   //
 
-  let globalBarEl = null;
-  let globalBarBrandEl = null;
-  let agentPollTooltipEl = null;
-  let agentPollingConnected = false;
-  let agentStatusMessage = null;
-  let agentStatusPollTimer = null;
+  const globalBarEl = null;
+  const globalBarBrandEl = null;
+  const agentPollTooltipEl = null;
+  const agentPollingConnected = false;
+  const agentStatusMessage = null;
+  const agentStatusPollTimer = null;
   let steerFocusSuspended = false;
   let steerFocusPauseUntil = 0;
   let pagePointerGesture = null;
   let pagePickSkipClick = false;
   let steerFocusRecoverTimer = null;
   const STEER_PAGE_FOCUS_PAUSE_MS = 500;
-  let detectActive = false;
-  let detectScanSeq = 0;
-  let activeDetectScanId = null;
-  let pendingDetectScanId = null;
+  const detectActive = false;
+  const detectScanSeq = 0;
+  const activeDetectScanId = null;
+  const pendingDetectScanId = null;
   const DETECT_EMPTY_MESSAGE = 'No detector issues found.';
   const PICK_PREFS_KEY = 'impeccable-live-pick';
   const INTERACTION_PREFS_KEY = 'impeccable-live-interaction';
@@ -8551,8 +8551,8 @@ void main() {
     saveInteractionPrefs();
   }
 
-  let pickActive = loadInteractionPrefs().pickActive;
-  let insertActive = loadInteractionPrefs().insertActive;
+  const pickActive = loadInteractionPrefs().pickActive;
+  const insertActive = loadInteractionPrefs().insertActive;
   let configureKind = 'replace';
   let insertLineEl = null;
   let insertHoverAnchor = null;
@@ -8563,39 +8563,39 @@ void main() {
   let insertAnchorLayoutAxis = null;
   let insertPlaceholderSnapshot = null;
   let placeholderElement = null;
-  let detectCount = 0;
-  let detectScriptLoaded = false;
-  let pendingDockEl = null;
-  let pendingPillEl = null;
-  let pendingPillSpinnerEl = null;
-  let pendingPillLabelEl = null;
-  let pendingPillCountEl = null;
-  let pendingTrashBtn = null;
-  let pendingKeepFixingBtn = null;
-  let pendingRollbackBtn = null;
-  let pendingDockResizeObserver = null;
+  const detectCount = 0;
+  const detectScriptLoaded = false;
+  const pendingDockEl = null;
+  const pendingPillEl = null;
+  const pendingPillSpinnerEl = null;
+  const pendingPillLabelEl = null;
+  const pendingPillCountEl = null;
+  const pendingTrashBtn = null;
+  const pendingKeepFixingBtn = null;
+  const pendingRollbackBtn = null;
+  const pendingDockResizeObserver = null;
   let pendingIntroAnimation = null;
   let pendingApplyInFlight = false;
   let firstSaveOfSession = true;
 
   // Steer - collapsed pill in the global bar; expands while typing for page-level chat.
-  let pageChatEl = null;
-  let pageChatInput = null;
-  let pageChatHint = null;
-  let pageChatVoiceBtn = null;
-  let pageChatExpanded = false;
-  let steerLocked = false;
-  let steerRequestId = null;
-  let steerPendingMessage = '';
-  let steerInputWasFocused = false;
-  let pageChatDotsEl = null;
-  let steerAwaitTimer = null;
-  let voiceRecognition = null;
-  let voiceListening = false;
-  let voiceSuppressSubmit = false;
-  let voiceInterimBase = '';
+  const pageChatEl = null;
+  const pageChatInput = null;
+  const pageChatHint = null;
+  const pageChatVoiceBtn = null;
+  const pageChatExpanded = false;
+  const steerLocked = false;
+  const steerRequestId = null;
+  const steerPendingMessage = '';
+  const steerInputWasFocused = false;
+  const pageChatDotsEl = null;
+  const steerAwaitTimer = null;
+  const voiceRecognition = null;
+  const voiceListening = false;
+  const voiceSuppressSubmit = false;
+  const voiceInterimBase = '';
   /** @type {{ mode: 'steer'|'configure', input: HTMLInputElement, submit: () => void, beforeStart?: () => void } | null} */
-  let voiceCtx = null;
+  const voiceCtx = null;
   const PAGE_CHAT_COLLAPSED_W = '104px';
   const PAGE_CHAT_PROCESSING_W = '76px';
   const PAGE_CHAT_PLACEHOLDER_COLLAPSED = 'Steer…';
@@ -8897,1625 +8897,1927 @@ void main() {
     if (!steerFocusDebugEnabled()) return;
     ),
       shouldSteer: shouldFocusSteerChat(),
-      ...(extra || {}),
+      ...(extra || ),
     });
   }
 
-  function attachSteerFocusDebug() {
-    if (!steerFocusDebugEnabled()) return;
-    if (window.__IMPECCABLE_STEER_FOCUS_DEBUG__) return;
-    window.__IMPECCABLE_STEER_FOCUS_DEBUG__ = true;
-    document.addEventListener('focusin', (e) => {
-      if (!pageChatInput) return;
-      steerFocusLog('focusin', { target: steerFocusTargetLabel(e.target) });
-    }, true);
-  }
+function attachSteerFocusDebug() {
+	if (!steerFocusDebugEnabled()) return;
+	if (window.__IMPECCABLE_STEER_FOCUS_DEBUG__) return;
+	window.__IMPECCABLE_STEER_FOCUS_DEBUG__ = true;
+	document.addEventListener(
+		"focusin",
+		(e) => {
+			if (!pageChatInput) return;
+			steerFocusLog("focusin", { target: steerFocusTargetLabel(e.target) });
+		},
+		true,
+	);
+}
 
-  function focusConfigureInput(reason) {
-    steerFocusLog('focusConfigureInput', { reason });
-    const inputId = configureKind === 'insert' ? PREFIX + '-insert-input' : PREFIX + '-input';
-    const input = uiGetById(inputId);
-    if (!input) {
-      steerFocusLog('focusConfigureInput missing', { reason });
-      return;
-    }
-    setTimeout(() => {
-      const before = activeElementDeep();
-      input.focus();
-      steerFocusLog('focusConfigureInput result', {
-        reason,
-        before: steerFocusTargetLabel(before),
-        after: steerFocusTargetLabel(activeElementDeep()),
-        stuck: activeElementDeep() !== input,
-      });
-    }, 60);
-  }
+function focusConfigureInput(reason) {
+	steerFocusLog("focusConfigureInput", { reason });
+	const inputId =
+		configureKind === "insert" ? PREFIX + "-insert-input" : PREFIX + "-input";
+	const input = uiGetById(inputId);
+	if (!input) {
+		steerFocusLog("focusConfigureInput missing", { reason });
+		return;
+	}
+	setTimeout(() => {
+		const before = activeElementDeep();
+		input.focus();
+		steerFocusLog("focusConfigureInput result", {
+			reason,
+			before: steerFocusTargetLabel(before),
+			after: steerFocusTargetLabel(activeElementDeep()),
+			stuck: activeElementDeep() !== input,
+		});
+	}, 60);
+}
 
-  function syncPageChatFocusRing() {
-    if (!pageChatEl || !pageChatInput) return;
-    const focused = activeElementDeep() === pageChatInput;
-    const typingReady = focused && !steerLocked;
-    pageChatEl.dataset.inputFocused = focused ? 'true' : 'false';
-    pageChatEl.style.boxShadow = 'none';
+function syncPageChatFocusRing() {
+	if (!pageChatEl || !pageChatInput) return;
+	const focused = activeElementDeep() === pageChatInput;
+	const typingReady = focused && !steerLocked;
+	pageChatEl.dataset.inputFocused = focused ? "true" : "false";
+	pageChatEl.style.boxShadow = "none";
 
-    if (pageChatExpanded) {
-      pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_EXPANDED;
-      pageChatInput.style.width = '';
-      pageChatInput.style.padding = '0 6px';
-      pageChatInput.style.opacity = steerLocked ? '0.72' : '1';
-      pageChatInput.style.pointerEvents = steerLocked ? 'none' : 'auto';
-      return;
-    }
+	if (pageChatExpanded) {
+		pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_EXPANDED;
+		pageChatInput.style.width = "";
+		pageChatInput.style.padding = "0 6px";
+		pageChatInput.style.opacity = steerLocked ? "0.72" : "1";
+		pageChatInput.style.pointerEvents = steerLocked ? "none" : "auto";
+		return;
+	}
 
-    if (typingReady) {
-      // Collapsed type-to-steer: show the real input + caret instead of a
-      // truncated patina "Steer" label with an invisible focused field.
-      pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_COLLAPSED;
-      if (pageChatHint) {
-        pageChatHint.style.display = 'none';
-        pageChatHint.style.opacity = '0';
-      }
-      pageChatInput.style.width = '';
-      pageChatInput.style.padding = '0 4px';
-      pageChatInput.style.opacity = '1';
-      pageChatInput.style.pointerEvents = 'auto';
-      return;
-    }
+	if (typingReady) {
+		// Collapsed type-to-steer: show the real input + caret instead of a
+		// truncated patina "Steer" label with an invisible focused field.
+		pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_COLLAPSED;
+		if (pageChatHint) {
+			pageChatHint.style.display = "none";
+			pageChatHint.style.opacity = "0";
+		}
+		pageChatInput.style.width = "";
+		pageChatInput.style.padding = "0 4px";
+		pageChatInput.style.opacity = "1";
+		pageChatInput.style.pointerEvents = "auto";
+		return;
+	}
 
-    pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_COLLAPSED;
-    if (pageChatHint) {
-      pageChatHint.style.display = '';
-      pageChatHint.style.opacity = '1';
-      pageChatHint.style.visibility = '';
-    }
-    pageChatInput.style.width = '0';
-    pageChatInput.style.padding = '0';
-    pageChatInput.style.opacity = '0';
-    pageChatInput.style.pointerEvents = 'none';
-  }
+	pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_COLLAPSED;
+	if (pageChatHint) {
+		pageChatHint.style.display = "";
+		pageChatHint.style.opacity = "1";
+		pageChatHint.style.visibility = "";
+	}
+	pageChatInput.style.width = "0";
+	pageChatInput.style.padding = "0";
+	pageChatInput.style.opacity = "0";
+	pageChatInput.style.pointerEvents = "none";
+}
 
-  function focusSteerChat(reason) {
-    steerFocusLog('focusSteerChat called', { reason });
-    if (!pageChatInput || !shouldSteerAutoFocus()) {
-      steerFocusLog('focusSteerChat skipped', {
-        reason,
-        hasInput: !!pageChatInput,
-        shouldSteer: shouldFocusSteerChat(),
-        suspended: steerFocusSuspended,
-      });
-      return;
-    }
-    syncPageChatVisual();
-    pageChatInput.style.pointerEvents = 'auto';
-    const before = activeElementDeep();
-    try { window.focus(); } catch { /* embed may block */ }
-    try { pageChatInput.focus({ preventScroll: true }); } catch { pageChatInput.focus(); }
-    syncPageChatFocusRing();
-    syncPageChatChrome();
-    steerFocusLog('focusSteerChat result', {
-      reason,
-      before: steerFocusTargetLabel(before),
-      after: steerFocusTargetLabel(activeElementDeep()),
-      stuck: activeElementDeep() !== pageChatInput,
-    });
-  }
+function focusSteerChat(reason) {
+	steerFocusLog("focusSteerChat called", { reason });
+	if (!pageChatInput || !shouldSteerAutoFocus()) {
+		steerFocusLog("focusSteerChat skipped", {
+			reason,
+			hasInput: !!pageChatInput,
+			shouldSteer: shouldFocusSteerChat(),
+			suspended: steerFocusSuspended,
+		});
+		return;
+	}
+	syncPageChatVisual();
+	pageChatInput.style.pointerEvents = "auto";
+	const before = activeElementDeep();
+	try {
+		window.focus();
+	} catch {
+		/* embed may block */
+	}
+	try {
+		pageChatInput.focus({ preventScroll: true });
+	} catch {
+		pageChatInput.focus();
+	}
+	syncPageChatFocusRing();
+	syncPageChatChrome();
+	steerFocusLog("focusSteerChat result", {
+		reason,
+		before: steerFocusTargetLabel(before),
+		after: steerFocusTargetLabel(activeElementDeep()),
+		stuck: activeElementDeep() !== pageChatInput,
+	});
+}
 
-  function syncPageChatFocus(reason) {
-    steerFocusLog('syncPageChatFocus', { reason });
-    if (state === 'CONFIGURING') focusConfigureInput(reason);
-    else if (shouldSteerAutoFocus()) focusSteerChat(reason);
-  }
+function syncPageChatFocus(reason) {
+	steerFocusLog("syncPageChatFocus", { reason });
+	if (state === "CONFIGURING") focusConfigureInput(reason);
+	else if (shouldSteerAutoFocus()) focusSteerChat(reason);
+}
 
-  function buildSteerProcessingDots() {
-    const P = pageChatPalette();
-    const wrap = el('span', {
-      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-      gap: '5px', flex: '1', minWidth: '0',
-      padding: '0 12px 0 2px',
-      pointerEvents: 'none',
-    });
-    wrap.setAttribute('aria-hidden', 'true');
-    for (let i = 0; i < 3; i++) {
-      wrap.appendChild(el('span', {
-        display: 'inline-block',
-        width: '4px', height: '4px', borderRadius: '50%',
-        background: P.patinaPale,
-        boxShadow: '0 0 6px ' + P.patinaSoft,
-        animation: 'impeccable-steer-dot 1.05s ease-in-out ' + (i * 0.14) + 's infinite',
-      }));
-    }
-    return wrap;
-  }
+function buildSteerProcessingDots() {
+	const P = pageChatPalette();
+	const wrap = el("span", {
+		display: "inline-flex",
+		alignItems: "center",
+		justifyContent: "center",
+		gap: "5px",
+		flex: "1",
+		minWidth: "0",
+		padding: "0 12px 0 2px",
+		pointerEvents: "none",
+	});
+	wrap.setAttribute("aria-hidden", "true");
+	for (let i = 0; i < 3; i++) {
+		wrap.appendChild(
+			el("span", {
+				display: "inline-block",
+				width: "4px",
+				height: "4px",
+				borderRadius: "50%",
+				background: P.patinaPale,
+				boxShadow: "0 0 6px " + P.patinaSoft,
+				animation:
+					"impeccable-steer-dot 1.05s ease-in-out " + i * 0.14 + "s infinite",
+			}),
+		);
+	}
+	return wrap;
+}
 
-  function keepSteerPointerInside(e, opts = {}) {
-    e.stopPropagation();
-    if (opts.preventDefault !== false) e.preventDefault();
-  }
+function keepSteerPointerInside(e, opts = {}) {
+	e.stopPropagation();
+	if (opts.preventDefault !== false) e.preventDefault();
+}
 
-  function preparePageChatInputForTyping() {
-    if (!pageChatEl || !pageChatInput) return false;
-    pageChatExpanded = true;
-    pageChatEl.dataset.expanded = 'true';
-    syncGlobalBarExpandedLabels(false);
-    pageChatEl.style.width = pageChatExpandedWidth();
-    pageChatEl.style.cursor = steerLocked ? 'default' : 'text';
-    pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_EXPANDED;
-    if (pageChatHint) {
-      pageChatHint.style.display = 'none';
-      pageChatHint.style.opacity = '0';
-    }
-    pageChatInput.style.width = '';
-    pageChatInput.style.padding = '0 6px';
-    pageChatInput.style.opacity = steerLocked ? '0.72' : '1';
-    pageChatInput.style.pointerEvents = steerLocked ? 'none' : 'auto';
-    return true;
-  }
+function preparePageChatInputForTyping() {
+	if (!pageChatEl || !pageChatInput) return false;
+	pageChatExpanded = true;
+	pageChatEl.dataset.expanded = "true";
+	syncGlobalBarExpandedLabels(false);
+	pageChatEl.style.width = pageChatExpandedWidth();
+	pageChatEl.style.cursor = steerLocked ? "default" : "text";
+	pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_EXPANDED;
+	if (pageChatHint) {
+		pageChatHint.style.display = "none";
+		pageChatHint.style.opacity = "0";
+	}
+	pageChatInput.style.width = "";
+	pageChatInput.style.padding = "0 6px";
+	pageChatInput.style.opacity = steerLocked ? "0.72" : "1";
+	pageChatInput.style.pointerEvents = steerLocked ? "none" : "auto";
+	return true;
+}
 
-  function armPageChatForTyping(opts = {}) {
-    if (!pageChatEl || !pageChatInput || steerLocked) return false;
-    const expand = opts.expand !== false;
-    const focus = opts.focus !== false;
-    if (expand && !pageChatExpanded) {
-      preparePageChatInputForTyping();
-      syncPageChatChrome();
-    }
-    if (focus) return focusPageChatInput('arm-page-chat');
-    syncPageChatFocusRing();
-    syncPageChatChrome();
-    return true;
-  }
+function armPageChatForTyping(opts = {}) {
+	if (!pageChatEl || !pageChatInput || steerLocked) return false;
+	const expand = opts.expand !== false;
+	const focus = opts.focus !== false;
+	if (expand && !pageChatExpanded) {
+		preparePageChatInputForTyping();
+		syncPageChatChrome();
+	}
+	if (focus) return focusPageChatInput("arm-page-chat");
+	syncPageChatFocusRing();
+	syncPageChatChrome();
+	return true;
+}
 
-  function focusPageChatInput(reason) {
-    if (!preparePageChatInputForTyping() || steerLocked) return false;
-    try { pageChatInput.focus({ preventScroll: true }); } catch { pageChatInput.focus(); }
-    const focused = activeElementDeep() === pageChatInput;
-    if (focused) steerInputWasFocused = true;
-    syncPageChatFocusRing();
-    return focused;
-  }
+function focusPageChatInput(reason) {
+	if (!preparePageChatInputForTyping() || steerLocked) return false;
+	try {
+		pageChatInput.focus({ preventScroll: true });
+	} catch {
+		pageChatInput.focus();
+	}
+	const focused = activeElementDeep() === pageChatInput;
+	if (focused) steerInputWasFocused = true;
+	syncPageChatFocusRing();
+	return focused;
+}
 
-  function clearSteerAwaitTimer() {
-    if (steerAwaitTimer) {
-      clearTimeout(steerAwaitTimer);
-      steerAwaitTimer = null;
-    }
-  }
+function clearSteerAwaitTimer() {
+	if (steerAwaitTimer) {
+		clearTimeout(steerAwaitTimer);
+		steerAwaitTimer = null;
+	}
+}
 
-  function scheduleSteerAwaitTimeout(id) {
-    clearSteerAwaitTimer();
-    steerAwaitTimer = setTimeout(() => {
-      if (!steerLocked || steerRequestId !== id) return;
-      unlockSteerChat({
-        error: 'Steer timed out waiting for the agent. Check that live-poll is running and replies with steer_done.',
-        restoreMessage: steerPendingMessage,
-      });
-    }, STEER_AWAIT_TIMEOUT_MS);
-  }
+function scheduleSteerAwaitTimeout(id) {
+	clearSteerAwaitTimer();
+	steerAwaitTimer = setTimeout(() => {
+		if (!steerLocked || steerRequestId !== id) return;
+		unlockSteerChat({
+			error:
+				"Steer timed out waiting for the agent. Check that live-poll is running and replies with steer_done.",
+			restoreMessage: steerPendingMessage,
+		});
+	}, STEER_AWAIT_TIMEOUT_MS);
+}
 
-  function lockSteerChat() {
-    if (!pageChatEl || !pageChatInput) return;
-    stopVoice({ suppressSubmit: true });
-    steerLocked = true;
-    pageChatEl.dataset.processing = 'true';
-    pageChatInput.disabled = true;
-    preparePageChatInputForTyping();
-    if (pageChatVoiceBtn) {
-      pageChatVoiceBtn.disabled = true;
-      pageChatVoiceBtn.style.display = 'none';
-    }
-    pageChatEl.style.cursor = 'default';
-    pageChatInput.style.pointerEvents = 'none';
-    if (pageChatHint) {
-      pageChatHint.style.display = 'none';
-      pageChatHint.style.visibility = 'hidden';
-    }
-    pageChatEl.setAttribute('aria-busy', 'true');
-    pageChatEl.setAttribute('aria-label', 'Processing steer request');
-    if (!pageChatDotsEl) {
-      pageChatDotsEl = buildSteerProcessingDots();
-      pageChatEl.appendChild(pageChatDotsEl);
-    }
-    syncPageChatFocusRing();
-    syncPageChatChrome();
-  }
+function lockSteerChat() {
+	if (!pageChatEl || !pageChatInput) return;
+	stopVoice({ suppressSubmit: true });
+	steerLocked = true;
+	pageChatEl.dataset.processing = "true";
+	pageChatInput.disabled = true;
+	preparePageChatInputForTyping();
+	if (pageChatVoiceBtn) {
+		pageChatVoiceBtn.disabled = true;
+		pageChatVoiceBtn.style.display = "none";
+	}
+	pageChatEl.style.cursor = "default";
+	pageChatInput.style.pointerEvents = "none";
+	if (pageChatHint) {
+		pageChatHint.style.display = "none";
+		pageChatHint.style.visibility = "hidden";
+	}
+	pageChatEl.setAttribute("aria-busy", "true");
+	pageChatEl.setAttribute("aria-label", "Processing steer request");
+	if (!pageChatDotsEl) {
+		pageChatDotsEl = buildSteerProcessingDots();
+		pageChatEl.appendChild(pageChatDotsEl);
+	}
+	syncPageChatFocusRing();
+	syncPageChatChrome();
+}
 
-  function unlockSteerChat(opts) {
-    clearSteerAwaitTimer();
-    const restoreMessage = typeof opts?.restoreMessage === 'string' ? opts.restoreMessage : '';
-    const keepExpanded = Boolean(opts?.error && restoreMessage);
-    steerLocked = false;
-    const completedId = steerRequestId;
-    steerRequestId = null;
-    if (!pageChatEl) return;
-    pageChatEl.dataset.processing = 'false';
-    pageChatEl.removeAttribute('aria-busy');
-    pageChatEl.setAttribute('aria-label', 'Steer the page');
-    pageChatExpanded = keepExpanded;
-    pageChatEl.dataset.expanded = keepExpanded ? 'true' : 'false';
-    pageChatEl.style.width = keepExpanded ? pageChatExpandedWidth() : PAGE_CHAT_COLLAPSED_W;
-    pageChatEl.style.cursor = 'pointer';
-    if (pageChatInput) {
-      pageChatInput.disabled = false;
-      pageChatInput.value = keepExpanded ? restoreMessage : '';
-      pageChatInput.style.width = keepExpanded ? '' : '0';
-      pageChatInput.style.padding = keepExpanded ? '0 6px' : '0';
-      pageChatInput.style.opacity = keepExpanded ? '1' : '0';
-      pageChatInput.style.pointerEvents = 'auto';
-    }
-    if (pageChatVoiceBtn) {
-      pageChatVoiceBtn.disabled = false;
-      pageChatVoiceBtn.style.display = '';
-    }
-    if (pageChatHint) {
-      pageChatHint.textContent = 'Steer';
-      pageChatHint.style.display = keepExpanded ? 'none' : '';
-      pageChatHint.style.visibility = keepExpanded ? 'hidden' : '';
-      pageChatHint.style.opacity = keepExpanded ? '0' : '1';
-    }
-    if (pageChatDotsEl?.parentNode) {
-      pageChatDotsEl.remove();
-      pageChatDotsEl = null;
-    }
-    steerPendingMessage = keepExpanded ? restoreMessage : '';
-    steerInputWasFocused = false;
-    syncPageChatChrome();
-    syncPageChatFocusRing();
-    if (opts?.error) showToast(String(opts.error), 5000);
-    else if (opts?.message) showToast(String(opts.message), 4000);
-    if (completedId) {
-      sendSteerCheckpoint(completedId, opts?.error ? 'steer_error' : 'steer_done', {
-        message: opts?.message || opts?.error || '',
-        file: opts?.file || '',
-      });
-    }
-    if (keepExpanded) focusPageChatInput('steer-error-restore');
-    else syncPageChatFocus('steer-unlock');
-  }
+function unlockSteerChat(opts) {
+	clearSteerAwaitTimer();
+	const restoreMessage =
+		typeof opts?.restoreMessage === "string" ? opts.restoreMessage : "";
+	const keepExpanded = Boolean(opts?.error && restoreMessage);
+	steerLocked = false;
+	const completedId = steerRequestId;
+	steerRequestId = null;
+	if (!pageChatEl) return;
+	pageChatEl.dataset.processing = "false";
+	pageChatEl.removeAttribute("aria-busy");
+	pageChatEl.setAttribute("aria-label", "Steer the page");
+	pageChatExpanded = keepExpanded;
+	pageChatEl.dataset.expanded = keepExpanded ? "true" : "false";
+	pageChatEl.style.width = keepExpanded
+		? pageChatExpandedWidth()
+		: PAGE_CHAT_COLLAPSED_W;
+	pageChatEl.style.cursor = "pointer";
+	if (pageChatInput) {
+		pageChatInput.disabled = false;
+		pageChatInput.value = keepExpanded ? restoreMessage : "";
+		pageChatInput.style.width = keepExpanded ? "" : "0";
+		pageChatInput.style.padding = keepExpanded ? "0 6px" : "0";
+		pageChatInput.style.opacity = keepExpanded ? "1" : "0";
+		pageChatInput.style.pointerEvents = "auto";
+	}
+	if (pageChatVoiceBtn) {
+		pageChatVoiceBtn.disabled = false;
+		pageChatVoiceBtn.style.display = "";
+	}
+	if (pageChatHint) {
+		pageChatHint.textContent = "Steer";
+		pageChatHint.style.display = keepExpanded ? "none" : "";
+		pageChatHint.style.visibility = keepExpanded ? "hidden" : "";
+		pageChatHint.style.opacity = keepExpanded ? "0" : "1";
+	}
+	if (pageChatDotsEl?.parentNode) {
+		pageChatDotsEl.remove();
+		pageChatDotsEl = null;
+	}
+	steerPendingMessage = keepExpanded ? restoreMessage : "";
+	steerInputWasFocused = false;
+	syncPageChatChrome();
+	syncPageChatFocusRing();
+	if (opts?.error) showToast(String(opts.error), 5000);
+	else if (opts?.message) showToast(String(opts.message), 4000);
+	if (completedId) {
+		sendSteerCheckpoint(
+			completedId,
+			opts?.error ? "steer_error" : "steer_done",
+			{
+				message: opts?.message || opts?.error || "",
+				file: opts?.file || "",
+			},
+		);
+	}
+	if (keepExpanded) focusPageChatInput("steer-error-restore");
+	else syncPageChatFocus("steer-unlock");
+}
 
-  function steerSpeechRecognitionCtor() {
-    return window.SpeechRecognition || window.webkitSpeechRecognition || null;
-  }
+function steerSpeechRecognitionCtor() {
+	return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+}
 
-  function isEmbeddedPreviewBrowser() {
-    const ua = navigator.userAgent || '';
-    if (/Electron/i.test(ua)) return true;
-    if (/Cursor/i.test(ua)) return true;
-    try {
-      return !!(window.cursor || window.__CURSOR__ || window.__GLASS_BROWSER__);
-    } catch { return false; }
-  }
+function isEmbeddedPreviewBrowser() {
+	const ua = navigator.userAgent || "";
+	if (/Electron/i.test(ua)) return true;
+	if (/Cursor/i.test(ua)) return true;
+	try {
+		return !!(window.cursor || window.__CURSOR__ || window.__GLASS_BROWSER__);
+	} catch {
+		return false;
+	}
+}
 
-  function steerVoiceUnavailableMessage() {
-    return 'Voice input works in Chrome or Safari. Cursor\'s preview browser cannot reach speech services.';
-  }
+function steerVoiceUnavailableMessage() {
+	return "Voice input works in Chrome or Safari. Cursor's preview browser cannot reach speech services.";
+}
 
-  function steerVoiceErrorMessage(code) {
-    switch (code) {
-      case 'not-allowed':
-        return 'Microphone access blocked';
-      case 'audio-capture':
-        return 'No microphone found';
-      case 'network':
-        return isEmbeddedPreviewBrowser()
-          ? steerVoiceUnavailableMessage()
-          : 'Voice input needs a network connection (browser speech uses a cloud service)';
-      case 'service-not-allowed':
-        return 'Voice input is not available in this browser tab';
-      case 'language-not-supported':
-        return 'Speech language not supported';
-      case 'no-speech':
-      case 'aborted':
-        return null;
-      default:
-        return 'Voice input failed (' + code + ')';
-    }
-  }
+function steerVoiceErrorMessage(code) {
+	switch (code) {
+		case "not-allowed":
+			return "Microphone access blocked";
+		case "audio-capture":
+			return "No microphone found";
+		case "network":
+			return isEmbeddedPreviewBrowser()
+				? steerVoiceUnavailableMessage()
+				: "Voice input needs a network connection (browser speech uses a cloud service)";
+		case "service-not-allowed":
+			return "Voice input is not available in this browser tab";
+		case "language-not-supported":
+			return "Speech language not supported";
+		case "no-speech":
+		case "aborted":
+			return null;
+		default:
+			return "Voice input failed (" + code + ")";
+	}
+}
 
-  function syncVoiceUi(listening) {
-    voiceListening = !!listening;
-    if (voiceCtx?.mode === 'steer') {
-      if (pageChatVoiceBtn) {
-        pageChatVoiceBtn.dataset.active = listening ? 'true' : 'false';
-        pageChatVoiceBtn.dataset.listening = listening ? 'true' : 'false';
-        pageChatVoiceBtn.setAttribute('aria-label', listening ? 'Stop voice input' : 'Voice input');
-        pageChatVoiceBtn.setAttribute('aria-pressed', listening ? 'true' : 'false');
-      }
-      if (pageChatEl) pageChatEl.dataset.voiceListening = listening ? 'true' : 'false';
-      syncPageChatChrome();
-    } else if (voiceCtx?.mode === 'configure') {
-      // The bar shows either the replace row's voice button or the insert
-      // row's - both run voice through the 'configure' mode.
-      const voiceBtn = uiGetById(PREFIX + '-configure-voice') || uiGetById(PREFIX + '-insert-voice');
-      if (voiceBtn) {
-        voiceBtn.dataset.active = listening ? 'true' : 'false';
-        voiceBtn.dataset.listening = listening ? 'true' : 'false';
-        voiceBtn.setAttribute('aria-label', listening ? 'Stop voice input' : 'Voice input');
-        voiceBtn.setAttribute('aria-pressed', listening ? 'true' : 'false');
-      }
-      syncConfigureInputChrome();
-    }
-  }
+function syncVoiceUi(listening) {
+	voiceListening = !!listening;
+	if (voiceCtx?.mode === "steer") {
+		if (pageChatVoiceBtn) {
+			pageChatVoiceBtn.dataset.active = listening ? "true" : "false";
+			pageChatVoiceBtn.dataset.listening = listening ? "true" : "false";
+			pageChatVoiceBtn.setAttribute(
+				"aria-label",
+				listening ? "Stop voice input" : "Voice input",
+			);
+			pageChatVoiceBtn.setAttribute(
+				"aria-pressed",
+				listening ? "true" : "false",
+			);
+		}
+		if (pageChatEl)
+			pageChatEl.dataset.voiceListening = listening ? "true" : "false";
+		syncPageChatChrome();
+	} else if (voiceCtx?.mode === "configure") {
+		// The bar shows either the replace row's voice button or the insert
+		// row's - both run voice through the 'configure' mode.
+		const voiceBtn =
+			uiGetById(PREFIX + "-configure-voice") ||
+			uiGetById(PREFIX + "-insert-voice");
+		if (voiceBtn) {
+			voiceBtn.dataset.active = listening ? "true" : "false";
+			voiceBtn.dataset.listening = listening ? "true" : "false";
+			voiceBtn.setAttribute(
+				"aria-label",
+				listening ? "Stop voice input" : "Voice input",
+			);
+			voiceBtn.setAttribute("aria-pressed", listening ? "true" : "false");
+		}
+		syncConfigureInputChrome();
+	}
+}
 
-  function releaseVoiceEngine(opts) {
-    if (opts && opts.suppressSubmit) voiceSuppressSubmit = true;
-    const rec = voiceRecognition;
-    voiceRecognition = null;
-    if (!rec) return;
-    rec.onstart = null;
-    rec.onresult = null;
-    rec.onerror = null;
-    rec.onend = null;
-    try {
-      if (opts && opts.abort) rec.abort();
-      else rec.stop();
-    } catch { /* already ended */ }
-  }
+function releaseVoiceEngine(opts) {
+	if (opts && opts.suppressSubmit) voiceSuppressSubmit = true;
+	const rec = voiceRecognition;
+	voiceRecognition = null;
+	if (!rec) return;
+	rec.onstart = null;
+	rec.onresult = null;
+	rec.onerror = null;
+	rec.onend = null;
+	try {
+		if (opts && opts.abort) rec.abort();
+		else rec.stop();
+	} catch {
+		/* already ended */
+	}
+}
 
-  function stopVoice(opts) {
-    releaseVoiceEngine(opts);
-    syncVoiceUi(false);
-    voiceCtx = null;
-    if (opts && opts.message) showToast(String(opts.message), opts.duration || 4000);
-  }
+function stopVoice(opts) {
+	releaseVoiceEngine(opts);
+	syncVoiceUi(false);
+	voiceCtx = null;
+	if (opts && opts.message)
+		showToast(String(opts.message), opts.duration || 4000);
+}
 
-  function finishVoiceSession() {
-    voiceRecognition = null;
-    const ctx = voiceCtx;
-    syncVoiceUi(false);
-    const suppress = voiceSuppressSubmit;
-    voiceSuppressSubmit = false;
-    voiceCtx = null;
-    const input = ctx?.input;
-    const text = input?.value.trim() || '';
-    if (suppress || !text || !ctx) return;
-    if (ctx.mode === 'steer' && !steerLocked) ctx.submit();
-    else if (ctx.mode === 'configure' && state === 'CONFIGURING') ctx.submit();
-  }
+function finishVoiceSession() {
+	voiceRecognition = null;
+	const ctx = voiceCtx;
+	syncVoiceUi(false);
+	const suppress = voiceSuppressSubmit;
+	voiceSuppressSubmit = false;
+	voiceCtx = null;
+	const input = ctx?.input;
+	const text = input?.value.trim() || "";
+	if (suppress || !text || !ctx) return;
+	if (ctx.mode === "steer" && !steerLocked) ctx.submit();
+	else if (ctx.mode === "configure" && state === "CONFIGURING") ctx.submit();
+}
 
-  function startVoice(ctx) {
-    if (!ctx?.input || voiceListening) return;
-    if (ctx.mode === 'steer' && (steerLocked || state === 'CONFIGURING')) return;
-    if (ctx.mode === 'configure' && state !== 'CONFIGURING') return;
-    const Ctor = steerSpeechRecognitionCtor();
-    if (!Ctor) {
-      showToast('Voice input needs Speech Recognition (Chrome, Safari, or Edge)', 4500);
-      return;
-    }
-    if (!window.isSecureContext) {
-      showToast('Voice input needs HTTPS or localhost', 4500);
-      return;
-    }
-    if (isEmbeddedPreviewBrowser()) {
-      showToast(steerVoiceUnavailableMessage(), 5200);
-      return;
-    }
+function startVoice(ctx) {
+	if (!ctx?.input || voiceListening) return;
+	if (ctx.mode === "steer" && (steerLocked || state === "CONFIGURING")) return;
+	if (ctx.mode === "configure" && state !== "CONFIGURING") return;
+	const Ctor = steerSpeechRecognitionCtor();
+	if (!Ctor) {
+		showToast(
+			"Voice input needs Speech Recognition (Chrome, Safari, or Edge)",
+			4500,
+		);
+		return;
+	}
+	if (!window.isSecureContext) {
+		showToast("Voice input needs HTTPS or localhost", 4500);
+		return;
+	}
+	if (isEmbeddedPreviewBrowser()) {
+		showToast(steerVoiceUnavailableMessage(), 5200);
+		return;
+	}
 
-    releaseVoiceEngine({ suppressSubmit: true, abort: true });
-    voiceSuppressSubmit = false;
-    voiceCtx = ctx;
-    if (ctx.beforeStart) ctx.beforeStart();
+	releaseVoiceEngine({ suppressSubmit: true, abort: true });
+	voiceSuppressSubmit = false;
+	voiceCtx = ctx;
+	if (ctx.beforeStart) ctx.beforeStart();
 
-    voiceInterimBase = ctx.input.value.trim()
-      ? ctx.input.value.trim() + ' '
-      : '';
+	voiceInterimBase = ctx.input.value.trim() ? ctx.input.value.trim() + " " : "";
 
-    const rec = new Ctor();
-    rec.continuous = false;
-    rec.interimResults = true;
-    rec.lang = document.documentElement.lang || navigator.language || 'en-US';
-    rec.maxAlternatives = 1;
+	const rec = new Ctor();
+	rec.continuous = false;
+	rec.interimResults = true;
+	rec.lang = document.documentElement.lang || navigator.language || "en-US";
+	rec.maxAlternatives = 1;
 
-    rec.onstart = () => {
-      syncVoiceUi(true);
-    };
+	rec.onstart = () => {
+		syncVoiceUi(true);
+	};
 
-    rec.onresult = (event) => {
-      if (!voiceCtx?.input) return;
-      let transcript = '';
-      for (let i = 0; i < event.results.length; i++) {
-        transcript += event.results[i][0]?.transcript || '';
-      }
-      voiceCtx.input.value = (voiceInterimBase + transcript).trim();
-      if (voiceCtx.mode === 'steer') syncPageChatVisual();
-      else syncConfigureInputChrome();
-    };
+	rec.onresult = (event) => {
+		if (!voiceCtx?.input) return;
+		let transcript = "";
+		for (let i = 0; i < event.results.length; i++) {
+			transcript += event.results[i][0]?.transcript || "";
+		}
+		voiceCtx.input.value = (voiceInterimBase + transcript).trim();
+		if (voiceCtx.mode === "steer") syncPageChatVisual();
+		else syncConfigureInputChrome();
+	};
 
-    rec.onerror = (event) => {
-      const code = event.error || 'unknown';
-      console.warn('[impeccable.voice] recognition error:', code);
-      const message = steerVoiceErrorMessage(code);
-      stopVoice({ suppressSubmit: true, message: message || undefined });
-    };
+	rec.onerror = (event) => {
+		const code = event.error || "unknown";
+		console.warn("[impeccable.voice] recognition error:", code);
+		const message = steerVoiceErrorMessage(code);
+		stopVoice({ suppressSubmit: true, message: message || undefined });
+	};
 
-    rec.onend = () => {
-      if (voiceRecognition !== rec) return;
-      finishVoiceSession();
-    };
+	rec.onend = () => {
+		if (voiceRecognition !== rec) return;
+		finishVoiceSession();
+	};
 
-    voiceRecognition = rec;
-    try {
-      rec.start();
-    } catch (err) {
-      console.warn('[impeccable.voice] start failed:', err);
-      stopVoice({
-        suppressSubmit: true,
-        message: err?.message?.includes('already started')
-          ? 'Voice input already running'
-          : 'Could not start voice input',
-      });
-    }
-  }
+	voiceRecognition = rec;
+	try {
+		rec.start();
+	} catch (err) {
+		console.warn("[impeccable.voice] start failed:", err);
+		stopVoice({
+			suppressSubmit: true,
+			message: err?.message?.includes("already started")
+				? "Voice input already running"
+				: "Could not start voice input",
+		});
+	}
+}
 
-  function steerVoiceContext() {
-    return {
-      mode: 'steer',
-      input: pageChatInput,
-      beforeStart: () => {
-        if (!pageChatExpanded) expandPageChat({ focus: false });
-      },
-      submit: submitSteerMessage,
-    };
-  }
+function steerVoiceContext() {
+	return {
+		mode: "steer",
+		input: pageChatInput,
+		beforeStart: () => {
+			if (!pageChatExpanded) expandPageChat({ focus: false });
+		},
+		submit: submitSteerMessage,
+	};
+}
 
-  function configureVoiceContext() {
-    const input = uiGetById(
-      configureKind === 'insert' ? PREFIX + '-insert-input' : PREFIX + '-input',
-    );
-    return {
-      mode: 'configure',
-      input,
-      beforeStart: () => { input?.focus(); },
-      submit: configureKind === 'insert' ? handleInsertCreate : handleGo,
-    };
-  }
+function configureVoiceContext() {
+	const input = uiGetById(
+		configureKind === "insert" ? PREFIX + "-insert-input" : PREFIX + "-input",
+	);
+	return {
+		mode: "configure",
+		input,
+		beforeStart: () => {
+			input?.focus();
+		},
+		submit: configureKind === "insert" ? handleInsertCreate : handleGo,
+	};
+}
 
-  function toggleSteerVoice() {
-    if (voiceListening && voiceCtx?.mode === 'steer') {
-      voiceSuppressSubmit = true;
-      stopVoice({ suppressSubmit: true, abort: true });
-      return;
-    }
-    startVoice(steerVoiceContext());
-  }
+function toggleSteerVoice() {
+	if (voiceListening && voiceCtx?.mode === "steer") {
+		voiceSuppressSubmit = true;
+		stopVoice({ suppressSubmit: true, abort: true });
+		return;
+	}
+	startVoice(steerVoiceContext());
+}
 
-  function toggleConfigureVoice() {
-    if (voiceListening && voiceCtx?.mode === 'configure') {
-      voiceSuppressSubmit = true;
-      stopVoice({ suppressSubmit: true, abort: true });
-      return;
-    }
-    startVoice(configureVoiceContext());
-  }
+function toggleConfigureVoice() {
+	if (voiceListening && voiceCtx?.mode === "configure") {
+		voiceSuppressSubmit = true;
+		stopVoice({ suppressSubmit: true, abort: true });
+		return;
+	}
+	startVoice(configureVoiceContext());
+}
 
-  function submitSteerMessage() {
-    stopVoice({ suppressSubmit: true });
-    const text = pageChatInput?.value.trim();
-    if (!text || steerLocked) return;
-    const id = id8();
-    steerRequestId = id;
-    steerPendingMessage = text;
-    if (steerInputWasFocused) sendSteerCheckpoint(id, 'steer_input_focused', { focused: true });
-    lockSteerChat();
-    scheduleSteerAwaitTimeout(id);
-    sendSteerCheckpoint(id, 'steer_submitted', { message: text, pageUrl: location.href });
-    sendEvent({
-      type: 'steer',
-      id,
-      message: text,
-      pageUrl: location.href,
-    }).then((res) => {
-      if (!res) {
-        sendSteerCheckpoint(id, 'steer_send_failed', { message: text });
-        unlockSteerChat({ error: 'Could not reach live server', restoreMessage: text });
-      }
-    });
-  }
+function submitSteerMessage() {
+	stopVoice({ suppressSubmit: true });
+	const text = pageChatInput?.value.trim();
+	if (!text || steerLocked) return;
+	const id = id8();
+	steerRequestId = id;
+	steerPendingMessage = text;
+	if (steerInputWasFocused)
+		sendSteerCheckpoint(id, "steer_input_focused", { focused: true });
+	lockSteerChat();
+	scheduleSteerAwaitTimeout(id);
+	sendSteerCheckpoint(id, "steer_submitted", {
+		message: text,
+		pageUrl: location.href,
+	});
+	sendEvent({
+		type: "steer",
+		id,
+		message: text,
+		pageUrl: location.href,
+	}).then((res) => {
+		if (!res) {
+			sendSteerCheckpoint(id, "steer_send_failed", { message: text });
+			unlockSteerChat({
+				error: "Could not reach live server",
+				restoreMessage: text,
+			});
+		}
+	});
+}
 
-  function maybeCompleteSteer(msg) {
-    if (!steerRequestId || msg.id !== steerRequestId) return false;
-    if (msg.type === 'steer_done') {
-      unlockSteerChat({ message: msg.message, file: msg.file });
-      if (msg.file && /\.svelte(?:$|\?)/.test(String(msg.file))) {
-        setTimeout(() => {
-          if (!steerLocked) showToast('Steer applied. Reload if the page has not refreshed yet.', 5000);
-        }, 4500);
-      }
-      return true;
-    }
-    if (msg.type === 'error') {
-      unlockSteerChat({ error: msg.message || 'Steer failed', restoreMessage: steerPendingMessage });
-      return true;
-    }
-    return false;
-  }
+function maybeCompleteSteer(msg) {
+	if (!steerRequestId || msg.id !== steerRequestId) return false;
+	if (msg.type === "steer_done") {
+		unlockSteerChat({ message: msg.message, file: msg.file });
+		if (msg.file && /\.svelte(?:$|\?)/.test(String(msg.file))) {
+			setTimeout(() => {
+				if (!steerLocked)
+					showToast(
+						"Steer applied. Reload if the page has not refreshed yet.",
+						5000,
+					);
+			}, 4500);
+		}
+		return true;
+	}
+	if (msg.type === "error") {
+		unlockSteerChat({
+			error: msg.message || "Steer failed",
+			restoreMessage: steerPendingMessage,
+		});
+		return true;
+	}
+	return false;
+}
 
-  function expandPageChat(opts) {
-    const focus = !opts || opts.focus !== false;
-    if (!pageChatEl || !pageChatInput || steerLocked) return;
-    preparePageChatInputForTyping();
-    syncPageChatChrome();
-    syncPageChatFocusRing();
-    if (focus) focusPageChatInput('expand-page-chat');
-  }
+function expandPageChat(opts) {
+	const focus = !opts || opts.focus !== false;
+	if (!pageChatEl || !pageChatInput || steerLocked) return;
+	preparePageChatInputForTyping();
+	syncPageChatChrome();
+	syncPageChatFocusRing();
+	if (focus) focusPageChatInput("expand-page-chat");
+}
 
-  function collapsePageChat(opts) {
-    const blur = opts && opts.blur === true;
-    if (voiceListening) return;
-    if (!pageChatEl || !pageChatInput) return;
-    pageChatExpanded = false;
-    pageChatEl.dataset.expanded = 'false';
-    pageChatEl.style.width = PAGE_CHAT_COLLAPSED_W;
-    pageChatEl.style.cursor = 'pointer';
-    syncGlobalBarExpandedLabels(globalBarEl?.matches(':hover'));
-    if (blur) {
-      pageChatInput.blur();
-      pageChatInput.style.pointerEvents = 'none';
-    } else {
-      pageChatInput.style.pointerEvents = 'auto';
-    }
-    if (pageChatHint && activeElementDeep() !== pageChatInput) {
-      pageChatHint.style.display = '';
-      pageChatHint.style.opacity = '1';
-    }
-    if (pageChatVoiceBtn) pageChatVoiceBtn.dataset.active = 'false';
-    syncPageChatChrome();
-    syncPageChatFocusRing();
-  }
+function collapsePageChat(opts) {
+	const blur = opts && opts.blur === true;
+	if (voiceListening) return;
+	if (!pageChatEl || !pageChatInput) return;
+	pageChatExpanded = false;
+	pageChatEl.dataset.expanded = "false";
+	pageChatEl.style.width = PAGE_CHAT_COLLAPSED_W;
+	pageChatEl.style.cursor = "pointer";
+	syncGlobalBarExpandedLabels(globalBarEl?.matches(":hover"));
+	if (blur) {
+		pageChatInput.blur();
+		pageChatInput.style.pointerEvents = "none";
+	} else {
+		pageChatInput.style.pointerEvents = "auto";
+	}
+	if (pageChatHint && activeElementDeep() !== pageChatInput) {
+		pageChatHint.style.display = "";
+		pageChatHint.style.opacity = "1";
+	}
+	if (pageChatVoiceBtn) pageChatVoiceBtn.dataset.active = "false";
+	syncPageChatChrome();
+	syncPageChatFocusRing();
+}
 
-  function initPageChat(parent, P) {
-    pageChatEl = el('div', {
-      display: 'inline-flex', alignItems: 'center',
-      height: '28px', margin: '0 4px 0 ' + (GLOBAL_BAR_SECTION_GAP - GLOBAL_BAR_INNER_GAP) + 'px',
-      borderRadius: '7px',
-      background: P.chatSurface,
-      border: '1px solid transparent',
-      overflow: 'hidden',
-      cursor: 'pointer',
-      flexShrink: '0',
-      width: PAGE_CHAT_COLLAPSED_W,
-      transition: 'border-color 0.15s ease',
-    });
-    pageChatEl.id = PREFIX + '-page-chat';
-    pageChatEl.dataset.expanded = 'false';
-    pageChatEl.title = 'Steer the page';
+function initPageChat(parent, P) {
+	pageChatEl = el("div", {
+		display: "inline-flex",
+		alignItems: "center",
+		height: "28px",
+		margin: "0 4px 0 " + (GLOBAL_BAR_SECTION_GAP - GLOBAL_BAR_INNER_GAP) + "px",
+		borderRadius: "7px",
+		background: P.chatSurface,
+		border: "1px solid transparent",
+		overflow: "hidden",
+		cursor: "pointer",
+		flexShrink: "0",
+		width: PAGE_CHAT_COLLAPSED_W,
+		transition: "border-color 0.15s ease",
+	});
+	pageChatEl.id = PREFIX + "-page-chat";
+	pageChatEl.dataset.expanded = "false";
+	pageChatEl.title = "Steer the page";
 
-    const chatIcon = el('span', {
-      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-      width: '28px', height: '28px', flexShrink: '0',
-      color: P.textDim, pointerEvents: 'none',
-    });
-    chatIcon.innerHTML = ICON_PAGE_CHAT;
+	const chatIcon = el("span", {
+		display: "inline-flex",
+		alignItems: "center",
+		justifyContent: "center",
+		width: "28px",
+		height: "28px",
+		flexShrink: "0",
+		color: P.textDim,
+		pointerEvents: "none",
+	});
+	chatIcon.innerHTML = ICON_PAGE_CHAT;
 
-    pageChatHint = el('span', {
-      fontSize: '11.5px', fontWeight: '500',
-      color: P.textDim,
-      whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-      flex: '1', minWidth: '0',
-      pointerEvents: 'none',
-      transition: 'opacity 0.15s ease',
-    });
-    pageChatHint.textContent = 'Steer';
+	pageChatHint = el("span", {
+		fontSize: "11.5px",
+		fontWeight: "500",
+		color: P.textDim,
+		whiteSpace: "nowrap",
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+		flex: "1",
+		minWidth: "0",
+		pointerEvents: "none",
+		transition: "opacity 0.15s ease",
+	});
+	pageChatHint.textContent = "Steer";
 
-    pageChatInput = document.createElement('input');
-    pageChatInput.id = PREFIX + '-page-chat-input';
-    pageChatInput.type = 'text';
-    pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_COLLAPSED;
-    pageChatInput.setAttribute('aria-label', 'Steer the page');
-    Object.assign(pageChatInput.style, {
-      flex: '1', minWidth: '0', width: '0',
-      padding: '0', border: 'none', background: 'transparent',
-      fontFamily: FONT, fontSize: '11.5px', color: P.text,
-      outline: 'none', opacity: '0', pointerEvents: 'none',
-      caretColor: P.accent,
-      transition: 'opacity 0.15s ease',
-    });
+	pageChatInput = document.createElement("input");
+	pageChatInput.id = PREFIX + "-page-chat-input";
+	pageChatInput.type = "text";
+	pageChatInput.placeholder = PAGE_CHAT_PLACEHOLDER_COLLAPSED;
+	pageChatInput.setAttribute("aria-label", "Steer the page");
+	Object.assign(pageChatInput.style, {
+		flex: "1",
+		minWidth: "0",
+		width: "0",
+		padding: "0",
+		border: "none",
+		background: "transparent",
+		fontFamily: FONT,
+		fontSize: "11.5px",
+		color: P.text,
+		outline: "none",
+		opacity: "0",
+		pointerEvents: "none",
+		caretColor: P.accent,
+		transition: "opacity 0.15s ease",
+	});
 
-    pageChatVoiceBtn = el('button', {
-      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-      padding: '0', boxSizing: 'border-box',
-      width: '28px', height: '28px', flexShrink: '0',
-      border: 'none', background: 'transparent',
-      color: P.textDim, cursor: 'pointer',
-      transition: 'color 0.12s ease, background 0.12s ease',
-    });
-    pageChatVoiceBtn.id = PREFIX + '-page-chat-voice';
-    pageChatVoiceBtn.type = 'button';
-    pageChatVoiceBtn.setAttribute('aria-label', 'Voice input');
-    pageChatVoiceBtn.innerHTML = ICON_PAGE_VOICE;
+	pageChatVoiceBtn = el("button", {
+		display: "inline-flex",
+		alignItems: "center",
+		justifyContent: "center",
+		padding: "0",
+		boxSizing: "border-box",
+		width: "28px",
+		height: "28px",
+		flexShrink: "0",
+		border: "none",
+		background: "transparent",
+		color: P.textDim,
+		cursor: "pointer",
+		transition: "color 0.12s ease, background 0.12s ease",
+	});
+	pageChatVoiceBtn.id = PREFIX + "-page-chat-voice";
+	pageChatVoiceBtn.type = "button";
+	pageChatVoiceBtn.setAttribute("aria-label", "Voice input");
+	pageChatVoiceBtn.innerHTML = ICON_PAGE_VOICE;
 
-    pageChatEl.appendChild(chatIcon);
-    pageChatEl.appendChild(pageChatHint);
-    pageChatEl.appendChild(pageChatInput);
-    pageChatEl.appendChild(pageChatVoiceBtn);
+	pageChatEl.appendChild(chatIcon);
+	pageChatEl.appendChild(pageChatHint);
+	pageChatEl.appendChild(pageChatInput);
+	pageChatEl.appendChild(pageChatVoiceBtn);
 
-    if (!uiGetById(PREFIX + '-page-chat-style')) {
-      const s = document.createElement('style');
-      s.id = PREFIX + '-page-chat-style';
-      s.textContent =
-        '@keyframes impeccable-steer-dot { 0%, 70%, 100% { opacity: 0.28; transform: scale(0.82); } 35% { opacity: 1; transform: scale(1); } }' +
-        '@keyframes impeccable-steer-processing { 0%, 100% { border-color: oklch(70% 0.12 188 / 0.28); box-shadow: 0 0 0 0 oklch(70% 0.12 188 / 0); } 50% { border-color: oklch(82% 0.07 188 / 0.55); box-shadow: 0 0 14px oklch(70% 0.12 188 / 0.18); } }' +
-        '@keyframes impeccable-voice-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }' +
-        '#' + PREFIX + '-page-chat[data-processing="true"] { animation: impeccable-steer-processing 1.6s ease-in-out infinite; }' +
-        '@media (prefers-reduced-motion: reduce) { #' + PREFIX + '-page-chat[data-processing="true"] { animation: none; border-color: oklch(70% 0.12 188 / 0.45); } #' + PREFIX + '-page-chat[data-processing="true"] [aria-hidden="true"] span { animation: none; opacity: 0.85; } }' +
-        '#' + PREFIX + '-page-chat[data-voice-listening="true"] { border-color: oklch(70% 0.12 188 / 0.45); }' +
-        '#' + PREFIX + '-page-chat-voice[data-listening="true"] svg { animation: impeccable-voice-pulse 1.1s ease-in-out infinite; }' +
-        '@media (prefers-reduced-motion: reduce) { #' + PREFIX + '-page-chat-voice[data-listening="true"] svg { animation: none; opacity: 1; } }' +
-        '#' + PREFIX + '-page-chat-input::placeholder { color: oklch(72% 0 0); opacity: 1; }' +
-        '#' + PREFIX + '-page-chat-input { caret-color: oklch(84% 0.19 80.46); }' +
-        '#' + PREFIX + '-page-chat[data-input-focused="true"]:not([data-expanded="true"]) #' + PREFIX + '-page-chat-input::placeholder { color: oklch(72% 0 0); }' +
-        '#' + PREFIX + '-page-chat-voice:hover { background: oklch(78% 0.12 82 / 0.12); }';
-      uiAppendStyle(s);
-    }
+	if (!uiGetById(PREFIX + "-page-chat-style")) {
+		const s = document.createElement("style");
+		s.id = PREFIX + "-page-chat-style";
+		s.textContent =
+			"@keyframes impeccable-steer-dot { 0%, 70%, 100% { opacity: 0.28; transform: scale(0.82); } 35% { opacity: 1; transform: scale(1); } }" +
+			"@keyframes impeccable-steer-processing { 0%, 100% { border-color: oklch(70% 0.12 188 / 0.28); box-shadow: 0 0 0 0 oklch(70% 0.12 188 / 0); } 50% { border-color: oklch(82% 0.07 188 / 0.55); box-shadow: 0 0 14px oklch(70% 0.12 188 / 0.18); } }" +
+			"@keyframes impeccable-voice-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }" +
+			"#" +
+			PREFIX +
+			'-page-chat[data-processing="true"] { animation: impeccable-steer-processing 1.6s ease-in-out infinite; }' +
+			"@media (prefers-reduced-motion: reduce) { #" +
+			PREFIX +
+			'-page-chat[data-processing="true"] { animation: none; border-color: oklch(70% 0.12 188 / 0.45); } #' +
+			PREFIX +
+			'-page-chat[data-processing="true"] [aria-hidden="true"] span { animation: none; opacity: 0.85; } }' +
+			"#" +
+			PREFIX +
+			'-page-chat[data-voice-listening="true"] { border-color: oklch(70% 0.12 188 / 0.45); }' +
+			"#" +
+			PREFIX +
+			'-page-chat-voice[data-listening="true"] svg { animation: impeccable-voice-pulse 1.1s ease-in-out infinite; }' +
+			"@media (prefers-reduced-motion: reduce) { #" +
+			PREFIX +
+			'-page-chat-voice[data-listening="true"] svg { animation: none; opacity: 1; } }' +
+			"#" +
+			PREFIX +
+			"-page-chat-input::placeholder { color: oklch(72% 0 0); opacity: 1; }" +
+			"#" +
+			PREFIX +
+			"-page-chat-input { caret-color: oklch(84% 0.19 80.46); }" +
+			"#" +
+			PREFIX +
+			'-page-chat[data-input-focused="true"]:not([data-expanded="true"]) #' +
+			PREFIX +
+			"-page-chat-input::placeholder { color: oklch(72% 0 0); }" +
+			"#" +
+			PREFIX +
+			"-page-chat-voice:hover { background: oklch(78% 0.12 82 / 0.12); }";
+		uiAppendStyle(s);
+	}
 
-    pageChatEl.addEventListener('pointerdown', (e) => {
-      keepSteerPointerInside(e);
-      if (steerLocked || pageChatVoiceBtn.contains(e.target)) return;
-      armPageChatForTyping({ expand: true, focus: false });
-    });
-    pageChatEl.addEventListener('mousedown', keepSteerPointerInside);
-    pageChatEl.addEventListener('click', (e) => {
-      keepSteerPointerInside(e);
-      if (steerLocked) return;
-      if (pageChatVoiceBtn.contains(e.target)) return;
-      armPageChatForTyping({ expand: true, focus: true });
-    });
+	pageChatEl.addEventListener("pointerdown", (e) => {
+		keepSteerPointerInside(e);
+		if (steerLocked || pageChatVoiceBtn.contains(e.target)) return;
+		armPageChatForTyping({ expand: true, focus: false });
+	});
+	pageChatEl.addEventListener("mousedown", keepSteerPointerInside);
+	pageChatEl.addEventListener("click", (e) => {
+		keepSteerPointerInside(e);
+		if (steerLocked) return;
+		if (pageChatVoiceBtn.contains(e.target)) return;
+		armPageChatForTyping({ expand: true, focus: true });
+	});
 
-    pageChatVoiceBtn.addEventListener('pointerdown', keepSteerPointerInside);
-    pageChatVoiceBtn.addEventListener('mousedown', keepSteerPointerInside);
-    pageChatVoiceBtn.addEventListener('click', (e) => {
-      keepSteerPointerInside(e);
-      if (steerLocked) return;
-      toggleSteerVoice();
-    });
+	pageChatVoiceBtn.addEventListener("pointerdown", keepSteerPointerInside);
+	pageChatVoiceBtn.addEventListener("mousedown", keepSteerPointerInside);
+	pageChatVoiceBtn.addEventListener("click", (e) => {
+		keepSteerPointerInside(e);
+		if (steerLocked) return;
+		toggleSteerVoice();
+	});
 
-    pageChatInput.addEventListener('pointerdown', keepSteerPointerInside);
-    pageChatInput.addEventListener('mousedown', keepSteerPointerInside);
-    pageChatInput.addEventListener('click', (e) => {
-      keepSteerPointerInside(e);
-      if (!steerLocked) focusPageChatInput('page-chat-input-click');
-    });
+	pageChatInput.addEventListener("pointerdown", keepSteerPointerInside);
+	pageChatInput.addEventListener("mousedown", keepSteerPointerInside);
+	pageChatInput.addEventListener("click", (e) => {
+		keepSteerPointerInside(e);
+		if (!steerLocked) focusPageChatInput("page-chat-input-click");
+	});
 
-    pageChatInput.addEventListener('input', () => {
-      syncPageChatVisual();
-    });
+	pageChatInput.addEventListener("input", () => {
+		syncPageChatVisual();
+	});
 
-    pageChatInput.addEventListener('focus', () => {
-      steerInputWasFocused = true;
-      syncPageChatFocusRing();
-      syncPageChatChrome();
-    });
+	pageChatInput.addEventListener("focus", () => {
+		steerInputWasFocused = true;
+		syncPageChatFocusRing();
+		syncPageChatChrome();
+	});
 
-    pageChatInput.addEventListener('blur', () => {
-      syncPageChatFocusRing();
-      setTimeout(() => {
-        if (state === 'CONFIGURING' || steerLocked || voiceListening) return;
-        if (pageChatEl?.contains(activeElementDeep())) return;
-        if (!pageChatInput.value.trim()) collapsePageChat();
-        scheduleSteerFocusRecover('steer-blur-recover');
-      }, 120);
-    });
+	pageChatInput.addEventListener("blur", () => {
+		syncPageChatFocusRing();
+		setTimeout(() => {
+			if (state === "CONFIGURING" || steerLocked || voiceListening) return;
+			if (pageChatEl?.contains(activeElementDeep())) return;
+			if (!pageChatInput.value.trim()) collapsePageChat();
+			scheduleSteerFocusRecover("steer-blur-recover");
+		}, 120);
+	});
 
-    pageChatInput.addEventListener('keydown', (e) => {
-      if ((e.key === 'ArrowUp' || e.key === 'ArrowDown') && !pageChatInput.value) return;
-      e.stopPropagation();
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        if (pageChatInput.value) {
-          pageChatInput.value = '';
-          syncPageChatVisual();
-        } else {
-          collapsePageChat();
-        }
-        return;
-      }
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        submitSteerMessage();
-      }
-    });
+	pageChatInput.addEventListener("keydown", (e) => {
+		if ((e.key === "ArrowUp" || e.key === "ArrowDown") && !pageChatInput.value)
+			return;
+		e.stopPropagation();
+		if (e.key === "Escape") {
+			e.preventDefault();
+			if (pageChatInput.value) {
+				pageChatInput.value = "";
+				syncPageChatVisual();
+			} else {
+				collapsePageChat();
+			}
+			return;
+		}
+		if (e.key === "Enter") {
+			e.preventDefault();
+			submitSteerMessage();
+		}
+	});
 
-    parent.appendChild(pageChatEl);
-    steerFocusLog('page-chat-mounted', {});
-  }
+	parent.appendChild(pageChatEl);
+	steerFocusLog("page-chat-mounted", {});
+}
 
-  // Impeccable mark - same paths as site/components/Header.astro + favicon.svg.
-  function brandMarkSvg(color = C.brand, size = 18) {
-    return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${color}" aria-hidden="true">
+// Impeccable mark - same paths as site/components/Header.astro + favicon.svg.
+function brandMarkSvg(color = C.brand, size = 18) {
+	return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${color}" aria-hidden="true">
       <path d="M5 2.5 L13.5 2.5 L5.5 21.5 L5 21.5 Q2.5 21.5 2.5 19 L2.5 5 Q2.5 2.5 5 2.5 Z"/>
       <path d="M16.5 2.5 L19 2.5 Q21.5 2.5 21.5 5 L21.5 19 Q21.5 21.5 19 21.5 L8.5 21.5 Z"/>
     </svg>`;
-  }
+}
 
-  /**
-   * True while the browser is waiting on work it already handed to the agent.
-   * In these states a quiet poll indicator means "busy", not "absent".
-   */
-  function agentHasWorkInFlight() {
-    return state === 'GENERATING' || state === 'SAVING';
-  }
+/**
+ * True while the browser is waiting on work it already handed to the agent.
+ * In these states a quiet poll indicator means "busy", not "absent".
+ */
+function agentHasWorkInFlight() {
+	return state === "GENERATING" || state === "SAVING";
+}
 
-  /**
-   * Derived at read time, not cached: which of the two reasons applies depends on
-   * the live state, which moves between the 5s status polls. The truthiness is
-   * the same either way, so the indicator's visuals can stay driven by the
-   * cached value while the wording stays current.
-   */
-  function agentStatusText() {
-    if (agentPollingConnected) return null;
-    return agentHasWorkInFlight() ? AGENT_BUSY_TIP : AGENT_DISCONNECTED_TIP;
-  }
+/**
+ * Derived at read time, not cached: which of the two reasons applies depends on
+ * the live state, which moves between the 5s status polls. The truthiness is
+ * the same either way, so the indicator's visuals can stay driven by the
+ * cached value while the wording stays current.
+ */
+function agentStatusText() {
+	if (agentPollingConnected) return null;
+	return agentHasWorkInFlight() ? AGENT_BUSY_TIP : AGENT_DISCONNECTED_TIP;
+}
 
-  function syncAgentPollingUi(connected) {
-    agentPollingConnected = !!connected;
-    if (!globalBarBrandEl) return;
-    const P = barPaletteForTheme(globalBarEl?.dataset.theme || detectPageTheme());
-    agentStatusMessage = agentStatusText();
-    globalBarBrandEl.dataset.agentConnected = connected ? 'true' : 'false';
-    // The tooltip is mouse-only, so carry the same distinction in the label or
-    // screen-reader users are left with the vaguer of the two readings.
-    globalBarBrandEl.setAttribute('aria-label', agentStatusMessage
-      ? 'Impeccable live mode - ' + (agentHasWorkInFlight() ? 'agent is working' : 'agent not polling')
-      : 'Impeccable live mode');
-    globalBarBrandEl.removeAttribute('title');
-    globalBarBrandEl.style.cursor = agentStatusMessage ? 'help' : 'default';
-    const mark = globalBarBrandEl.querySelector('[data-brand-mark]');
-    if (mark) {
-      mark.innerHTML = brandMarkSvg(connected ? P.accent : AGENT_DISCONNECTED_MARK, 18);
-      mark.style.opacity = '1';
-    }
-    const dot = globalBarBrandEl.querySelector('[data-agent-dot]');
-    if (dot) dot.style.display = agentStatusMessage ? 'block' : 'none';
-    if (!agentStatusMessage) hideAgentPollTooltip();
-  }
+function syncAgentPollingUi(connected) {
+	agentPollingConnected = !!connected;
+	if (!globalBarBrandEl) return;
+	const P = barPaletteForTheme(globalBarEl?.dataset.theme || detectPageTheme());
+	agentStatusMessage = agentStatusText();
+	globalBarBrandEl.dataset.agentConnected = connected ? "true" : "false";
+	// The tooltip is mouse-only, so carry the same distinction in the label or
+	// screen-reader users are left with the vaguer of the two readings.
+	globalBarBrandEl.setAttribute(
+		"aria-label",
+		agentStatusMessage
+			? "Impeccable live mode - " +
+					(agentHasWorkInFlight() ? "agent is working" : "agent not polling")
+			: "Impeccable live mode",
+	);
+	globalBarBrandEl.removeAttribute("title");
+	globalBarBrandEl.style.cursor = agentStatusMessage ? "help" : "default";
+	const mark = globalBarBrandEl.querySelector("[data-brand-mark]");
+	if (mark) {
+		mark.innerHTML = brandMarkSvg(
+			connected ? P.accent : AGENT_DISCONNECTED_MARK,
+			18,
+		);
+		mark.style.opacity = "1";
+	}
+	const dot = globalBarBrandEl.querySelector("[data-agent-dot]");
+	if (dot) dot.style.display = agentStatusMessage ? "block" : "none";
+	if (!agentStatusMessage) hideAgentPollTooltip();
+}
 
-  function ensureAgentPollTooltip() {
-    if (agentPollTooltipEl) return agentPollTooltipEl;
-    const P = barPaletteForTheme(globalBarEl?.dataset.theme || detectPageTheme());
-    agentPollTooltipEl = el('div', {
-      position: 'fixed',
-      display: 'none',
-      opacity: '0',
-      zIndex: String(Z.bar + 6),
-      pointerEvents: 'none',
-      maxWidth: '220px',
-      padding: '6px 9px',
-      borderRadius: '7px',
-      background: P.chatSurface,
-      border: '1px solid ' + P.hairline,
-      boxShadow: P.shadow,
-      color: P.text,
-      fontFamily: FONT,
-      fontSize: '11px',
-      fontWeight: '500',
-      lineHeight: '1.35',
-      letterSpacing: '0.01em',
-      whiteSpace: 'normal',
-    });
-    agentPollTooltipEl.id = PREFIX + '-agent-poll-tooltip';
-    agentPollTooltipEl.textContent = agentStatusText() || AGENT_DISCONNECTED_TIP;
-    uiAppend(agentPollTooltipEl);
-    return agentPollTooltipEl;
-  }
+function ensureAgentPollTooltip() {
+	if (agentPollTooltipEl) return agentPollTooltipEl;
+	const P = barPaletteForTheme(globalBarEl?.dataset.theme || detectPageTheme());
+	agentPollTooltipEl = el("div", {
+		position: "fixed",
+		display: "none",
+		opacity: "0",
+		zIndex: String(Z.bar + 6),
+		pointerEvents: "none",
+		maxWidth: "220px",
+		padding: "6px 9px",
+		borderRadius: "7px",
+		background: P.chatSurface,
+		border: "1px solid " + P.hairline,
+		boxShadow: P.shadow,
+		color: P.text,
+		fontFamily: FONT,
+		fontSize: "11px",
+		fontWeight: "500",
+		lineHeight: "1.35",
+		letterSpacing: "0.01em",
+		whiteSpace: "normal",
+	});
+	agentPollTooltipEl.id = PREFIX + "-agent-poll-tooltip";
+	agentPollTooltipEl.textContent = agentStatusText() || AGENT_DISCONNECTED_TIP;
+	uiAppend(agentPollTooltipEl);
+	return agentPollTooltipEl;
+}
 
-  function showAgentPollTooltip(anchor) {
-    if (!agentStatusMessage || !anchor) return;
-    const tip = ensureAgentPollTooltip();
-    // Re-derive rather than reuse the cached copy: the live state may have moved
-    // since the last status poll set it.
-    tip.textContent = agentStatusText() || AGENT_DISCONNECTED_TIP;
-    tip.style.transition = 'none';
-    tip.style.display = 'block';
-    tip.style.opacity = '1';
-    const r = anchor.getBoundingClientRect();
-    const tipW = tip.offsetWidth;
-    const tipH = tip.offsetHeight;
-    const left = Math.max(8, Math.min(window.innerWidth - tipW - 8, r.left + r.width / 2 - tipW / 2));
-    const top = Math.max(8, r.top - tipH - 8);
-    tip.style.left = left + 'px';
-    tip.style.top = top + 'px';
-  }
+function showAgentPollTooltip(anchor) {
+	if (!agentStatusMessage || !anchor) return;
+	const tip = ensureAgentPollTooltip();
+	// Re-derive rather than reuse the cached copy: the live state may have moved
+	// since the last status poll set it.
+	tip.textContent = agentStatusText() || AGENT_DISCONNECTED_TIP;
+	tip.style.transition = "none";
+	tip.style.display = "block";
+	tip.style.opacity = "1";
+	const r = anchor.getBoundingClientRect();
+	const tipW = tip.offsetWidth;
+	const tipH = tip.offsetHeight;
+	const left = Math.max(
+		8,
+		Math.min(window.innerWidth - tipW - 8, r.left + r.width / 2 - tipW / 2),
+	);
+	const top = Math.max(8, r.top - tipH - 8);
+	tip.style.left = left + "px";
+	tip.style.top = top + "px";
+}
 
-  function hideAgentPollTooltip() {
-    if (!agentPollTooltipEl) return;
-    agentPollTooltipEl.style.display = 'none';
-    agentPollTooltipEl.style.opacity = '0';
-  }
+function hideAgentPollTooltip() {
+	if (!agentPollTooltipEl) return;
+	agentPollTooltipEl.style.display = "none";
+	agentPollTooltipEl.style.opacity = "0";
+}
 
-  function stopAgentStatusPoll() {
-    if (agentStatusPollTimer) {
-      clearInterval(agentStatusPollTimer);
-      agentStatusPollTimer = null;
-    }
-  }
+function stopAgentStatusPoll() {
+	if (agentStatusPollTimer) {
+		clearInterval(agentStatusPollTimer);
+		agentStatusPollTimer = null;
+	}
+}
 
-  function fetchAgentPollingStatus() {
-    fetch('http://localhost:' + PORT + '/status?token=' + TOKEN, { cache: 'no-store' })
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data && typeof data.agentPolling === 'boolean') {
-          syncAgentPollingUi(data.agentPolling);
-        }
-      })
-      .catch(() => { /* server loss handled elsewhere */ });
-  }
+function fetchAgentPollingStatus() {
+	fetch("http://localhost:" + PORT + "/status?token=" + TOKEN, {
+		cache: "no-store",
+	})
+		.then((res) => (res.ok ? res.json() : null))
+		.then((data) => {
+			if (data && typeof data.agentPolling === "boolean") {
+				syncAgentPollingUi(data.agentPolling);
+			}
+		})
+		.catch(() => {
+			/* server loss handled elsewhere */
+		});
+}
 
-  function startAgentStatusPoll() {
-    stopAgentStatusPoll();
-    fetchAgentPollingStatus();
-    agentStatusPollTimer = setInterval(fetchAgentPollingStatus, AGENT_STATUS_POLL_MS);
-  }
+function startAgentStatusPoll() {
+	stopAgentStatusPoll();
+	fetchAgentPollingStatus();
+	agentStatusPollTimer = setInterval(
+		fetchAgentPollingStatus,
+		AGENT_STATUS_POLL_MS,
+	);
+}
 
-  function initGlobalBar() {
-    const theme = detectPageTheme();
-    const P = barPaletteForTheme(theme);
+function initGlobalBar() {
+	const theme = detectPageTheme();
+	const P = barPaletteForTheme(theme);
 
-    // Custom focus-visible for bar buttons. Browser default is a heavy
-    // blue ring that looks jarring on the dark capsule. Replace with a
-    // soft accent-tinted inner ring that respects the bar's palette.
-    if (!uiGetById(PREFIX + '-bar-focus-style')) {
-      const s = document.createElement('style');
-      s.id = PREFIX + '-bar-focus-style';
-      s.textContent =
-        '#' + PREFIX + '-global-bar button:focus { outline: none; }' +
-        '#' + PREFIX + '-global-bar button:focus-visible {' +
-        '  outline: none;' +
-        '  box-shadow: 0 0 0 2px ' + P.accentSoft + ', 0 0 0 3px ' + P.accent + ';' +
-        '}' +
-        '@keyframes impeccable-agent-dot { 0%, 100% { opacity: 0.45; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1); } }' +
-        '#' + PREFIX + '-global-bar-brand[data-agent-connected="false"] [data-agent-dot] { animation: impeccable-agent-dot 1.4s ease-in-out infinite; }' +
-        '@media (prefers-reduced-motion: reduce) { #' + PREFIX + '-global-bar-brand[data-agent-connected="false"] [data-agent-dot] { animation: none; opacity: 0.9; } }';
-      uiAppendStyle(s);
-    }
+	// Custom focus-visible for bar buttons. Browser default is a heavy
+	// blue ring that looks jarring on the dark capsule. Replace with a
+	// soft accent-tinted inner ring that respects the bar's palette.
+	if (!uiGetById(PREFIX + "-bar-focus-style")) {
+		const s = document.createElement("style");
+		s.id = PREFIX + "-bar-focus-style";
+		s.textContent =
+			"#" +
+			PREFIX +
+			"-global-bar button:focus { outline: none; }" +
+			"#" +
+			PREFIX +
+			"-global-bar button:focus-visible {" +
+			"  outline: none;" +
+			"  box-shadow: 0 0 0 2px " +
+			P.accentSoft +
+			", 0 0 0 3px " +
+			P.accent +
+			";" +
+			"}" +
+			"@keyframes impeccable-agent-dot { 0%, 100% { opacity: 0.45; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1); } }" +
+			"#" +
+			PREFIX +
+			'-global-bar-brand[data-agent-connected="false"] [data-agent-dot] { animation: impeccable-agent-dot 1.4s ease-in-out infinite; }' +
+			"@media (prefers-reduced-motion: reduce) { #" +
+			PREFIX +
+			'-global-bar-brand[data-agent-connected="false"] [data-agent-dot] { animation: none; opacity: 0.9; } }';
+		uiAppendStyle(s);
+	}
 
-    globalBarEl = el('div', {
-      position: 'fixed', bottom: '14px', left: '50%',
-      transform: 'translateX(-50%) translateY(20px)',
-      zIndex: Z.bar + 5,
-      display: 'flex', alignItems: 'stretch',
-      gap: '0',
-      width: 'max-content',
-      background: P.surface,
-      border: '1px solid ' + P.border,
-      borderRadius: '8px',
-      boxShadow: P.shadow,
-      fontFamily: FONT, fontSize: '12px', lineHeight: '1',
-      opacity: '0',
-      overflow: 'hidden',          // clip the full-bleed brand mark to the bar radius
-      maxWidth: 'calc(100vw - 16px)',
-      boxSizing: 'border-box',
-      transition: 'opacity 0.3s ' + EASE + ', transform 0.3s ' + EASE,
-    });
-    globalBarEl.id = PREFIX + '-global-bar';
-    globalBarEl.dataset.theme = theme;
+	globalBarEl = el("div", {
+		position: "fixed",
+		bottom: "14px",
+		left: "50%",
+		transform: "translateX(-50%) translateY(20px)",
+		zIndex: Z.bar + 5,
+		display: "flex",
+		alignItems: "stretch",
+		gap: "0",
+		width: "max-content",
+		background: P.surface,
+		border: "1px solid " + P.border,
+		borderRadius: "8px",
+		boxShadow: P.shadow,
+		fontFamily: FONT,
+		fontSize: "12px",
+		lineHeight: "1",
+		opacity: "0",
+		overflow: "hidden", // clip the full-bleed brand mark to the bar radius
+		maxWidth: "calc(100vw - 16px)",
+		boxSizing: "border-box",
+		transition: "opacity 0.3s " + EASE + ", transform 0.3s " + EASE,
+	});
+	globalBarEl.id = PREFIX + "-global-bar";
+	globalBarEl.dataset.theme = theme;
 
-    // Brand mark - kinpaku Impeccable icon (site header / favicon paths).
-    const brand = el('span', {
-      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-      alignSelf: 'stretch', position: 'relative',
-      padding: '0 ' + (GLOBAL_BAR_SECTION_GAP - GLOBAL_BAR_INNER_PAD_LEFT) + 'px 0 14px',
-      background: 'transparent',
-      color: P.accent,
-      flexShrink: '0',
-    });
-    brand.id = PREFIX + '-global-bar-brand';
-    brand.dataset.agentConnected = 'false';
-    brand.setAttribute('role', 'img');
-    brand.setAttribute('aria-label', 'Impeccable live mode - agent not polling');
+	// Brand mark - kinpaku Impeccable icon (site header / favicon paths).
+	const brand = el("span", {
+		display: "inline-flex",
+		alignItems: "center",
+		justifyContent: "center",
+		alignSelf: "stretch",
+		position: "relative",
+		padding:
+			"0 " + (GLOBAL_BAR_SECTION_GAP - GLOBAL_BAR_INNER_PAD_LEFT) + "px 0 14px",
+		background: "transparent",
+		color: P.accent,
+		flexShrink: "0",
+	});
+	brand.id = PREFIX + "-global-bar-brand";
+	brand.dataset.agentConnected = "false";
+	brand.setAttribute("role", "img");
+	brand.setAttribute("aria-label", "Impeccable live mode - agent not polling");
 
-    const brandMark = el('span', {
-      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-      position: 'relative',
-    });
-    brandMark.dataset.brandMark = 'true';
-    brandMark.innerHTML = brandMarkSvg(P.accent, 18);
+	const brandMark = el("span", {
+		display: "inline-flex",
+		alignItems: "center",
+		justifyContent: "center",
+		position: "relative",
+	});
+	brandMark.dataset.brandMark = "true";
+	brandMark.innerHTML = brandMarkSvg(P.accent, 18);
 
-    const agentDot = el('span', {
-      position: 'absolute', right: '-1px', bottom: '7px',
-      width: '6px', height: '6px', borderRadius: '50%',
-      background: 'oklch(77% 0.13 82)',
-      boxShadow: '0 0 0 2px ' + P.surface,
-      display: 'none', pointerEvents: 'none',
-    });
-    agentDot.dataset.agentDot = 'true';
-    agentDot.setAttribute('aria-hidden', 'true');
+	const agentDot = el("span", {
+		position: "absolute",
+		right: "-1px",
+		bottom: "7px",
+		width: "6px",
+		height: "6px",
+		borderRadius: "50%",
+		background: "oklch(77% 0.13 82)",
+		boxShadow: "0 0 0 2px " + P.surface,
+		display: "none",
+		pointerEvents: "none",
+	});
+	agentDot.dataset.agentDot = "true";
+	agentDot.setAttribute("aria-hidden", "true");
 
-    brandMark.appendChild(agentDot);
-    brand.appendChild(brandMark);
-    brand.addEventListener('mouseenter', () => showAgentPollTooltip(brand));
-    brand.addEventListener('mouseleave', hideAgentPollTooltip);
-    globalBarBrandEl = brand;
-    globalBarEl.appendChild(brand);
-    syncAgentPollingUi(false);
+	brandMark.appendChild(agentDot);
+	brand.appendChild(brandMark);
+	brand.addEventListener("mouseenter", () => showAgentPollTooltip(brand));
+	brand.addEventListener("mouseleave", hideAgentPollTooltip);
+	globalBarBrandEl = brand;
+	globalBarEl.appendChild(brand);
+	syncAgentPollingUi(false);
 
-    // Inner wrapper: holds the toggles with normal bar padding.
-    const inner = el('div', {
-      display: 'flex', alignItems: 'center',
-      padding: '4px 5px 4px ' + GLOBAL_BAR_INNER_PAD_LEFT + 'px', gap: GLOBAL_BAR_INNER_GAP + 'px',
-      flex: '0 0 auto',
-    });
-    inner.id = PREFIX + '-global-bar-inner';
-    globalBarEl.appendChild(inner);
+	// Inner wrapper: holds the toggles with normal bar padding.
+	const inner = el("div", {
+		display: "flex",
+		alignItems: "center",
+		padding: "4px 5px 4px " + GLOBAL_BAR_INNER_PAD_LEFT + "px",
+		gap: GLOBAL_BAR_INNER_GAP + "px",
+		flex: "0 0 auto",
+	});
+	inner.id = PREFIX + "-global-bar-inner";
+	globalBarEl.appendChild(inner);
 
-    // Button factory: icon-only at rest, label slides in on hover/active.
-    function makeIconBtn({ id, svg, label, ariaLabel, labelFont, onClick }) {
-      const b = el('button', {
-        position: 'relative',
-        display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-        boxSizing: 'border-box',
-        flex: '0 0 auto',
-        minWidth: '30px',
-        padding: '6px 8px', borderRadius: '7px',
-        border: 'none', background: 'transparent',
-        color: P.textDim, fontFamily: FONT, fontSize: '11.5px', fontWeight: '500',
-        cursor: 'pointer',
-        transition: 'background 0.15s ease, color 0.15s ease',
-        whiteSpace: 'nowrap', overflow: 'hidden',
-      });
-      b.id = id;
-      b.title = ariaLabel || label || '';
-      b.setAttribute('aria-label', ariaLabel || label || '');
-      b.innerHTML = svg + (label
-        ? `<span class="icon-btn-label" style="display:inline-block;max-width:0;opacity:0;margin-left:0;overflow:hidden;font-family:${labelFont || FONT};transform:translateX(-4px);transition:opacity 0.2s ease, transform 0.25s ${EASE};">${label}</span>`
-        : '');
-      const labelEl = b.querySelector('.icon-btn-label');
-      const expand = () => {
-        if (!labelEl) return;
-        labelEl.style.maxWidth = '120px'; labelEl.style.opacity = '1'; labelEl.style.marginLeft = '6px'; labelEl.style.transform = 'translateX(0)';
-      };
-      const collapse = (force = false) => {
-        if (!labelEl || (!force && b.dataset.active === 'true')) return;
-        labelEl.style.maxWidth = '0'; labelEl.style.opacity = '0'; labelEl.style.marginLeft = '0'; labelEl.style.transform = 'translateX(-4px)';
-      };
-      // Per-button hover only changes color (no layout). The label expand/
-      // collapse is driven by the bar-level mouseenter/mouseleave so moving
-      // the mouse between adjacent buttons doesn't trigger per-button width
-      // thrashing - the whole bar grows once and shrinks once.
-      b.addEventListener('mouseenter', () => { if (b.dataset.active !== 'true') b.style.color = P.text; });
-      b.addEventListener('mouseleave', () => { if (b.dataset.active !== 'true') b.style.color = P.textDim; });
-      b.addEventListener('click', onClick);
-      b._expandLabel = expand;
-      b._collapseLabel = collapse;
-      return b;
-    }
+	// Button factory: icon-only at rest, label slides in on hover/active.
+	function makeIconBtn({ id, svg, label, ariaLabel, labelFont, onClick }) {
+		const b = el("button", {
+			position: "relative",
+			display: "inline-flex",
+			alignItems: "center",
+			justifyContent: "center",
+			boxSizing: "border-box",
+			flex: "0 0 auto",
+			minWidth: "30px",
+			padding: "6px 8px",
+			borderRadius: "7px",
+			border: "none",
+			background: "transparent",
+			color: P.textDim,
+			fontFamily: FONT,
+			fontSize: "11.5px",
+			fontWeight: "500",
+			cursor: "pointer",
+			transition: "background 0.15s ease, color 0.15s ease",
+			whiteSpace: "nowrap",
+			overflow: "hidden",
+		});
+		b.id = id;
+		b.title = ariaLabel || label || "";
+		b.setAttribute("aria-label", ariaLabel || label || "");
+		b.innerHTML =
+			svg +
+			(label
+				? `<span class="icon-btn-label" style="display:inline-block;max-width:0;opacity:0;margin-left:0;overflow:hidden;font-family:${labelFont || FONT};transform:translateX(-4px);transition:opacity 0.2s ease, transform 0.25s ${EASE};">${label}</span>`
+				: "");
+		const labelEl = b.querySelector(".icon-btn-label");
+		const expand = () => {
+			if (!labelEl) return;
+			labelEl.style.maxWidth = "120px";
+			labelEl.style.opacity = "1";
+			labelEl.style.marginLeft = "6px";
+			labelEl.style.transform = "translateX(0)";
+		};
+		const collapse = (force = false) => {
+			if (!labelEl || (!force && b.dataset.active === "true")) return;
+			labelEl.style.maxWidth = "0";
+			labelEl.style.opacity = "0";
+			labelEl.style.marginLeft = "0";
+			labelEl.style.transform = "translateX(-4px)";
+		};
+		// Per-button hover only changes color (no layout). The label expand/
+		// collapse is driven by the bar-level mouseenter/mouseleave so moving
+		// the mouse between adjacent buttons doesn't trigger per-button width
+		// thrashing - the whole bar grows once and shrinks once.
+		b.addEventListener("mouseenter", () => {
+			if (b.dataset.active !== "true") b.style.color = P.text;
+		});
+		b.addEventListener("mouseleave", () => {
+			if (b.dataset.active !== "true") b.style.color = P.textDim;
+		});
+		b.addEventListener("click", onClick);
+		b._expandLabel = expand;
+		b._collapseLabel = collapse;
+		return b;
+	}
 
-    // Pick toggle - restored from localStorage; both pick and insert may be off.
-    const pickBtn = makeIconBtn({
-      id: PREFIX + '-pick-toggle',
-      svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>',
-      label: 'Pick',
-      ariaLabel: 'Pick element',
-      onClick: () => togglePick(),
-    });
-    inner.appendChild(pickBtn);
+	// Pick toggle - restored from localStorage; both pick and insert may be off.
+	const pickBtn = makeIconBtn({
+		id: PREFIX + "-pick-toggle",
+		svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>',
+		label: "Pick",
+		ariaLabel: "Pick element",
+		onClick: () => togglePick(),
+	});
+	inner.appendChild(pickBtn);
 
-    const insertBtn = makeIconBtn({
-      id: PREFIX + '-insert-toggle',
-      svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 5v14"/><path d="M5 12h14"/></svg>',
-      label: 'Insert',
-      ariaLabel: 'Insert new element',
-      onClick: () => toggleInsert(),
-    });
-    inner.appendChild(insertBtn);
+	const insertBtn = makeIconBtn({
+		id: PREFIX + "-insert-toggle",
+		svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 5v14"/><path d="M5 12h14"/></svg>',
+		label: "Insert",
+		ariaLabel: "Insert new element",
+		onClick: () => toggleInsert(),
+	});
+	inner.appendChild(insertBtn);
 
-    // Detect toggle
-    const detectBtn = makeIconBtn({
-      id: PREFIX + '-detect-toggle',
-      svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
-      label: 'Detect',
-      ariaLabel: 'Detect anti-patterns',
-      onClick: () => toggleDetect(),
-    });
-    const detectBadge = el('span', {
-      fontSize: '10px', fontWeight: '600',
-      padding: '0px 5px', borderRadius: '7px', lineHeight: '16px',
-      background: P.accent, color: C.ink,
-      display: 'none', fontFamily: MONO, marginLeft: '4px',
-    });
-    detectBadge.id = PREFIX + '-detect-badge';
-    detectBtn.appendChild(detectBadge);
-    inner.appendChild(detectBtn);
+	// Detect toggle
+	const detectBtn = makeIconBtn({
+		id: PREFIX + "-detect-toggle",
+		svg: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>',
+		label: "Detect",
+		ariaLabel: "Detect anti-patterns",
+		onClick: () => toggleDetect(),
+	});
+	const detectBadge = el("span", {
+		fontSize: "10px",
+		fontWeight: "600",
+		padding: "0px 5px",
+		borderRadius: "7px",
+		lineHeight: "16px",
+		background: P.accent,
+		color: C.ink,
+		display: "none",
+		fontFamily: MONO,
+		marginLeft: "4px",
+	});
+	detectBadge.id = PREFIX + "-detect-badge";
+	detectBtn.appendChild(detectBadge);
+	inner.appendChild(detectBtn);
 
-    // DESIGN.md panel toggle - quartet of color squares as the mark.
-    const designBtn = makeIconBtn({
-      id: PREFIX + '-design-toggle',
-      svg: `<span style="display:inline-grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;width:14px;height:14px;border-radius:3px;overflow:hidden;box-shadow:inset 0 0 0 1px oklch(92% 0 0 / 0.13);flex-shrink:0">
+	// DESIGN.md panel toggle - quartet of color squares as the mark.
+	const designBtn = makeIconBtn({
+		id: PREFIX + "-design-toggle",
+		svg: `<span style="display:inline-grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;width:14px;height:14px;border-radius:3px;overflow:hidden;box-shadow:inset 0 0 0 1px oklch(92% 0 0 / 0.13);flex-shrink:0">
         <span style="background:oklch(84% 0.19 80.46)"></span>
         <span style="background:oklch(70% 0.12 188)"></span>
         <span style="background:oklch(91% 0 0)"></span>
         <span style="background:oklch(34% 0 0)"></span>
       </span>`,
-      label: 'DESIGN.md',
-      ariaLabel: 'Toggle DESIGN.md panel',
-      labelFont: MONO,
-      onClick: () => toggleDesignPanel(),
-    });
-    inner.appendChild(designBtn);
+		label: "DESIGN.md",
+		ariaLabel: "Toggle DESIGN.md panel",
+		labelFont: MONO,
+		onClick: () => toggleDesignPanel(),
+	});
+	inner.appendChild(designBtn);
 
-    initPageChat(inner, P);
+	initPageChat(inner, P);
 
-    // Pending manual edits live outside the bar so applying staged copy edits
-    // reads as a distinct next step instead of another chrome toggle.
-    pendingDockEl = el('div', {
-      position: 'fixed',
-      left: '0',
-      bottom: '0',
-      transform: 'translate(-100%, 50%)',
-      zIndex: String(Z.bar + 6),
-      display: 'none',
-      alignItems: 'center',
-      gap: '6px',
-      fontFamily: FONT,
-      pointerEvents: 'auto',
-    });
-    pendingDockEl.id = PREFIX + '-pending-dock';
+	// Pending manual edits live outside the bar so applying staged copy edits
+	// reads as a distinct next step instead of another chrome toggle.
+	pendingDockEl = el("div", {
+		position: "fixed",
+		left: "0",
+		bottom: "0",
+		transform: "translate(-100%, 50%)",
+		zIndex: String(Z.bar + 6),
+		display: "none",
+		alignItems: "center",
+		gap: "6px",
+		fontFamily: FONT,
+		pointerEvents: "auto",
+	});
+	pendingDockEl.id = PREFIX + "-pending-dock";
 
-    pendingPillEl = el('button', {
-      display: 'none',
-      alignItems: 'center',
-      gap: '8px',
-      fontFamily: FONT,
-      fontSize: '12px',
-      fontWeight: '600',
-      letterSpacing: '0',
-      color: C.ink,
-      background: P.accent,
-      padding: '7px 12px 7px 14px',
-      border: 'none',
-      borderRadius: '999px',
-      whiteSpace: 'nowrap',
-      cursor: 'pointer',
-      boxShadow: '0 4px 16px oklch(0% 0 0 / 0.16), 0 1px 3px oklch(0% 0 0 / 0.1)',
-      transition: 'filter 0.12s ease, transform 0.1s ease, box-shadow 0.18s ease',
-    });
-    pendingPillEl.title = 'Apply copy edits to source';
-    pendingPillSpinnerEl = el('span', {
-      display: 'none',
-      width: '12px',
-      height: '12px',
-      borderRadius: '50%',
-      border: '2px solid currentColor',
-      borderTopColor: 'transparent',
-      color: C.ink,
-      opacity: '0.9',
-      animation: 'impeccable-spin 0.6s linear infinite',
-      flex: '0 0 auto',
-      boxSizing: 'border-box',
-    });
-    pendingPillLabelEl = el('span', { lineHeight: '1', whiteSpace: 'nowrap' });
-    pendingPillLabelEl.textContent = 'Apply copy edits';
-    pendingPillCountEl = el('span', {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minWidth: '17px',
-      height: '17px',
-      padding: '0 5px',
-      borderRadius: '999px',
-      background: 'oklch(4% 0.004 95 / 0.18)',
-      color: C.ink,
-      fontFamily: MONO,
-      fontSize: '10px',
-      fontWeight: '700',
-      lineHeight: '1',
-    });
-    ensureSpinKeyframes();
-    pendingPillEl.appendChild(pendingPillSpinnerEl);
-    pendingPillEl.appendChild(pendingPillLabelEl);
-    pendingPillEl.appendChild(pendingPillCountEl);
-    pendingPillEl.addEventListener('mouseenter', () => {
-      if (pendingApplyInFlight) return;
-      pendingPillEl.style.filter = 'brightness(1.1)';
-      pendingPillEl.style.boxShadow = '0 7px 22px oklch(0% 0 0 / 0.18), 0 2px 5px oklch(0% 0 0 / 0.12)';
-    });
-    pendingPillEl.addEventListener('mouseleave', () => {
-      if (pendingApplyInFlight) return;
-      pendingPillEl.style.filter = 'none';
-      pendingPillEl.style.transform = 'scale(1)';
-      pendingPillEl.style.boxShadow = '0 4px 16px oklch(0% 0 0 / 0.16), 0 1px 3px oklch(0% 0 0 / 0.1)';
-    });
-    pendingPillEl.addEventListener('mousedown', () => { if (!pendingApplyInFlight) pendingPillEl.style.transform = 'scale(0.97)'; });
-    pendingPillEl.addEventListener('mouseup', () => { pendingPillEl.style.transform = 'scale(1)'; });
-    pendingPillEl.addEventListener('click', onPendingPillClick);
+	pendingPillEl = el("button", {
+		display: "none",
+		alignItems: "center",
+		gap: "8px",
+		fontFamily: FONT,
+		fontSize: "12px",
+		fontWeight: "600",
+		letterSpacing: "0",
+		color: C.ink,
+		background: P.accent,
+		padding: "7px 12px 7px 14px",
+		border: "none",
+		borderRadius: "999px",
+		whiteSpace: "nowrap",
+		cursor: "pointer",
+		boxShadow: "0 4px 16px oklch(0% 0 0 / 0.16), 0 1px 3px oklch(0% 0 0 / 0.1)",
+		transition: "filter 0.12s ease, transform 0.1s ease, box-shadow 0.18s ease",
+	});
+	pendingPillEl.title = "Apply copy edits to source";
+	pendingPillSpinnerEl = el("span", {
+		display: "none",
+		width: "12px",
+		height: "12px",
+		borderRadius: "50%",
+		border: "2px solid currentColor",
+		borderTopColor: "transparent",
+		color: C.ink,
+		opacity: "0.9",
+		animation: "impeccable-spin 0.6s linear infinite",
+		flex: "0 0 auto",
+		boxSizing: "border-box",
+	});
+	pendingPillLabelEl = el("span", { lineHeight: "1", whiteSpace: "nowrap" });
+	pendingPillLabelEl.textContent = "Apply copy edits";
+	pendingPillCountEl = el("span", {
+		display: "inline-flex",
+		alignItems: "center",
+		justifyContent: "center",
+		minWidth: "17px",
+		height: "17px",
+		padding: "0 5px",
+		borderRadius: "999px",
+		background: "oklch(4% 0.004 95 / 0.18)",
+		color: C.ink,
+		fontFamily: MONO,
+		fontSize: "10px",
+		fontWeight: "700",
+		lineHeight: "1",
+	});
+	ensureSpinKeyframes();
+	pendingPillEl.appendChild(pendingPillSpinnerEl);
+	pendingPillEl.appendChild(pendingPillLabelEl);
+	pendingPillEl.appendChild(pendingPillCountEl);
+	pendingPillEl.addEventListener("mouseenter", () => {
+		if (pendingApplyInFlight) return;
+		pendingPillEl.style.filter = "brightness(1.1)";
+		pendingPillEl.style.boxShadow =
+			"0 7px 22px oklch(0% 0 0 / 0.18), 0 2px 5px oklch(0% 0 0 / 0.12)";
+	});
+	pendingPillEl.addEventListener("mouseleave", () => {
+		if (pendingApplyInFlight) return;
+		pendingPillEl.style.filter = "none";
+		pendingPillEl.style.transform = "scale(1)";
+		pendingPillEl.style.boxShadow =
+			"0 4px 16px oklch(0% 0 0 / 0.16), 0 1px 3px oklch(0% 0 0 / 0.1)";
+	});
+	pendingPillEl.addEventListener("mousedown", () => {
+		if (!pendingApplyInFlight) pendingPillEl.style.transform = "scale(0.97)";
+	});
+	pendingPillEl.addEventListener("mouseup", () => {
+		pendingPillEl.style.transform = "scale(1)";
+	});
+	pendingPillEl.addEventListener("click", onPendingPillClick);
 
-    pendingTrashBtn = el('button', {
-      position: 'relative',
-      display: 'none',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '0', boxSizing: 'border-box',
-      width: '30px', height: '30px', borderRadius: '999px',
-      border: '1px solid ' + P.hairline,
-      background: P.chatSurface,
-      color: P.textDim,
-      overflow: 'visible',
-      boxShadow: '0 4px 16px oklch(0% 0 0 / 0.12), 0 1px 3px oklch(0% 0 0 / 0.08)',
-      cursor: 'pointer',
-      transition: 'color 0.12s ease, background 0.12s ease, box-shadow 0.18s ease',
-    });
-    pendingTrashBtn.innerHTML = '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M3 4h8"/><path d="M5 4V3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1"/><path d="M4 4l.5 7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1L10 4"/></svg>';
-    const pendingTrashTooltipEl = el('span', {
-      position: 'absolute',
-      bottom: 'calc(100% + 8px)',
-      left: '50%',
-      transform: 'translateX(-50%) translateY(4px)',
-      opacity: '0',
-      pointerEvents: 'none',
-      padding: '8px 16px',
-      borderRadius: '8px',
-      background: C.ink,
-      color: C.white,
-      fontFamily: FONT,
-      fontSize: '12px',
-      fontWeight: '400',
-      lineHeight: '1',
-      whiteSpace: 'nowrap',
-      textAlign: 'center',
-      transition: 'opacity 0.16s ease, transform 0.18s ' + EASE,
-    });
-    pendingTrashTooltipEl.textContent = 'Discard copy edits';
-    pendingTrashTooltipEl.setAttribute('role', 'tooltip');
-    pendingTrashBtn.appendChild(pendingTrashTooltipEl);
-    pendingTrashBtn.setAttribute('aria-label', 'Discard copy edits on this page');
-    const showTrashTooltip = () => {
-      pendingTrashBtn.style.color = P.accent;
-      pendingTrashBtn.style.boxShadow = '0 7px 22px oklch(0% 0 0 / 0.16), 0 2px 5px oklch(0% 0 0 / 0.1)';
-      pendingTrashTooltipEl.style.opacity = '1';
-      pendingTrashTooltipEl.style.transform = 'translateX(-50%) translateY(0)';
-    };
-    const hideTrashTooltip = () => {
-      pendingTrashBtn.style.color = P.textDim;
-      pendingTrashBtn.style.background = P.chatSurface;
-      pendingTrashBtn.style.boxShadow = '0 4px 16px oklch(0% 0 0 / 0.12), 0 1px 3px oklch(0% 0 0 / 0.08)';
-      pendingTrashTooltipEl.style.opacity = '0';
-      pendingTrashTooltipEl.style.transform = 'translateX(-50%) translateY(4px)';
-    };
-    pendingTrashBtn.addEventListener('mouseenter', showTrashTooltip);
-    pendingTrashBtn.addEventListener('mouseleave', hideTrashTooltip);
-    pendingTrashBtn.addEventListener('focus', showTrashTooltip);
-    pendingTrashBtn.addEventListener('blur', hideTrashTooltip);
-    pendingTrashBtn.addEventListener('click', onPendingTrashClick);
+	pendingTrashBtn = el("button", {
+		position: "relative",
+		display: "none",
+		alignItems: "center",
+		justifyContent: "center",
+		padding: "0",
+		boxSizing: "border-box",
+		width: "30px",
+		height: "30px",
+		borderRadius: "999px",
+		border: "1px solid " + P.hairline,
+		background: P.chatSurface,
+		color: P.textDim,
+		overflow: "visible",
+		boxShadow:
+			"0 4px 16px oklch(0% 0 0 / 0.12), 0 1px 3px oklch(0% 0 0 / 0.08)",
+		cursor: "pointer",
+		transition:
+			"color 0.12s ease, background 0.12s ease, box-shadow 0.18s ease",
+	});
+	pendingTrashBtn.innerHTML =
+		'<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M3 4h8"/><path d="M5 4V3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1"/><path d="M4 4l.5 7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1L10 4"/></svg>';
+	const pendingTrashTooltipEl = el("span", {
+		position: "absolute",
+		bottom: "calc(100% + 8px)",
+		left: "50%",
+		transform: "translateX(-50%) translateY(4px)",
+		opacity: "0",
+		pointerEvents: "none",
+		padding: "8px 16px",
+		borderRadius: "8px",
+		background: C.ink,
+		color: C.white,
+		fontFamily: FONT,
+		fontSize: "12px",
+		fontWeight: "400",
+		lineHeight: "1",
+		whiteSpace: "nowrap",
+		textAlign: "center",
+		transition: "opacity 0.16s ease, transform 0.18s " + EASE,
+	});
+	pendingTrashTooltipEl.textContent = "Discard copy edits";
+	pendingTrashTooltipEl.setAttribute("role", "tooltip");
+	pendingTrashBtn.appendChild(pendingTrashTooltipEl);
+	pendingTrashBtn.setAttribute("aria-label", "Discard copy edits on this page");
+	const showTrashTooltip = () => {
+		pendingTrashBtn.style.color = P.accent;
+		pendingTrashBtn.style.boxShadow =
+			"0 7px 22px oklch(0% 0 0 / 0.16), 0 2px 5px oklch(0% 0 0 / 0.1)";
+		pendingTrashTooltipEl.style.opacity = "1";
+		pendingTrashTooltipEl.style.transform = "translateX(-50%) translateY(0)";
+	};
+	const hideTrashTooltip = () => {
+		pendingTrashBtn.style.color = P.textDim;
+		pendingTrashBtn.style.background = P.chatSurface;
+		pendingTrashBtn.style.boxShadow =
+			"0 4px 16px oklch(0% 0 0 / 0.12), 0 1px 3px oklch(0% 0 0 / 0.08)";
+		pendingTrashTooltipEl.style.opacity = "0";
+		pendingTrashTooltipEl.style.transform = "translateX(-50%) translateY(4px)";
+	};
+	pendingTrashBtn.addEventListener("mouseenter", showTrashTooltip);
+	pendingTrashBtn.addEventListener("mouseleave", hideTrashTooltip);
+	pendingTrashBtn.addEventListener("focus", showTrashTooltip);
+	pendingTrashBtn.addEventListener("blur", hideTrashTooltip);
+	pendingTrashBtn.addEventListener("click", onPendingTrashClick);
 
-    const makePendingDecisionBtn = (label, accent) => {
-      const btn = el('button', {
-        display: 'none',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '30px',
-        padding: '0 12px',
-        borderRadius: '999px',
-        border: '1px solid ' + (accent ? P.accent : P.hairline),
-        background: accent ? P.accent : P.chatSurface,
-        color: accent ? C.ink : P.textDim,
-        fontFamily: FONT,
-        fontSize: '12px',
-        fontWeight: '600',
-        letterSpacing: '0',
-        cursor: 'pointer',
-        whiteSpace: 'nowrap',
-        boxShadow: '0 4px 16px oklch(0% 0 0 / 0.12), 0 1px 3px oklch(0% 0 0 / 0.08)',
-      });
-      btn.textContent = label;
-      return btn;
-    };
-    pendingKeepFixingBtn = makePendingDecisionBtn('Keep fixing', true);
-    pendingKeepFixingBtn.setAttribute('aria-label', 'Ask the agent to keep fixing Apply errors');
-    pendingKeepFixingBtn.addEventListener('click', onPendingKeepFixingClick);
-    pendingRollbackBtn = makePendingDecisionBtn('Rollback', false);
-    pendingRollbackBtn.setAttribute('aria-label', 'Rollback source and keep copy edits staged');
-    pendingRollbackBtn.addEventListener('click', onPendingRollbackClick);
+	const makePendingDecisionBtn = (label, accent) => {
+		const btn = el("button", {
+			display: "none",
+			alignItems: "center",
+			justifyContent: "center",
+			height: "30px",
+			padding: "0 12px",
+			borderRadius: "999px",
+			border: "1px solid " + (accent ? P.accent : P.hairline),
+			background: accent ? P.accent : P.chatSurface,
+			color: accent ? C.ink : P.textDim,
+			fontFamily: FONT,
+			fontSize: "12px",
+			fontWeight: "600",
+			letterSpacing: "0",
+			cursor: "pointer",
+			whiteSpace: "nowrap",
+			boxShadow:
+				"0 4px 16px oklch(0% 0 0 / 0.12), 0 1px 3px oklch(0% 0 0 / 0.08)",
+		});
+		btn.textContent = label;
+		return btn;
+	};
+	pendingKeepFixingBtn = makePendingDecisionBtn("Keep fixing", true);
+	pendingKeepFixingBtn.setAttribute(
+		"aria-label",
+		"Ask the agent to keep fixing Apply errors",
+	);
+	pendingKeepFixingBtn.addEventListener("click", onPendingKeepFixingClick);
+	pendingRollbackBtn = makePendingDecisionBtn("Rollback", false);
+	pendingRollbackBtn.setAttribute(
+		"aria-label",
+		"Rollback source and keep copy edits staged",
+	);
+	pendingRollbackBtn.addEventListener("click", onPendingRollbackClick);
 
-    pendingDockEl.appendChild(pendingPillEl);
-    pendingDockEl.appendChild(pendingTrashBtn);
-    pendingDockEl.appendChild(pendingKeepFixingBtn);
-    pendingDockEl.appendChild(pendingRollbackBtn);
+	pendingDockEl.appendChild(pendingPillEl);
+	pendingDockEl.appendChild(pendingTrashBtn);
+	pendingDockEl.appendChild(pendingKeepFixingBtn);
+	pendingDockEl.appendChild(pendingRollbackBtn);
 
-    // Thin divider before the exit button
-    const divider = el('span', {
-      width: '1px', height: '18px',
-      background: P.hairline,
-      margin: '0 4px 0 2px',
-      flexShrink: '0',
-    });
-    inner.appendChild(divider);
+	// Thin divider before the exit button
+	const divider = el("span", {
+		width: "1px",
+		height: "18px",
+		background: P.hairline,
+		margin: "0 4px 0 2px",
+		flexShrink: "0",
+	});
+	inner.appendChild(divider);
 
-    // Exit × on the right - intentionally subtle (textDim at rest, text on
-    // hover) so it sits behind the active toggles in visual hierarchy.
-    //
-    // Explicit padding + box-sizing here is load-bearing: a host page like
-    // `button { padding: 0.5rem 1rem; }` (very common in resets) would
-    // otherwise inflate this 24x24 button into 56x40 and push the SVG out
-    // of the visible bar - the X stays invisible even though the styles in
-    // DevTools look fine. Every other chrome button sets padding inline;
-    // this one needed it too.
-    const exitBtn = el('button', {
-      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-      padding: '0', boxSizing: 'border-box',
-      width: '24px', height: '24px', borderRadius: '6px',
-      flexShrink: '0',
-      border: 'none', background: 'transparent',
-      color: P.textDim, fontFamily: FONT, fontSize: '0', lineHeight: '0',
-      cursor: 'pointer', transition: 'color 0.12s ease, background 0.12s ease',
-    });
-    exitBtn.id = PREFIX + '-exit';
-    exitBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="3" x2="11" y2="11"/><line x1="11" y1="3" x2="3" y2="11"/></svg>';
-    exitBtn.title = 'Exit live mode';
-    exitBtn.addEventListener('mouseenter', () => { exitBtn.style.color = 'oklch(58% 0.15 35)'; exitBtn.style.background = P.exitHover; });
-    exitBtn.addEventListener('mouseleave', () => { exitBtn.style.color = P.textDim; exitBtn.style.background = 'transparent'; });
-    exitBtn.addEventListener('click', () => { sendEvent({ type: 'exit' }); teardown(); });
-    inner.appendChild(exitBtn);
+	// Exit × on the right - intentionally subtle (textDim at rest, text on
+	// hover) so it sits behind the active toggles in visual hierarchy.
+	//
+	// Explicit padding + box-sizing here is load-bearing: a host page like
+	// `button { padding: 0.5rem 1rem; }` (very common in resets) would
+	// otherwise inflate this 24x24 button into 56x40 and push the SVG out
+	// of the visible bar - the X stays invisible even though the styles in
+	// DevTools look fine. Every other chrome button sets padding inline;
+	// this one needed it too.
+	const exitBtn = el("button", {
+		display: "inline-flex",
+		alignItems: "center",
+		justifyContent: "center",
+		padding: "0",
+		boxSizing: "border-box",
+		width: "24px",
+		height: "24px",
+		borderRadius: "6px",
+		flexShrink: "0",
+		border: "none",
+		background: "transparent",
+		color: P.textDim,
+		fontFamily: FONT,
+		fontSize: "0",
+		lineHeight: "0",
+		cursor: "pointer",
+		transition: "color 0.12s ease, background 0.12s ease",
+	});
+	exitBtn.id = PREFIX + "-exit";
+	exitBtn.innerHTML =
+		'<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="3" y1="3" x2="11" y2="11"/><line x1="11" y1="3" x2="3" y2="11"/></svg>';
+	exitBtn.title = "Exit live mode";
+	exitBtn.addEventListener("mouseenter", () => {
+		exitBtn.style.color = "oklch(58% 0.15 35)";
+		exitBtn.style.background = P.exitHover;
+	});
+	exitBtn.addEventListener("mouseleave", () => {
+		exitBtn.style.color = P.textDim;
+		exitBtn.style.background = "transparent";
+	});
+	exitBtn.addEventListener("click", () => {
+		sendEvent({ type: "exit" });
+		teardown();
+	});
+	inner.appendChild(exitBtn);
 
-    // Bar-level hover: expand mode labels unless Steer is using the space.
-    // Buttons with dataset.active="true" ignore collapse (their label stays).
-    globalBarEl.addEventListener('mouseenter', () => {
-      syncGlobalBarExpandedLabels(true);
-      syncPageChatExpandedWidth();
-      schedulePendingDockPosition();
-      setTimeout(schedulePendingDockPosition, 260);
-    });
-    globalBarEl.addEventListener('mouseleave', () => {
-      syncGlobalBarExpandedLabels(false);
-      schedulePendingDockPosition();
-      setTimeout(schedulePendingDockPosition, 260);
-    });
-    globalBarEl.addEventListener('pointerdown', () => {
-      try { window.focus(); } catch { /* in-app preview may block */ }
-    }, true);
+	// Bar-level hover: expand mode labels unless Steer is using the space.
+	// Buttons with dataset.active="true" ignore collapse (their label stays).
+	globalBarEl.addEventListener("mouseenter", () => {
+		syncGlobalBarExpandedLabels(true);
+		syncPageChatExpandedWidth();
+		schedulePendingDockPosition();
+		setTimeout(schedulePendingDockPosition, 260);
+	});
+	globalBarEl.addEventListener("mouseleave", () => {
+		syncGlobalBarExpandedLabels(false);
+		schedulePendingDockPosition();
+		setTimeout(schedulePendingDockPosition, 260);
+	});
+	globalBarEl.addEventListener(
+		"pointerdown",
+		() => {
+			try {
+				window.focus();
+			} catch {
+				/* in-app preview may block */
+			}
+		},
+		true,
+	);
 
-    uiAppend(pendingDockEl);
-    uiAppend(globalBarEl);
-    defangOutsideHandlers(pendingDockEl);
-    defangOutsideHandlers(globalBarEl);
+	uiAppend(pendingDockEl);
+	uiAppend(globalBarEl);
+	defangOutsideHandlers(pendingDockEl);
+	defangOutsideHandlers(globalBarEl);
 
-    if (window.ResizeObserver) {
-      pendingDockResizeObserver = new ResizeObserver(schedulePendingDockPosition);
-      pendingDockResizeObserver.observe(globalBarEl);
-    }
-    window.addEventListener('resize', positionPendingDock);
-    window.addEventListener('resize', syncPageChatExpandedWidth);
+	if (window.ResizeObserver) {
+		pendingDockResizeObserver = new ResizeObserver(schedulePendingDockPosition);
+		pendingDockResizeObserver.observe(globalBarEl);
+	}
+	window.addEventListener("resize", positionPendingDock);
+	window.addEventListener("resize", syncPageChatExpandedWidth);
 
-    requestAnimationFrame(() => {
-      globalBarEl.style.opacity = '1';
-      globalBarEl.style.transform = 'translateX(-50%) translateY(0)';
-      syncPageChatFocus('global-bar-visible');
-    });
+	requestAnimationFrame(() => {
+		globalBarEl.style.opacity = "1";
+		globalBarEl.style.transform = "translateX(-50%) translateY(0)";
+		syncPageChatFocus("global-bar-visible");
+	});
 
-    // Listen for detection results AND ready signal
-    window.addEventListener('message', onDetectMessage);
-    updateGlobalBarState();
-  }
+	// Listen for detection results AND ready signal
+	window.addEventListener("message", onDetectMessage);
+	updateGlobalBarState();
+}
 
-  function updateGlobalBarState() {
-    const detectToggle = uiGetById(PREFIX + '-detect-toggle');
-    const detectBadge = uiGetById(PREFIX + '-detect-badge');
-    const pickToggle = uiGetById(PREFIX + '-pick-toggle');
-    const insertToggle = uiGetById(PREFIX + '-insert-toggle');
-    const designToggle = uiGetById(PREFIX + '-design-toggle');
-    const theme = globalBarEl?.dataset.theme || 'light';
-    const P = barPaletteForTheme(theme);
+function updateGlobalBarState() {
+	const detectToggle = uiGetById(PREFIX + "-detect-toggle");
+	const detectBadge = uiGetById(PREFIX + "-detect-badge");
+	const pickToggle = uiGetById(PREFIX + "-pick-toggle");
+	const insertToggle = uiGetById(PREFIX + "-insert-toggle");
+	const designToggle = uiGetById(PREFIX + "-design-toggle");
+	const theme = globalBarEl?.dataset.theme || "light";
+	const P = barPaletteForTheme(theme);
 
-    // Sync one toggle's active state, colors, and slide-label visibility.
-    function sync(btn, active) {
-      if (!btn) return;
-      btn.style.background = active ? P.toggleActive : 'transparent';
-      btn.style.color = active ? P.accent : P.textDim;
-      btn.dataset.active = active ? 'true' : 'false';
-      if (active && btn._expandLabel) btn._expandLabel();
-      else if (!active && btn._collapseLabel) btn._collapseLabel();
-    }
-    sync(pickToggle, pickActive);
-    sync(insertToggle, insertActive);
-    sync(detectToggle, detectActive);
-    sync(designToggle, designState.open);
+	// Sync one toggle's active state, colors, and slide-label visibility.
+	function sync(btn, active) {
+		if (!btn) return;
+		btn.style.background = active ? P.toggleActive : "transparent";
+		btn.style.color = active ? P.accent : P.textDim;
+		btn.dataset.active = active ? "true" : "false";
+		if (active && btn._expandLabel) btn._expandLabel();
+		else if (!active && btn._collapseLabel) btn._collapseLabel();
+	}
+	sync(pickToggle, pickActive);
+	sync(insertToggle, insertActive);
+	sync(detectToggle, detectActive);
+	sync(designToggle, designState.open);
 
-    const controlsLocked = pendingApplyInFlight === true;
-    [pickToggle, insertToggle, detectToggle, designToggle].forEach((btn) => {
-      if (!btn) return;
-      btn.disabled = controlsLocked;
-      btn.style.cursor = controlsLocked ? 'not-allowed' : 'pointer';
-      btn.style.opacity = controlsLocked ? '0.55' : '1';
-    });
+	const controlsLocked = pendingApplyInFlight === true;
+	[pickToggle, insertToggle, detectToggle, designToggle].forEach((btn) => {
+		if (!btn) return;
+		btn.disabled = controlsLocked;
+		btn.style.cursor = controlsLocked ? "not-allowed" : "pointer";
+		btn.style.opacity = controlsLocked ? "0.55" : "1";
+	});
 
-    // If the bar is currently under the cursor, keep all labels expanded -
-    // otherwise clicking a toggle that deactivates (e.g. closing DESIGN.md)
-    // would collapse its label while the user's mouse is still on the bar.
-    syncGlobalBarExpandedLabels(globalBarEl && globalBarEl.matches(':hover'));
+	// If the bar is currently under the cursor, keep all labels expanded -
+	// otherwise clicking a toggle that deactivates (e.g. closing DESIGN.md)
+	// would collapse its label while the user's mouse is still on the bar.
+	syncGlobalBarExpandedLabels(globalBarEl && globalBarEl.matches(":hover"));
 
-    if (detectBadge) {
-      detectBadge.style.display = (detectActive && detectCount > 0) ? 'inline' : 'none';
-      detectBadge.textContent = detectCount;
-    }
+	if (detectBadge) {
+		detectBadge.style.display =
+			detectActive && detectCount > 0 ? "inline" : "none";
+		detectBadge.textContent = detectCount;
+	}
 
-    // When pick/insert is active, make detect overlays click-through
-    document.querySelectorAll('.impeccable-overlay').forEach(o => {
-      o.style.pointerEvents = (pickActive || insertActive) ? 'none' : '';
-    });
-    syncPageInteractionCursor();
-  }
+	// When pick/insert is active, make detect overlays click-through
+	document.querySelectorAll(".impeccable-overlay").forEach((o) => {
+		o.style.pointerEvents = pickActive || insertActive ? "none" : "";
+	});
+	syncPageInteractionCursor();
+}
 
-  let detectReady = false; // true once detect script posts 'impeccable-ready'
-  let detectPendingScan = false; // scan requested before script was ready
+let detectReady = false; // true once detect script posts 'impeccable-ready'
+let detectPendingScan = false; // scan requested before script was ready
 
-  function requestDetectScan() {
-    const scanId = String(++detectScanSeq);
-    activeDetectScanId = scanId;
-    pendingDetectScanId = scanId;
-    window.postMessage({
-      source: 'impeccable-command',
-      action: 'scan',
-      config: { scanId },
-    }, '*');
-  }
+function requestDetectScan() {
+	const scanId = String(++detectScanSeq);
+	activeDetectScanId = scanId;
+	pendingDetectScanId = scanId;
+	window.postMessage(
+		{
+			source: "impeccable-command",
+			action: "scan",
+			config: { scanId },
+		},
+		"*",
+	);
+}
 
-  function toggleDetect() {
-    if (pendingApplyInFlight) { showManualApplyBusyToast(); return; }
-    detectActive = !detectActive;
-    updateGlobalBarState();
+function toggleDetect() {
+	if (pendingApplyInFlight) {
+		showManualApplyBusyToast();
+		return;
+	}
+	detectActive = !detectActive;
+	updateGlobalBarState();
 
-    if (detectActive) {
-      if (!detectScriptLoaded) {
-        detectPendingScan = true;
-        loadDetectScript();
-      } else if (detectReady) {
-        requestDetectScan();
-      } else {
-        detectPendingScan = true;
-      }
-    } else {
-      window.postMessage({ source: 'impeccable-command', action: 'remove' }, '*');
-      activeDetectScanId = null;
-      pendingDetectScanId = null;
-      detectCount = 0;
-      updateGlobalBarState();
-    }
-  }
+	if (detectActive) {
+		if (!detectScriptLoaded) {
+			detectPendingScan = true;
+			loadDetectScript();
+		} else if (detectReady) {
+			requestDetectScan();
+		} else {
+			detectPendingScan = true;
+		}
+	} else {
+		window.postMessage({ source: "impeccable-command", action: "remove" }, "*");
+		activeDetectScanId = null;
+		pendingDetectScanId = null;
+		detectCount = 0;
+		updateGlobalBarState();
+	}
+}
 
-  function togglePick() {
-    if (pendingApplyInFlight) { showManualApplyBusyToast(); return; }
-    pickActive = !pickActive;
-    if (pickActive) {
-      insertActive = false;
-      clearInsertPicking();
-    }
-    saveInteractionPrefs();
-    updateGlobalBarState();
+function togglePick() {
+	if (pendingApplyInFlight) {
+		showManualApplyBusyToast();
+		return;
+	}
+	pickActive = !pickActive;
+	if (pickActive) {
+		insertActive = false;
+		clearInsertPicking();
+	}
+	saveInteractionPrefs();
+	updateGlobalBarState();
 
-    if (!pickActive) {
-      if (configureKind === 'insert' && state === 'CONFIGURING') {
-        cancelInsertConfigure();
-        return;
-      }
-      teardownConfigureChrome();
-      hideHighlight();
-      hideActionPicker();
-      selectedElement = null;
-      hoveredElement = null;
-      configureKind = 'replace';
-      if (state === 'PICKING' || state === 'CONFIGURING') setLiveState('IDLE');
-    } else {
-      if (state === 'IDLE') setLiveState('PICKING');
-    }
-    syncPageChatFocus('toggle-pick');
-  }
+	if (!pickActive) {
+		if (configureKind === "insert" && state === "CONFIGURING") {
+			cancelInsertConfigure();
+			return;
+		}
+		teardownConfigureChrome();
+		hideHighlight();
+		hideActionPicker();
+		selectedElement = null;
+		hoveredElement = null;
+		configureKind = "replace";
+		if (state === "PICKING" || state === "CONFIGURING") setLiveState("IDLE");
+	} else {
+		if (state === "IDLE") setLiveState("PICKING");
+	}
+	syncPageChatFocus("toggle-pick");
+}
 
-  function toggleInsert() {
-    if (pendingApplyInFlight) { showManualApplyBusyToast(); return; }
-    insertActive = !insertActive;
-    if (insertActive) {
-      pickActive = false;
-      hideHighlight();
-      hideBar();
-      hideActionPicker();
-      selectedElement = null;
-      configureKind = 'replace';
-      if (state === 'CONFIGURING') cancelInsertConfigure();
-      else if (state === 'IDLE' || state === 'PICKING') setLiveState('PICKING');
-    } else {
-      clearInsertPicking();
-      if (state === 'PICKING' && !pickActive) setLiveState('IDLE');
-    }
-    saveInteractionPrefs();
-    updateGlobalBarState();
-    syncPageChatFocus('toggle-insert');
-  }
+function toggleInsert() {
+	if (pendingApplyInFlight) {
+		showManualApplyBusyToast();
+		return;
+	}
+	insertActive = !insertActive;
+	if (insertActive) {
+		pickActive = false;
+		hideHighlight();
+		hideBar();
+		hideActionPicker();
+		selectedElement = null;
+		configureKind = "replace";
+		if (state === "CONFIGURING") cancelInsertConfigure();
+		else if (state === "IDLE" || state === "PICKING") setLiveState("PICKING");
+	} else {
+		clearInsertPicking();
+		if (state === "PICKING" && !pickActive) setLiveState("IDLE");
+	}
+	saveInteractionPrefs();
+	updateGlobalBarState();
+	syncPageChatFocus("toggle-insert");
+}
 
-  function loadDetectScript() {
-    if (detectScriptLoaded) return;
-    detectScriptLoaded = true;
-    const s = document.createElement('script');
-    s.src = 'http://localhost:' + PORT + '/detect.js';
-    s.dataset.impeccableExtension = 'true';
-    document.head.appendChild(s);
-  }
+function loadDetectScript() {
+	if (detectScriptLoaded) return;
+	detectScriptLoaded = true;
+	const s = document.createElement("script");
+	s.src = "http://localhost:" + PORT + "/detect.js";
+	s.dataset.impeccableExtension = "true";
+	document.head.appendChild(s);
+}
 
-  function onDetectMessage(e) {
-    if (!e.data || typeof e.data.source !== 'string') return;
-    // Detection script is loaded and ready
-    if (e.data.source === 'impeccable-ready') {
-      detectReady = true;
-      if (detectPendingScan && detectActive) {
-        detectPendingScan = false;
-        requestDetectScan();
-      }
-    }
-    // Scan results arrived
-    if (e.data.source === 'impeccable-results') {
-      if (!detectActive) return;
-      if (activeDetectScanId && e.data.scanId !== activeDetectScanId) return;
-      detectCount = e.data.count || 0;
-      if (detectActive && pendingDetectScanId && detectCount === 0) {
-        showToast(DETECT_EMPTY_MESSAGE, 3200);
-      }
-      pendingDetectScanId = null;
-      updateGlobalBarState();
-    }
-  }
+function onDetectMessage(e) {
+	if (!e.data || typeof e.data.source !== "string") return;
+	// Detection script is loaded and ready
+	if (e.data.source === "impeccable-ready") {
+		detectReady = true;
+		if (detectPendingScan && detectActive) {
+			detectPendingScan = false;
+			requestDetectScan();
+		}
+	}
+	// Scan results arrived
+	if (e.data.source === "impeccable-results") {
+		if (!detectActive) return;
+		if (activeDetectScanId && e.data.scanId !== activeDetectScanId) return;
+		detectCount = e.data.count || 0;
+		if (detectActive && pendingDetectScanId && detectCount === 0) {
+			showToast(DETECT_EMPTY_MESSAGE, 3200);
+		}
+		pendingDetectScanId = null;
+		updateGlobalBarState();
+	}
+}
 
-  /** Full teardown: remove all UI, disconnect SSE, clean up. */
-  function teardown() {
-    stopAgentStatusPoll();
-    hideAgentPollTooltip();
-    if (agentPollTooltipEl) {
-      agentPollTooltipEl.remove();
-      agentPollTooltipEl = null;
-    }
-    stopVoice({ suppressSubmit: true });
-    clearSteerFocusRecoverTimer();
-    steerFocusSuspended = false;
-    steerFocusPauseUntil = 0;
-    pagePointerGesture = null;
-    pagePickSkipClick = false;
-    cleanup();
-    hideBar();
-    if (pendingDockResizeObserver) { pendingDockResizeObserver.disconnect(); pendingDockResizeObserver = null; }
-    window.removeEventListener('resize', positionPendingDock);
-    if (pendingIntroAnimation) { pendingIntroAnimation.cancel(); pendingIntroAnimation = null; }
-    if (pendingDockEl) {
-      pendingDockEl.remove();
-      pendingDockEl = null;
-      pendingPillEl = null;
-      pendingPillSpinnerEl = null;
-      pendingPillLabelEl = null;
-      pendingPillCountEl = null;
-      pendingTrashBtn = null;
-      pendingKeepFixingBtn = null;
-      pendingRollbackBtn = null;
-      pendingApplyInFlight = false;
-    }
-    if (globalBarEl) {
-      globalBarEl.style.transition = 'none';
-      globalBarEl.remove();
-      globalBarEl = null;
-    }
-    pageChatEl = null;
-    pageChatInput = null;
-    pageChatHint = null;
-    pageChatVoiceBtn = null;
-    pageChatExpanded = false;
-    if (insertCreateTooltipEl) { insertCreateTooltipEl.remove(); insertCreateTooltipEl = null; }
-    if (configureBarTooltipEl) { configureBarTooltipEl.remove(); configureBarTooltipEl = null; }
-    if (highlightEl) { highlightEl.remove(); highlightEl = null; }
-    if (tooltipEl) { tooltipEl.remove(); tooltipEl = null; }
-    if (barEl) { barEl.remove(); barEl = null; }
-    if (pickerEl) { pickerEl.remove(); pickerEl = null; }
-    if (paramsPanelEl) { paramsPanelEl.remove(); paramsPanelEl = null; paramsPanelInner = null; paramsPanelBody = null; }
-    if (editBadgeProxyRoot) { editBadgeProxyRoot.remove(); editBadgeProxyRoot = null; editBadgeProxyByTarget = new Map(); }
-    if (evtSource) { evtSource.close(); evtSource = null; }
-    document.removeEventListener('mousemove', handleMouseMove, true);
-    document.removeEventListener('click', handleClick, true);
-    document.removeEventListener('keydown', handleKeyDown, true);
-    window.removeEventListener('message', onDetectMessage);
-    // Remove detection overlays
-    window.postMessage({ source: 'impeccable-command', action: 'remove' }, '*');
-    setLiveState('IDLE');
-    document.getElementById(PICK_CURSOR_STYLE_ID)?.remove();
-    removeVariantStateStylesheet();
-    window.__IMPECCABLE_LIVE_INIT__ = false;
+/** Full teardown: remove all UI, disconnect SSE, clean up. */
+function teardown() {
+	stopAgentStatusPoll();
+	hideAgentPollTooltip();
+	if (agentPollTooltipEl) {
+		agentPollTooltipEl.remove();
+		agentPollTooltipEl = null;
+	}
+	stopVoice({ suppressSubmit: true });
+	clearSteerFocusRecoverTimer();
+	steerFocusSuspended = false;
+	steerFocusPauseUntil = 0;
+	pagePointerGesture = null;
+	pagePickSkipClick = false;
+	cleanup();
+	hideBar();
+	if (pendingDockResizeObserver) {
+		pendingDockResizeObserver.disconnect();
+		pendingDockResizeObserver = null;
+	}
+	window.removeEventListener("resize", positionPendingDock);
+	if (pendingIntroAnimation) {
+		pendingIntroAnimation.cancel();
+		pendingIntroAnimation = null;
+	}
+	if (pendingDockEl) {
+		pendingDockEl.remove();
+		pendingDockEl = null;
+		pendingPillEl = null;
+		pendingPillSpinnerEl = null;
+		pendingPillLabelEl = null;
+		pendingPillCountEl = null;
+		pendingTrashBtn = null;
+		pendingKeepFixingBtn = null;
+		pendingRollbackBtn = null;
+		pendingApplyInFlight = false;
+	}
+	if (globalBarEl) {
+		globalBarEl.style.transition = "none";
+		globalBarEl.remove();
+		globalBarEl = null;
+	}
+	pageChatEl = null;
+	pageChatInput = null;
+	pageChatHint = null;
+	pageChatVoiceBtn = null;
+	pageChatExpanded = false;
+	if (insertCreateTooltipEl) {
+		insertCreateTooltipEl.remove();
+		insertCreateTooltipEl = null;
+	}
+	if (configureBarTooltipEl) {
+		configureBarTooltipEl.remove();
+		configureBarTooltipEl = null;
+	}
+	if (highlightEl) {
+		highlightEl.remove();
+		highlightEl = null;
+	}
+	if (tooltipEl) {
+		tooltipEl.remove();
+		tooltipEl = null;
+	}
+	if (barEl) {
+		barEl.remove();
+		barEl = null;
+	}
+	if (pickerEl) {
+		pickerEl.remove();
+		pickerEl = null;
+	}
+	if (paramsPanelEl) {
+		paramsPanelEl.remove();
+		paramsPanelEl = null;
+		paramsPanelInner = null;
+		paramsPanelBody = null;
+	}
+	if (editBadgeProxyRoot) {
+		editBadgeProxyRoot.remove();
+		editBadgeProxyRoot = null;
+		editBadgeProxyByTarget = new Map();
+	}
+	if (evtSource) {
+		evtSource.close();
+		evtSource = null;
+	}
+	document.removeEventListener("mousemove", handleMouseMove, true);
+	document.removeEventListener("click", handleClick, true);
+	document.removeEventListener("keydown", handleKeyDown, true);
+	window.removeEventListener("message", onDetectMessage);
+	// Remove detection overlays
+	window.postMessage({ source: "impeccable-command", action: "remove" }, "*");
+	setLiveState("IDLE");
+	document.getElementById(PICK_CURSOR_STYLE_ID)?.remove();
+	removeVariantStateStylesheet();
+	window.__IMPECCABLE_LIVE_INIT__ = false;
+}
 
-  }
+//
+// Design System Panel - visualizes the project's .impeccable/design.json sidecar
+//
 
-  //
-  // Design System Panel - visualizes the project's .impeccable/design.json sidecar
-  //
+const DESIGN_PREFS_KEY = "impeccable-live-design-panel";
+const DESIGN_PANEL_WIDTH = 440;
 
-  const DESIGN_PREFS_KEY = 'impeccable-live-design-panel';
-  const DESIGN_PANEL_WIDTH = 440;
+let designHost = null;
+let designShadow = null;
+const designState = {
+	open: false,
+	tab: "visual", // 'visual' | 'raw'
+	parsed: null, // parseDesignMd output (frontmatter + body sections)
+	sidecar: null, // .impeccable/design.json v2 payload (extensions + components + narrative)
+	hasMd: false,
+	hasSidecar: false,
+	present: null, // true/false once fetch resolves
+	raw: null, // raw DESIGN.md for the raw tab
+	mdNewerThanJson: false, // stale-hint flag
+	loading: false,
+	error: null,
+	collapsed: {
+		// narrative-section accordion state
+		rules: true,
+		dosdonts: true,
+		overview: true,
+	},
+};
 
-  let designHost = null;
-  let designShadow = null;
-  let designState = {
-    open: false,
-    tab: 'visual',          // 'visual' | 'raw'
-    parsed: null,           // parseDesignMd output (frontmatter + body sections)
-    sidecar: null,          // .impeccable/design.json v2 payload (extensions + components + narrative)
-    hasMd: false,
-    hasSidecar: false,
-    present: null,          // true/false once fetch resolves
-    raw: null,              // raw DESIGN.md for the raw tab
-    mdNewerThanJson: false, // stale-hint flag
-    loading: false,
-    error: null,
-    collapsed: {            // narrative-section accordion state
-      rules: true, dosdonts: true, overview: true,
-    },
-  };
+function loadDesignPrefs() {
+	// `open` is intentionally NOT persisted - the panel always starts closed
+	// so live mode doesn't auto-slide a big panel over the page on startup.
+	try {
+		const raw = localStorage.getItem(DESIGN_PREFS_KEY);
+		if (!raw) return;
+		const prefs = JSON.parse(raw);
+		if (prefs.tab === "visual" || prefs.tab === "raw")
+			designState.tab = prefs.tab;
+		if (prefs.collapsed && typeof prefs.collapsed === "object") {
+			Object.assign(designState.collapsed, prefs.collapsed);
+		}
+	} catch {
+		/* ignore */
+	}
+}
 
-  function loadDesignPrefs() {
-    // `open` is intentionally NOT persisted - the panel always starts closed
-    // so live mode doesn't auto-slide a big panel over the page on startup.
-    try {
-      const raw = localStorage.getItem(DESIGN_PREFS_KEY);
-      if (!raw) return;
-      const prefs = JSON.parse(raw);
-      if (prefs.tab === 'visual' || prefs.tab === 'raw') designState.tab = prefs.tab;
-      if (prefs.collapsed && typeof prefs.collapsed === 'object') {
-        Object.assign(designState.collapsed, prefs.collapsed);
-      }
-    } catch { /* ignore */ }
-  }
+function saveDesignPrefs() {
+	try {
+		localStorage.setItem(
+			DESIGN_PREFS_KEY,
+			JSON.stringify({
+				tab: designState.tab,
+				collapsed: designState.collapsed,
+			}),
+		);
+	} catch {
+		/* ignore */
+	}
+}
 
-  function saveDesignPrefs() {
-    try {
-      localStorage.setItem(DESIGN_PREFS_KEY, JSON.stringify({
-        tab: designState.tab,
-        collapsed: designState.collapsed,
-      }));
-    } catch { /* ignore */ }
-  }
+function initDesignPanel() {
+	designHost = document.createElement("div");
+	designHost.id = PREFIX + "-design-host";
+	Object.assign(designHost.style, {
+		position: "fixed",
+		top: "0",
+		left: "0",
+		width: "0",
+		height: "0",
+		zIndex: String(Z.bar + 10),
+		pointerEvents: "none",
+	});
+	designShadow = designHost.attachShadow({ mode: "open" });
 
-  function initDesignPanel() {
-    designHost = document.createElement('div');
-    designHost.id = PREFIX + '-design-host';
-    Object.assign(designHost.style, {
-      position: 'fixed', top: '0', left: '0',
-      width: '0', height: '0',
-      zIndex: String(Z.bar + 10),
-      pointerEvents: 'none',
-    });
-    designShadow = designHost.attachShadow({ mode: 'open' });
+	const style = document.createElement("style");
+	// Theme-match the bar: dark chrome on light pages, light chrome on dark pages.
+	const theme = detectPageTheme();
+	style.textContent = designPanelCss(barPaletteForTheme(theme));
+	designShadow.appendChild(style);
 
-    const style = document.createElement('style');
-    // Theme-match the bar: dark chrome on light pages, light chrome on dark pages.
-    const theme = detectPageTheme();
-    style.textContent = designPanelCss(barPaletteForTheme(theme));
-    designShadow.appendChild(style);
+	const root = document.createElement("div");
+	root.className = "root";
+	designShadow.appendChild(root);
 
-    const root = document.createElement('div');
-    root.className = 'root';
-    designShadow.appendChild(root);
+	uiAppend(designHost);
+	// The host is pointer-events: none; the panel inside the shadow DOM
+	// manages its own auto/none. Events bubble through the shadow boundary,
+	// so attaching here silences host-page outside-interaction handlers
+	// without touching the host's click-through behavior.
+	defangOutsideHandlers(designHost, { setPointerEvents: false });
 
-    uiAppend(designHost);
-    // The host is pointer-events: none; the panel inside the shadow DOM
-    // manages its own auto/none. Events bubble through the shadow boundary,
-    // so attaching here silences host-page outside-interaction handlers
-    // without touching the host's click-through behavior.
-    defangOutsideHandlers(designHost, { setPointerEvents: false });
+	loadDesignPrefs();
+	renderDesignChrome();
+	if (designState.open) {
+		fetchDesignSystem();
+	}
+}
 
-    loadDesignPrefs();
-    renderDesignChrome();
-    if (designState.open) {
-      fetchDesignSystem();
-    }
-  }
+// Neutral panel palette - deliberately NOT Impeccable-branded. The panel is
+// a viewer of the project's design system, not an Impeccable surface.
+const DP = {
+	canvas: "oklch(94% 0 0)", // panel background
+	tile: "oklch(98.5% 0 0)", // card-on-canvas
+	tileAlt: "oklch(96% 0 0)", // subtler tile for inner surfaces
+	ink: "oklch(15% 0 0)",
+	ink2: "oklch(35% 0 0)",
+	meta: "oklch(55% 0 0)",
+	hairline: "oklch(88% 0 0)",
+	hairlineSoft: "oklch(92% 0 0)",
+	amber: "oklch(77% 0.13 82)", // stale-hint accent
+	amberBg: "oklch(89% 0.055 84)",
+};
 
-  // Neutral panel palette - deliberately NOT Impeccable-branded. The panel is
-  // a viewer of the project's design system, not an Impeccable surface.
-  const DP = {
-    canvas:   'oklch(94% 0 0)',            // panel background
-    tile:     'oklch(98.5% 0 0)',          // card-on-canvas
-    tileAlt:  'oklch(96% 0 0)',            // subtler tile for inner surfaces
-    ink:      'oklch(15% 0 0)',
-    ink2:     'oklch(35% 0 0)',
-    meta:     'oklch(55% 0 0)',
-    hairline: 'oklch(88% 0 0)',
-    hairlineSoft: 'oklch(92% 0 0)',
-    amber:    'oklch(77% 0.13 82)',         // stale-hint accent
-    amberBg:  'oklch(89% 0.055 84)',
-  };
-
-  function designPanelCss(BP) {
-    // BP = bar palette (theme-aware, matches the global bar).
-    // DP = internal content palette (neutral, so tiles render colors true).
-    return `
+function designPanelCss(BP) {
+	// BP = bar palette (theme-aware, matches the global bar).
+	// DP = internal content palette (neutral, so tiles render colors true).
+	return `
       :host, .root { all: initial; }
       .root {
         font-family: ${FONT};
@@ -10785,814 +11087,899 @@ void main() {
       .md a { color: ${DP.ink}; text-decoration: underline; }
       .md hr { border: none; border-top: 1px solid ${DP.hairlineSoft}; margin: 16px 0; }
     `;
-  }
+}
 
-  function renderDesignChrome() {
-    const root = designShadow.querySelector('.root');
-    root.innerHTML = '';
+function renderDesignChrome() {
+	const root = designShadow.querySelector(".root");
+	root.innerHTML = "";
 
-    // (Panel toggle lives in the global bar - no floating FAB.)
-    // Panel
-    const panel = document.createElement('aside');
-    panel.className = 'panel';
-    panel.setAttribute('data-open', designState.open ? 'true' : 'false');
-    panel.appendChild(buildDesignHeader());
-    const body = document.createElement('div');
-    body.className = 'panel-body';
-    body.id = 'panel-body';
-    panel.appendChild(body);
-    root.appendChild(panel);
+	// (Panel toggle lives in the global bar - no floating FAB.)
+	// Panel
+	const panel = document.createElement("aside");
+	panel.className = "panel";
+	panel.setAttribute("data-open", designState.open ? "true" : "false");
+	panel.appendChild(buildDesignHeader());
+	const body = document.createElement("div");
+	body.className = "panel-body";
+	body.id = "panel-body";
+	panel.appendChild(body);
+	root.appendChild(panel);
 
-    renderDesignBody();
-  }
+	renderDesignBody();
+}
 
-  function buildDesignHeader() {
-    const header = document.createElement('div');
-    header.className = 'panel-header';
+function buildDesignHeader() {
+	const header = document.createElement("div");
+	header.className = "panel-header";
 
-    const title = document.createElement('div');
-    title.className = 'panel-title';
-    title.textContent = 'DESIGN.md';
-    header.appendChild(title);
+	const title = document.createElement("div");
+	title.className = "panel-title";
+	title.textContent = "DESIGN.md";
+	header.appendChild(title);
 
-    const tabs = document.createElement('div');
-    tabs.className = 'tabs';
-    for (const t of [['visual', 'Visual'], ['raw', 'Raw']]) {
-      const btn = document.createElement('button');
-      btn.className = 'tab';
-      btn.textContent = t[1];
-      btn.setAttribute('data-active', designState.tab === t[0] ? 'true' : 'false');
-      btn.addEventListener('click', () => {
-        if (designState.tab === t[0]) return;
-        designState.tab = t[0];
-        saveDesignPrefs();
-        renderDesignChrome();
-        if (t[0] === 'raw' && designState.raw === null && !designState.loading) {
-          fetchDesignSystem(); // raw is part of the same fetch pair
-        }
-      });
-      tabs.appendChild(btn);
-    }
-    header.appendChild(tabs);
+	const tabs = document.createElement("div");
+	tabs.className = "tabs";
+	for (const t of [
+		["visual", "Visual"],
+		["raw", "Raw"],
+	]) {
+		const btn = document.createElement("button");
+		btn.className = "tab";
+		btn.textContent = t[1];
+		btn.setAttribute(
+			"data-active",
+			designState.tab === t[0] ? "true" : "false",
+		);
+		btn.addEventListener("click", () => {
+			if (designState.tab === t[0]) return;
+			designState.tab = t[0];
+			saveDesignPrefs();
+			renderDesignChrome();
+			if (t[0] === "raw" && designState.raw === null && !designState.loading) {
+				fetchDesignSystem(); // raw is part of the same fetch pair
+			}
+		});
+		tabs.appendChild(btn);
+	}
+	header.appendChild(tabs);
 
-    const close = document.createElement('button');
-    close.className = 'panel-close';
-    close.innerHTML = '&#x2715;';
-    close.setAttribute('aria-label', 'Close panel');
-    close.addEventListener('click', toggleDesignPanel);
-    header.appendChild(close);
+	const close = document.createElement("button");
+	close.className = "panel-close";
+	close.innerHTML = "&#x2715;";
+	close.setAttribute("aria-label", "Close panel");
+	close.addEventListener("click", toggleDesignPanel);
+	header.appendChild(close);
 
-    return header;
-  }
+	return header;
+}
 
-  function toggleDesignPanel() {
-    if (pendingApplyInFlight) { showManualApplyBusyToast(); return; }
-    designState.open = !designState.open;
-    renderDesignChrome();
-    updateGlobalBarState();
-    if (designState.open && designState.present === null && !designState.loading) {
-      fetchDesignSystem();
-    }
-  }
+function toggleDesignPanel() {
+	if (pendingApplyInFlight) {
+		showManualApplyBusyToast();
+		return;
+	}
+	designState.open = !designState.open;
+	renderDesignChrome();
+	updateGlobalBarState();
+	if (
+		designState.open &&
+		designState.present === null &&
+		!designState.loading
+	) {
+		fetchDesignSystem();
+	}
+}
 
-  async function fetchDesignSystem() {
-    designState.loading = true;
-    designState.error = null;
-    renderDesignBody();
-    try {
-      const [jsonRes, rawRes] = await Promise.all([
-        fetch(`http://localhost:${PORT}/design-system.json?token=${TOKEN}`, { cache: 'no-store' }),
-        fetch(`http://localhost:${PORT}/design-system/raw?token=${TOKEN}`, { cache: 'no-store' }),
-      ]);
-      const jsonData = await jsonRes.json();
-      designState.present = jsonData.present === true;
-      designState.parsed = jsonData.parsed || null;
-      designState.sidecar = jsonData.sidecar || null;
-      designState.hasMd = !!jsonData.hasMd;
-      designState.hasSidecar = !!jsonData.hasSidecar;
-      designState.mdNewerThanJson = !!jsonData.mdNewerThanJson;
-      designState.raw = designState.present && rawRes.ok ? await rawRes.text() : null;
-      designState.error = jsonData.parseError || jsonData.sidecarError || null;
-    } catch (err) {
-      designState.error = err?.message || 'Failed to load design system.';
-    } finally {
-      designState.loading = false;
-      renderDesignChrome(); // refresh title from data
-    }
-  }
+async function fetchDesignSystem() {
+	designState.loading = true;
+	designState.error = null;
+	renderDesignBody();
+	try {
+		const [jsonRes, rawRes] = await Promise.all([
+			fetch(`http://localhost:${PORT}/design-system.json?token=${TOKEN}`, {
+				cache: "no-store",
+			}),
+			fetch(`http://localhost:${PORT}/design-system/raw?token=${TOKEN}`, {
+				cache: "no-store",
+			}),
+		]);
+		const jsonData = await jsonRes.json();
+		designState.present = jsonData.present === true;
+		designState.parsed = jsonData.parsed || null;
+		designState.sidecar = jsonData.sidecar || null;
+		designState.hasMd = !!jsonData.hasMd;
+		designState.hasSidecar = !!jsonData.hasSidecar;
+		designState.mdNewerThanJson = !!jsonData.mdNewerThanJson;
+		designState.raw =
+			designState.present && rawRes.ok ? await rawRes.text() : null;
+		designState.error = jsonData.parseError || jsonData.sidecarError || null;
+	} catch (err) {
+		designState.error = err?.message || "Failed to load design system.";
+	} finally {
+		designState.loading = false;
+		renderDesignChrome(); // refresh title from data
+	}
+}
 
-  function renderDesignBody() {
-    const body = designShadow.querySelector('#panel-body');
-    if (!body) return;
-    body.innerHTML = '';
+function renderDesignBody() {
+	const body = designShadow.querySelector("#panel-body");
+	if (!body) return;
+	body.innerHTML = "";
 
-    if (designState.loading) {
-      body.appendChild(msgDiv('loading', 'Loading design system…'));
-      return;
-    }
-    if (designState.error) {
-      body.appendChild(msgDiv('error', designState.error));
-      return;
-    }
-    if (designState.present === false) {
-      const empty = document.createElement('div');
-      empty.className = 'empty';
-      empty.innerHTML = `<strong>No DESIGN.md yet</strong>Create one by running <code>${IMPECCABLE_COMMAND} document</code> in your terminal, then re-open this panel.`;
-      body.appendChild(empty);
-      return;
-    }
+	if (designState.loading) {
+		body.appendChild(msgDiv("loading", "Loading design system…"));
+		return;
+	}
+	if (designState.error) {
+		body.appendChild(msgDiv("error", designState.error));
+		return;
+	}
+	if (designState.present === false) {
+		const empty = document.createElement("div");
+		empty.className = "empty";
+		empty.innerHTML = `<strong>No DESIGN.md yet</strong>Create one by running <code>${IMPECCABLE_COMMAND} document</code> in your terminal, then re-open this panel.`;
+		body.appendChild(empty);
+		return;
+	}
 
-    if (designState.tab === 'raw') {
-      renderRawTab(body, designState.raw || '');
-      return;
-    }
+	if (designState.tab === "raw") {
+		renderRawTab(body, designState.raw || "");
+		return;
+	}
 
-    // Visual tab - single unified render path.
-    if (designState.mdNewerThanJson) body.appendChild(renderStaleHint());
-    if (designState.hasMd && !designState.hasSidecar) {
-      body.appendChild(renderParsedMdCta());
-    }
-    renderDesignVisual(body, designState.parsed, designState.sidecar);
-  }
+	// Visual tab - single unified render path.
+	if (designState.mdNewerThanJson) body.appendChild(renderStaleHint());
+	if (designState.hasMd && !designState.hasSidecar) {
+		body.appendChild(renderParsedMdCta());
+	}
+	renderDesignVisual(body, designState.parsed, designState.sidecar);
+}
 
-  function msgDiv(cls, text) {
-    const d = document.createElement('div');
-    d.className = cls;
-    d.textContent = text;
-    return d;
-  }
+function msgDiv(cls, text) {
+	const d = document.createElement("div");
+	d.className = cls;
+	d.textContent = text;
+	return d;
+}
 
-  function renderStaleHint() {
-    const box = document.createElement('div');
-    box.className = 'stale';
-    box.innerHTML = `
+function renderStaleHint() {
+	const box = document.createElement("div");
+	box.className = "stale";
+	box.innerHTML = `
       <span class="stale-dot"></span>
       <span class="stale-text"><strong>DESIGN.md is newer than .impeccable/design.json.</strong> Run <code>${IMPECCABLE_COMMAND} document</code> to refresh the sidecar.</span>
     `;
-    return box;
-  }
+	return box;
+}
 
-  function renderParsedMdCta() {
-    const box = document.createElement('div');
-    box.className = 'parsed-md-cta';
-    box.innerHTML = `<strong>Basic view</strong>This panel reads the tokens in your <code>DESIGN.md</code> frontmatter. Running <code>${IMPECCABLE_COMMAND} document</code> also generates a <code>.impeccable/design.json</code> sidecar with your project's actual component snippets (button, input, nav) and tonal ramps, rendered live below the tokens.`;
-    return box;
-  }
+function renderParsedMdCta() {
+	const box = document.createElement("div");
+	box.className = "parsed-md-cta";
+	box.innerHTML = `<strong>Basic view</strong>This panel reads the tokens in your <code>DESIGN.md</code> frontmatter. Running <code>${IMPECCABLE_COMMAND} document</code> also generates a <code>.impeccable/design.json</code> sidecar with your project's actual component snippets (button, input, nav) and tonal ramps, rendered live below the tokens.`;
+	return box;
+}
 
-  // Unified render: merge parsed DESIGN.md frontmatter with sidecar v2
+// Unified render: merge parsed DESIGN.md frontmatter with sidecar v2
 
-  function renderDesignVisual(body, parsed, sidecar) {
-    const frontmatter = parsed?.frontmatter || {};
-    const extensions = sidecar?.extensions || {};
-    const proseColors = parsed?.colors || null;
+function renderDesignVisual(body, parsed, sidecar) {
+	const frontmatter = parsed?.frontmatter || {};
+	const extensions = sidecar?.extensions || {};
+	const proseColors = parsed?.colors || null;
 
-    const colors = buildColorModels(frontmatter.colors, extensions.colorMeta, proseColors);
-    if (colors.length) renderColorTiles(body, colors);
+	const colors = buildColorModels(
+		frontmatter.colors,
+		extensions.colorMeta,
+		proseColors,
+	);
+	if (colors.length) renderColorTiles(body, colors);
 
-    const types = buildTypographyModels(frontmatter.typography, extensions.typographyMeta);
-    if (types.length) renderTypeTiles(body, types);
+	const types = buildTypographyModels(
+		frontmatter.typography,
+		extensions.typographyMeta,
+	);
+	if (types.length) renderTypeTiles(body, types);
 
-    const radii = buildRadiiModels(frontmatter.rounded);
-    if (radii.length) renderRadiiTile(body, radii);
+	const radii = buildRadiiModels(frontmatter.rounded);
+	if (radii.length) renderRadiiTile(body, radii);
 
-    if (extensions.shadows?.length) renderShadowTiles(body, extensions.shadows);
+	if (extensions.shadows?.length) renderShadowTiles(body, extensions.shadows);
 
-    const components = sidecar?.components || [];
-    if (components.length) renderComponentTiles(body, components);
+	const components = sidecar?.components || [];
+	if (components.length) renderComponentTiles(body, components);
 
-    // Narrative: sidecar wins if present (richer, agent-curated). Otherwise
-    // synthesize from prose sections.
-    const narrative = sidecar?.narrative || synthesizeNarrative(parsed);
-    if (narrative.rules?.length) body.appendChild(renderRulesCollapsible(narrative.rules));
-    if ((narrative.dos?.length || narrative.donts?.length)) body.appendChild(renderDosDontsCollapsible(narrative));
-    if (narrative.overview || narrative.northStar || narrative.keyCharacteristics?.length) {
-      body.appendChild(renderOverviewCollapsible(narrative));
-    }
+	// Narrative: sidecar wins if present (richer, agent-curated). Otherwise
+	// synthesize from prose sections.
+	const narrative = sidecar?.narrative || synthesizeNarrative(parsed);
+	if (narrative.rules?.length)
+		body.appendChild(renderRulesCollapsible(narrative.rules));
+	if (narrative.dos?.length || narrative.donts?.length)
+		body.appendChild(renderDosDontsCollapsible(narrative));
+	if (
+		narrative.overview ||
+		narrative.northStar ||
+		narrative.keyCharacteristics?.length
+	) {
+		body.appendChild(renderOverviewCollapsible(narrative));
+	}
 
-    if (body.childElementCount === 0) {
-      body.appendChild(msgDiv('empty', 'No design system data available.'));
-    }
-  }
+	if (body.childElementCount === 0) {
+		body.appendChild(msgDiv("empty", "No design system data available."));
+	}
+}
 
-  // Frontmatter primitives + sidecar colorMeta → tile-ready color models.
-  // A matching prose bullet (when the slug sits in the bullet text) supplies
-  // description as a last-resort fallback.
-  function buildColorModels(fmColors, colorMeta, proseColors) {
-    if (!fmColors) return [];
-    const meta = colorMeta || {};
-    return Object.entries(fmColors).map(([key, value]) => {
-      const m = meta[key] || {};
-      return {
-        role: m.role || humanizeKey(key),
-        name: m.displayName || humanizeKey(key),
-        value: normalizeCssColor(m.canonical || value),
-        canonical: m.canonical || null,
-        description: m.description || findProseDescription(proseColors, key, m.displayName),
-        tonalRamp: m.tonalRamp || null,
-      };
-    });
-  }
+// Frontmatter primitives + sidecar colorMeta → tile-ready color models.
+// A matching prose bullet (when the slug sits in the bullet text) supplies
+// description as a last-resort fallback.
+function buildColorModels(fmColors, colorMeta, proseColors) {
+	if (!fmColors) return [];
+	const meta = colorMeta || {};
+	return Object.entries(fmColors).map(([key, value]) => {
+		const m = meta[key] || {};
+		return {
+			role: m.role || humanizeKey(key),
+			name: m.displayName || humanizeKey(key),
+			value: normalizeCssColor(m.canonical || value),
+			canonical: m.canonical || null,
+			description:
+				m.description || findProseDescription(proseColors, key, m.displayName),
+			tonalRamp: m.tonalRamp || null,
+		};
+	});
+}
 
-  function buildTypographyModels(fmTypography, typographyMeta) {
-    if (!fmTypography) return [];
-    const meta = typographyMeta || {};
-    return Object.entries(fmTypography).map(([key, spec]) => {
-      const m = meta[key] || {};
-      const { family, fallback } = splitFontFamily(spec?.fontFamily);
-      return {
-        role: key,
-        name: m.displayName || humanizeKey(key),
-        family,
-        fallback,
-        weight: spec?.fontWeight ?? 400,
-        // fontStyle isn't in Stitch's frontmatter schema; the sidecar carries
-        // it when a role is rendered in italic (e.g. display italic).
-        style: m.style || 'normal',
-        sampleSize: spec?.fontSize || '1rem',
-        lineHeight: spec?.lineHeight != null ? String(spec.lineHeight) : '',
-        letterSpacing: spec?.letterSpacing,
-        purpose: m.purpose,
-      };
-    });
-  }
+function buildTypographyModels(fmTypography, typographyMeta) {
+	if (!fmTypography) return [];
+	const meta = typographyMeta || {};
+	return Object.entries(fmTypography).map(([key, spec]) => {
+		const m = meta[key] || {};
+		const { family, fallback } = splitFontFamily(spec?.fontFamily);
+		return {
+			role: key,
+			name: m.displayName || humanizeKey(key),
+			family,
+			fallback,
+			weight: spec?.fontWeight ?? 400,
+			// fontStyle isn't in Stitch's frontmatter schema; the sidecar carries
+			// it when a role is rendered in italic (e.g. display italic).
+			style: m.style || "normal",
+			sampleSize: spec?.fontSize || "1rem",
+			lineHeight: spec?.lineHeight != null ? String(spec.lineHeight) : "",
+			letterSpacing: spec?.letterSpacing,
+			purpose: m.purpose,
+		};
+	});
+}
 
-  function buildRadiiModels(fmRounded) {
-    if (!fmRounded) return [];
-    return Object.entries(fmRounded).map(([name, value]) => ({ name, value }));
-  }
+function buildRadiiModels(fmRounded) {
+	if (!fmRounded) return [];
+	return Object.entries(fmRounded).map(([name, value]) => ({ name, value }));
+}
 
-  function splitFontFamily(stack) {
-    if (!stack || typeof stack !== 'string') return { family: '', fallback: '' };
-    const parts = stack.split(',').map((s) => s.trim().replace(/^['"]|['"]$/g, ''));
-    return { family: parts[0] || '', fallback: parts.slice(1).join(', ') };
-  }
+function splitFontFamily(stack) {
+	if (!stack || typeof stack !== "string") return { family: "", fallback: "" };
+	const parts = stack
+		.split(",")
+		.map((s) => s.trim().replace(/^['"]|['"]$/g, ""));
+	return { family: parts[0] || "", fallback: parts.slice(1).join(", ") };
+}
 
-  function humanizeKey(k) {
-    return String(k || '').replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-  }
+function humanizeKey(k) {
+	return String(k || "")
+		.replace(/[-_]+/g, " ")
+		.replace(/\b\w/g, (c) => c.toUpperCase());
+}
 
-  function findProseDescription(proseColors, key, displayName) {
-    if (!proseColors || !proseColors.groups) return null;
-    const needles = [key, displayName].filter(Boolean).map((s) => s.toLowerCase());
-    for (const g of proseColors.groups) {
-      for (const c of g.colors || []) {
-        const hay = String(c.name || '').toLowerCase();
-        if (hay && needles.some((n) => hay.includes(n) || n.includes(hay))) {
-          return c.description || null;
-        }
-      }
-    }
-    return null;
-  }
+function findProseDescription(proseColors, key, displayName) {
+	if (!proseColors || !proseColors.groups) return null;
+	const needles = [key, displayName]
+		.filter(Boolean)
+		.map((s) => s.toLowerCase());
+	for (const g of proseColors.groups) {
+		for (const c of g.colors || []) {
+			const hay = String(c.name || "").toLowerCase();
+			if (hay && needles.some((n) => hay.includes(n) || n.includes(hay))) {
+				return c.description || null;
+			}
+		}
+	}
+	return null;
+}
 
-  function synthesizeNarrative(parsed) {
-    if (!parsed) return {};
-    const md = parsed;
-    return {
-      northStar: md.overview?.creativeNorthStar,
-      overview: (md.overview?.philosophy || []).join(' '),
-      keyCharacteristics: md.overview?.keyCharacteristics || [],
-      rules: [
-        ...(md.colors?.rules || []).map((r) => ({ ...r, section: 'colors' })),
-        ...(md.typography?.rules || []).map((r) => ({ ...r, section: 'typography' })),
-        ...(md.elevation?.rules || []).map((r) => ({ ...r, section: 'elevation' })),
-      ],
-      dos: md.dosDonts?.dos || [],
-      donts: md.dosDonts?.donts || [],
-    };
-  }
+function synthesizeNarrative(parsed) {
+	if (!parsed) return {};
+	const md = parsed;
+	return {
+		northStar: md.overview?.creativeNorthStar,
+		overview: (md.overview?.philosophy || []).join(" "),
+		keyCharacteristics: md.overview?.keyCharacteristics || [],
+		rules: [
+			...(md.colors?.rules || []).map((r) => ({ ...r, section: "colors" })),
+			...(md.typography?.rules || []).map((r) => ({
+				...r,
+				section: "typography",
+			})),
+			...(md.elevation?.rules || []).map((r) => ({
+				...r,
+				section: "elevation",
+			})),
+		],
+		dos: md.dosDonts?.dos || [],
+		donts: md.dosDonts?.donts || [],
+	};
+}
 
-  function renderColorTiles(body, colors) {
-    for (const c of colors) {
-      const tile = document.createElement('div');
-      tile.className = 'tile c-tile';
-      tile.title = 'Click to copy';
-      tile.addEventListener('click', () => copyToClipboard(c.value));
+function renderColorTiles(body, colors) {
+	for (const c of colors) {
+		const tile = document.createElement("div");
+		tile.className = "tile c-tile";
+		tile.title = "Click to copy";
+		tile.addEventListener("click", () => copyToClipboard(c.value));
 
-      const meta = document.createElement('div');
-      meta.className = 'tile-meta';
-      meta.innerHTML = `<span class="name">${escapeHtml(c.name || c.role || 'Color')}</span><span>${escapeHtml(c.value || '')}</span>`;
-      tile.appendChild(meta);
+		const meta = document.createElement("div");
+		meta.className = "tile-meta";
+		meta.innerHTML = `<span class="name">${escapeHtml(c.name || c.role || "Color")}</span><span>${escapeHtml(c.value || "")}</span>`;
+		tile.appendChild(meta);
 
-      const hero = document.createElement('div');
-      hero.className = 'c-hero';
-      hero.style.background = cssSafe(c.value || '');
-      tile.appendChild(hero);
+		const hero = document.createElement("div");
+		hero.className = "c-hero";
+		hero.style.background = cssSafe(c.value || "");
+		tile.appendChild(hero);
 
-      const ramp = synthesizeRamp(c);
-      if (ramp.length) {
-        const r = document.createElement('div');
-        r.className = 'c-ramp';
-        r.innerHTML = ramp.map((v) => `<span style="background:${cssSafe(v)}"></span>`).join('');
-        tile.appendChild(r);
-      }
+		const ramp = synthesizeRamp(c);
+		if (ramp.length) {
+			const r = document.createElement("div");
+			r.className = "c-ramp";
+			r.innerHTML = ramp
+				.map((v) => `<span style="background:${cssSafe(v)}"></span>`)
+				.join("");
+			tile.appendChild(r);
+		}
 
-      if (c.description) {
-        const d = document.createElement('div');
-        d.className = 'c-desc';
-        d.textContent = c.description;
-        tile.appendChild(d);
-      }
-      body.appendChild(tile);
-    }
-  }
+		if (c.description) {
+			const d = document.createElement("div");
+			d.className = "c-desc";
+			d.textContent = c.description;
+			tile.appendChild(d);
+		}
+		body.appendChild(tile);
+	}
+}
 
-  function synthesizeRamp(c) {
-    if (c.tonalRamp?.length) return c.tonalRamp;
-    // If base value is OKLCH, synthesize an 8-step ramp across lightness.
-    const m = typeof c.value === 'string' && c.value.match(/^oklch\(\s*([\d.]+)%\s+([\d.]+)\s+([\d.]+)\s*(?:\/\s*([\d.]+))?\s*\)$/i);
-    if (!m) return [];
-    const [, , chroma, hue] = m;
-    const steps = [20, 32, 44, 56, 68, 80, 90, 96];
-    return steps.map((l) => `oklch(${l}% ${chroma} ${hue})`);
-  }
+function synthesizeRamp(c) {
+	if (c.tonalRamp?.length) return c.tonalRamp;
+	// If base value is OKLCH, synthesize an 8-step ramp across lightness.
+	const m =
+		typeof c.value === "string" &&
+		c.value.match(
+			/^oklch\(\s*([\d.]+)%\s+([\d.]+)\s+([\d.]+)\s*(?:\/\s*([\d.]+))?\s*\)$/i,
+		);
+	if (!m) return [];
+	const [, , chroma, hue] = m;
+	const steps = [20, 32, 44, 56, 68, 80, 90, 96];
+	return steps.map((l) => `oklch(${l}% ${chroma} ${hue})`);
+}
 
-  function renderTypeTiles(body, types) {
-    for (const t of types) {
-      const tile = document.createElement('div');
-      tile.className = 'tile t-tile';
+function renderTypeTiles(body, types) {
+	for (const t of types) {
+		const tile = document.createElement("div");
+		tile.className = "tile t-tile";
 
-      const meta = document.createElement('div');
-      meta.className = 'tile-meta';
-      meta.innerHTML = `<span>${escapeHtml(t.role || '')}</span><span>${escapeHtml(t.weight || '')} ${escapeHtml(t.style === 'italic' ? 'italic' : '')}</span>`;
-      tile.appendChild(meta);
+		const meta = document.createElement("div");
+		meta.className = "tile-meta";
+		meta.innerHTML = `<span>${escapeHtml(t.role || "")}</span><span>${escapeHtml(t.weight || "")} ${escapeHtml(t.style === "italic" ? "italic" : "")}</span>`;
+		tile.appendChild(meta);
 
-      const specimen = document.createElement('div');
-      specimen.className = 't-specimen';
-      specimen.textContent = 'Aa';
-      specimen.style.fontFamily = fontStack(t);
-      specimen.style.fontWeight = String(t.weight || 400);
-      specimen.style.fontStyle = t.style || 'normal';
-      specimen.style.fontSize = '56px';  // Fixed specimen size - compare faces, not scales.
-      specimen.style.letterSpacing = 'normal';
-      specimen.style.textTransform = 'none';
-      tile.appendChild(specimen);
+		const specimen = document.createElement("div");
+		specimen.className = "t-specimen";
+		specimen.textContent = "Aa";
+		specimen.style.fontFamily = fontStack(t);
+		specimen.style.fontWeight = String(t.weight || 400);
+		specimen.style.fontStyle = t.style || "normal";
+		specimen.style.fontSize = "56px"; // Fixed specimen size - compare faces, not scales.
+		specimen.style.letterSpacing = "normal";
+		specimen.style.textTransform = "none";
+		tile.appendChild(specimen);
 
-      // The system's actual sample size for this role, shown as small mono meta below.
-      if (t.sampleSize) {
-        const scale = document.createElement('div');
-        scale.style.cssText = 'font-family:' + MONO + '; font-size: 10px; color:' + DP.meta + '; margin-top: 2px;';
-        scale.textContent = t.sampleSize;
-        tile.appendChild(scale);
-      }
+		// The system's actual sample size for this role, shown as small mono meta below.
+		if (t.sampleSize) {
+			const scale = document.createElement("div");
+			scale.style.cssText =
+				"font-family:" +
+				MONO +
+				"; font-size: 10px; color:" +
+				DP.meta +
+				"; margin-top: 2px;";
+			scale.textContent = t.sampleSize;
+			tile.appendChild(scale);
+		}
 
-      const family = document.createElement('div');
-      family.className = 't-family';
-      family.textContent = t.family || t.name || '';
-      tile.appendChild(family);
+		const family = document.createElement("div");
+		family.className = "t-family";
+		family.textContent = t.family || t.name || "";
+		tile.appendChild(family);
 
-      if (t.purpose) {
-        const p = document.createElement('div');
-        p.className = 't-purpose';
-        p.textContent = t.purpose;
-        tile.appendChild(p);
-      }
-      body.appendChild(tile);
-    }
-  }
+		if (t.purpose) {
+			const p = document.createElement("div");
+			p.className = "t-purpose";
+			p.textContent = t.purpose;
+			tile.appendChild(p);
+		}
+		body.appendChild(tile);
+	}
+}
 
-  function fontStack(t) {
-    const fam = t.family || '';
-    const fb = t.fallback || '';
-    if (fam && /[,\s]/.test(fam) && !fam.includes("'") && !fam.includes('"')) {
-      return `"${fam}", ${fb}`;
-    }
-    return fam && fb ? `"${fam}", ${fb}` : (fam || fb);
-  }
+function fontStack(t) {
+	const fam = t.family || "";
+	const fb = t.fallback || "";
+	if (fam && /[,\s]/.test(fam) && !fam.includes("'") && !fam.includes('"')) {
+		return `"${fam}", ${fb}`;
+	}
+	return fam && fb ? `"${fam}", ${fb}` : fam || fb;
+}
 
-  function renderRadiiTile(body, radii) {
-    const tile = document.createElement('div');
-    tile.className = 'tile';
-    const meta = document.createElement('div');
-    meta.className = 'tile-meta';
-    meta.innerHTML = `<span class="name">Corner Radii</span><span>${radii.length}</span>`;
-    tile.appendChild(meta);
+function renderRadiiTile(body, radii) {
+	const tile = document.createElement("div");
+	tile.className = "tile";
+	const meta = document.createElement("div");
+	meta.className = "tile-meta";
+	meta.innerHTML = `<span class="name">Corner Radii</span><span>${radii.length}</span>`;
+	tile.appendChild(meta);
 
-    const strip = document.createElement('div');
-    strip.className = 'r-strip';
-    for (const r of radii) {
-      const item = document.createElement('div');
-      item.className = 'r-item';
-      const s = document.createElement('div');
-      s.className = 'r-sample';
-      s.style.borderRadius = r.value || '0';
-      item.appendChild(s);
-      const lbl = document.createElement('div');
-      lbl.className = 'r-label';
-      lbl.textContent = r.name || '';
-      item.appendChild(lbl);
-      const val = document.createElement('div');
-      val.className = 'r-val';
-      val.textContent = r.value || '';
-      item.appendChild(val);
-      strip.appendChild(item);
-    }
-    tile.appendChild(strip);
-    body.appendChild(tile);
-  }
+	const strip = document.createElement("div");
+	strip.className = "r-strip";
+	for (const r of radii) {
+		const item = document.createElement("div");
+		item.className = "r-item";
+		const s = document.createElement("div");
+		s.className = "r-sample";
+		s.style.borderRadius = r.value || "0";
+		item.appendChild(s);
+		const lbl = document.createElement("div");
+		lbl.className = "r-label";
+		lbl.textContent = r.name || "";
+		item.appendChild(lbl);
+		const val = document.createElement("div");
+		val.className = "r-val";
+		val.textContent = r.value || "";
+		item.appendChild(val);
+		strip.appendChild(item);
+	}
+	tile.appendChild(strip);
+	body.appendChild(tile);
+}
 
-  function renderShadowTiles(body, shadows) {
-    for (const sh of shadows) {
-      const tile = document.createElement('div');
-      tile.className = 'tile s-tile';
+function renderShadowTiles(body, shadows) {
+	for (const sh of shadows) {
+		const tile = document.createElement("div");
+		tile.className = "tile s-tile";
 
-      const meta = document.createElement('div');
-      meta.className = 'tile-meta';
-      meta.innerHTML = `<span class="name">${escapeHtml(sh.name || 'Shadow')}</span><span>Elevation</span>`;
-      tile.appendChild(meta);
+		const meta = document.createElement("div");
+		meta.className = "tile-meta";
+		meta.innerHTML = `<span class="name">${escapeHtml(sh.name || "Shadow")}</span><span>Elevation</span>`;
+		tile.appendChild(meta);
 
-      const surface = document.createElement('div');
-      surface.className = 's-surface';
-      surface.style.boxShadow = sh.value || 'none';
-      tile.appendChild(surface);
+		const surface = document.createElement("div");
+		surface.className = "s-surface";
+		surface.style.boxShadow = sh.value || "none";
+		tile.appendChild(surface);
 
-      const val = document.createElement('div');
-      val.className = 's-value';
-      val.textContent = sh.value || '';
-      tile.appendChild(val);
+		const val = document.createElement("div");
+		val.className = "s-value";
+		val.textContent = sh.value || "";
+		tile.appendChild(val);
 
-      if (sh.purpose) {
-        const p = document.createElement('div');
-        p.className = 's-purpose';
-        p.textContent = sh.purpose;
-        tile.appendChild(p);
-      }
-      body.appendChild(tile);
-    }
-  }
+		if (sh.purpose) {
+			const p = document.createElement("div");
+			p.className = "s-purpose";
+			p.textContent = sh.purpose;
+			tile.appendChild(p);
+		}
+		body.appendChild(tile);
+	}
+}
 
-  function renderComponentTiles(body, components) {
-    // Group consecutive components that share a kind into one tile. This avoids
-    // a pile of one-component tiles (e.g., three button variants = three tiles)
-    // and reads more like a proper category.
-    const groups = groupByKind(components);
+function renderComponentTiles(body, components) {
+	// Group consecutive components that share a kind into one tile. This avoids
+	// a pile of one-component tiles (e.g., three button variants = three tiles)
+	// and reads more like a proper category.
+	const groups = groupByKind(components);
 
-    for (const group of groups) {
-      const tile = document.createElement('div');
-      tile.className = 'tile cmp-tile';
+	for (const group of groups) {
+		const tile = document.createElement("div");
+		tile.className = "tile cmp-tile";
 
-      const meta = document.createElement('div');
-      meta.className = 'tile-meta';
-      const groupTitle = group.length === 1
-        ? (group[0].name || group[0].kind || 'Component')
-        : titleForKind(group[0].kind, group.length);
-      meta.innerHTML = `<span class="name">${escapeHtml(groupTitle)}</span><span class="cmp-kind">${escapeHtml(group[0].kind || '')}</span>`;
-      tile.appendChild(meta);
+		const meta = document.createElement("div");
+		meta.className = "tile-meta";
+		const groupTitle =
+			group.length === 1
+				? group[0].name || group[0].kind || "Component"
+				: titleForKind(group[0].kind, group.length);
+		meta.innerHTML = `<span class="name">${escapeHtml(groupTitle)}</span><span class="cmp-kind">${escapeHtml(group[0].kind || "")}</span>`;
+		tile.appendChild(meta);
 
-      for (const c of group) {
-        const stage = document.createElement('div');
-        stage.className = 'cmp-stage';
+		for (const c of group) {
+			const stage = document.createElement("div");
+			stage.className = "cmp-stage";
 
-        // Render the component in its own shadow root so its CSS can't bleed.
-        const host = document.createElement('div');
-        const sub = host.attachShadow({ mode: 'open' });
-        const style = document.createElement('style');
-        style.textContent = c.css || '';
-        sub.appendChild(style);
-        const container = document.createElement('div');
-        container.innerHTML = c.html || '';
-        sub.appendChild(container);
-        stage.appendChild(host);
+			// Render the component in its own shadow root so its CSS can't bleed.
+			const host = document.createElement("div");
+			const sub = host.attachShadow({ mode: "open" });
+			const style = document.createElement("style");
+			style.textContent = c.css || "";
+			sub.appendChild(style);
+			const container = document.createElement("div");
+			container.innerHTML = c.html || "";
+			sub.appendChild(container);
+			stage.appendChild(host);
 
-        // Show component name as a sublabel only when the tile groups >1 item,
-        // or when the component's display name differs from its kind.
-        const showSublabel = group.length > 1;
-        if (showSublabel) {
-          const lbl = document.createElement('div');
-          lbl.className = 'cmp-sublabel';
-          lbl.textContent = c.name || '';
-          stage.appendChild(lbl);
-        }
-        tile.appendChild(stage);
-      }
+			// Show component name as a sublabel only when the tile groups >1 item,
+			// or when the component's display name differs from its kind.
+			const showSublabel = group.length > 1;
+			if (showSublabel) {
+				const lbl = document.createElement("div");
+				lbl.className = "cmp-sublabel";
+				lbl.textContent = c.name || "";
+				stage.appendChild(lbl);
+			}
+			tile.appendChild(stage);
+		}
 
-      // Single shared description if all items carry the same one; otherwise
-      // skip - per-item descriptions clutter a grouped tile.
-      if (group.length === 1 && group[0].description) {
-        const d = document.createElement('div');
-        d.className = 'c-desc';
-        d.textContent = group[0].description;
-        tile.appendChild(d);
-      }
-      body.appendChild(tile);
-    }
-  }
+		// Single shared description if all items carry the same one; otherwise
+		// skip - per-item descriptions clutter a grouped tile.
+		if (group.length === 1 && group[0].description) {
+			const d = document.createElement("div");
+			d.className = "c-desc";
+			d.textContent = group[0].description;
+			tile.appendChild(d);
+		}
+		body.appendChild(tile);
+	}
+}
 
-  function groupByKind(components) {
-    const groups = [];
-    for (const c of components) {
-      const last = groups[groups.length - 1];
-      if (last && last[0].kind && c.kind === last[0].kind) {
-        last.push(c);
-      } else {
-        groups.push([c]);
-      }
-    }
-    return groups;
-  }
+function groupByKind(components) {
+	const groups = [];
+	for (const c of components) {
+		const last = groups[groups.length - 1];
+		if (last && last[0].kind && c.kind === last[0].kind) {
+			last.push(c);
+		} else {
+			groups.push([c]);
+		}
+	}
+	return groups;
+}
 
-  function titleForKind(kind, count) {
-    const labels = {
-      button: 'Buttons',
-      input: 'Inputs',
-      nav: 'Navigation',
-      chip: 'Chips',
-      card: 'Cards',
-      custom: 'Components',
-    };
-    return labels[kind] || (kind ? kind.charAt(0).toUpperCase() + kind.slice(1) + 's' : 'Components');
-  }
+function titleForKind(kind, count) {
+	const labels = {
+		button: "Buttons",
+		input: "Inputs",
+		nav: "Navigation",
+		chip: "Chips",
+		card: "Cards",
+		custom: "Components",
+	};
+	return (
+		labels[kind] ||
+		(kind ? kind.charAt(0).toUpperCase() + kind.slice(1) + "s" : "Components")
+	);
+}
 
-  // Collapsibles.
+// Collapsibles.
 
-  function buildCollapsible(key, label, count) {
-    const wrap = document.createElement('div');
-    wrap.className = 'coll';
-    wrap.setAttribute('data-open', designState.collapsed[key] ? 'false' : 'true');
+function buildCollapsible(key, label, count) {
+	const wrap = document.createElement("div");
+	wrap.className = "coll";
+	wrap.setAttribute("data-open", designState.collapsed[key] ? "false" : "true");
 
-    const head = document.createElement('button');
-    head.className = 'coll-head';
-    head.innerHTML = `
+	const head = document.createElement("button");
+	head.className = "coll-head";
+	head.innerHTML = `
       <svg class="coll-chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2.5L8 6 4 9.5"/></svg>
       <span>${escapeHtml(label)}</span>
-      ${count != null ? `<span class="coll-count">${escapeHtml(String(count))}</span>` : ''}
+      ${count != null ? `<span class="coll-count">${escapeHtml(String(count))}</span>` : ""}
     `;
-    head.addEventListener('click', () => {
-      designState.collapsed[key] = !designState.collapsed[key];
-      saveDesignPrefs();
-      renderDesignBody();
-    });
-    wrap.appendChild(head);
+	head.addEventListener("click", () => {
+		designState.collapsed[key] = !designState.collapsed[key];
+		saveDesignPrefs();
+		renderDesignBody();
+	});
+	wrap.appendChild(head);
 
-    const body = document.createElement('div');
-    body.className = 'coll-body';
-    wrap.appendChild(body);
-    return { wrap, body };
-  }
+	const body = document.createElement("div");
+	body.className = "coll-body";
+	wrap.appendChild(body);
+	return { wrap, body };
+}
 
-  function renderRulesCollapsible(rules) {
-    const { wrap, body } = buildCollapsible('rules', 'Named Rules', rules.length);
-    for (const r of rules) {
-      const card = document.createElement('div');
-      card.className = 'rule-card';
-      const name = document.createElement('div');
-      name.className = 'name';
-      name.innerHTML = `${escapeHtml(r.name)}${r.section ? `<span class="section">${escapeHtml(r.section)}</span>` : ''}`;
-      card.appendChild(name);
-      const b = document.createElement('div');
-      b.className = 'body';
-      b.textContent = r.body || '';
-      card.appendChild(b);
-      body.appendChild(card);
-    }
-    return wrap;
-  }
+function renderRulesCollapsible(rules) {
+	const { wrap, body } = buildCollapsible("rules", "Named Rules", rules.length);
+	for (const r of rules) {
+		const card = document.createElement("div");
+		card.className = "rule-card";
+		const name = document.createElement("div");
+		name.className = "name";
+		name.innerHTML = `${escapeHtml(r.name)}${r.section ? `<span class="section">${escapeHtml(r.section)}</span>` : ""}`;
+		card.appendChild(name);
+		const b = document.createElement("div");
+		b.className = "body";
+		b.textContent = r.body || "";
+		card.appendChild(b);
+		body.appendChild(card);
+	}
+	return wrap;
+}
 
-  function renderDosDontsCollapsible(n) {
-    const total = (n.dos?.length || 0) + (n.donts?.length || 0);
-    const { wrap, body } = buildCollapsible('dosdonts', "Do's and Don'ts", total);
-    const grid = document.createElement('div');
-    grid.className = 'dos';
-    for (const d of n.dos || []) {
-      const el = document.createElement('div');
-      el.className = 'do';
-      el.innerHTML = inlineMd(d);
-      grid.appendChild(el);
-    }
-    for (const d of n.donts || []) {
-      const el = document.createElement('div');
-      el.className = 'dont';
-      el.innerHTML = inlineMd(d);
-      grid.appendChild(el);
-    }
-    body.appendChild(grid);
-    return wrap;
-  }
+function renderDosDontsCollapsible(n) {
+	const total = (n.dos?.length || 0) + (n.donts?.length || 0);
+	const { wrap, body } = buildCollapsible("dosdonts", "Do's and Don'ts", total);
+	const grid = document.createElement("div");
+	grid.className = "dos";
+	for (const d of n.dos || []) {
+		const el = document.createElement("div");
+		el.className = "do";
+		el.innerHTML = inlineMd(d);
+		grid.appendChild(el);
+	}
+	for (const d of n.donts || []) {
+		const el = document.createElement("div");
+		el.className = "dont";
+		el.innerHTML = inlineMd(d);
+		grid.appendChild(el);
+	}
+	body.appendChild(grid);
+	return wrap;
+}
 
-  function renderOverviewCollapsible(n) {
-    const { wrap, body } = buildCollapsible('overview', 'Overview', null);
-    const ov = document.createElement('div');
-    ov.className = 'overview-body';
-    if (n.northStar) {
-      const star = document.createElement('span');
-      star.className = 'north-star';
-      star.textContent = '“' + n.northStar + '”';
-      ov.appendChild(star);
-    }
-    if (n.overview) {
-      const p = document.createElement('p');
-      p.innerHTML = inlineMd(n.overview);
-      ov.appendChild(p);
-    }
-    if (n.keyCharacteristics?.length) {
-      const ul = document.createElement('ul');
-      ul.innerHTML = n.keyCharacteristics.map((k) => `<li>${inlineMd(k)}</li>`).join('');
-      ov.appendChild(ul);
-    }
-    body.appendChild(ov);
-    return wrap;
-  }
+function renderOverviewCollapsible(n) {
+	const { wrap, body } = buildCollapsible("overview", "Overview", null);
+	const ov = document.createElement("div");
+	ov.className = "overview-body";
+	if (n.northStar) {
+		const star = document.createElement("span");
+		star.className = "north-star";
+		star.textContent = "“" + n.northStar + "”";
+		ov.appendChild(star);
+	}
+	if (n.overview) {
+		const p = document.createElement("p");
+		p.innerHTML = inlineMd(n.overview);
+		ov.appendChild(p);
+	}
+	if (n.keyCharacteristics?.length) {
+		const ul = document.createElement("ul");
+		ul.innerHTML = n.keyCharacteristics
+			.map((k) => `<li>${inlineMd(k)}</li>`)
+			.join("");
+		ov.appendChild(ul);
+	}
+	body.appendChild(ov);
+	return wrap;
+}
 
-  function cssSafe(v) {
-    // Strip anything outside valid CSS value chars to prevent injection via
-    // .impeccable/design.json values rendered into inline style strings.
-    return String(v).replace(/[<>"'`\n]/g, '');
-  }
+function cssSafe(v) {
+	// Strip anything outside valid CSS value chars to prevent injection via
+	// .impeccable/design.json values rendered into inline style strings.
+	return String(v).replace(/[<>"'`\n]/g, "");
+}
 
-  function normalizeCssColor(v) {
-    if (!v || typeof v !== 'string') return v;
-    const s = v.trim();
-    const oklch = s.match(/oklch\([^)]+\)/i);
-    if (oklch) return oklch[0];
-    const hex = s.match(/#[0-9a-fA-F]{3,8}\b/);
-    if (hex) return hex[0];
-    const rgb = s.match(/rgba?\([^)]+\)/i);
-    if (rgb) return rgb[0];
-    return s.replace(/\s+#.*$/, '').trim();
-  }
+function normalizeCssColor(v) {
+	if (!v || typeof v !== "string") return v;
+	const s = v.trim();
+	const oklch = s.match(/oklch\([^)]+\)/i);
+	if (oklch) return oklch[0];
+	const hex = s.match(/#[0-9a-fA-F]{3,8}\b/);
+	if (hex) return hex[0];
+	const rgb = s.match(/rgba?\([^)]+\)/i);
+	if (rgb) return rgb[0];
+	return s.replace(/\s+#.*$/, "").trim();
+}
 
-  // Raw tab: minimal markdown renderer (subset)
+// Raw tab: minimal markdown renderer (subset)
 
-  function renderRawTab(body, md) {
-    const wrap = document.createElement('div');
-    wrap.className = 'md';
-    wrap.innerHTML = renderMarkdown(md);
-    body.appendChild(wrap);
-  }
+function renderRawTab(body, md) {
+	const wrap = document.createElement("div");
+	wrap.className = "md";
+	wrap.innerHTML = renderMarkdown(md);
+	body.appendChild(wrap);
+}
 
-  function renderMarkdown(md) {
-    const lines = md.split(/\r?\n/);
-    const out = [];
-    let i = 0;
-    let inCode = false;
-    let codeBuf = [];
-    let paraBuf = [];
-    let listBuf = [];  // array of { indent, html }
-    let listType = null; // 'ul' | 'ol'
+function renderMarkdown(md) {
+	const lines = md.split(/\r?\n/);
+	const out = [];
+	let i = 0;
+	let inCode = false;
+	let codeBuf = [];
+	let paraBuf = [];
+	let listBuf = []; // array of { indent, html }
+	let listType = null; // 'ul' | 'ol'
 
-    const flushPara = () => {
-      if (paraBuf.length) {
-        out.push(`<p>${inlineMd(paraBuf.join(' '))}</p>`);
-        paraBuf = [];
-      }
-    };
-    const flushList = () => {
-      if (listBuf.length) {
-        out.push(buildListHtml(listBuf, listType));
-        listBuf = [];
-        listType = null;
-      }
-    };
-    const flushAll = () => { flushPara(); flushList(); };
+	const flushPara = () => {
+		if (paraBuf.length) {
+			out.push(`<p>${inlineMd(paraBuf.join(" "))}</p>`);
+			paraBuf = [];
+		}
+	};
+	const flushList = () => {
+		if (listBuf.length) {
+			out.push(buildListHtml(listBuf, listType));
+			listBuf = [];
+			listType = null;
+		}
+	};
+	const flushAll = () => {
+		flushPara();
+		flushList();
+	};
 
-    for (; i < lines.length; i++) {
-      const line = lines[i];
+	for (; i < lines.length; i++) {
+		const line = lines[i];
 
-      // Code fence
-      const fence = line.match(/^```(\w*)\s*$/);
-      if (fence) {
-        if (!inCode) { flushAll(); inCode = true; codeBuf = []; }
-        else {
-          out.push(`<pre><code>${escapeHtml(codeBuf.join('\n'))}</code></pre>`);
-          inCode = false;
-        }
-        continue;
-      }
-      if (inCode) { codeBuf.push(line); continue; }
+		// Code fence
+		const fence = line.match(/^```(\w*)\s*$/);
+		if (fence) {
+			if (!inCode) {
+				flushAll();
+				inCode = true;
+				codeBuf = [];
+			} else {
+				out.push(`<pre><code>${escapeHtml(codeBuf.join("\n"))}</code></pre>`);
+				inCode = false;
+			}
+			continue;
+		}
+		if (inCode) {
+			codeBuf.push(line);
+			continue;
+		}
 
-      if (line.trim() === '') { flushAll(); continue; }
+		if (line.trim() === "") {
+			flushAll();
+			continue;
+		}
 
-      const hr = line.match(/^\s*(?:---+|\*\*\*+)\s*$/);
-      if (hr) { flushAll(); out.push('<hr />'); continue; }
+		const hr = line.match(/^\s*(?:---+|\*\*\*+)\s*$/);
+		if (hr) {
+			flushAll();
+			out.push("<hr />");
+			continue;
+		}
 
-      const heading = line.match(/^(#{1,4})\s+(.+)$/);
-      if (heading) {
-        flushAll();
-        const lvl = heading[1].length;
-        out.push(`<h${lvl}>${inlineMd(heading[2])}</h${lvl}>`);
-        continue;
-      }
+		const heading = line.match(/^(#{1,4})\s+(.+)$/);
+		if (heading) {
+			flushAll();
+			const lvl = heading[1].length;
+			out.push(`<h${lvl}>${inlineMd(heading[2])}</h${lvl}>`);
+			continue;
+		}
 
-      const bullet = line.match(/^(\s*)([-*])\s+(.+)$/);
-      const ordered = line.match(/^(\s*)(\d+)\.\s+(.+)$/);
-      if (bullet || ordered) {
-        flushPara();
-        const m = bullet || ordered;
-        const indent = Math.floor(m[1].length / 2);
-        const t = bullet ? 'ul' : 'ol';
-        if (listType && listType !== t) flushList();
-        listType = t;
-        listBuf.push({ indent, html: inlineMd(m[3]) });
-        continue;
-      }
+		const bullet = line.match(/^(\s*)([-*])\s+(.+)$/);
+		const ordered = line.match(/^(\s*)(\d+)\.\s+(.+)$/);
+		if (bullet || ordered) {
+			flushPara();
+			const m = bullet || ordered;
+			const indent = Math.floor(m[1].length / 2);
+			const t = bullet ? "ul" : "ol";
+			if (listType && listType !== t) flushList();
+			listType = t;
+			listBuf.push({ indent, html: inlineMd(m[3]) });
+			continue;
+		}
 
-      paraBuf.push(line);
-    }
-    flushAll();
-    if (inCode && codeBuf.length) {
-      out.push(`<pre><code>${escapeHtml(codeBuf.join('\n'))}</code></pre>`);
-    }
-    return out.join('\n');
-  }
+		paraBuf.push(line);
+	}
+	flushAll();
+	if (inCode && codeBuf.length) {
+		out.push(`<pre><code>${escapeHtml(codeBuf.join("\n"))}</code></pre>`);
+	}
+	return out.join("\n");
+}
 
-  function buildListHtml(items, type) {
-    // Nest by indent (one level deep is plenty for DESIGN.md).
-    let html = `<${type}>`;
-    let lastIndent = 0;
-    for (const it of items) {
-      if (it.indent > lastIndent) html += `<${type}>`;
-      else if (it.indent < lastIndent) html += `</${type}>`.repeat(lastIndent - it.indent);
-      html += `<li>${it.html}</li>`;
-      lastIndent = it.indent;
-    }
-    html += `</${type}>`.repeat(lastIndent + 1);
-    return html;
-  }
+function buildListHtml(items, type) {
+	// Nest by indent (one level deep is plenty for DESIGN.md).
+	let html = `<${type}>`;
+	let lastIndent = 0;
+	for (const it of items) {
+		if (it.indent > lastIndent) html += `<${type}>`;
+		else if (it.indent < lastIndent)
+			html += `</${type}>`.repeat(lastIndent - it.indent);
+		html += `<li>${it.html}</li>`;
+		lastIndent = it.indent;
+	}
+	html += `</${type}>`.repeat(lastIndent + 1);
+	return html;
+}
 
-  function inlineMd(text) {
-    // Order matters: escape first, then re-inject tags.
-    let s = escapeHtml(text);
-    // Code spans
-    s = s.replace(/`([^`]+)`/g, (_, code) => `<code>${code}</code>`);
-    // Links [text](url)
-    s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, t, u) => `<a href="${u}" target="_blank" rel="noopener noreferrer">${t}</a>`);
-    // Bold
-    s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-    // Italic (only single *…*, skip if inside bold already handled)
-    s = s.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
-    return s;
-  }
+function inlineMd(text) {
+	// Order matters: escape first, then re-inject tags.
+	let s = escapeHtml(text);
+	// Code spans
+	s = s.replace(/`([^`]+)`/g, (_, code) => `<code>${code}</code>`);
+	// Links [text](url)
+	s = s.replace(
+		/\[([^\]]+)\]\(([^)]+)\)/g,
+		(_, t, u) =>
+			`<a href="${u}" target="_blank" rel="noopener noreferrer">${t}</a>`,
+	);
+	// Bold
+	s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+	// Italic (only single *…*, skip if inside bold already handled)
+	s = s.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, "$1<em>$2</em>");
+	return s;
+}
 
-  function highlightBold(text) {
-    return inlineMd(text);
-  }
+function highlightBold(text) {
+	return inlineMd(text);
+}
 
-  function escapeHtml(s) {
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
+function escapeHtml(s) {
+	return String(s)
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#39;");
+}
 
-  function copyToClipboard(text) {
-    if (!text) return;
-    try {
-      navigator.clipboard.writeText(text);
-      showToast('Copied: ' + text);
-    } catch { /* ignore */ }
-  }
+function copyToClipboard(text) {
+	if (!text) return;
+	try {
+		navigator.clipboard.writeText(text);
+		showToast("Copied: " + text);
+	} catch {
+		/* ignore */
+	}
+}
 
-  //
-  // Init
-  //
+//
+// Init
+//
 
-  function init() {
-    try { history.scrollRestoration = 'manual'; } catch {}
-    initHighlight();
-    initEditBadge();
-    initAnnotOverlay();
-    initBar();
-    initActionPicker();
-    initParamsPanel();
-    initGlobalBar();
-    attachSteerFocusDebug();
-    attachSteerFocusGuard();
-    initDesignPanel();
-    fetchPendingCount();
-    document.addEventListener('mousemove', handleMouseMove, true);
-    document.addEventListener('click', handleClick, true);
-    document.addEventListener('keydown', handleKeyDown, true);
-    connectSSE();
+function init() {
+	try {
+		history.scrollRestoration = "manual";
+	} catch {}
+	initHighlight();
+	initEditBadge();
+	initAnnotOverlay();
+	initBar();
+	initActionPicker();
+	initParamsPanel();
+	initGlobalBar();
+	attachSteerFocusDebug();
+	attachSteerFocusGuard();
+	initDesignPanel();
+	fetchPendingCount();
+	document.addEventListener("mousemove", handleMouseMove, true);
+	document.addEventListener("click", handleClick, true);
+	document.addEventListener("keydown", handleKeyDown, true);
+	connectSSE();
 
-    // Check for an active session to resume (variant wrapper already in DOM after HMR)
-    if (!resumeSession()) {
+	// Check for an active session to resume (variant wrapper already in DOM after HMR)
+	if (!resumeSession()) {
+		// SvelteKit (and any framework that hydrates after HTML parse) may add
+		// the variant wrapper AFTER init runs. Watch for it and retry resume
+		// once it appears. Disconnect on first hit.
+		const scout = new MutationObserver(() => {
+			const wrapper = document.querySelector("[data-impeccable-variants]");
+			if (!wrapper) return;
+			scout.disconnect();
+			if (resumeSession()) {
+				.');
+			}
+		});
+		scout.observe(document.body, { childList: true, subtree: true });
+	} else {
+		.');
+	}
 
-      // SvelteKit (and any framework that hydrates after HTML parse) may add
-      // the variant wrapper AFTER init runs. Watch for it and retry resume
-      // once it appears. Disconnect on first hit.
-      const scout = new MutationObserver(() => {
-        const wrapper = document.querySelector('[data-impeccable-variants]');
-        if (!wrapper) return;
-        scout.disconnect();
-        if (resumeSession()) {
-          .');
-        }
-      });
-      scout.observe(document.body, { childList: true, subtree: true });
-    } else {
-      .');
-    }
+	if (state === "IDLE" && (pickActive || insertActive)) setLiveState("PICKING");
+	syncPageInteractionCursor();
+	syncPageChatFocus("init-complete");
+}
 
-    if (state === 'IDLE' && (pickActive || insertActive)) setLiveState('PICKING');
-    syncPageInteractionCursor();
-    syncPageChatFocus('init-complete');
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", init);
+} else {
+	init();
+}
+})()

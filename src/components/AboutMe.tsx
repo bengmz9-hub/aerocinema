@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { ShieldCheck, Award, Plane, Radar, Layers } from "lucide-react";
+import { Award, Layers, Plane, Radar, ShieldCheck } from "lucide-react";
+import type React from "react";
 
 interface Certification {
 	title: string;

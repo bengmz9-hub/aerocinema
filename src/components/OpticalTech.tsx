@@ -1,7 +1,7 @@
 "use client";
 
+import { Cpu, Eye, Radio, Zap } from "lucide-react";
 import React from "react";
-import { Eye, Cpu, Zap, Radio } from "lucide-react";
 
 export function OpticalTech() {
 	return (

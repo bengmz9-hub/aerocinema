@@ -1,6 +1,7 @@
 "use client";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import type React from "react";
+import { useState } from "react";
 
 type Card = {
 	id: number;

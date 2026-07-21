@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
-import { HeroSection } from "@/components/HeroSection";
-import { ServicesSection } from "@/components/ServicesSection";
 import { AboutMe } from "@/components/AboutMe";
+import { HeroSection } from "@/components/HeroSection";
 import { PortfolioAccordion } from "@/components/PortfolioAccordion";
 import { PortfolioGrid } from "@/components/PortfolioGrid"; // 🚀 Importación del bento limpio y con luces
+import { ServicesSection } from "@/components/ServicesSection";
 
 // Importaciones dinámicas optimizadas para el rendimiento de las secciones pesadas
 const OpticalTech = dynamic(

@@ -1,7 +1,7 @@
 "use client";
-import { useState, MouseEvent } from "react";
 import { Play } from "lucide-react";
 import Link from "next/link";
+import { type MouseEvent, useState } from "react";
 
 export function HeroSection() {
 	const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
