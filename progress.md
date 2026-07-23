@@ -34,7 +34,7 @@
 
 ---
 
-## 🎯 4. Próximos 3 Pasos Prioritarios
-1. **Verificar visualmente en navegador (`http://localhost:3000`)** la fluidez de las animaciones 3D y partículas en directo.
-2. **Añadir títulos animados con `BlurText` / `TrueFocus` (de reactbits.dev)** en la cabecera del Portfolio.
-3. **Refinar el formulario de contacto cinemático** en `ContactModal.tsx`.
+## 🎯 4. Próximos Pasos Prioritarios
+1. **Auditoría de Navegación & Perf:** Probar en navegador (`http://localhost:3000`) la velocidad de respuesta y tasas de FPS con el servidor corriendo.
+2. **Siguientes Animaciones UI (opcional):** Explorar componentes de `reactbits.dev` (ej. `TrueFocus`, `StarBorder` o `SpotlightCard`) para elevar la sección de Operador/Stats.
+3. **Cierre de Sesión:** Al finalizar la jornada, ejecutar el comando explícito *"Ejecuta push de fin de sesión"* para sincronizar los 10 commits locales con el repositorio remoto.
