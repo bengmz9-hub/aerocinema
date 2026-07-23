@@ -49,6 +49,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 						onClick={() => handleClick(card)}
 						className="relative overflow-hidden rounded-xl h-full w-full cursor-pointer bg-zinc-900 group"
 					>
+						{/* biome-ignore lint/performance/noImgElement: Se requiere usar motion.img para animaciones de layoutId con Framer Motion */}
 						<motion.img
 							layoutId={`image-${card.id}-image`}
 							src={card.thumbnail}
@@ -80,6 +81,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 						onClick={() => setSelected(null)}
 						className={getSelectedClass(selected.id)}
 					>
+						{/* biome-ignore lint/performance/noImgElement: Se requiere usar motion.img para animaciones de layoutId con Framer Motion */}
 						<motion.img
 							layoutId={`image-${selected.id}-image`}
 							src={selected.thumbnail}
