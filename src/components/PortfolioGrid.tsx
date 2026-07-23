@@ -1,6 +1,4 @@
 "use client";
-
-import React from "react";
 import { LayoutGrid } from "@/components/ui/layout-grid";
 import { Spotlight } from "@/components/ui/spotlight-new";
 
@@ -14,7 +12,7 @@ const CardContent = ({ title, category, description }: CardContentProps) => {
 	return (
 		<div className="font-montserrat">
 			<span className="text-[10px] font-mono tracking-[0.2em] text-white/45 uppercase block mb-1">
-				[ {category} // ARCHIVE ]
+				[ {category} {"//"} ARCHIVE ]
 			</span>
 			<h3 className="font-cinzel font-bold text-2xl md:text-3xl text-white uppercase tracking-tight">
 				{title}
@@ -110,7 +108,7 @@ export function PortfolioGrid() {
 				<div className="flex items-center gap-3 mb-12">
 					<span className="w-12 h-px bg-white/20" />
 					<span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-montserrat">
-						GALERÍA DE CAPTURAS // OPTICS
+						GALERÍA DE CAPTURAS {"//"} OPTICS
 					</span>
 				</div>
 

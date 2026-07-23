@@ -67,7 +67,7 @@ export function PortfolioAccordion() {
 				<div className="flex items-center gap-3 mb-12">
 					<span className="w-12 h-px bg-white/20" />
 					<span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-sans">
-						COLECCIÓN VISUAL // CINEMATIC ACCORDION
+						COLECCIÓN VISUAL {"//"} CINEMATIC ACCORDION
 					</span>
 				</div>
 

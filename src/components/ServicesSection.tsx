@@ -296,7 +296,7 @@ export function ServicesSection() {
 								id="services-heading"
 								className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-sans"
 							>
-								SERVICIOS OPERATIVOS // MATRIX CAPABILITIES
+								SERVICIOS OPERATIVOS {"//"} MATRIX CAPABILITIES
 							</span>
 						</div>
 						<h2 className="font-cinzel text-3xl md:text-5xl font-bold tracking-tight text-white uppercase">
@@ -340,7 +340,7 @@ export function ServicesSection() {
 							aria-hidden="true"
 						/>
 						<span className="font-mono text-[10px] text-zinc-500 tracking-[0.15em]">
-							SECURE_LINK // OPTICAL_FEED_ONLINE
+							SECURE_LINK {"//"} OPTICAL_FEED_ONLINE
 						</span>
 					</div>
 					<div className="flex items-center gap-4 font-mono text-[9px] text-zinc-600 tracking-widest">

@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 export function Stats() {
 	const statsList = [
 		{
@@ -42,9 +40,9 @@ export function Stats() {
 	return (
 		<section className="w-full bg-transparent py-20 px-4 md:px-8 border-t border-white/[0.05] relative z-10">
 			<div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-				{statsList.map((stat, i) => (
+				{statsList.map((stat) => (
 					<div
-						key={i}
+						key={stat.sys}
 						className="specular-card cursor-crosshair p-6 bg-zinc-900/10 border border-white/[0.06] rounded-xl flex flex-col justify-between h-[180px] font-mono relative overflow-hidden transition-all duration-300 hover:border-amber-500/30 hover:bg-zinc-900/40 backdrop-blur-xs"
 					>
 						{/* Fila Superior */}

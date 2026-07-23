@@ -64,6 +64,7 @@ export default function ContactModal() {
 	return (
 		<>
 			<button
+				type="button"
 				ref={triggerRef}
 				onClick={() => setIsOpen(true)}
 				className="mt-4 cursor-pointer border border-white px-8 py-4 font-sans text-sm font-medium tracking-wider text-black bg-white transition-colors duration-300 hover:bg-white/90"
@@ -97,6 +98,7 @@ export default function ContactModal() {
 					<span className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b border-r border-white/20" />
 
 					<button
+						type="button"
 						onClick={() => setIsOpen(false)}
 						aria-label="Cerrar formulario de contacto"
 						className="absolute right-6 top-6 cursor-pointer border border-white/10 p-2 text-white/60 transition-colors hover:border-white/30 hover:text-white"

@@ -60,6 +60,7 @@ export default function RootLayout({
 			<head>
 				<script
 					type="application/ld+json"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: SEO JSON-LD schema requires dangerouslySetInnerHTML
 					dangerouslySetInnerHTML={{
 						__html: JSON.stringify(professionalServiceLd),
 					}}

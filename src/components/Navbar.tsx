@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Menu, Radio, X } from "lucide-react";
-import React, { useCallback, useEffect, useState } from "react";
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
 
 interface NavItem {
 	label: string;
@@ -79,9 +80,7 @@ export default function Navbar() {
 			<header className="fixed inset-x-0 top-0 z-50 pointer-events-none">
 				<div
 					className={`mx-auto w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-						scrolled
-							? "max-w-4xl pt-3 px-4"
-							: "max-w-7xl pt-0 px-6 lg:px-8"
+						scrolled ? "max-w-4xl pt-3 px-4" : "max-w-7xl pt-0 px-6 lg:px-8"
 					}`}
 				>
 					<div
@@ -92,7 +91,10 @@ export default function Navbar() {
 						}`}
 					>
 						{/* Lado izquierdo: Identidad FPV */}
-						<a href="#" className="group flex items-center gap-3 outline-none">
+						<Link
+							href="/"
+							className="group flex items-center gap-3 outline-none"
+						>
 							<ReticleLogo />
 							<div className="flex flex-col">
 								<span className="font-cinzel text-sm font-bold tracking-[0.18em] text-white">
@@ -100,10 +102,10 @@ export default function Navbar() {
 									<span className="font-normal text-white/50">DRONEVISION</span>
 								</span>
 								<span className="font-sans text-[8px] uppercase tracking-[0.35em] text-white/30 -mt-0.5">
-									Estudios Aéreos
+									AERO CINEMATOGRAPHY
 								</span>
 							</div>
-						</a>
+						</Link>
 
 						{/* Centro: Waypoints de Instrumentación (Headers Club style) */}
 						<div className="hidden items-center gap-8 md:flex">
@@ -136,6 +138,7 @@ export default function Navbar() {
 
 						{/* Menú móvil */}
 						<button
+							type="button"
 							onClick={() => setMenuOpen(!menuOpen)}
 							aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
 							className="flex h-9 w-9 items-center justify-center md:hidden cursor-pointer border border-white/10 rounded-full text-white/70 hover:text-white bg-white/5"
@@ -163,6 +166,7 @@ export default function Navbar() {
 						JF.DRONEVISION
 					</span>
 					<button
+						type="button"
 						onClick={() => setMenuOpen(false)}
 						className="flex h-10 w-10 items-center justify-center text-white/80 cursor-pointer outline-none"
 					>
@@ -196,7 +200,7 @@ export default function Navbar() {
 						</a>
 					))}
 
-					<a
+					<Link
 						href="#contacto"
 						onClick={() => setMenuOpen(false)}
 						style={{
@@ -209,7 +213,7 @@ export default function Navbar() {
 						}`}
 					>
 						Reservar Rodaje
-					</a>
+					</Link>
 				</nav>
 
 				{/* Footer telemétrico */}
@@ -226,4 +230,3 @@ export default function Navbar() {
 		</>
 	);
 }
-

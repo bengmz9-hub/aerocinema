@@ -2,8 +2,6 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Cpu, Eye, Radio, Zap } from "lucide-react";
-import React from "react";
-import { cn } from "@/lib/utils";
 
 const techItems = [
 	{
@@ -50,11 +48,12 @@ export function OpticalTech() {
 					<div className="flex items-center gap-3 mb-3">
 						<span className="w-8 h-px bg-cyan-500/40" />
 						<span className="text-cyan-400 text-[10px] font-medium tracking-[0.3em] uppercase font-mono">
-							HARDWARE // SENSOR CAPTURE MATRIX
+							HARDWARE {"//"} SENSOR CAPTURE MATRIX
 						</span>
 					</div>
 					<h2 className="font-cinzel text-3xl md:text-5xl font-bold text-white tracking-tight uppercase max-w-3xl [text-wrap:balance]">
-						Tecnología Óptica de <span className="text-cyan-400 font-light">Vanguardia</span>
+						Tecnología Óptica de{" "}
+						<span className="text-cyan-400 font-light">Vanguardia</span>
 					</h2>
 				</div>
 
@@ -63,7 +62,10 @@ export function OpticalTech() {
 					{/* COLUMNA IZQUIERDA: Especificaciones Bento */}
 					<div className="lg:col-span-7 order-2 lg:order-1 flex flex-col gap-6 font-sans">
 						<p className="font-light text-neutral-300 text-sm md:text-base leading-relaxed max-w-2xl [text-wrap:pretty]">
-							Nuestros sistemas de vuelo están equipados con ópticas de formato completo y estabilizadores activos de tres ejes de grado industrial. Registramos texturas puras con rangos dinámicos extremos listos para corrección de color profesional en ACES.
+							Nuestros sistemas de vuelo están equipados con ópticas de formato
+							completo y estabilizadores activos de tres ejes de grado
+							industrial. Registramos texturas puras con rangos dinámicos
+							extremos listos para corrección de color profesional en ACES.
 						</p>
 
 						<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
@@ -73,7 +75,9 @@ export function OpticalTech() {
 									<motion.div
 										key={item.title}
 										whileHover={prefersReducedMotion ? undefined : { y: -3 }}
-										whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+										whileTap={
+											prefersReducedMotion ? undefined : { scale: 0.97 }
+										}
 										transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
 										className="p-5.5 bg-[#0f1115]/60 border border-white/[0.06] rounded-xl specular-card hover:border-cyan-500/30 transition-colors duration-300 group cursor-pointer"
 									>
@@ -124,7 +128,7 @@ export function OpticalTech() {
 							[ OPT_SENS_ENGAGED ]
 						</div>
 						<div className="absolute bottom-5 right-5 font-mono text-[9px] text-cyan-400/80 tracking-widest uppercase">
-							UHD // D-LOG 10-BIT
+							UHD {"//"} D-LOG 10-BIT
 						</div>
 					</motion.div>
 				</div>

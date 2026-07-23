@@ -7,7 +7,7 @@ interface ContactInput {
 	details: string;
 }
 
-export async function submitContactForm(data: ContactInput) {
+export async function submitContactForm(_data: ContactInput) {
 	try {
 		// Aquí conectarás tu servicio de email (Resend, SendGrid) o tu base de datos
 

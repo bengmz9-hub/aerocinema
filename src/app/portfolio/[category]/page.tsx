@@ -3,7 +3,7 @@
 import { ArrowLeft, Clock, Play } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { portfolioData, type VideoItem } from "../../../data/videos";
 import { cn } from "../../../lib/utils";
 
@@ -54,7 +54,7 @@ export default function PortfolioCategory() {
 function VideoCard({ video }: { video: VideoItem }) {
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
-	const [isHovered, setIsHovered] = useState(false);
+	const [_isHovered, setIsHovered] = useState(false);
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
@@ -79,8 +79,9 @@ function VideoCard({ video }: { video: VideoItem }) {
 	};
 
 	return (
-		<div
+		<section
 			ref={containerRef}
+			aria-label={`Vídeo: ${video.title}`}
 			onMouseEnter={() => {
 				setIsHovered(true);
 				videoRef.current?.play().catch(() => {});
@@ -128,6 +129,6 @@ function VideoCard({ video }: { video: VideoItem }) {
 					</p>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 }

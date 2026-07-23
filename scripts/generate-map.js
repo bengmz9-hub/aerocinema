@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 
 // Directorios y archivos basura que la IA NO necesita leer
 const IGNORE = [

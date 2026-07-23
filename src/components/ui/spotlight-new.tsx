@@ -1,5 +1,3 @@
-import React from "react";
-
 interface SpotlightProps {
 	className?: string;
 	gradientFirst?: string;

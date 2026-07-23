@@ -17,6 +17,7 @@ export function HeroSection() {
 	return (
 		<section
 			onMouseMove={handleMouseMove}
+			aria-label="Hero Principal"
 			className="relative w-full h-screen bg-neutral-950 overflow-hidden flex items-center justify-center select-none"
 		>
 			{/* 0. Capa de Grano Analógico y Ruido Cinematográfico (Flyerwrk / Grainient Supply) */}
@@ -25,7 +26,6 @@ export function HeroSection() {
 				style={{
 					backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
 				}}
-				aria-hidden="true"
 			/>
 
 			{/* 0.1. Lens Spotlight Anamórfico (Seguimiento de cursor) */}
@@ -37,16 +37,17 @@ export function HeroSection() {
 				aria-hidden="true"
 			/>
 
-			{/* 1. Fondo: Vídeo y Degradado */}
+			{/* 1. Fondo de Vídeo Cinematográfico Silencioso con Fallback */}
 			<div className="absolute inset-0 z-0">
 				<video
 					autoPlay
 					loop
 					muted
 					playsInline
-					className="w-full h-full object-cover opacity-45 filter brightness-90"
+					poster="/images/hero-poster.jpg"
+					className="w-full h-full object-cover opacity-35 filter saturate-[0.85] contrast-[1.1]"
 				>
-					<source src="/hero.webm" type="video/webm" />
+					<source src="/videos/hero.mp4" type="video/mp4" />
 					<source src="/videos/hero.webm" type="video/webm" />
 					<source src="/videos/features.webm" type="video/webm" />
 				</video>
@@ -60,7 +61,7 @@ export function HeroSection() {
 				<div className="inline-flex items-center gap-3 px-4 py-1.5 bg-white/[0.03] border border-amber-500/25 rounded-full mb-6 backdrop-blur-md specular-card">
 					<span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
 					<span className="font-mono text-[9px] tracking-[0.25em] text-amber-200/90 uppercase font-semibold">
-						OPERADOR UAS REGISTRADO AESA // CERTIFIED CINEMA FLEET
+						OPERADOR UAS REGISTRADO AESA {"//"} CERTIFIED CINEMA FLEET
 					</span>
 				</div>
 
@@ -74,7 +75,11 @@ export function HeroSection() {
 
 				{/* Subtítulo */}
 				<p className="mt-6 font-sans font-light text-neutral-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed tracking-wide [text-wrap:pretty]">
-					Captura de alta precisión en <strong className="text-white font-medium">8K RAW / 5.1K D-Log</strong> y gestión integral de permisos en espacios aéreos controlados en{" "}
+					Captura de alta precisión en{" "}
+					<strong className="text-white font-medium">
+						8K RAW / 5.1K D-Log
+					</strong>{" "}
+					y gestión integral de permisos en espacios aéreos controlados en{" "}
 					<strong className="text-white font-medium">Barcelona</strong> y{" "}
 					<strong className="text-white font-medium">Málaga</strong>.
 				</p>
@@ -120,4 +125,3 @@ export function HeroSection() {
 		</section>
 	);
 }
-

@@ -69,7 +69,7 @@ export function AboutMe() {
 						[ UAV_OP_POV ]
 					</div>
 					<div className="absolute bottom-6 right-6 font-mono text-[9px] text-white/40 tracking-widest uppercase">
-						REC // 24FPS
+						REC {"//"} 24FPS
 					</div>
 				</div>
 
