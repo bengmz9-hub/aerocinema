@@ -6,9 +6,9 @@
 
 ## 📌 1. Estado Actual del Proyecto
 - **Auditoría & Limpieza:** ✅ Linting y a11y resueltos al 100% en todo el directorio `src/` (Biome exit status 0).
-- **Fondo Cinemático:** ✅ Componente `HeroParticles.tsx` integrado en `HeroSection.tsx` con polvo atmosférico y waypoints aéreos reactivos.
+- **Fondo Cinemático:** ✅ Vídeo original `/hero.webm` conservado como base con las capas superpuestas de `HeroParticles.tsx`, ruido de grano analógico y lens spotlight reactivo (`HeroSection.tsx`).
 - **Efectos 3D Reactivos:** ✅ Tarjetas `TiltedCard` 3D con muelles de Framer Motion (`useSpring`, `useMotionValue`) en `ServicesSection.tsx`.
-- **Commits Locales:** Realizados 3 commits atómicos locales (`f6cf3f7`, `52bfe31`, `6b47011`).
+- **Commits Locales:** Realizados 5 commits atómicos locales (`f6cf3f7`, `52bfe31`, `6b47011`, `2984dc9`, `d571394`).
 
 ---
 
