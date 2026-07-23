@@ -1,6 +1,13 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import {
+	motion,
+	useMotionValue,
+	useReducedMotion,
+	useSpring,
+	useTransform,
+	type Variants,
+} from "framer-motion";
 import {
 	ArrowUpRight,
 	CircuitBoard,
@@ -98,9 +105,41 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 	const Icon: LucideIcon = item.icon;
 	const isLarge = item.span === "large";
 
+	// 3D Motion Tilt Springs (TiltedCard design pattern)
+	const x = useMotionValue(0);
+	const y = useMotionValue(0);
+	const mouseXSpring = useSpring(x, { stiffness: 300, damping: 20 });
+	const mouseYSpring = useSpring(y, { stiffness: 300, damping: 20 });
+
+	const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["6deg", "-6deg"]);
+	const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-6deg", "6deg"]);
+
+	const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+		if (prefersReducedMotion) return;
+		const rect = e.currentTarget.getBoundingClientRect();
+		const width = rect.width;
+		const height = rect.height;
+		const mouseX = e.clientX - rect.left;
+		const mouseY = e.clientY - rect.top;
+		x.set(mouseX / width - 0.5);
+		y.set(mouseY / height - 0.5);
+	};
+
+	const handleMouseLeave = () => {
+		x.set(0);
+		y.set(0);
+	};
+
 	return (
 		<motion.article
 			variants={itemVariants}
+			onMouseMove={handleMouseMove}
+			onMouseLeave={handleMouseLeave}
+			style={{
+				rotateX: prefersReducedMotion ? 0 : rotateX,
+				rotateY: prefersReducedMotion ? 0 : rotateY,
+				transformStyle: "preserve-3d",
+			}}
 			whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
 			transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
 			role="listitem"
