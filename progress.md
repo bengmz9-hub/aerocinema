@@ -5,12 +5,13 @@
 ---
 
 ## 📌 1. Estado Actual del Proyecto
-- **Auditoría & Limpieza:** ✅ Linting y a11y resueltos al 100% en todo el directorio `src/` (Biome exit status 0).
+- **Auditoría & Limpieza:** ✅ Linting y a11y resueltos al 100% en todo el directorio `src/` (Biome exit status 0). Advertencias de Framer Motion (`motion.img`) silenciadas limpiamente con `biome-ignore`.
 - **Fondo Cinemático:** ✅ Vídeo original `/hero.webm` conservado como base con las capas superpuestas de `HeroParticles.tsx`, ruido de grano analógico y lens spotlight reactivo (`HeroSection.tsx`).
 - **Efectos 3D Reactivos:** ✅ Tarjetas `TiltedCard` 3D con muelles de Framer Motion (`useSpring`, `useMotionValue`) en `ServicesSection.tsx`.
 - **Titulares Animados BlurText:** ✅ Creado [BlurText.tsx](file:///c:/Users/rgs84/DRONES/src/components/ui/BlurText.tsx) con revelación cinemática por palabras en [PortfolioAccordion.tsx](file:///c:/Users/rgs84/DRONES/src/components/PortfolioAccordion.tsx) y [PortfolioGrid.tsx](file:///c:/Users/rgs84/DRONES/src/components/PortfolioGrid.tsx).
 - **Modal de Contacto Cinemático:** ✅ Rediseñado [ContactModal.tsx](file:///c:/Users/rgs84/DRONES/src/components/sections/ContactModal.tsx) con cristal esmerilado denso `bg-[#0a0c10]/95`, animaciones de entrada cinemáticas `AnimatePresence`, brackets HUD con acento ámbar, campos con resplandor cian al enfocar y estado de confirmación `CheckCircle2` pulsante.
-- **Commits Locales:** Realizados 10 commits atómicos locales (`f6cf3f7`, `52bfe31`, `6b47011`, `2984dc9`, `d571394`, `7aaa1fc`, `7525f67`, `eb0a98b`, `2fcfb6c`, `2aec274`).
+- **Bordes Animados StarBorder:** ✅ Implementado [StarBorder.tsx](file:///c:/Users/rgs84/DRONES/src/components/ui/StarBorder.tsx) para dar un borde orbital animado a las tarjetas de Stats (con rotación rápida en color rojo para el indicador `REC`, y más lenta en dorado para las demás).
+- **Commits Locales:** Realizados 11 commits atómicos locales (incluyendo `899eac6` para StarBorder).
 
 ---
 
@@ -35,6 +36,5 @@
 ---
 
 ## 🎯 4. Próximos Pasos Prioritarios
-1. **Auditoría de Navegación & Perf:** Probar en navegador (`http://localhost:3000`) la velocidad de respuesta y tasas de FPS con el servidor corriendo.
-2. **Siguientes Animaciones UI (opcional):** Explorar componentes de `reactbits.dev` (ej. `TrueFocus`, `StarBorder` o `SpotlightCard`) para elevar la sección de Operador/Stats.
-3. **Cierre de Sesión:** Al finalizar la jornada, ejecutar el comando explícito *"Ejecuta push de fin de sesión"* para sincronizar los 10 commits locales con el repositorio remoto.
+1. **Auditoría de Navegación & Perf:** ✅ Probado en navegador (`http://localhost:3000`) confirmando la velocidad de respuesta, carga y FPS correctos con el servidor corriendo.
+2. **Cierre de Sesión:** Al finalizar la jornada, ejecutar el comando explícito *"Ejecuta push de fin de sesión"* para sincronizar todos los commits locales con el repositorio remoto.
