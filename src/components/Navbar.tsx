@@ -80,14 +80,14 @@ export default function Navbar() {
 			<header className="fixed inset-x-0 top-0 z-50 pointer-events-none">
 				<div
 					className={`mx-auto w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-						scrolled ? "max-w-4xl pt-3 px-4" : "max-w-7xl pt-0 px-6 lg:px-8"
+						scrolled ? "max-w-4xl pt-2.5 px-4" : "max-w-5xl pt-4 px-4"
 					}`}
 				>
 					<div
-						className={`pointer-events-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+						className={`pointer-events-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] rounded-full border backdrop-blur-2xl px-6 specular-card shadow-[0_10px_35px_rgba(0,0,0,0.6)] ${
 							scrolled
-								? "h-[54px] rounded-full bg-[#0f1115]/80 border border-white/10 backdrop-blur-2xl px-6 specular-card shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-								: "h-[88px] bg-transparent border-b border-white/[0.04] px-0"
+								? "h-[52px] bg-[#0f1115]/90 border-amber-500/30"
+								: "h-[60px] bg-[#0f1115]/70 border-white/10"
 						}`}
 					>
 						{/* Lado izquierdo: Identidad FPV */}
