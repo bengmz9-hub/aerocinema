@@ -1,37 +1,11 @@
-import dynamic from "next/dynamic";
 import { AboutMe } from "@/components/AboutMe";
 import { HeroSection } from "@/components/HeroSection";
+import { OpticalTech } from "@/components/OpticalTech";
 import { PortfolioAccordion } from "@/components/PortfolioAccordion";
-import { PortfolioGrid } from "@/components/PortfolioGrid"; // 🚀 Importación del bento limpio y con luces
+import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { ServicesSection } from "@/components/ServicesSection";
-
-// Importaciones dinámicas optimizadas para el rendimiento de las secciones pesadas
-const OpticalTech = dynamic(
-	() => import("@/components/OpticalTech").then((mod) => mod.OpticalTech),
-	{
-		loading: () => (
-			<div className="min-h-[80vh] bg-void-900/50 animate-pulse" />
-		),
-	},
-);
-
-const Stats = dynamic(
-	() => import("@/components/Stats").then((mod) => mod.Stats),
-	{
-		loading: () => (
-			<div className="min-h-[40vh] bg-void-900/50 animate-pulse" />
-		),
-	},
-);
-
-const ContactSection = dynamic(
-	() => import("@/components/sections/ContactSection"),
-	{
-		loading: () => (
-			<div className="min-h-[60vh] bg-void-900/50 animate-pulse" />
-		),
-	},
-);
+import { Stats } from "@/components/Stats";
+import ContactSection from "@/components/sections/ContactSection";
 
 export default function HomePage() {
 	return (
