@@ -8,7 +8,8 @@
 - **Auditoría & Limpieza:** ✅ Linting y a11y resueltos al 100% en todo el directorio `src/` (Biome exit status 0).
 - **Fondo Cinemático:** ✅ Vídeo original `/hero.webm` conservado como base con las capas superpuestas de `HeroParticles.tsx`, ruido de grano analógico y lens spotlight reactivo (`HeroSection.tsx`).
 - **Efectos 3D Reactivos:** ✅ Tarjetas `TiltedCard` 3D con muelles de Framer Motion (`useSpring`, `useMotionValue`) en `ServicesSection.tsx`.
-- **Commits Locales:** Realizados 5 commits atómicos locales (`f6cf3f7`, `52bfe31`, `6b47011`, `2984dc9`, `d571394`).
+- **Titulares Animados BlurText:** ✅ Creado [BlurText.tsx](file:///c:/Users/rgs84/DRONES/src/components/ui/BlurText.tsx) con revelación cinemática por palabras en [PortfolioAccordion.tsx](file:///c:/Users/rgs84/DRONES/src/components/PortfolioAccordion.tsx) y [PortfolioGrid.tsx](file:///c:/Users/rgs84/DRONES/src/components/PortfolioGrid.tsx).
+- **Commits Locales:** Realizados 6 commits atómicos locales (`f6cf3f7`, `52bfe31`, `6b47011`, `2984dc9`, `d571394`, `7aaa1fc`).
 
 ---
 
