@@ -92,6 +92,7 @@ const itemVariants: Variants = {
 };
 
 function ServiceCard({ item }: { item: ServiceItem }) {
+	const prefersReducedMotion = useReducedMotion();
 	const style = accentStyles[item.accent] || accentStyles.zinc;
 	const spanClass = SPAN_CLASSES[item.span] || SPAN_CLASSES.default;
 	const Icon: LucideIcon = item.icon;
@@ -100,11 +101,13 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 	return (
 		<motion.article
 			variants={itemVariants}
+			whileTap={prefersReducedMotion ? undefined : { scale: 0.97 }}
+			transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
 			role="listitem"
 			tabIndex={0}
 			aria-labelledby={`service-${item.id}`}
 			className={cn(
-				"group relative flex flex-col overflow-hidden rounded-xl border bg-zinc-950/25 specular-card",
+				"group relative flex flex-col overflow-hidden rounded-xl border bg-[#0f1115]/80 specular-card",
 				"backdrop-blur-md p-6 md:p-7 justify-between",
 				"transition-all duration-500 ease-out",
 				"cursor-pointer transform-gpu",
