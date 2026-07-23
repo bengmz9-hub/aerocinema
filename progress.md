@@ -9,8 +9,8 @@
 - **Fondo Cinemático:** ✅ Vídeo original `/hero.webm` conservado como base con las capas superpuestas de `HeroParticles.tsx`, ruido de grano analógico y lens spotlight reactivo (`HeroSection.tsx`).
 - **Efectos 3D Reactivos:** ✅ Tarjetas `TiltedCard` 3D con muelles de Framer Motion (`useSpring`, `useMotionValue`) en `ServicesSection.tsx`.
 - **Titulares Animados BlurText:** ✅ Creado [BlurText.tsx](file:///c:/Users/rgs84/DRONES/src/components/ui/BlurText.tsx) con revelación cinemática por palabras en [PortfolioAccordion.tsx](file:///c:/Users/rgs84/DRONES/src/components/PortfolioAccordion.tsx) y [PortfolioGrid.tsx](file:///c:/Users/rgs84/DRONES/src/components/PortfolioGrid.tsx).
-- **Navbar Cápsula Glassmorphism:** ✅ Activado el diseño estilo cápsula flotante con cristal esmerilado en [Navbar.tsx](file:///c:/Users/rgs84/DRONES/src/components/Navbar.tsx) visible desde el primer instante de carga.
-- **Commits Locales:** Realizados 8 commits atómicos locales (`f6cf3f7`, `52bfe31`, `6b47011`, `2984dc9`, `d571394`, `7aaa1fc`, `7525f67`, `eb0a98b`).
+- **Navbar Cinemático:** ✅ Restaurado el comportamiento dual en [Navbar.tsx](file:///c:/Users/rgs84/DRONES/src/components/Navbar.tsx): ancho completo con difuminado degradado que se funde exteriormente con el fondo en la sección Hero (`scrolled === false`) y transición fluida a **Cápsula Flotante Glassmorphism** al hacer scroll (`scrolled === true`).
+- **Commits Locales:** Realizados 9 commits atómicos locales (`f6cf3f7`, `52bfe31`, `6b47011`, `2984dc9`, `d571394`, `7aaa1fc`, `7525f67`, `eb0a98b`, `2fcfb6c`).
 
 ---
 
