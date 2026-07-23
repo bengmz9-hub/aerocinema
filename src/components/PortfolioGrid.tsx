@@ -1,6 +1,7 @@
 "use client";
 import { LayoutGrid } from "@/components/ui/layout-grid";
 import { Spotlight } from "@/components/ui/spotlight-new";
+import { BlurText } from "./ui/BlurText";
 
 interface CardContentProps {
 	title: string;
@@ -105,11 +106,17 @@ export function PortfolioGrid() {
 			/>
 
 			<div className="max-w-7xl mx-auto relative z-10">
-				<div className="flex items-center gap-3 mb-12">
-					<span className="w-12 h-px bg-white/20" />
-					<span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-montserrat">
-						GALERÍA DE CAPTURAS {"//"} OPTICS
-					</span>
+				<div className="flex flex-col gap-3 mb-10">
+					<div className="flex items-center gap-3">
+						<span className="w-12 h-px bg-white/20" />
+						<span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-montserrat">
+							GALERÍA DE CAPTURAS {"//"} OPTICS
+						</span>
+					</div>
+					<BlurText
+						text="ARCHIVOS DE RODAJE Y MUESTRAS TÉCNICAS"
+						className="font-cinzel text-2xl md:text-4xl font-bold tracking-tight text-white uppercase"
+					/>
 				</div>
 
 				{/* 📐 EL PUNTO MEDIO PERFECTO: h-[550px] en móviles y h-[760px] en escritorio */}

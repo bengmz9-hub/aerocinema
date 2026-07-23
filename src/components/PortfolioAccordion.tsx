@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { BlurText } from "./ui/BlurText";
 
 interface DroneProject {
 	id: string;
@@ -64,11 +65,17 @@ export function PortfolioAccordion() {
 		<section className="w-full bg-transparent py-24 px-4 md:px-8 border-t border-white/[0.06]">
 			<div className="max-w-7xl mx-auto">
 				{/* Cabecera Editorial Estilo AeroCinema */}
-				<div className="flex items-center gap-3 mb-12">
-					<span className="w-12 h-px bg-white/20" />
-					<span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-sans">
-						COLECCIÓN VISUAL {"//"} CINEMATIC ACCORDION
-					</span>
+				<div className="flex flex-col gap-3 mb-10">
+					<div className="flex items-center gap-3">
+						<span className="w-12 h-px bg-white/20" />
+						<span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-sans">
+							COLECCIÓN VISUAL {"//"} CINEMATIC ACCORDION
+						</span>
+					</div>
+					<BlurText
+						text="PRODUCCIONES CINEMATOGRÁFICAS DESTACADAS"
+						className="font-cinzel text-2xl md:text-4xl font-bold tracking-tight text-white uppercase"
+					/>
 				</div>
 
 				{/* Contenedor del Acordeón Líquido */}
