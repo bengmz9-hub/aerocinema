@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import Link from "next/link";
 import { type MouseEvent, useState } from "react";
+import { HeroParticles } from "./ui/HeroParticles";
 
 export function HeroSection() {
 	const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
@@ -20,6 +21,8 @@ export function HeroSection() {
 			aria-label="Hero Principal"
 			className="relative w-full h-screen bg-neutral-950 overflow-hidden flex items-center justify-center select-none"
 		>
+			{/* Partículas cinemáticas de ambiente */}
+			<HeroParticles />
 			{/* 0. Capa de Grano Analógico y Ruido Cinematográfico (Flyerwrk / Grainient Supply) */}
 			<div
 				className="pointer-events-none absolute inset-0 z-20 opacity-20 mix-blend-overlay"
