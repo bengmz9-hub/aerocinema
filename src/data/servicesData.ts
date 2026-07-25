@@ -47,9 +47,9 @@ export const servicesItems: ServiceItem[] = [
 		subtitle:
 			"Para bares, restaurantes, locales comerciales y negocios familiares",
 		description:
-			"Una terraza bien grabada desde el aire llama la atención en redes sociales. Una vista exterior de tu local con el barrio de fondo habla por sí sola. Grabaciones cortas, directas y listas para publicar en Instagram, Google My Business o la web de tu empresa.",
+			"Una terraza o el ambiente interior de tu local grabados con precisión llaman la atención en redes. Recorridos completos del interior y la fachada con el barrio de fondo. Grabaciones cortas y listas para publicar en Instagram, Google My Business o la web de tu empresa.",
 		icon: Store,
-		badge: "REDES SOCIALES · GOOGLE MY BUSINESS · ENTREGA RÁPIDA",
+		badge: "INTERIOR Y EXTERIOR · REDES SOCIALES · ENTREGA RÁPIDA",
 		ctaText: "Ver qué puedo hacer por mi negocio",
 		ctaHref: "#contacto",
 		videoUrl: "/videos/eventos.webm",
