@@ -311,7 +311,7 @@ export function ServicesSection() {
 
 	return (
 		<section
-			className="relative w-full bg-transparent py-24 md:py-32 border-t border-white/[0.06] overflow-hidden select-none cursor-default"
+			className="relative w-full bg-transparent pt-16 pb-10 md:pt-24 md:pb-12 border-t border-white/[0.06] overflow-hidden select-none cursor-default"
 			aria-labelledby="services-heading"
 		>
 			<div

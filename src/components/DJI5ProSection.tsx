@@ -14,7 +14,7 @@ export function DJI5ProSection() {
 	return (
 		<section
 			id="optical"
-			className="relative py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white select-none cursor-default"
+			className="relative py-10 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white select-none cursor-default"
 		>
 			{/* Encabezado de Sección */}
 			<div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-white/10 pb-6">
@@ -47,7 +47,10 @@ export function DJI5ProSection() {
 							preload="metadata"
 							className="w-full h-full object-cover rounded-xl transition-transform duration-700 ease-out group-hover:scale-105"
 						>
-							<source src="/videos/dji_mini_5_pro_flow.webm" type="video/webm" />
+							<source
+								src="/videos/dji_mini_5_pro_flow.webm"
+								type="video/webm"
+							/>
 							<source src="/videos/dji_mini_5_pro_flow.mp4" type="video/mp4" />
 							Tu navegador no soporta la reproducción de video HTML5.
 						</video>
