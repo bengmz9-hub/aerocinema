@@ -1,6 +1,6 @@
 import { AboutMe } from "@/components/AboutMe";
+import { DJI5ProSection } from "@/components/DJI5ProSection";
 import { HeroSection } from "@/components/HeroSection";
-import { OpticalTech } from "@/components/OpticalTech";
 import { PortfolioAccordion } from "@/components/PortfolioAccordion";
 import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { ServicesSection } from "@/components/ServicesSection";
@@ -19,13 +19,12 @@ export default function HomePage() {
 			</div>
 
 			{/* ========== 03. ARCHIVO DETALLADO: BENTO REJILLA MODULAR CON LUCES SPOTLIGHT ========== */}
-			{/* Todo el código basura e inline que emborronaba esta sección ha sido movido a su componente exclusivo */}
 			<PortfolioGrid />
 
-			{/* ========== 04. SERVICIOS & OPTICAL TECH ========== */}
+			{/* ========== 04. SERVICIOS & TECNOLOGÍA DJI MINI 5 PRO ========== */}
 			<div id="servicios" className="scroll-mt-16 md:scroll-mt-24">
 				<ServicesSection />
-				<OpticalTech />
+				<DJI5ProSection />
 			</div>
 
 			{/* ========== 05. OPERADOR ACREDITADO & STATS ========== */}
