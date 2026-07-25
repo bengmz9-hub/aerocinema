@@ -14,7 +14,7 @@ export function DJI5ProSection() {
 	return (
 		<section
 			id="optical"
-			className="relative py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white"
+			className="relative py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white select-none cursor-default"
 		>
 			{/* Encabezado de Sección */}
 			<div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-white/10 pb-6">
@@ -37,7 +37,7 @@ export function DJI5ProSection() {
 				{/* ---------------------------------------------------- */}
 				{/* PANEL IZQUIERDO: VÍDEO RECORTE AJUSTADO (Lg: 5 cols) */}
 				{/* ---------------------------------------------------- */}
-				<div className="lg:col-span-5 relative group rounded-2xl overflow-hidden border border-white/10 bg-[#0a0c10]/70 p-2 backdrop-blur-xl shadow-2xl flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)]">
+				<div className="lg:col-span-5 relative group rounded-2xl overflow-hidden border border-white/10 bg-[#0a0c10]/70 p-2 backdrop-blur-xl shadow-2xl flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] select-none cursor-default">
 					<div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-black/80 flex items-center justify-center">
 						<video
 							autoPlay
@@ -47,10 +47,7 @@ export function DJI5ProSection() {
 							preload="metadata"
 							className="w-full h-full object-cover rounded-xl transition-transform duration-700 ease-out group-hover:scale-105"
 						>
-							<source
-								src="/videos/dji_mini_5_pro_flow.webm"
-								type="video/webm"
-							/>
+							<source src="/videos/dji_mini_5_pro_flow.webm" type="video/webm" />
 							<source src="/videos/dji_mini_5_pro_flow.mp4" type="video/mp4" />
 							Tu navegador no soporta la reproducción de video HTML5.
 						</video>
@@ -67,7 +64,7 @@ export function DJI5ProSection() {
 				{/* ---------------------------------------------------- */}
 				<div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
 					{/* Tarjeta Principal (Hero Spec - Ocupa 3 columnas) */}
-					<div className="sm:col-span-3 p-6 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/30 hover:shadow-[0_0_20px_rgba(223,208,164,0.07)] transition-all duration-500 relative overflow-hidden group">
+					<div className="sm:col-span-3 p-6 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/30 hover:shadow-[0_0_20px_rgba(223,208,164,0.07)] transition-all duration-500 relative overflow-hidden group select-none cursor-default">
 						<div className="flex items-center gap-2 text-xs font-mono mb-2 font-semibold bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent">
 							<Camera className="w-4 h-4 text-[#dfd0a4]" />
 							<span>CÁMARA & RESOLUCIÓN DE VÍDEO</span>
@@ -85,7 +82,7 @@ export function DJI5ProSection() {
 					</div>
 
 					{/* Tarjeta 2: Categoría y Peso */}
-					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group">
+					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group select-none cursor-default">
 						<div className="flex items-center gap-2 text-[11px] font-mono mb-2 text-[#dfd0a4]">
 							<ShieldCheck className="w-3.5 h-3.5 text-[#dfd0a4]" />
 							<span>CATEGORÍA ABIERTA</span>
@@ -99,7 +96,7 @@ export function DJI5ProSection() {
 					</div>
 
 					{/* Tarjeta 3: Autonomía */}
-					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group">
+					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group select-none cursor-default">
 						<div className="flex items-center gap-2 text-[11px] font-mono mb-2 text-[#dfd0a4]">
 							<BatteryCharging className="w-3.5 h-3.5 text-[#dfd0a4]" />
 							<span>AUTONOMÍA</span>
@@ -113,7 +110,7 @@ export function DJI5ProSection() {
 					</div>
 
 					{/* Tarjeta 4: Alcance O4 */}
-					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group">
+					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group select-none cursor-default">
 						<div className="flex items-center gap-2 text-[11px] font-mono mb-2 text-[#dfd0a4]">
 							<Wifi className="w-3.5 h-3.5 text-[#dfd0a4]" />
 							<span>ALCANCE O4</span>
@@ -127,7 +124,7 @@ export function DJI5ProSection() {
 					</div>
 
 					{/* Tarjeta 5: Detección IA 360° */}
-					<div className="sm:col-span-3 p-4 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 flex items-center justify-between gap-4">
+					<div className="sm:col-span-3 p-4 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 flex items-center justify-between gap-4 select-none cursor-default">
 						<div className="flex items-center gap-3">
 							<div className="p-2.5 rounded-xl bg-[#dfd0a4]/10 border border-[#dfd0a4]/20 text-[#dfd0a4]">
 								<Eye className="w-5 h-5" />
