@@ -84,7 +84,7 @@ export default function ContactModal() {
 							Enviar Formulario
 						</span>
 						<span className="block font-mono text-[9px] text-zinc-400 tracking-wider">
-							CONSULTA ONLINE
+							Si prefieres email
 						</span>
 					</div>
 				</div>
@@ -164,9 +164,9 @@ export default function ContactModal() {
 											id="contact-modal-title"
 											className="font-cinzel text-3xl font-bold leading-tight tracking-tight text-golden-hour sm:text-4xl lg:text-5xl uppercase"
 										>
-											Reserva tu
+											Cuéntame tu
 											<br />
-											plan de vuelo
+											proyecto
 										</h3>
 										<div className="space-y-4 pt-4 font-sans text-sm font-light text-white/60">
 											<div className="flex gap-4">
@@ -264,17 +264,17 @@ export default function ContactModal() {
 														disabled={isPending}
 														className="h-10 w-full cursor-pointer rounded-md appearance-none border border-white/10 bg-[#0f1115] px-4 pr-10 font-sans text-xs text-white focus:border-cyan-400/60 focus:outline-none transition-all duration-300"
 													>
-														<option value="cinematography">
-															Cinematografía / Publicidad
-														</option>
 														<option value="real-estate">
-															Inmobiliaria premium
-														</option>
-														<option value="events">
-															Eventos / Corporativo
+															Piso / Propiedad inmobiliaria
 														</option>
 														<option value="inspection">
-															Inspección / Fotogrametría
+															Obra / Fachada / Inspección
+														</option>
+														<option value="business">
+															Local / Negocio del barrio
+														</option>
+														<option value="other">
+															Otro tipo de proyecto
 														</option>
 													</select>
 													<ChevronDown

@@ -75,7 +75,7 @@ export default function ContactSection() {
 									Escribir a Jose
 								</span>
 								<span className="block font-mono text-[9px] text-zinc-400 tracking-wider">
-									RESPUESTA EN &lt; 1H
+									Suele responder en minutos
 								</span>
 							</div>
 						</div>
