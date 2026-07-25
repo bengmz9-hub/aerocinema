@@ -45,7 +45,7 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		id: "reel-01",
 		title: "RODAJE CINEMATOGRÁFICO FPV",
 		category: "JF.DRONEVISION",
-		thumbnail: "/images/accordion-cinema.webp",
+		thumbnail: "",
 		videoUrl: "/videos/filmacion.webm",
 		views: "@jf.drone_visual",
 		likes: "OFICIAL",
@@ -118,16 +118,18 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 				"hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(236,72,153,0.15)] hover:scale-[1.02]",
 			)}
 		>
-			{/* Imagen de Fondo (Poster) */}
-			<Image
-				src={reel.thumbnail}
-				alt={reel.title}
-				fill
-				className={cn(
-					"object-cover object-center transition-opacity duration-500 pointer-events-none select-none",
-					isPlaying ? "opacity-0" : "opacity-100",
-				)}
-			/>
+			{/* Imagen de Fondo (Poster) si existe */}
+			{reel.thumbnail ? (
+				<Image
+					src={reel.thumbnail}
+					alt={reel.title}
+					fill
+					className={cn(
+						"object-cover object-center transition-opacity duration-500 pointer-events-none select-none",
+						isPlaying ? "opacity-0" : "opacity-100",
+					)}
+				/>
+			) : null}
 
 			{/* Vídeo Silencioso Autoejecutable en Hover */}
 			<video
@@ -138,8 +140,14 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 				playsInline
 				preload="auto"
 				className={cn(
-					"absolute inset-0 w-full h-full object-cover transition-opacity duration-500 pointer-events-none select-none",
-					isPlaying ? "opacity-100 scale-105" : "opacity-0 scale-100",
+					"absolute inset-0 w-full h-full object-cover transition-all duration-500 pointer-events-none select-none",
+					reel.thumbnail
+						? isPlaying
+							? "opacity-100 scale-105"
+							: "opacity-0 scale-100"
+						: isPlaying
+							? "opacity-100 scale-105"
+							: "opacity-100 scale-100",
 				)}
 			/>
 
