@@ -1,48 +1,53 @@
-# Estado del Proyecto — Progress Log
+# Estado del Proyecto — Progress Log (Sesión Completada)
 
 **Última actualización:** 2026-07-25  
 **Estado:** ✅ Desplegado en Producción (Vercel & GitHub)  
-**URL Producción:** [https://drones-kohl.vercel.app](https://drones-kohl.vercel.app)
+**URL Producción:** [https://drones-kohl.vercel.app](https://drones-kohl.vercel.app)  
+**Último Commit:** `912b7ba` (18 commits locales pusheados a `main`)  
+**Grafo de Conocimiento:** ✅ `graphify-out` actualizado (3008 nodos, 6743 bordes, 157 comunidades)
 
 ---
 
-## 1. Estado Actual del Código
+## 1. Cambios e Implementaciones Realizados en la Sesión
 
-* **Instagram Reels Section (`src/components/InstagramReelsSection.tsx`):**
-  * 4 Reels optimizados en formato WebM (720x1280, aspecto 9:16) almacenados en `public/videos/`.
-  * Recortados a 10s de duración evitando fotogramas estáticos iniciales:
-    * Reel 1 (`filmacion.webm`): Recortado de seg 3 a 13.
-    * Reel 2 (`inmobiliaria.webm`): Recortado de seg 7 a 17.
-    * Reel 3 (`eventos.webm`): Recortado de seg 10 a 20.
-    * Reel 4 (`jose-reveal.webm`): Recortado de seg 9 a 19.
-  * Eliminadas imágenes estáticas (`thumbnail: ""`) usando el **1.er fotograma del propio vídeo** como poster antes del hover.
-  * Paleta de colores migrada de rosa a **dorado premium (`amber-400` / `amber-500` / `#dfd0a4`)** en títulos, categorías, badges, iconos y efectos glow.
-  * Textos de categorías y títulos de los 4 Reels actualizados según especificación.
-  * Eliminado botón redundante de cabecera `@jf.drone_visual`.
+* **Auditoría y Limpieza de Código Muerto:**
+  * Eliminados 4 componentes huérfanos sin importar (`PortfolioAccordion`, `PortfolioGrid`, `layout-grid`, `spotlight-new`).
+  * `0` errores de TypeScript (`tsc --noEmit`) y `0` warnings de Biome Linter.
 
-* **Navegación (`src/components/Navbar.tsx` & `src/app/page.tsx`):**
-  * El ancla `#portfolio` del Navbar redirige directamente a la sección de **Instagram Reels**.
+* **Sistema de Tipografía de Lujo:**
+  * Implementada la pareja tipográfica **Cormorant Garamond** (Títulos H1/H2) + **Plus Jakarta Sans** (Subtítulos, párrafos y botones) vía `next/font/google`.
 
-* **Sección About Me (`src/components/AboutMe.tsx`):**
-  * Vídeo de presentación en **color original permanente** (eliminado filtro `grayscale`).
-  * Rediseño completo con **BentoGrid traslúcido** (`bg-[#0a0c10]/70`, `backdrop-blur-xl`, `border-white/10`) con altura simétrica al panel de vídeo (`items-stretch`).
-  * Alineación exacta de márgenes y ancho contenedor con la sección del `DJI5ProSection`.
+* **Reescritura de Copy Comercial Local:**
+  * **Hero:** Enfoque comercial directo a inmobiliarias, empresas de construcción y negocios de L'Hospitalet y Barcelona ("Sin complicaciones, permiso AESA en regla").
+  * **Servicios (3 Verticales):**
+    1. *Inmobiliarias y pisos* (Exterior e interior, áticos, entrega 48h, Idealista/Fotocasa).
+    2. *Construcción y reformas de fachadas* (Inspección sin andamios, evidencia técnica para Jose).
+    3. *Negocios y locales del barrio* (Terraza e interior para Instagram/Google My Business).
+  * **Sección ¿Por qué nosotros? (Stats):** 4 tarjetas de valor honestas (AESA Certificado, Sub-249g vuelo urbano, Cobertura local L'Hospitalet/BCN, Entrega 48h).
+  * **Sobre Jose Antonio:** Texto humano local en Can Serra (L'Hospitalet), manteniendo la autoridad de los certificados AESA. Nombre estandarizado a **Jose** / **Jose Antonio** (sin tilde).
+  * **Trabajos Recientes (Reels):** Sección renombrada a *Trabajos Recientes — Rodajes reales en la zona metropolitana de Barcelona*.
 
-* **Seguridad & Despliegue:**
-  * Auditoría de seguridad superada (0 API keys o credenciales expuestas). `.gitignore` actualizado.
-  * Código compilado y subido a GitHub (`main`) y desplegado en Vercel (`drones-kohl.vercel.app`).
+* **Botonería & UX:**
+  * Botón CTA principal de WhatsApp (`Escribir a Jose`) diseñado como sub-tarjeta `specular-card` con icono oficial de WhatsApp en degradado Verde Esmeralda ➔ Oro Apergaminado e indicador LED pulsante `ONLINE`.
+  * Igualado en tamaño, altura (`h-[58px]`) y estética al botón de `Enviar Formulario` modal (`ContactModal.tsx`).
+  * Desactivado el puntero de selección de texto (`select-none cursor-default`) en todas las tarjetas Bento.
 
----
-
-## 2. Decisiones Técnicas & Diseño
-
-* **Códigos WebM VP9:** Sin pista de audio (`-an`) y bitrate optimizado para reproducción instantánea sin consumo excesivo de red.
-* **Consistencia Estética:** Unificación del tema dorado (`#dfd0a4` / `amber-400`) eliminando acentos de color inconclusos.
+* **Navegación & Limpieza:**
+  * Navbar simplificado: `Trabajos · Servicios · Quién soy · Contacto` + CTA `Pedir Presupuesto`.
+  * Eliminada la sección técnica `ColorGradingReel` de la landing principal.
 
 ---
 
-## 3. Próximos Pasos Prioritarios
+## 2. Decisiones Técnicas & Arquitectura
 
-1. **Revisión de Textos & Copywriting:** Ajustar descripciones o contenidos de las secciones de Servicios y Formulario de Contacto si fuera necesario.
-2. **Optimizaciones de Rendimiento Mobile:** Validar tiempos de respuesta y reproducción fluida de vídeos en dispositivos de menor potencia.
-3. **Auditoría Lighthouse:** Ejecutar test final de accesibilidad y SEO en el entorno desplegado en Vercel.
+* **Vibecoding Lean & Preservación:** 100% de los cambios guiados por requerimientos explícitos de conversión local.
+* **Token Economy:** Auditoría basada en subgrafos de `graphify` y `knip` sin consumo innecesario de contexto.
+* **Zero Deuda Técnica:** Pipeline estricto con `biome check` y `tsc --noEmit` previo a cada commit.
+
+---
+
+## 3. Próximos 3 Pasos Prioritarios para el Nuevo Chat
+
+1. **Revisión Visual en Vivo (Mobile/Desktop):** Probar el comportamiento responsive y reproducción fluida de vídeo en dispositivos reales desde `https://drones-kohl.vercel.app`.
+2. **Optimización de SEO Local & Meta-Tags:** Enriquecer las descripciones OpenGraph y meta-tags locales para búsqueda en Barcelona / L'Hospitalet.
+3. **Auditoría Lighthouse & Rendimiento:** Medir puntuación de Core Web Vitals en Vercel Producción.
