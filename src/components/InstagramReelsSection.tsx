@@ -78,12 +78,12 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		id: "reel-04",
 		title: "High-Speed Proximity FPV Dive",
 		category: "EXTREME FPV",
-		thumbnail: "/images/portfolio-propiedades-2.webp",
-		videoUrl: "/videos/jose-reveal.mp4",
-		views: "42.9K",
-		likes: "5.8K",
-		instagramUrl: "https://www.instagram.com/jf.drone_visual",
-		duration: "0:38",
+		thumbnail: "",
+		videoUrl: "/videos/jose-reveal.webm",
+		views: "@jf.drone_visual",
+		likes: "OFICIAL",
+		instagramUrl: "https://www.instagram.com/reel/DXUkMajDW5g/",
+		duration: "REEL",
 	},
 ];
 
