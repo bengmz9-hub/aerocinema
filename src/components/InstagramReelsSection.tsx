@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Heart, Play } from "lucide-react";
+import { Heart, Play } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -208,30 +208,18 @@ export function InstagramReelsSection() {
 		<section className="w-full bg-transparent py-16 md:py-24 px-4 md:px-8 border-t border-white/[0.06] relative overflow-hidden select-none">
 			<div className="max-w-7xl mx-auto">
 				{/* ═══════ CABECERA TELEMÉTRICA DE INSTAGRAM ═══════ */}
-				<div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-14 gap-6">
-					<div>
-						<div className="flex items-center gap-3 mb-2">
-							<span className="w-8 h-px bg-amber-500/60" />
-							<span className="text-amber-400 text-[10px] font-mono tracking-[0.3em] uppercase flex items-center gap-2">
-								<InstagramIcon className="w-3.5 h-3.5 text-amber-400" />
-								INSTAGRAM LIVE FEED {"//"} @JF.DRONE_VISUAL
-							</span>
-						</div>
-						<BlurText
-							text="ÚLTIMOS RODAJES EN INSTAGRAM"
-							className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white uppercase"
-						/>
+				<div className="mb-10 md:mb-14">
+					<div className="flex items-center gap-3 mb-2">
+						<span className="w-8 h-px bg-amber-500/60" />
+						<span className="text-amber-400 text-[10px] font-mono tracking-[0.3em] uppercase flex items-center gap-2">
+							<InstagramIcon className="w-3.5 h-3.5 text-amber-400" />
+							INSTAGRAM LIVE FEED {"//"} @JF.DRONE_VISUAL
+						</span>
 					</div>
-
-					<a
-						href="https://www.instagram.com/jf.drone_visual"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-200 font-sans text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 hover:bg-amber-500/20 hover:border-amber-400/60 hover:text-white backdrop-blur-md self-start md:self-auto"
-					>
-						<span>@jf.drone_visual</span>
-						<ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-					</a>
+					<BlurText
+						text="ÚLTIMOS RODAJES EN INSTAGRAM"
+						className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white uppercase"
+					/>
 				</div>
 
 				{/* ═══════ GRID DE REELS INTERACTIVOS HOVER-TO-PLAY (4 COLUMNAS) ═══════ */}
