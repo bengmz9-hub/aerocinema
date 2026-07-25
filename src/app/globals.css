@@ -220,6 +220,8 @@ body::after {
 .specular-card {
 	position: relative;
 	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+	user-select: none;
+	cursor: default;
 }
 
 .specular-card::before {

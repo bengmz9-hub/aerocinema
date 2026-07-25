@@ -75,7 +75,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 			tabIndex={0}
 			aria-labelledby={`service-${item.id}`}
 			className={cn(
-				"group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0d10]/90 specular-card",
+				"group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0d10]/90 specular-card select-none cursor-default",
 				"backdrop-blur-xl p-6 md:p-8",
 				"transition-all duration-500 ease-out",
 				"hover:border-amber-500/30 hover:shadow-[0_0_35px_rgba(212,175,55,0.08)]",

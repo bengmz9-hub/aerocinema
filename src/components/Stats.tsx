@@ -68,7 +68,7 @@ export function Stats() {
 						return (
 							<div
 								key={item.id}
-								className="group relative p-6 rounded-xl bg-[#0c0d10]/80 border border-white/[0.08] backdrop-blur-md specular-card flex flex-col justify-between transition-all duration-500 hover:border-amber-500/30 hover:shadow-[0_0_25px_rgba(212,175,55,0.06)]"
+								className="group relative p-6 rounded-xl bg-[#0c0d10]/80 border border-white/[0.08] backdrop-blur-md specular-card flex flex-col justify-between transition-all duration-500 hover:border-amber-500/30 hover:shadow-[0_0_25px_rgba(212,175,55,0.06)] select-none cursor-default"
 							>
 								{/* HUD Corner Accents */}
 								<div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-white/20 group-hover:border-amber-400/60 transition-colors" />
