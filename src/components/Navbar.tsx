@@ -14,7 +14,8 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
 	{ label: "Portfolio", grade: "01", href: "#portfolio" },
 	{ label: "Servicios", grade: "02", href: "#servicios" },
-	{ label: "Operador", grade: "03", href: "#operador" },
+	{ label: "Mini 5 Pro", grade: "03", href: "#optical" },
+	{ label: "Operador", grade: "04", href: "#operador" },
 ];
 
 /* ──────────────────────────────────────────────
