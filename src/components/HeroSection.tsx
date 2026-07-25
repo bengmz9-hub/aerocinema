@@ -71,19 +71,17 @@ export function HeroSection() {
 				<h1 className="font-cinzel text-[clamp(2.5rem,5vw+1rem,5.5rem)] font-bold tracking-tight text-golden-hour leading-[1.05] uppercase drop-shadow-2xl [text-wrap:balance]">
 					JF.DroneVision
 				</h1>
-				<h2 className="text-titanium font-cinzel text-[clamp(1.2rem,2.5vw+0.5rem,2.2rem)] mt-2 uppercase tracking-widest font-medium [text-wrap:balance]">
-					Producción Aérea Cinematográfica & Inspección Técnica
+				<h2 className="text-titanium font-cinzel text-[clamp(1.1rem,2vw+0.5rem,1.9rem)] mt-2 uppercase tracking-widest font-medium [text-wrap:balance]">
+					Grabaciones con dron para tu negocio o propiedad
 				</h2>
 
 				{/* Subtítulo */}
 				<p className="mt-6 font-sans font-light text-neutral-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed tracking-wide [text-wrap:pretty]">
-					Captura de alta precisión en{" "}
-					<strong className="text-white font-medium">
-						8K RAW / 5.1K D-Log
-					</strong>{" "}
-					y gestión integral de permisos en espacios aéreos controlados en{" "}
-					<strong className="text-white font-medium">Barcelona</strong> y{" "}
-					<strong className="text-white font-medium">Málaga</strong>.
+					Imágenes aéreas reales para inmobiliarias, empresas de construcción y
+					negocios locales en{" "}
+					<strong className="text-white font-medium">L'Hospitalet</strong> y{" "}
+					<strong className="text-white font-medium">Barcelona</strong>. Sin
+					complicaciones, con permiso AESA en regla.
 				</p>
 
 				{/* Botones con micro-interacciones táctiles scale 0.97 (Emil Kowalski Rules) */}
@@ -98,7 +96,7 @@ export function HeroSection() {
 							href="#contacto"
 							className="block w-full sm:w-auto text-center px-9 py-3.5 bg-white text-black font-semibold text-[10px] tracking-[0.25em] uppercase rounded-sm hover:bg-neutral-200 transition-colors duration-300 cursor-pointer shadow-lg shadow-white/5"
 						>
-							SOLICITAR DOSSIER
+							PEDIR PRESUPUESTO
 						</Link>
 					</motion.div>
 
@@ -113,7 +111,7 @@ export function HeroSection() {
 							className="group flex items-center justify-center gap-2 w-full sm:w-auto text-center px-9 py-3.5 bg-transparent text-white border border-white/20 font-semibold text-[10px] tracking-[0.25em] uppercase rounded-sm hover:bg-white/10 transition-colors duration-300 cursor-pointer backdrop-blur-mdSpecular specular-card"
 						>
 							<Play className="w-3 h-3 fill-current group-hover:scale-110 transition-transform" />
-							EXPLORAR GALERÍA
+							VER TRABAJOS
 						</Link>
 					</motion.div>
 				</div>
