@@ -44,15 +44,14 @@ interface InstagramReelItem {
 const INSTAGRAM_REELS: InstagramReelItem[] = [
 	{
 		id: "reel-01",
-		title: "Jose FPV Reel (DYHZnoKN8mh)",
+		title: "Cinematic Wildflower FPV Flight",
 		category: "CINEMATIC FPV",
-		thumbnail: "/images/portfolio-paisajes.webp",
-		views: "LIVE FEED",
-		likes: "OFICIAL",
+		thumbnail: "https://www.instagram.com/p/DYHZnoKN8mh/media/?size=l",
+		views: "28.4K",
+		likes: "3.7K",
 		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/",
-		duration: "REEL",
-		isDirectEmbed: true,
+		duration: "0:45",
 	},
 	{
 		id: "reel-02",
@@ -177,6 +176,7 @@ export function InstagramReelsSection() {
 									src={reel.thumbnail}
 									alt={reel.title}
 									fill
+									unoptimized
 									className={cn(
 										"object-cover object-center transition-transform duration-700 pointer-events-none select-none",
 										isHovered ? "scale-110 blur-[1px]" : "scale-100",
