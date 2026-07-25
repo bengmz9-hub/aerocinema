@@ -81,14 +81,16 @@ export default function Navbar() {
 			<header className="fixed inset-x-0 top-0 z-50 pointer-events-none">
 				<div
 					className={`mx-auto w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-						scrolled ? "max-w-5xl pt-3 px-4" : "max-w-7xl pt-0 px-6 lg:px-8"
+						scrolled
+							? "max-w-5xl pt-2 md:pt-3 px-3 md:px-4"
+							: "max-w-7xl pt-0 px-4 md:px-6 lg:px-8"
 					}`}
 				>
 					<div
 						className={`pointer-events-auto flex items-center justify-between transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
 							scrolled
-								? "h-[56px] rounded-full bg-[#0f1115]/85 border border-white/10 backdrop-blur-2xl px-8 specular-card shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-								: "h-[88px] bg-gradient-to-b from-black/70 via-black/20 to-transparent border-b border-white/[0.04] px-0 backdrop-blur-xs"
+								? "h-[46px] md:h-[56px] rounded-full bg-[#0f1115]/85 border border-white/10 backdrop-blur-2xl px-4 md:px-8 specular-card shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+								: "h-[52px] md:h-[88px] bg-gradient-to-b from-black/70 via-black/20 to-transparent border-b border-white/[0.04] px-2 md:px-0 backdrop-blur-xs"
 						}`}
 					>
 						{/* Lado izquierdo: Identidad FPV */}
@@ -102,7 +104,7 @@ export default function Navbar() {
 									JF.
 									<span className="font-normal text-white/50">DRONEVISION</span>
 								</span>
-								<span className="font-sans text-[8px] uppercase tracking-[0.35em] text-white/30 -mt-0.5">
+								<span className="hidden sm:block font-sans text-[8px] uppercase tracking-[0.35em] text-white/30 -mt-0.5">
 									AERO CINEMATOGRAPHY
 								</span>
 							</div>
@@ -162,7 +164,7 @@ export default function Navbar() {
 						: "pointer-events-none opacity-0 scale-98"
 				}`}
 			>
-				<div className="flex h-[88px] items-center justify-between px-6">
+				<div className="flex h-[56px] md:h-[88px] items-center justify-between px-6 border-b border-white/10">
 					<span className="font-cinzel text-sm tracking-[0.18em] text-white/90">
 						JF.DRONEVISION
 					</span>

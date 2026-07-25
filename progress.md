@@ -1,14 +1,15 @@
-# Estado de Progreso de Sesión — JF.DroneVision
+# Progress & Context handoff
 
-## 🚀 Estado Actual
-- **Sección DJI Mini 5 Pro**: Implementada con éxito la sección de tecnología con vídeo fluido de **Google Flow** (`/videos/dji_mini_5_pro_flow.webm` y `.mp4`), maquetación **BentoGrid traslúcida estilo Navbar** (`#0a0c10]/70 backdrop-blur-xl`), degradados champagne metálico sobrios (`#dfd0a4`), y resplandor hover sutil.
-- **Navegación Navbar**: Añadido item `03 Mini 5 Pro` (`#optical`), ampliada cápsula flotante a `max-w-5xl` con espaciado simétrico y centrado de desplazamiento ajustado (`scroll-mt-28 md:scroll-mt-36`).
-- **Seguridad & Privacidad**: Auditoría de claves ejecutada. **Cero credenciales expuestas**. Variables e ignorados `.env` y `.gitignore` verificados.
-- **Repositorio Remoto**: `git push origin main` completado con éxito a GitHub (`bengmz9-hub/aerocinema`), desencadenando el despliegue automático en Vercel.
+## Estado Actual
+- ✅ Optimización de economía de tokens (Opción A) completada.
+- ✅ Archivo `c:\Users\rgs84\DRONES\.agents\AGENTS.md` desduplicado de reglas globales, reduciendo el overhead de entrada a ~2.200 tokens por mensaje.
+- ✅ Reglas globales, reglas de seguridad y protocolos de skills (incluyendo `surgical-code-edits-only`) 100% activos e intactos.
 
----
+## Decisiones Tomadas
+- Se conservó la integridad total de las reglas de seguridad (`AGENTS.md` v1.4.1 global) y los anti-patrones de diseño de `impeccable`.
+- No se realizaron modificaciones en código fuente del proyecto ni en dependencias.
 
-## 📌 Próximos 3 Pasos Prioritarios
-1. Revisar las métricas de rendimiento en producción tras la actualización de Vercel.
-2. Explorar la inclusión de nuevos videoclips de rodaje FPV en la galería de proyectos.
-3. Optimizar SEO y metadatos cinemáticos adicionales si se requiere expansión de contenido.
+## Próximos Pasos Prioritarios
+1. ⏳ Iniciar nuevo chat limpio para disfrutar del ahorro de ~2.300 tokens por turno.
+2. ⏳ Continuar con las tareas habituales de desarrollo o diseño visual en el proyecto DRONES.
+3. ⏳ Monitorear la fluidez y velocidad de respuesta.

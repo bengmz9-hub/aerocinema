@@ -1,4 +1,4 @@
-# Strict Deployment & Environment Rules
+# Strict Deployment, Environment & Token Rules
 
 ## Context
 The project is running strictly in a local development environment (`npm run dev` / `localhost`). 
@@ -10,3 +10,4 @@ Vercel deployment credits and build limits must be strictly preserved.
 3. **EXPLICIT OVERRIDE:** You are only allowed to execute deployment or remote repository commands if the user explicitly writes the exact phrase: *"Ejecuta push de fin de sesión"*. 
 
 If any workflow attempts to trigger a remote deployment or push without this explicit trigger, you must immediately abort that step and notify the user that local execution is enforced.
+
