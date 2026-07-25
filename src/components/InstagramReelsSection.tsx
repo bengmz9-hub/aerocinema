@@ -44,14 +44,14 @@ interface InstagramReelItem {
 const INSTAGRAM_REELS: InstagramReelItem[] = [
 	{
 		id: "reel-01",
-		title: "Cinematic Wildflower FPV Flight",
-		category: "CINEMATIC FPV",
-		thumbnail: "https://www.instagram.com/p/DYHZnoKN8mh/media/?size=l",
-		views: "28.4K",
-		likes: "3.7K",
+		title: "RODAJE CINEMATOGRÁFICO FPV",
+		category: "JF.DRONEVISION",
+		thumbnail: "/images/accordion-cinema.webp",
+		views: "@jf.drone_visual",
+		likes: "OFICIAL",
 		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/",
-		duration: "0:45",
+		duration: "REEL",
 	},
 	{
 		id: "reel-02",
