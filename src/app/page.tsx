@@ -21,9 +21,13 @@ export default function HomePage() {
 			{/* ========== 03. ARCHIVO DETALLADO: BENTO REJILLA MODULAR CON LUCES SPOTLIGHT ========== */}
 			<PortfolioGrid />
 
-			{/* ========== 04. SERVICIOS & TECNOLOGÍA DJI MINI 5 PRO ========== */}
+			{/* ========== 04. SERVICIOS ========== */}
 			<div id="servicios" className="scroll-mt-16 md:scroll-mt-24">
 				<ServicesSection />
+			</div>
+
+			{/* ========== 05. TECNOLOGÍA DJI MINI 5 PRO ========== */}
+			<div id="optical" className="scroll-mt-24 md:scroll-mt-32 min-h-[85vh] flex flex-col justify-center">
 				<DJI5ProSection />
 			</div>
 
