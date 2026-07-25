@@ -1,10 +1,10 @@
 # Estado del Proyecto — Progress Log (Sesión Completada)
 
 **Última actualización:** 2026-07-25  
-**Estado:** ✅ Desplegado en Producción (Vercel & GitHub)  
-**URL Producción:** [https://drones-kohl.vercel.app](https://drones-kohl.vercel.app)  
-**Último Commit:** `912b7ba` (18 commits locales pusheados a `main`)  
-**Grafo de Conocimiento:** ✅ `graphify-out` actualizado (3008 nodos, 6743 bordes, 157 comunidades)
+**Estado:** 🔄 En desarrollo local (Servidor dev en puerto 3003)  
+**URL Red Local:** `http://192.168.1.36:3003`  
+**Último Commit Local:** `61d04c6` (Ajustes finales en HeroTag y tarjetas Stats)  
+**Grafo de Conocimiento:** ✅ `graphify-out` actualizado (3008 nodos, 6743 bordes, 155 comunidades)  
 
 ---
 
