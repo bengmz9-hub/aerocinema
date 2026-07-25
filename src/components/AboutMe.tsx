@@ -47,7 +47,7 @@ const certifications: Certification[] = [
 
 export function AboutMe() {
 	return (
-		<section className="w-full bg-transparent py-24 px-4 md:px-8 relative z-10 overflow-x-clip overflow-y-visible">
+		<section className="w-full bg-transparent py-24 px-4 md:px-8 relative z-10 overflow-x-clip overflow-y-visible select-none cursor-default">
 			<div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 				{/* COLUMNA IZQUIERDA: EL REVELADO EN VÍDEO (5 Columnas) */}
 				<div className="lg:col-span-5 relative aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.08] group shadow-2xl">
