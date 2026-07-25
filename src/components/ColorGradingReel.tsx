@@ -273,8 +273,8 @@ export function ColorGradingReel() {
 							))}
 						</div>
 
-						{/* Carrusel horizontal de clips */}
-						<div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none snap-x">
+						{/* Carrusel horizontal de clips (Centrado en escritorio, scrollable en móvil) */}
+						<div className="flex items-center justify-start md:justify-center gap-3 md:gap-4 overflow-x-auto pb-2 scrollbar-none snap-x w-full">
 							{REEL_ITEMS.map((item) => {
 								const isActive = item.id === activeId;
 								return (
@@ -283,10 +283,10 @@ export function ColorGradingReel() {
 										type="button"
 										onClick={() => setActiveId(item.id)}
 										className={cn(
-											"relative shrink-0 snap-start rounded-xl overflow-hidden cursor-pointer transition-all duration-300 group outline-none text-left",
-											"w-[180px] sm:w-[220px] aspect-[16/10]",
+											"relative shrink-0 md:shrink md:flex-1 snap-start rounded-xl overflow-hidden cursor-pointer transition-all duration-300 group outline-none text-left",
+											"w-[170px] sm:w-[190px] md:w-auto max-w-[230px] aspect-[16/10]",
 											isActive
-												? "ring-2 ring-cyan-400 ring-offset-2 ring-offset-black scale-102"
+												? "ring-2 ring-cyan-400 ring-offset-2 ring-offset-black scale-102 z-10"
 												: "opacity-60 hover:opacity-100 hover:scale-101 border border-white/10",
 										)}
 									>
