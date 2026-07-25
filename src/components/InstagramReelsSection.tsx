@@ -48,8 +48,8 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		thumbnail: "/images/portfolio-paisajes.webp",
 		views: "24.8K",
 		likes: "3.2K",
-		embedUrl: "https://www.instagram.com/reel/C3X9Z1uI_0_/embed",
-		instagramUrl: "https://www.instagram.com/jf.drone_visual",
+		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
+		instagramUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/",
 		duration: "0:45",
 	},
 	{
