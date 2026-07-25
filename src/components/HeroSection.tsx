@@ -67,16 +67,16 @@ export function HeroSection() {
 					</span>
 				</div>
 
-				{/* Título Principal H1 Persuasivo (H1 Gallery + DESIGN.md clamp) */}
-				<h1 className="font-cinzel text-[clamp(2.5rem,5vw+1rem,5.5rem)] font-bold tracking-tight text-golden-hour leading-[1.05] uppercase drop-shadow-2xl [text-wrap:balance]">
+				{/* Título Principal H1 Persuasivo (Opción C: Cormorant Garamond) */}
+				<h1 className="font-cormorant text-[clamp(2.8rem,6vw+1rem,6rem)] font-bold tracking-tight text-golden-hour leading-[1.02] uppercase drop-shadow-2xl [text-wrap:balance]">
 					JF.DroneVision
 				</h1>
-				<h2 className="text-titanium font-cinzel text-[clamp(1.1rem,2vw+0.5rem,1.9rem)] mt-2 uppercase tracking-widest font-medium [text-wrap:balance]">
+				<h2 className="text-titanium font-cormorant text-[clamp(1.3rem,2.8vw+0.5rem,2.4rem)] mt-2 uppercase tracking-widest font-semibold italic [text-wrap:balance]">
 					Grabaciones con dron para tu negocio o propiedad
 				</h2>
 
-				{/* Subtítulo */}
-				<p className="mt-6 font-sans font-light text-neutral-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed tracking-wide [text-wrap:pretty]">
+				{/* Subtítulo (Plus Jakarta Sans) */}
+				<p className="mt-6 font-jakarta font-light text-neutral-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed tracking-wide [text-wrap:pretty]">
 					Imágenes aéreas reales para inmobiliarias, empresas de construcción y
 					negocios locales en{" "}
 					<strong className="text-white font-medium">L'Hospitalet</strong> y{" "}

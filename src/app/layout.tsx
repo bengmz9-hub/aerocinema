@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Cinzel, Geist, Montserrat } from "next/font/google";
+import {
+	Cinzel,
+	Cormorant_Garamond,
+	Geist,
+	Montserrat,
+	Plus_Jakarta_Sans,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -11,6 +17,20 @@ const cinzel = Cinzel({
 	subsets: ["latin"],
 	variable: "--font-cinzel",
 	weight: ["400", "700"],
+	display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+	subsets: ["latin"],
+	variable: "--font-cormorant",
+	weight: ["400", "500", "600", "700"],
+	display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+	subsets: ["latin"],
+	variable: "--font-jakarta",
+	weight: ["300", "400", "500", "600"],
 	display: "swap",
 });
 
@@ -67,7 +87,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${cinzel.variable} ${mt.variable} font-sans antialiased`}
+				className={`${cinzel.variable} ${cormorant.variable} ${jakarta.variable} ${mt.variable} font-sans antialiased`}
 			>
 				<Navbar />
 				{children}

@@ -6,8 +6,10 @@
 @source "..";
 
 @theme {
-	--font-sans: var(--font-montserrat);
+	--font-sans: var(--font-jakarta), var(--font-montserrat);
 	--font-cinzel: var(--font-cinzel);
+	--font-cormorant: var(--font-cormorant);
+	--font-jakarta: var(--font-jakarta);
 	--color-void-900: #070708; /* Token Vidrio de Noche / Obsidiana Real */
 }
 
