@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.vercel/
+package-lock.json
+tsconfig.tsbuildinfo
+*.log
+dist/
+build/
+graphify-out/
+.git/
+.codex/
