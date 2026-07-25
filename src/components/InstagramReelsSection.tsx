@@ -4,7 +4,6 @@ import { Heart, Play } from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { BlurText } from "./ui/BlurText";
 
 function InstagramIcon({ className }: { className?: string }) {
 	return (
@@ -43,8 +42,8 @@ interface InstagramReelItem {
 const INSTAGRAM_REELS: InstagramReelItem[] = [
 	{
 		id: "reel-01",
-		title: "RODAJE CINEMATOGRÁFICO FPV",
-		category: "JF.DRONEVISION",
+		title: "EXTERIOR URBANO · L'HOSPITALET",
+		category: "VUELO URBANO",
 		thumbnail: "",
 		videoUrl: "/videos/filmacion.webm",
 		views: "@jf.drone_visual",
@@ -54,8 +53,8 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 	},
 	{
 		id: "reel-02",
-		title: "Contraste, atardecer con iluminación",
-		category: "ATARDECER",
+		title: "TERRAZA COMERCIAL · BARCELONA",
+		category: "HOSTELERÍA & COMERCIO",
 		thumbnail: "",
 		videoUrl: "/videos/inmobiliaria.webm",
 		views: "@jf.drone_visual",
@@ -65,8 +64,8 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 	},
 	{
 		id: "reel-03",
-		title: "Vista aérea, horizonte y mar",
-		category: "VISTA AÉREA",
+		title: "VISTA AÉREA · ZONA COSTERA",
+		category: "ENTORNO & PAISAJE",
 		thumbnail: "",
 		videoUrl: "/videos/eventos.webm",
 		views: "@jf.drone_visual",
@@ -76,8 +75,8 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 	},
 	{
 		id: "reel-04",
-		title: "Grabación perimetral de estructuras y exteriores",
-		category: "INFRAESTRUCTURA/FACHADA",
+		title: "INSPECCIÓN DE FACHADA · EXTERIORES",
+		category: "CONSTRUCCIÓN & REFORMAS",
 		thumbnail: "",
 		videoUrl: "/videos/jose-reveal.webm",
 		views: "@jf.drone_visual",
@@ -207,19 +206,21 @@ export function InstagramReelsSection() {
 	return (
 		<section className="w-full bg-transparent py-16 md:py-24 px-4 md:px-8 border-t border-white/[0.06] relative overflow-hidden select-none">
 			<div className="max-w-7xl mx-auto">
-				{/* ═══════ CABECERA TELEMÉTRICA DE INSTAGRAM ═══════ */}
+				{/* ═══════ CABECERA TELEMÉTRICA DE TRABAJOS RECIENTES ═══════ */}
 				<div className="mb-10 md:mb-14">
 					<div className="flex items-center gap-3 mb-2">
 						<span className="w-8 h-px bg-amber-500/60" />
 						<span className="text-amber-400 text-[10px] font-mono tracking-[0.3em] uppercase flex items-center gap-2">
 							<InstagramIcon className="w-3.5 h-3.5 text-amber-400" />
-							INSTAGRAM LIVE FEED {"//"} @JF.DRONE_VISUAL
+							PRODUCCIONES REALES — @JF.DRONE_VISUAL
 						</span>
 					</div>
-					<BlurText
-						text="ÚLTIMOS RODAJES EN INSTAGRAM"
-						className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white uppercase"
-					/>
+					<h2 className="font-cormorant text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white uppercase mb-2">
+						TRABAJOS RECIENTES
+					</h2>
+					<p className="font-jakarta text-xs md:text-sm text-zinc-400 font-light">
+						Rodajes reales en la zona metropolitana de Barcelona y L'Hospitalet
+					</p>
 				</div>
 
 				{/* ═══════ GRID DE REELS INTERACTIVOS HOVER-TO-PLAY (4 COLUMNAS) ═══════ */}
