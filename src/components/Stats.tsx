@@ -95,9 +95,8 @@ export function Stats() {
 								</div>
 
 								{/* Bottom Tag */}
-								<div className="mt-6 pt-3 border-t border-white/[0.06] flex items-center justify-between gap-2 font-mono text-[9px] text-zinc-500 tracking-widest">
-									<span>STATUS: OK</span>
-									<span className="text-amber-400/90 font-medium shrink-0">
+								<div className="mt-6 pt-3 border-t border-white/[0.06] flex items-center justify-end font-mono text-[9px] tracking-widest">
+									<span className="text-amber-400/90 font-medium">
 										{item.highlight}
 									</span>
 								</div>
