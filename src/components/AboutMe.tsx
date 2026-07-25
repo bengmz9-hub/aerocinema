@@ -47,8 +47,8 @@ const certifications: Certification[] = [
 
 export function AboutMe() {
 	return (
-		<section className="w-full bg-transparent pt-10 pb-16 md:pt-12 md:pb-20 px-4 md:px-8 relative z-10 overflow-x-clip overflow-y-visible select-none cursor-default">
-			<div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+		<section className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden text-white select-none cursor-default z-10">
+			<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
 				{/* COLUMNA IZQUIERDA: EL REVELADO EN VÍDEO (5 Columnas) */}
 				<div className="lg:col-span-5 relative aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.08] group shadow-2xl">
 					<video
@@ -56,7 +56,7 @@ export function AboutMe() {
 						muted
 						loop
 						playsInline
-						className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out scale-101"
+						className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
 					>
 						<source src="/videos/jose-reveal.mp4" type="video/mp4" />
 					</video>
