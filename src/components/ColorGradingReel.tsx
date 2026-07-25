@@ -183,17 +183,19 @@ export function ColorGradingReel() {
 							className="absolute inset-y-0 left-0 overflow-hidden z-10"
 							style={{ width: `${sliderPos}%` }}
 						>
-							<div className="absolute inset-0 w-full h-full min-w-full">
+							<div
+								className="absolute inset-0 h-full"
+								style={{
+									width: containerRef.current
+										? `${containerRef.current.clientWidth}px`
+										: "100%",
+									maxWidth: "none",
+								}}
+							>
 								<Image
 									src={activeItem.rawImage}
 									alt={`${activeItem.title} D-Log RAW`}
 									fill
-									style={{
-										width: containerRef.current
-											? `${containerRef.current.clientWidth}px`
-											: "100%",
-										maxWidth: "none",
-									}}
 									className="object-cover object-center saturate-40 contrast-85 brightness-105 filter grayscale-[35%]"
 									priority
 								/>
