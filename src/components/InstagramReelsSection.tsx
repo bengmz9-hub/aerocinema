@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowUpRight, Heart, Play, X } from "lucide-react";
+import { ArrowUpRight, Heart, Play } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { BlurText } from "./ui/BlurText";
 
@@ -33,12 +33,11 @@ interface InstagramReelItem {
 	title: string;
 	category: string;
 	thumbnail: string;
+	videoUrl: string;
 	views: string;
 	likes: string;
-	embedUrl: string;
 	instagramUrl: string;
 	duration: string;
-	isDirectEmbed?: boolean;
 }
 
 const INSTAGRAM_REELS: InstagramReelItem[] = [
@@ -47,9 +46,9 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		title: "RODAJE CINEMATOGRÁFICO FPV",
 		category: "JF.DRONEVISION",
 		thumbnail: "/images/accordion-cinema.webp",
+		videoUrl: "/videos/filmacion.webm",
 		views: "@jf.drone_visual",
 		likes: "OFICIAL",
-		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/",
 		duration: "REEL",
 	},
@@ -58,9 +57,9 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		title: "Luxury Villa Indoor-Outdoor One-Take",
 		category: "REAL ESTATE",
 		thumbnail: "/images/portfolio-propiedades-1.webp",
+		videoUrl: "/videos/inmobiliaria.webm",
 		views: "18.5K",
 		likes: "2.4K",
-		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:30",
 	},
@@ -69,42 +68,134 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		title: "Nocturnal Festival Lighting Coverage",
 		category: "EVENTS 4K",
 		thumbnail: "/images/portfolio-eventos.webp",
+		videoUrl: "/videos/eventos.webm",
 		views: "31.2K",
 		likes: "4.1K",
-		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:58",
 	},
 	{
 		id: "reel-04",
-		title: "High-Speed Mountain Ridge Dive",
+		title: "High-Speed Proximity FPV Dive",
 		category: "EXTREME FPV",
 		thumbnail: "/images/portfolio-propiedades-2.webp",
+		videoUrl: "/videos/jose-reveal.mp4",
 		views: "42.9K",
 		likes: "5.8K",
-		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:38",
 	},
 ];
 
-export function InstagramReelsSection() {
-	const [hoveredId, setHoveredId] = useState<string | null>(null);
-	const [activeModalReel, setActiveModalReel] =
-		useState<InstagramReelItem | null>(null);
+function ReelCard({ reel }: { reel: InstagramReelItem }) {
+	const [isPlaying, setIsPlaying] = useState(false);
+	const videoRef = useRef<HTMLVideoElement>(null);
 
-	// Bloquear scroll de pantalla cuando el modal está abierto
-	useEffect(() => {
-		if (activeModalReel) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "unset";
+	const handleMouseEnter = () => {
+		setIsPlaying(true);
+		if (videoRef.current) {
+			videoRef.current.play().catch(() => {});
 		}
-		return () => {
-			document.body.style.overflow = "unset";
-		};
-	}, [activeModalReel]);
+	};
 
+	const handleMouseLeave = () => {
+		setIsPlaying(false);
+		if (videoRef.current) {
+			videoRef.current.pause();
+			videoRef.current.currentTime = 0;
+		}
+	};
+
+	return (
+		<a
+			href={reel.instagramUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
+			className={cn(
+				"group relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/80 aspect-[9/16] transition-all duration-500 flex flex-col justify-between p-4 outline-none specular-card text-left cursor-pointer",
+				"hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(236,72,153,0.15)] hover:scale-[1.02]",
+			)}
+		>
+			{/* Imagen de Fondo (Poster) */}
+			<Image
+				src={reel.thumbnail}
+				alt={reel.title}
+				fill
+				className={cn(
+					"object-cover object-center transition-opacity duration-500 pointer-events-none select-none",
+					isPlaying ? "opacity-0" : "opacity-100",
+				)}
+			/>
+
+			{/* Vídeo Silencioso Autoejecutable en Hover */}
+			<video
+				ref={videoRef}
+				src={reel.videoUrl}
+				muted
+				loop
+				playsInline
+				preload="metadata"
+				className={cn(
+					"absolute inset-0 w-full h-full object-cover transition-opacity duration-500 pointer-events-none select-none",
+					isPlaying ? "opacity-100 scale-105" : "opacity-0 scale-100",
+				)}
+			/>
+
+			{/* Overlay degradado cinemático */}
+			<div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/20 transition-opacity duration-300 pointer-events-none" />
+
+			{/* Parte Superior: Badge Instagram & Duración */}
+			<div className="relative z-10 flex items-center justify-between w-full pointer-events-none">
+				<span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[8px] tracking-[0.2em] text-pink-300 uppercase flex items-center gap-1.5">
+					<InstagramIcon className="w-3 h-3 text-pink-400" />
+					REEL
+				</span>
+				<span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[8px] tracking-wider text-zinc-300">
+					{reel.duration}
+				</span>
+			</div>
+
+			{/* Botón Central Play (Oculto dinámicamente en reproducción) */}
+			<div className="relative z-10 my-auto flex items-center justify-center pointer-events-none">
+				<div
+					className={cn(
+						"w-12 h-12 rounded-full bg-pink-500/80 border border-pink-400 text-white flex items-center justify-center shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all duration-300",
+						isPlaying
+							? "scale-0 opacity-0"
+							: "scale-100 opacity-90 group-hover:scale-110",
+					)}
+				>
+					<Play className="w-5 h-5 fill-white translate-x-0.5" />
+				</div>
+			</div>
+
+			{/* Parte Inferior: Metadata & Métricas de Instagram */}
+			<div className="relative z-10 flex flex-col gap-2 pointer-events-none">
+				<span className="font-mono text-[9px] uppercase tracking-[0.25em] text-pink-400/90 font-medium">
+					[ {reel.category} ]
+				</span>
+				<h3 className="font-cinzel font-bold text-base text-white uppercase leading-snug line-clamp-2">
+					{reel.title}
+				</h3>
+
+				<div className="flex items-center justify-between pt-2 border-t border-white/10 font-mono text-[9px] text-zinc-400">
+					<span className="flex items-center gap-1">
+						<Play className="w-2.5 h-2.5 text-zinc-400 fill-zinc-400" />
+						{reel.views}
+					</span>
+					<span className="flex items-center gap-1">
+						<Heart className="w-2.5 h-2.5 text-pink-400 fill-pink-400" />
+						{reel.likes}
+					</span>
+				</div>
+			</div>
+		</a>
+	);
+}
+
+export function InstagramReelsSection() {
 	return (
 		<section className="w-full bg-transparent py-16 md:py-24 px-4 md:px-8 border-t border-white/[0.06] relative overflow-hidden select-none">
 			<div className="max-w-7xl mx-auto">
@@ -135,105 +226,11 @@ export function InstagramReelsSection() {
 					</a>
 				</div>
 
-				{/* ═══════ GRID DE REELS INTERACTIVOS (4 COLUMNAS) ═══════ */}
+				{/* ═══════ GRID DE REELS INTERACTIVOS HOVER-TO-PLAY (4 COLUMNAS) ═══════ */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-					{INSTAGRAM_REELS.map((reel) => {
-						if (reel.isDirectEmbed) {
-							return (
-								<div
-									key={reel.id}
-									className="relative rounded-2xl overflow-hidden border border-white/15 bg-black aspect-[9/16] shadow-2xl specular-card group"
-								>
-									<div className="absolute inset-0 w-full h-full overflow-hidden bg-black flex items-center justify-center">
-										<iframe
-											src={reel.embedUrl}
-											title={reel.title}
-											className="w-[125%] h-[135%] -translate-y-6 border-0 bg-black max-w-none scale-105"
-											allowTransparency={true}
-											allow="encrypted-media"
-										/>
-									</div>
-									<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-								</div>
-							);
-						}
-
-						const isHovered = hoveredId === reel.id;
-						return (
-							<button
-								key={reel.id}
-								type="button"
-								onClick={() => setActiveModalReel(reel)}
-								onMouseEnter={() => setHoveredId(reel.id)}
-								onMouseLeave={() => setHoveredId(null)}
-								className={cn(
-									"group relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/80 aspect-[9/16] transition-all duration-500 flex flex-col justify-between p-4 outline-none specular-card text-left cursor-pointer",
-									"hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(236,72,153,0.15)] hover:scale-[1.02]",
-								)}
-							>
-								{/* Imagen de fondo */}
-								<Image
-									src={reel.thumbnail}
-									alt={reel.title}
-									fill
-									unoptimized
-									className={cn(
-										"object-cover object-center transition-transform duration-700 pointer-events-none select-none",
-										isHovered ? "scale-110 blur-[1px]" : "scale-100",
-									)}
-								/>
-
-								{/* Overlay degradado cinemático */}
-								<div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/30 transition-opacity duration-300 group-hover:opacity-90 pointer-events-none" />
-
-								{/* Parte Superior: Badge Instagram & Duración */}
-								<div className="relative z-10 flex items-center justify-between w-full pointer-events-none">
-									<span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[8px] tracking-[0.2em] text-pink-300 uppercase flex items-center gap-1.5">
-										<InstagramIcon className="w-3 h-3 text-pink-400" />
-										REEL EMBED
-									</span>
-									<span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[8px] tracking-wider text-zinc-300">
-										{reel.duration}
-									</span>
-								</div>
-
-								{/* Botón Central Play (Animado en Hover) */}
-								<div className="relative z-10 my-auto flex items-center justify-center pointer-events-none">
-									<div
-										className={cn(
-											"w-12 h-12 rounded-full bg-pink-500/80 border border-pink-400 text-white flex items-center justify-center shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all duration-300",
-											isHovered
-												? "scale-115 bg-pink-500"
-												: "scale-90 opacity-80",
-										)}
-									>
-										<Play className="w-5 h-5 fill-white translate-x-0.5" />
-									</div>
-								</div>
-
-								{/* Parte Inferior: Metadata & Métricas de Instagram */}
-								<div className="relative z-10 flex flex-col gap-2 pointer-events-none">
-									<span className="font-mono text-[9px] uppercase tracking-[0.25em] text-pink-400/90 font-medium">
-										[ {reel.category} ]
-									</span>
-									<h3 className="font-cinzel font-bold text-base text-white uppercase leading-snug line-clamp-2">
-										{reel.title}
-									</h3>
-
-									<div className="flex items-center justify-between pt-2 border-t border-white/10 font-mono text-[9px] text-zinc-400">
-										<span className="flex items-center gap-1">
-											<Play className="w-2.5 h-2.5 text-zinc-400 fill-zinc-400" />
-											{reel.views}
-										</span>
-										<span className="flex items-center gap-1">
-											<Heart className="w-2.5 h-2.5 text-pink-400 fill-pink-400" />
-											{reel.likes}
-										</span>
-									</div>
-								</div>
-							</button>
-						);
-					})}
+					{INSTAGRAM_REELS.map((reel) => (
+						<ReelCard key={reel.id} reel={reel} />
+					))}
 				</div>
 
 				{/* ═══════ FOOTER CTA INSTAGRAM ═══════ */}
@@ -249,72 +246,6 @@ export function InstagramReelsSection() {
 					</a>
 				</div>
 			</div>
-
-			{/* ═══════ MODAL REPRODUCTOR EMBEDDED INSTAGRAM REEL ═══════ */}
-			{activeModalReel && (
-				<div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl transition-all duration-300">
-					{/* Fondo para cerrar al clicar fuera */}
-					<button
-						type="button"
-						aria-label="Cerrar reproductor"
-						onClick={() => setActiveModalReel(null)}
-						className="absolute inset-0 w-full h-full cursor-default"
-					/>
-
-					{/* Contenedor del Modal / Iframe Player */}
-					<div className="relative z-10 w-full max-w-md bg-[#0a0c10] border border-white/15 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(236,72,153,0.2)] flex flex-col">
-						{/* Cabecera Modal */}
-						<div className="flex items-center justify-between p-4 border-b border-white/10 bg-black/60">
-							<div className="flex items-center gap-2">
-								<InstagramIcon className="w-4 h-4 text-pink-400" />
-								<span className="font-mono text-xs text-white uppercase tracking-wider">
-									REEL EMBED INLINE
-								</span>
-							</div>
-							<button
-								type="button"
-								onClick={() => setActiveModalReel(null)}
-								aria-label="Cerrar modal"
-								className="w-8 h-8 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
-							>
-								<X className="w-4 h-4" />
-							</button>
-						</div>
-
-						{/* Iframe oficial de Instagram Reel */}
-						<div className="relative w-full aspect-[9/16] bg-black max-h-[70vh]">
-							<iframe
-								src={activeModalReel.embedUrl}
-								title={activeModalReel.title}
-								className="w-full h-full border-0"
-								allowTransparency={true}
-								allow="encrypted-media"
-							/>
-						</div>
-
-						{/* Pie del Modal */}
-						<div className="p-4 border-t border-white/10 bg-black/80 flex items-center justify-between gap-4">
-							<div className="truncate">
-								<span className="font-mono text-[9px] text-pink-400 tracking-wider uppercase block">
-									{activeModalReel.category}
-								</span>
-								<h4 className="font-cinzel text-xs font-bold text-white truncate">
-									{activeModalReel.title}
-								</h4>
-							</div>
-							<a
-								href={activeModalReel.instagramUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="shrink-0 px-3 py-1.5 rounded-full border border-pink-500/30 bg-pink-500/10 text-pink-200 font-mono text-[9px] uppercase tracking-wider hover:bg-pink-500/20 hover:text-white transition-colors flex items-center gap-1"
-							>
-								<span>Ver en Instagram</span>
-								<ArrowUpRight className="w-3 h-3" />
-							</a>
-						</div>
-					</div>
-				</div>
-			)}
 		</section>
 	);
 }
