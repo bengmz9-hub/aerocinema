@@ -40,22 +40,28 @@ export function AboutMe() {
 				<div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
 					{/* Tarjeta Principal (Hero Profile - Ocupa 2 columnas) */}
 					<div className="sm:col-span-2 p-6 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/30 hover:shadow-[0_0_20px_rgba(223,208,164,0.07)] transition-all duration-500 relative overflow-hidden group select-none cursor-default">
-						<div className="flex items-center gap-2 text-xs font-mono mb-2 font-semibold bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent uppercase tracking-wider">
-							<ShieldCheck className="w-4 h-4 text-[#dfd0a4]" />
-							<span>OPERADOR DE VUELO & PILOTO TÉCNICO</span>
+						<div className="flex items-center gap-2 text-xs font-mono mb-2 font-semibold text-amber-300/90 uppercase tracking-wider">
+							<ShieldCheck className="w-4 h-4 text-amber-400" />
+							<span>
+								Piloto de drones certificado AESA · L'Hospitalet de Llobregat
+							</span>
 						</div>
-						<h2 className="text-2xl md:text-3xl font-cinzel font-bold text-white tracking-wide mb-2">
+						<h2 className="text-2xl md:text-3xl font-cormorant font-bold text-white tracking-wide uppercase mb-3">
 							JOSE ANTONIO
 						</h2>
-						<p className="text-zinc-400 text-xs md:text-sm leading-relaxed mb-4">
-							Operador técnico y piloto de UAS registrado en AESA. Especializado
-							en capturar la geometría del territorio y la luz de cine en las
-							costas de Málaga y los perfiles arquitectónicos de Barcelona. Cada
-							vuelo se ejecuta bajo planificación estricta, transformando
-							espacios aéreos controlados en piezas maestras sin fricciones
-							legales.
+						<p className="text-zinc-300 font-jakarta text-xs md:text-sm font-light leading-relaxed mb-3">
+							Vivo en Can Serra y conozco bien la zona metropolitana de
+							Barcelona. Opero con permiso oficial de la Agencia Estatal de
+							Seguridad Aérea, lo que significa que cada vuelo es 100% legal y
+							sin sorpresas.
 						</p>
-						<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfd0a4]/10 border border-[#dfd0a4]/20 text-[#dfd0a4] text-xs font-mono">
+						<p className="text-zinc-300 font-jakarta text-xs md:text-sm font-light leading-relaxed mb-4">
+							Si tienes un piso en venta en Hospitalet, una obra en marcha en
+							Barcelona o un bar con terraza que quieres mostrar en redes,
+							podemos hablar y te digo sin compromiso si tu proyecto tiene
+							sentido con un dron.
+						</p>
+						<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-mono">
 							<span>AESA / EASA CERTIFIED PILOT OPERATOR</span>
 						</div>
 					</div>
