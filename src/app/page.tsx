@@ -1,7 +1,7 @@
 import { AboutMe } from "@/components/AboutMe";
+import { ColorGradingReel } from "@/components/ColorGradingReel";
 import { DJI5ProSection } from "@/components/DJI5ProSection";
 import { HeroSection } from "@/components/HeroSection";
-import { PortfolioAccordion } from "@/components/PortfolioAccordion";
 import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { ServicesSection } from "@/components/ServicesSection";
 import { Stats } from "@/components/Stats";
@@ -13,9 +13,9 @@ export default function HomePage() {
 			{/* ========== 01. HERO ========== */}
 			<HeroSection />
 
-			{/* ========== 02. SHOWCASE: CATEGORÍAS PRINCIPALES (ACORDEÓN) ========== */}
+			{/* ========== 02. SHOWCASE: CINEMA FILM STRIP & COLOR GRADING REEL ========== */}
 			<div id="portfolio" className="scroll-mt-16 md:scroll-mt-24">
-				<PortfolioAccordion />
+				<ColorGradingReel />
 			</div>
 
 			{/* ========== 03. ARCHIVO DETALLADO: BENTO REJILLA MODULAR CON LUCES SPOTLIGHT ========== */}
