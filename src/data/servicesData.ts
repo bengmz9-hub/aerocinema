@@ -20,9 +20,9 @@ export const servicesItems: ServiceItem[] = [
 		title: "Vende mejor con vídeo aéreo",
 		subtitle: "Para pisos, locales y áticos en venta o alquiler",
 		description:
-			"Un vídeo exterior del edificio, una pasada aérea del barrio o una vista de pájaro de ese ático con terraza marcan la diferencia en el portal. Entregamos el vídeo listo para publicar en Idealista, Fotocasa o Instagram.",
+			"Recorridos fluidos tanto del exterior del edificio y entorno como del interior de la propiedad (habitaciones, salón o terraza). Entregamos el vídeo listo para publicar en Idealista, Fotocasa o Instagram.",
 		icon: Building2,
-		badge: "EXTERIORES · ÁTICOS · ENTREGA 48H",
+		badge: "EXTERIOR E INTERIOR · ÁTICOS · ENTREGA 48H",
 		ctaText: "Consultar para mi propiedad",
 		ctaHref: "#contacto",
 		videoUrl: "/videos/inmobiliaria.webm",
