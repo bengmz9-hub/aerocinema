@@ -1,5 +1,4 @@
 import { AboutMe } from "@/components/AboutMe";
-import { ColorGradingReel } from "@/components/ColorGradingReel";
 import { DJI5ProSection } from "@/components/DJI5ProSection";
 import { HeroSection } from "@/components/HeroSection";
 import { InstagramReelsSection } from "@/components/InstagramReelsSection";
@@ -12,9 +11,6 @@ export default function HomePage() {
 		<main className="min-h-screen selection:bg-white selection:text-black overflow-x-hidden">
 			{/* ========== 01. HERO ========== */}
 			<HeroSection />
-
-			{/* ========== 02. SHOWCASE: CINEMA FILM STRIP & COLOR GRADING REEL ========== */}
-			<ColorGradingReel />
 
 			{/* ========== 03. INSTAGRAM REELS LIVE FEED (@JF.DRONE_VISUAL) ========== */}
 			<div id="portfolio" className="scroll-mt-16 md:scroll-mt-24">

@@ -12,10 +12,10 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-	{ label: "Portfolio", grade: "01", href: "#portfolio" },
+	{ label: "Trabajos", grade: "01", href: "#portfolio" },
 	{ label: "Servicios", grade: "02", href: "#servicios" },
-	{ label: "Mini 5 Pro", grade: "03", href: "#optical" },
-	{ label: "Operador", grade: "04", href: "#operador" },
+	{ label: "Quién soy", grade: "03", href: "#operador" },
+	{ label: "Contacto", grade: "04", href: "#contacto" },
 ];
 
 /* ──────────────────────────────────────────────
@@ -134,7 +134,7 @@ export default function Navbar() {
 								transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
 								className="group relative overflow-hidden rounded-full border border-amber-500/30 bg-amber-500/10 px-5 py-2 font-sans text-[9px] uppercase tracking-[0.25em] text-amber-200 font-semibold transition-colors duration-300 hover:text-white hover:border-amber-400/60 specular-card"
 							>
-								<span className="relative z-10">Reservar Rodaje</span>
+								<span className="relative z-10">Pedir Presupuesto</span>
 								<span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-amber-600/20 via-cyan-400/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-0" />
 							</motion.a>
 						</div>
@@ -215,7 +215,7 @@ export default function Navbar() {
 							menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
 						}`}
 					>
-						Reservar Rodaje
+						Pedir Presupuesto
 					</Link>
 				</nav>
 
