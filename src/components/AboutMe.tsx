@@ -1,144 +1,145 @@
 "use client";
 
 import { Award, Layers, Plane, Radar, ShieldCheck } from "lucide-react";
-import type React from "react";
-
-interface Certification {
-	title: string;
-	issuer: string;
-	code: string;
-	icon: React.ElementType;
-	featured?: boolean;
-}
-
-const certifications: Certification[] = [
-	{
-		title: "Operador UAS registrado",
-		issuer: "AESA",
-		code: "OP-UAS-ES",
-		icon: ShieldCheck,
-	},
-	{
-		title: "Piloto certificado",
-		issuer: "AESA",
-		code: "PIL-AESA",
-		icon: Award,
-	},
-	{
-		title: "Categoría A1/A3",
-		issuer: "EASA",
-		code: "CAT-A1/A3",
-		icon: Plane,
-	},
-	{
-		title: "Categoría A2",
-		issuer: "EASA",
-		code: "CAT-A2",
-		icon: Radar,
-	},
-	{
-		title: "STS-01 (Escenarios Estándar)",
-		issuer: "EASA",
-		code: "EASA-STS-01",
-		icon: Layers,
-		featured: true,
-	},
-];
 
 export function AboutMe() {
 	return (
-		<section className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden text-white select-none cursor-default z-10">
-			<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-				{/* COLUMNA IZQUIERDA: EL REVELADO EN VÍDEO (5 Columnas) */}
-				<div className="lg:col-span-5 relative aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.08] group shadow-2xl">
-					<video
-						autoPlay
-						muted
-						loop
-						playsInline
-						className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
-					>
-						<source src="/videos/jose-reveal.mp4" type="video/mp4" />
-					</video>
+		<section className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white select-none cursor-default z-10">
+			{/* Grid Principal: Vídeo Recorte + BentoGrid Traslúcido (Equivalente al Mini 5 Pro) */}
+			<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+				{/* ---------------------------------------------------- */}
+				{/* PANEL IZQUIERDO: VÍDEO MARCO TRASLÚCIDO (Lg: 5 cols) */}
+				{/* ---------------------------------------------------- */}
+				<div className="lg:col-span-5 relative group rounded-2xl overflow-hidden border border-white/10 bg-[#0a0c10]/70 p-2 backdrop-blur-xl shadow-2xl flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] select-none cursor-default">
+					<div className="relative aspect-[4/5] md:aspect-[3/4] lg:aspect-auto h-full w-full rounded-xl overflow-hidden bg-black/80 flex items-center justify-center">
+						<video
+							autoPlay
+							muted
+							loop
+							playsInline
+							preload="metadata"
+							className="w-full h-full object-cover rounded-xl transition-transform duration-700 ease-out group-hover:scale-105"
+						>
+							<source src="/videos/jose-reveal.mp4" type="video/mp4" />
+							Tu navegador no soporta la reproducción de video HTML5.
+						</video>
 
-					{/* Sombra interna cinematográfica */}
-					<div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-
-					{/* Marcadores estéticos de visor de cámara */}
-					<div className="absolute bottom-6 left-6 font-mono text-[9px] text-white/40 tracking-widest uppercase">
-						[ UAV_OP_POV ]
-					</div>
-					<div className="absolute bottom-6 right-6 font-mono text-[9px] text-white/40 tracking-widest uppercase">
-						REC {"//"} 24FPS
+						{/* Overlay de telemetría sobrio */}
+						<div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded bg-black/70 border border-white/10 text-[10px] font-mono text-[#dfd0a4]/90 backdrop-blur-sm">
+							UAV_OP_POV ● 24FPS
+						</div>
+						<div className="absolute bottom-3 right-3 z-10 px-2.5 py-1 rounded bg-black/70 border border-white/10 text-[10px] font-mono text-zinc-400 backdrop-blur-sm">
+							REC {"//"} AESA CERT
+						</div>
 					</div>
 				</div>
 
-				{/* COLUMNA DERECHA: PERFIL EDITORIAL (7 Columnas) */}
-				<div className="lg:col-span-7 flex flex-col items-start">
-					<div className="flex items-center gap-3 mb-4">
-						<span className="w-8 h-px bg-white/20" />
-						<span className="text-zinc-500 text-[10px] font-medium tracking-[0.3em] uppercase font-montserrat">
-							Operador de Vuelo
-						</span>
+				{/* ---------------------------------------------------- */}
+				{/* PANEL DERECHO: BENTOGRID TRASLÚCIDO PREMIUM (Lg: 7 cols) */}
+				{/* ---------------------------------------------------- */}
+				<div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+					{/* Tarjeta Principal (Hero Profile - Ocupa 2 columnas) */}
+					<div className="sm:col-span-2 p-6 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/30 hover:shadow-[0_0_20px_rgba(223,208,164,0.07)] transition-all duration-500 relative overflow-hidden group select-none cursor-default">
+						<div className="flex items-center gap-2 text-xs font-mono mb-2 font-semibold bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent uppercase tracking-wider">
+							<ShieldCheck className="w-4 h-4 text-[#dfd0a4]" />
+							<span>OPERADOR DE VUELO & PILOTO TÉCNICO</span>
+						</div>
+						<h2 className="text-2xl md:text-3xl font-cinzel font-bold text-white tracking-wide mb-2">
+							JOSÉ ANTONIO
+						</h2>
+						<p className="text-zinc-400 text-xs md:text-sm leading-relaxed mb-4">
+							Operador técnico y piloto de UAS registrado en AESA. Especializado
+							en capturar la geometría del territorio y la luz de cine en las
+							costas de Málaga y los perfiles arquitectónicos de Barcelona. Cada
+							vuelo se ejecuta bajo planificación estricta, transformando
+							espacios aéreos controlados en piezas maestras sin fricciones
+							legales.
+						</p>
+						<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfd0a4]/10 border border-[#dfd0a4]/20 text-[#dfd0a4] text-xs font-mono">
+							<span>AESA / EASA CERTIFIED PILOT OPERATOR</span>
+						</div>
 					</div>
 
-					<h2 className="font-cinzel text-3xl md:text-5xl font-bold text-white tracking-tight leading-none uppercase mb-6">
-						José Antonio
-					</h2>
+					{/* Tarjeta 1: Operador UAS */}
+					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group select-none cursor-default">
+						<div className="flex items-center gap-2 text-[11px] font-mono mb-2 text-[#dfd0a4]">
+							<ShieldCheck className="w-3.5 h-3.5 text-[#dfd0a4]" />
+							<span>REGISTRO AESA</span>
+						</div>
+						<div className="text-xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono">
+							OP-UAS-ES
+						</div>
+						<p className="text-zinc-400 text-xs leading-tight">
+							Operador de drones registrado oficialmente por la Agencia Estatal
+							de Seguridad Aérea.
+						</p>
+					</div>
 
-					<p className="font-montserrat font-light text-zinc-400 text-sm md:text-base leading-relaxed tracking-wide mb-8">
-						Operador técnico y piloto de UAS registrado en AESA. Especializado
-						en capturar la geometría del territorio y la luz de cine en las
-						costas de Málaga y los perfiles arquitectónicos de Barcelona. Cada
-						vuelo se ejecuta bajo planificación estricta, transformando espacios
-						aéreos controlados en piezas maestras sin fricciones legales.
-					</p>
+					{/* Tarjeta 2: Piloto Certificado */}
+					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group select-none cursor-default">
+						<div className="flex items-center gap-2 text-[11px] font-mono mb-2 text-[#dfd0a4]">
+							<Award className="w-3.5 h-3.5 text-[#dfd0a4]" />
+							<span>PILOTO ACREDITADO</span>
+						</div>
+						<div className="text-xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono">
+							PIL-AESA
+						</div>
+						<p className="text-zinc-400 text-xs leading-tight">
+							Acreditación de piloto profesional de sistemas de aeronaves no
+							tripuladas.
+						</p>
+					</div>
 
-					{/* Bloques de Certificaciones Técnicas - Fusión Élite AIs */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full font-montserrat">
-						{certifications.map((cert) => {
-							const Icon = cert.icon;
-							return (
-								<div
-									key={cert.code}
-									className={`group relative overflow-hidden rounded-xl border border-white/[0.04] bg-white/[0.01] px-5 py-4 transition-all duration-300 hover:border-white/15 hover:bg-white/[0.03] ${
-										cert.featured ? "sm:col-span-2" : ""
-									}`}
-								>
-									{/* Brackets HUD de DeepSeek */}
-									<span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10 group-hover:border-white/20 transition-colors duration-500" />
-									<span className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10 group-hover:border-white/20 transition-colors duration-500" />
-									<span className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/10 group-hover:border-white/20 transition-colors duration-500" />
-									<span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/10 group-hover:border-white/20 transition-colors duration-500" />
+					{/* Tarjeta 3: Categoría A1/A3 & A2 */}
+					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group select-none cursor-default">
+						<div className="flex items-center gap-2 text-[11px] font-mono mb-2 text-[#dfd0a4]">
+							<Plane className="w-3.5 h-3.5 text-[#dfd0a4]" />
+							<span>CATEGORÍAS A1/A3 & A2</span>
+						</div>
+						<div className="text-xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono">
+							EASA CAT-A1/A2/A3
+						</div>
+						<p className="text-zinc-400 text-xs leading-tight">
+							Habilitación europea para vuelos urbanos y cercanos a entornos de
+							personas.
+						</p>
+					</div>
 
-									{/* Metadata de código (DeepSeek / Qwen) */}
-									<span className="absolute top-3 right-4 font-mono text-[9px] text-white/15 tracking-widest uppercase">
-										{cert.code}
-									</span>
+					{/* Tarjeta 4: STS-01 Escenarios Estándar */}
+					<div className="p-5 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 group select-none cursor-default">
+						<div className="flex items-center gap-2 text-[11px] font-mono mb-2 text-[#dfd0a4]">
+							<Layers className="w-3.5 h-3.5 text-[#dfd0a4]" />
+							<span>ESCENARIOS ESTÁNDAR</span>
+						</div>
+						<div className="text-xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono">
+							EASA-STS-01
+						</div>
+						<p className="text-zinc-400 text-xs leading-tight">
+							Capacidad operativa autorizada para vuelos en entornos de riesgo
+							controlado.
+						</p>
+					</div>
 
-									<div className="flex items-center gap-4 relative z-10">
-										{/* Icono + Indicador de estado de Kimi */}
-										<div className="relative flex items-center justify-center w-9 h-9 rounded-full border border-white/[0.08] bg-white/[0.02] shrink-0 transition-colors duration-300 group-hover:border-white/20">
-											<Icon
-												size={16}
-												className="text-white/40 group-hover:text-white/80 transition-colors duration-300"
-											/>
-											<span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500/80 ring-2 ring-zinc-950 animate-pulse" />
-										</div>
-
-										{/* Textos con jerarquía de GLM 5.2 */}
-										<div className="min-w-0">
-											<h4 className="text-white text-xs font-bold uppercase tracking-wider">
-												{cert.title}
-											</h4>
-											<p className="text-zinc-500 text-[10px] font-mono tracking-widest uppercase mt-0.5">
-												Emisor: {cert.issuer}
-											</p>
-										</div>
-									</div>
+					{/* Tarjeta 5: Estado de Operaciones */}
+					<div className="sm:col-span-2 p-4 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/25 hover:shadow-[0_0_20px_rgba(223,208,164,0.06)] transition-all duration-500 flex items-center justify-between gap-4 select-none cursor-default">
+						<div className="flex items-center gap-3">
+							<div className="p-2.5 rounded-xl bg-[#dfd0a4]/10 border border-[#dfd0a4]/20 text-[#dfd0a4]">
+								<Radar className="w-5 h-5 animate-spin-slow" />
+							</div>
+							<div>
+								<div className="text-xs font-mono bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent font-medium uppercase">
+									ESTADO AERONÁUTICO ACTIVO ● PERMISO EN REGLA
 								</div>
-							);
-						})}
+								<div className="text-xs text-zinc-300 mt-0.5">
+									Plena conformidad con normativas de seguridad europea y
+									espacio aéreo controlado.
+								</div>
+							</div>
+						</div>
+						<div className="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono">
+							<span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+							<span>VERIFICADO</span>
+						</div>
 					</div>
 				</div>
 			</div>
