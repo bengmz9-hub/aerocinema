@@ -36,7 +36,7 @@ export const servicesItems: ServiceItem[] = [
 			"¿Necesitas inspeccionar zonas de difícil acceso por altura o documentar el antes y después de una reforma de fachada? El dron llega donde los operarios no pueden, sin andamios y en menos tiempo. El vídeo queda en tus manos para usarlo como evidencia técnica o para mostrar tu trabajo a futuros clientes.",
 		icon: HardHat,
 		badge: "INSPECCIÓN · ANTES/DESPUÉS · DOCUMENTACIÓN",
-		ctaText: "Hablar con José",
+		ctaText: "Hablar con Jose",
 		ctaHref: "#contacto",
 		videoUrl: "/videos/fotografia.webm",
 	},
