@@ -14,7 +14,7 @@ export function DJI5ProSection() {
 	return (
 		<section
 			id="optical"
-			className="relative py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white"
+			className="relative py-8 md:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white"
 		>
 			{/* Encabezado de Sección */}
 			<div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-white/10 pb-6">
@@ -47,7 +47,10 @@ export function DJI5ProSection() {
 							preload="metadata"
 							className="w-full h-full object-cover rounded-xl transition-transform duration-700 ease-out group-hover:scale-105"
 						>
-							<source src="/videos/dji_mini_5_pro_flow.webm" type="video/webm" />
+							<source
+								src="/videos/dji_mini_5_pro_flow.webm"
+								type="video/webm"
+							/>
 							<source src="/videos/dji_mini_5_pro_flow.mp4" type="video/mp4" />
 							Tu navegador no soporta la reproducción de video HTML5.
 						</video>
@@ -73,7 +76,8 @@ export function DJI5ProSection() {
 							4K HDR a 60 fps
 						</h3>
 						<p className="text-zinc-400 text-xs leading-relaxed mb-3">
-							Sensor {MINI_5_PRO_DATA.sensor} · Perfil {MINI_5_PRO_DATA.colorProfile} · 1080p a 120 fps
+							Sensor {MINI_5_PRO_DATA.sensor} · Perfil{" "}
+							{MINI_5_PRO_DATA.colorProfile} · 1080p a 120 fps
 						</p>
 						<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfd0a4]/10 border border-[#dfd0a4]/20 text-[#dfd0a4] text-xs font-mono">
 							<span>1,070 Millones de Colores (D-Log M / HLG)</span>

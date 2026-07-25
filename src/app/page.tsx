@@ -22,17 +22,27 @@ export default function HomePage() {
 			<PortfolioGrid />
 
 			{/* ========== 04. SERVICIOS ========== */}
-			<div id="servicios" className="scroll-mt-16 md:scroll-mt-24">
+			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20">
 				<ServicesSection />
 			</div>
 
+			{/* Lámpara Horizontal Ambient Accent */}
+			<div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-[#dfd0a4]/40 to-transparent relative my-4">
+				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#dfd0a4]/20 to-transparent blur-sm" />
+			</div>
+
 			{/* ========== 05. TECNOLOGÍA DJI MINI 5 PRO ========== */}
-			<div id="optical" className="scroll-mt-24 md:scroll-mt-32 min-h-[85vh] flex flex-col justify-center">
+			<div id="optical" className="scroll-mt-16 md:scroll-mt-20">
 				<DJI5ProSection />
 			</div>
 
-			{/* ========== 05. OPERADOR ACREDITADO & STATS ========== */}
-			<div id="operador" className="scroll-mt-16 md:scroll-mt-24">
+			{/* Lámpara Horizontal Ambient Accent */}
+			<div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-[#dfd0a4]/40 to-transparent relative my-4">
+				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#dfd0a4]/20 to-transparent blur-sm" />
+			</div>
+
+			{/* ========== 06. OPERADOR ACREDITADO & STATS ========== */}
+			<div id="operador" className="scroll-mt-16 md:scroll-mt-20">
 				<AboutMe />
 				<Stats />
 			</div>
