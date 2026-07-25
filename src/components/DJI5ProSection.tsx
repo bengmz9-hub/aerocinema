@@ -67,16 +67,16 @@ export function DJI5ProSection() {
 					<div className="sm:col-span-3 p-6 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/30 hover:shadow-[0_0_20px_rgba(223,208,164,0.07)] transition-all duration-500 relative overflow-hidden group">
 						<div className="flex items-center gap-2 text-xs font-mono mb-2 font-semibold bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent">
 							<Camera className="w-4 h-4 text-[#dfd0a4]" />
-							<span>SISTEMA ÓPTICO PRINCIPAL</span>
+							<span>CÁMARA & RESOLUCIÓN DE VÍDEO</span>
 						</div>
-						<h3 className="text-xl font-bold text-white mb-1">
-							{MINI_5_PRO_DATA.sensor}
+						<h3 className="text-2xl font-bold text-white mb-1 tracking-tight">
+							4K HDR a 60 fps
 						</h3>
 						<p className="text-zinc-400 text-xs leading-relaxed mb-3">
-							{MINI_5_PRO_DATA.videoRes} · Perfil {MINI_5_PRO_DATA.colorProfile}
+							Sensor {MINI_5_PRO_DATA.sensor} · Perfil {MINI_5_PRO_DATA.colorProfile} · 1080p a 120 fps
 						</p>
 						<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfd0a4]/10 border border-[#dfd0a4]/20 text-[#dfd0a4] text-xs font-mono">
-							<span>1,070 Millones de Colores (D-Log M)</span>
+							<span>1,070 Millones de Colores (D-Log M / HLG)</span>
 						</div>
 					</div>
 
