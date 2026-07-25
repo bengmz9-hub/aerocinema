@@ -1,4 +1,4 @@
-export interface DroneComponent {
+interface DroneComponent {
 	id: string;
 	name: string;
 	description: string;
