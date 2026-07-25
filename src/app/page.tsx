@@ -2,7 +2,7 @@ import { AboutMe } from "@/components/AboutMe";
 import { ColorGradingReel } from "@/components/ColorGradingReel";
 import { DJI5ProSection } from "@/components/DJI5ProSection";
 import { HeroSection } from "@/components/HeroSection";
-import { PortfolioGrid } from "@/components/PortfolioGrid";
+import { InstagramReelsSection } from "@/components/InstagramReelsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { Stats } from "@/components/Stats";
 import ContactSection from "@/components/sections/ContactSection";
@@ -18,8 +18,8 @@ export default function HomePage() {
 				<ColorGradingReel />
 			</div>
 
-			{/* ========== 03. ARCHIVO DETALLADO: BENTO REJILLA MODULAR CON LUCES SPOTLIGHT ========== */}
-			<PortfolioGrid />
+			{/* ========== 03. INSTAGRAM REELS LIVE FEED (@JF.DRONE_VISUAL) ========== */}
+			<InstagramReelsSection />
 
 			{/* ========== 04. SERVICIOS ========== */}
 			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20">
