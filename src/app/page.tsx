@@ -32,7 +32,7 @@ export default function HomePage() {
 			</div>
 
 			{/* ========== 05. TECNOLOGÍA DJI MINI 5 PRO ========== */}
-			<div id="optical" className="scroll-mt-16 md:scroll-mt-20">
+			<div id="optical" className="scroll-mt-28 md:scroll-mt-36">
 				<DJI5ProSection />
 			</div>
 
