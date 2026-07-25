@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowUpRight, Heart, Play } from "lucide-react";
+import { ArrowUpRight, Heart, Play, X } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { BlurText } from "./ui/BlurText";
 
@@ -35,7 +35,8 @@ interface InstagramReelItem {
 	thumbnail: string;
 	views: string;
 	likes: string;
-	url: string;
+	embedUrl: string;
+	instagramUrl: string;
 	duration: string;
 }
 
@@ -47,7 +48,8 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		thumbnail: "/images/portfolio-paisajes.webp",
 		views: "24.8K",
 		likes: "3.2K",
-		url: "https://www.instagram.com/jf.drone_visual",
+		embedUrl: "https://www.instagram.com/reel/C3X9Z1uI_0_/embed",
+		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:45",
 	},
 	{
@@ -57,7 +59,8 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		thumbnail: "/images/portfolio-propiedades-1.webp",
 		views: "18.5K",
 		likes: "2.4K",
-		url: "https://www.instagram.com/jf.drone_visual",
+		embedUrl: "https://www.instagram.com/reel/C3X9Z1uI_0_/embed",
+		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:30",
 	},
 	{
@@ -67,7 +70,8 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		thumbnail: "/images/portfolio-eventos.webp",
 		views: "31.2K",
 		likes: "4.1K",
-		url: "https://www.instagram.com/jf.drone_visual",
+		embedUrl: "https://www.instagram.com/reel/C3X9Z1uI_0_/embed",
+		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:58",
 	},
 	{
@@ -77,13 +81,28 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		thumbnail: "/images/portfolio-propiedades-2.webp",
 		views: "42.9K",
 		likes: "5.8K",
-		url: "https://www.instagram.com/jf.drone_visual",
+		embedUrl: "https://www.instagram.com/reel/C3X9Z1uI_0_/embed",
+		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:38",
 	},
 ];
 
 export function InstagramReelsSection() {
 	const [hoveredId, setHoveredId] = useState<string | null>(null);
+	const [activeModalReel, setActiveModalReel] =
+		useState<InstagramReelItem | null>(null);
+
+	// Bloquear scroll de pantalla cuando el modal está abierto
+	useEffect(() => {
+		if (activeModalReel) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "unset";
+		}
+		return () => {
+			document.body.style.overflow = "unset";
+		};
+	}, [activeModalReel]);
 
 	return (
 		<section className="w-full bg-transparent py-16 md:py-24 px-4 md:px-8 border-t border-white/[0.06] relative overflow-hidden select-none">
@@ -120,15 +139,14 @@ export function InstagramReelsSection() {
 					{INSTAGRAM_REELS.map((reel) => {
 						const isHovered = hoveredId === reel.id;
 						return (
-							<a
+							<button
 								key={reel.id}
-								href={reel.url}
-								target="_blank"
-								rel="noopener noreferrer"
+								type="button"
+								onClick={() => setActiveModalReel(reel)}
 								onMouseEnter={() => setHoveredId(reel.id)}
 								onMouseLeave={() => setHoveredId(null)}
 								className={cn(
-									"group relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/80 aspect-[9/16] transition-all duration-500 flex flex-col justify-between p-4 outline-none specular-card",
+									"group relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/80 aspect-[9/16] transition-all duration-500 flex flex-col justify-between p-4 outline-none specular-card text-left cursor-pointer",
 									"hover:border-pink-500/40 hover:shadow-[0_0_25px_rgba(236,72,153,0.15)] hover:scale-[1.02]",
 								)}
 							>
@@ -144,13 +162,13 @@ export function InstagramReelsSection() {
 								/>
 
 								{/* Overlay degradado cinemático */}
-								<div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/30 transition-opacity duration-300 group-hover:opacity-90" />
+								<div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/30 transition-opacity duration-300 group-hover:opacity-90 pointer-events-none" />
 
 								{/* Parte Superior: Badge Instagram & Duración */}
-								<div className="relative z-10 flex items-center justify-between w-full">
+								<div className="relative z-10 flex items-center justify-between w-full pointer-events-none">
 									<span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[8px] tracking-[0.2em] text-pink-300 uppercase flex items-center gap-1.5">
 										<InstagramIcon className="w-3 h-3 text-pink-400" />
-										REEL
+										REEL EMBED
 									</span>
 									<span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[8px] tracking-wider text-zinc-300">
 										{reel.duration}
@@ -158,7 +176,7 @@ export function InstagramReelsSection() {
 								</div>
 
 								{/* Botón Central Play (Animado en Hover) */}
-								<div className="relative z-10 my-auto flex items-center justify-center">
+								<div className="relative z-10 my-auto flex items-center justify-center pointer-events-none">
 									<div
 										className={cn(
 											"w-12 h-12 rounded-full bg-pink-500/80 border border-pink-400 text-white flex items-center justify-center shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all duration-300",
@@ -172,7 +190,7 @@ export function InstagramReelsSection() {
 								</div>
 
 								{/* Parte Inferior: Metadata & Métricas de Instagram */}
-								<div className="relative z-10 flex flex-col gap-2">
+								<div className="relative z-10 flex flex-col gap-2 pointer-events-none">
 									<span className="font-mono text-[9px] uppercase tracking-[0.25em] text-pink-400/90 font-medium">
 										[ {reel.category} ]
 									</span>
@@ -191,7 +209,7 @@ export function InstagramReelsSection() {
 										</span>
 									</div>
 								</div>
-							</a>
+							</button>
 						);
 					})}
 				</div>
@@ -209,6 +227,72 @@ export function InstagramReelsSection() {
 					</a>
 				</div>
 			</div>
+
+			{/* ═══════ MODAL REPRODUCTOR EMBEDDED INSTAGRAM REEL ═══════ */}
+			{activeModalReel && (
+				<div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl transition-all duration-300">
+					{/* Fondo para cerrar al clicar fuera */}
+					<button
+						type="button"
+						aria-label="Cerrar reproductor"
+						onClick={() => setActiveModalReel(null)}
+						className="absolute inset-0 w-full h-full cursor-default"
+					/>
+
+					{/* Contenedor del Modal / Iframe Player */}
+					<div className="relative z-10 w-full max-w-md bg-[#0a0c10] border border-white/15 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(236,72,153,0.2)] flex flex-col">
+						{/* Cabecera Modal */}
+						<div className="flex items-center justify-between p-4 border-b border-white/10 bg-black/60">
+							<div className="flex items-center gap-2">
+								<InstagramIcon className="w-4 h-4 text-pink-400" />
+								<span className="font-mono text-xs text-white uppercase tracking-wider">
+									REEL EMBED INLINE
+								</span>
+							</div>
+							<button
+								type="button"
+								onClick={() => setActiveModalReel(null)}
+								aria-label="Cerrar modal"
+								className="w-8 h-8 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+							>
+								<X className="w-4 h-4" />
+							</button>
+						</div>
+
+						{/* Iframe oficial de Instagram Reel */}
+						<div className="relative w-full aspect-[9/16] bg-black max-h-[70vh]">
+							<iframe
+								src={activeModalReel.embedUrl}
+								title={activeModalReel.title}
+								className="w-full h-full border-0"
+								allowTransparency={true}
+								allow="encrypted-media"
+							/>
+						</div>
+
+						{/* Pie del Modal */}
+						<div className="p-4 border-t border-white/10 bg-black/80 flex items-center justify-between gap-4">
+							<div className="truncate">
+								<span className="font-mono text-[9px] text-pink-400 tracking-wider uppercase block">
+									{activeModalReel.category}
+								</span>
+								<h4 className="font-cinzel text-xs font-bold text-white truncate">
+									{activeModalReel.title}
+								</h4>
+							</div>
+							<a
+								href={activeModalReel.instagramUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="shrink-0 px-3 py-1.5 rounded-full border border-pink-500/30 bg-pink-500/10 text-pink-200 font-mono text-[9px] uppercase tracking-wider hover:bg-pink-500/20 hover:text-white transition-colors flex items-center gap-1"
+							>
+								<span>Ver en Instagram</span>
+								<ArrowUpRight className="w-3 h-3" />
+							</a>
+						</div>
+					</div>
+				</div>
+			)}
 		</section>
 	);
 }
