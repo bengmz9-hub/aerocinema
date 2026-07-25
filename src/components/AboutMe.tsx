@@ -45,7 +45,7 @@ export function AboutMe() {
 							<span>OPERADOR DE VUELO & PILOTO TÉCNICO</span>
 						</div>
 						<h2 className="text-2xl md:text-3xl font-cinzel font-bold text-white tracking-wide mb-2">
-							JOSÉ ANTONIO
+							JOSE ANTONIO
 						</h2>
 						<p className="text-zinc-400 text-xs md:text-sm leading-relaxed mb-4">
 							Operador técnico y piloto de UAS registrado en AESA. Especializado
