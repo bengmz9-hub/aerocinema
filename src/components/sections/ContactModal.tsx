@@ -2,10 +2,12 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
+	ArrowUpRight,
 	CheckCircle2,
 	ChevronDown,
 	Compass,
 	DollarSign,
+	FileText,
 	Mail,
 	X,
 } from "lucide-react";
@@ -71,9 +73,22 @@ export default function ContactModal() {
 				whileTap={{ scale: 0.97 }}
 				transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
 				onClick={() => setIsOpen(true)}
-				className="mt-4 cursor-pointer border border-white/20 px-8 py-4 font-sans text-sm font-medium tracking-wider text-black bg-white rounded-sm transition-all duration-300 hover:bg-neutral-200 shadow-xl shadow-white/5 specular-card"
+				className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-amber-500/40 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
 			>
-				Iniciar proyecto
+				<div className="flex items-center gap-3">
+					<div className="flex items-center justify-center p-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400">
+						<FileText className="w-5 h-5" />
+					</div>
+					<div className="text-left">
+						<span className="block font-jakarta text-xs font-bold uppercase tracking-[0.15em] text-white group-hover:text-amber-200 transition-colors">
+							Enviar Formulario
+						</span>
+						<span className="block font-mono text-[9px] text-zinc-400 tracking-wider">
+							CONSULTA ONLINE
+						</span>
+					</div>
+				</div>
+				<ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-amber-300 group-hover:translate-x-0.5 transition-all ml-2" />
 			</motion.button>
 
 			<AnimatePresence>
