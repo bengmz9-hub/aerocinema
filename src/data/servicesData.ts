@@ -1,16 +1,4 @@
-import {
-	ArrowUpRight,
-	Building2,
-	Camera,
-	Compass,
-	type LucideIcon,
-	Mountain,
-	Video,
-	Wand2,
-} from "lucide-react";
-
-export type SpanType = "large" | "wide" | "tall" | "default";
-export type AccentType = "cyan" | "titanium" | "zinc";
+import { Building2, HardHat, type LucideIcon, Store } from "lucide-react";
 
 export interface ServiceItem {
 	id: string;
@@ -19,102 +7,51 @@ export interface ServiceItem {
 	subtitle: string;
 	description: string;
 	icon: LucideIcon;
-	span: SpanType;
-	accent: AccentType;
-	metrics: string;
+	badge: string;
+	ctaText: string;
+	ctaHref: string;
 	videoUrl: string;
 }
 
 export const servicesItems: ServiceItem[] = [
 	{
-		id: "filmacion",
-		index: "SVC // 01",
-		title: "Filmación Cinematográfica",
-		subtitle: "Resolución hasta 8K / Perfiles Logarítmicos",
-		description:
-			"Secuencias aéreas de alta fidelidad con estabilización de nivel profesional para largometrajes, spots publicitarios y producciones de alto formato.",
-		icon: Video,
-		span: "large",
-		accent: "titanium",
-		metrics: "8K RAW / PRORES",
-		videoUrl: "/videos/filmacion.webm",
-	},
-	{
-		id: "eventos",
-		index: "SVC // 02",
-		title: "Cobertura de Eventos",
-		subtitle: "Discreción y Cobertura Multi-Cámara",
-		description:
-			"Registro aéreo ultra silencioso y cinematográfico para bodas de lujo, festivals y eventos privados de alto standing.",
-		icon: Camera,
-		span: "default",
-		accent: "zinc",
-		metrics: "4K HDR // SILENT FLIGHT",
-		videoUrl: "/videos/eventos.webm",
-	},
-	{
 		id: "inmobiliaria",
-		index: "SVC // 03",
-		title: "Video Inmobiliario",
-		subtitle: "Planos Estéticos de Alta Gama",
+		index: "SERVICIO 01",
+		title: "Vende mejor con vídeo aéreo",
+		subtitle: "Para pisos, locales y áticos en venta o alquiler",
 		description:
-			"Recorridos dinámicos que destacan la arquitectura, luz natural y el entorno para propiedades exclusivas de Real Estate.",
+			"Un vídeo exterior del edificio, una pasada aérea del barrio o una vista de pájaro de ese ático con terraza marcan la diferencia en el portal. Entregamos el vídeo listo para publicar en Idealista, Fotocasa o Instagram.",
 		icon: Building2,
-		span: "default",
-		accent: "cyan",
-		metrics: "FPV IN DOOR / OUTDOOR",
+		badge: "EXTERIORES · ÁTICOS · ENTREGA 48H",
+		ctaText: "Consultar para mi propiedad",
+		ctaHref: "#contacto",
 		videoUrl: "/videos/inmobiliaria.webm",
 	},
 	{
-		id: "fotografia",
-		index: "SVC // 04",
-		title: "Fotografía y Topografía",
-		subtitle: "Levantamientos y Precisión de Obra",
+		id: "construccion",
+		index: "SERVICIO 02",
+		title: "Documenta el estado real de la fachada",
+		subtitle: "Para empresas de construcción, restauración y mantenimiento",
 		description:
-			"Capturas fotogramétricas georreferenciadas de alta resolución para levantamientos topográficos, inspección técnica y documentación de obra.",
-		icon: Mountain,
-		span: "wide",
-		accent: "titanium",
-		metrics: "LiDAR / RTK ±2CM ACCURACY",
+			"¿Necesitas inspeccionar zonas de difícil acceso por altura o documentar el antes y después de una reforma de fachada? El dron llega donde los operarios no pueden, sin andamios y en menos tiempo. El vídeo queda en tus manos para usarlo como evidencia técnica o para mostrar tu trabajo a futuros clientes.",
+		icon: HardHat,
+		badge: "INSPECCIÓN · ANTES/DESPUÉS · DOCUMENTACIÓN",
+		ctaText: "Hablar con José",
+		ctaHref: "#contacto",
 		videoUrl: "/videos/fotografia.webm",
 	},
 	{
-		id: "postproduction",
-		index: "SVC // 05",
-		title: "Postproducción",
-		subtitle: "Pipeline Completo de Edición",
+		id: "negocios",
+		index: "SERVICIO 03",
+		title: "Contenido aéreo para tu negocio",
+		subtitle:
+			"Para bares, restaurantes, locales comerciales y negocios familiares",
 		description:
-			"Etalonaje profesional en espacio de color ACES, montaje de ritmo dinámico y entrega final en perfiles listos para distribución cinematográfica.",
-		icon: Wand2,
-		span: "tall",
-		accent: "zinc",
-		metrics: "ACES 10-BIT / VFX READY",
-		videoUrl: "/videos/postproduction.webm",
-	},
-	{
-		id: "mapeo",
-		index: "SVC // 06",
-		title: "Mapeo 3D",
-		subtitle: "Modelado Tridimensional de Terrenos",
-		description:
-			"Reconstrucción digital tridimensional detallada mediante fotogrametría aérea avanzada para planificación urbana e industrial.",
-		icon: Compass,
-		span: "tall",
-		accent: "zinc",
-		metrics: "3D MESH / CLOUD POINTS",
-		videoUrl: "/videos/mapeo.webm",
-	},
-	{
-		id: "briefing-cta",
-		index: "CTA // 07",
-		title: "Misión Briefing / Contacto",
-		subtitle: "Consultoría Técnica y Planificación",
-		description:
-			"¿Tienes un proyecto de alta complejidad? Diseñamos la estrategia de vuelo a medida, gestionamos los permisos regulatorios de AESA y ejecutamos la producción aérea con entrega garantizada.",
-		icon: ArrowUpRight,
-		span: "large",
-		accent: "cyan",
-		metrics: "RESPONSE WITHIN 24H",
-		videoUrl: "/videos/briefing.webm",
+			"Una terraza bien grabada desde el aire llama la atención en redes sociales. Una vista exterior de tu local con el barrio de fondo habla por sí sola. Grabaciones cortas, directas y listas para publicar en Instagram, Google My Business o la web de tu empresa.",
+		icon: Store,
+		badge: "REDES SOCIALES · GOOGLE MY BUSINESS · ENTREGA RÁPIDA",
+		ctaText: "Ver qué puedo hacer por mi negocio",
+		ctaHref: "#contacto",
+		videoUrl: "/videos/eventos.webm",
 	},
 ];
