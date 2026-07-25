@@ -14,12 +14,12 @@ export default function HomePage() {
 			<HeroSection />
 
 			{/* ========== 02. SHOWCASE: CINEMA FILM STRIP & COLOR GRADING REEL ========== */}
-			<div id="portfolio" className="scroll-mt-16 md:scroll-mt-24">
-				<ColorGradingReel />
-			</div>
+			<ColorGradingReel />
 
 			{/* ========== 03. INSTAGRAM REELS LIVE FEED (@JF.DRONE_VISUAL) ========== */}
-			<InstagramReelsSection />
+			<div id="portfolio" className="scroll-mt-16 md:scroll-mt-24">
+				<InstagramReelsSection />
+			</div>
 
 			{/* ========== 04. SERVICIOS ========== */}
 			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20">
