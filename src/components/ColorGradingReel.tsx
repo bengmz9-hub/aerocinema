@@ -96,26 +96,36 @@ export function ColorGradingReel() {
 		if (!containerRef.current) return;
 		const rect = containerRef.current.getBoundingClientRect();
 		const x = clientX - rect.left;
-		const percentage = Math.max(5, Math.min(95, (x / rect.width) * 100));
+		const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
 		setSliderPos(percentage);
 	}, []);
 
-	const handleTouchMove = useCallback(
-		(e: React.TouchEvent<HTMLDivElement>) => {
-			if (e.touches.length > 0) {
-				handleMove(e.touches[0].clientX);
-			}
+	const handlePointerDown = useCallback(
+		(e: React.PointerEvent<HTMLDivElement>) => {
+			setIsDragging(true);
+			e.currentTarget.setPointerCapture(e.pointerId);
+			handleMove(e.clientX);
 		},
 		[handleMove],
 	);
 
-	const handleMouseMove = useCallback(
-		(e: React.MouseEvent<HTMLDivElement>) => {
+	const handlePointerMove = useCallback(
+		(e: React.PointerEvent<HTMLDivElement>) => {
 			if (isDragging || e.buttons === 1) {
 				handleMove(e.clientX);
 			}
 		},
 		[isDragging, handleMove],
+	);
+
+	const handlePointerUp = useCallback(
+		(e: React.PointerEvent<HTMLDivElement>) => {
+			setIsDragging(false);
+			if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+				e.currentTarget.releasePointerCapture(e.pointerId);
+			}
+		},
+		[],
 	);
 
 	return (
@@ -153,26 +163,24 @@ export function ColorGradingReel() {
 
 				{/* ═══════ VISOR COMPARATIVO DE ETALONAJE (BEFORE/AFTER SLIDER) ═══════ */}
 				<div className="relative w-full rounded-2xl overflow-hidden border border-white/15 bg-zinc-950 shadow-2xl group">
-					{/* biome-ignore lint/a11y/noStaticElementInteractions: Visor táctil interactivo del comparador D-Log M */}
 					<div
 						ref={containerRef}
-						onMouseDown={() => setIsDragging(true)}
-						onMouseUp={() => setIsDragging(false)}
-						onMouseLeave={() => setIsDragging(false)}
-						onMouseMove={handleMouseMove}
-						onTouchMove={handleTouchMove}
-						className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] cursor-ew-resize overflow-hidden touch-none"
+						onPointerDown={handlePointerDown}
+						onPointerMove={handlePointerMove}
+						onPointerUp={handlePointerUp}
+						onPointerCancel={handlePointerUp}
+						className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] cursor-ew-resize overflow-hidden touch-none select-none"
 					>
 						{/* Lado Derecho: Imagen Graduada (Color Final Cinematográfico) */}
-						<div className="absolute inset-0 w-full h-full">
+						<div className="absolute inset-0 w-full h-full pointer-events-none select-none">
 							<Image
 								src={activeItem.gradedImage}
 								alt={`${activeItem.title} Color Graded`}
 								fill
-								className="object-cover object-center saturate-125 contrast-110"
+								className="object-cover object-center saturate-125 contrast-110 pointer-events-none select-none"
 								priority
 							/>
-							<div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/70 border border-emerald-500/40 backdrop-blur-md text-[9px] font-mono uppercase tracking-[0.2em] text-emerald-300 flex items-center gap-1.5 shadow-lg">
+							<div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/70 border border-emerald-500/40 backdrop-blur-md text-[9px] font-mono uppercase tracking-[0.2em] text-emerald-300 flex items-center gap-1.5 shadow-lg pointer-events-none select-none">
 								<span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
 								COLOR GRADED (FINAL)
 							</div>
@@ -180,11 +188,11 @@ export function ColorGradingReel() {
 
 						{/* Lado Izquierdo: Imagen RAW D-Log M (Perfil Neutro/Plano) */}
 						<div
-							className="absolute inset-y-0 left-0 overflow-hidden z-10"
+							className="absolute inset-y-0 left-0 overflow-hidden z-10 pointer-events-none select-none"
 							style={{ width: `${sliderPos}%` }}
 						>
 							<div
-								className="absolute inset-0 h-full"
+								className="absolute inset-0 h-full pointer-events-none select-none"
 								style={{
 									width: containerRef.current
 										? `${containerRef.current.clientWidth}px`
@@ -196,11 +204,11 @@ export function ColorGradingReel() {
 									src={activeItem.rawImage}
 									alt={`${activeItem.title} D-Log RAW`}
 									fill
-									className="object-cover object-center saturate-40 contrast-85 brightness-105 filter grayscale-[35%]"
+									className="object-cover object-center saturate-40 contrast-85 brightness-105 filter grayscale-[35%] pointer-events-none select-none"
 									priority
 								/>
 							</div>
-							<div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/70 border border-white/20 backdrop-blur-md text-[9px] font-mono uppercase tracking-[0.2em] text-zinc-400 flex items-center gap-1.5 shadow-lg">
+							<div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/70 border border-white/20 backdrop-blur-md text-[9px] font-mono uppercase tracking-[0.2em] text-zinc-400 flex items-center gap-1.5 shadow-lg pointer-events-none select-none">
 								<Layers className="w-3 h-3 text-cyan-400" />
 								D-LOG M RAW (PLANO)
 							</div>
@@ -286,7 +294,7 @@ export function ColorGradingReel() {
 											src={item.gradedImage}
 											alt={item.title}
 											fill
-											className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+											className="object-cover object-center group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none"
 										/>
 										<div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
