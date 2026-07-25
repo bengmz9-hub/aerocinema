@@ -63,7 +63,7 @@ export function HeroSection() {
 				<div className="inline-flex items-center gap-3 px-4 py-1.5 bg-white/[0.03] border border-amber-500/25 rounded-full mb-6 backdrop-blur-md specular-card">
 					<span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
 					<span className="font-mono text-[9px] tracking-[0.25em] text-amber-200/90 uppercase font-semibold">
-						OPERADOR UAS REGISTRADO AESA {"//"} CERTIFIED CINEMA FLEET
+						OPERADOR UAS REGISTRADO AESA {"//"} L'HOSPITALET · BARCELONA
 					</span>
 				</div>
 
