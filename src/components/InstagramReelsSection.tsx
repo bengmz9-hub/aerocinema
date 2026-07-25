@@ -143,15 +143,18 @@ export function InstagramReelsSection() {
 							return (
 								<div
 									key={reel.id}
-									className="relative rounded-2xl overflow-hidden border border-white/15 bg-black aspect-[9/16] shadow-2xl specular-card flex flex-col justify-between"
+									className="relative rounded-2xl overflow-hidden border border-white/15 bg-black aspect-[9/16] shadow-2xl specular-card group"
 								>
-									<iframe
-										src={reel.embedUrl}
-										title={reel.title}
-										className="w-full h-full border-0 rounded-2xl bg-black"
-										allowTransparency={true}
-										allow="encrypted-media"
-									/>
+									<div className="absolute inset-0 w-full h-full overflow-hidden bg-black flex items-center justify-center">
+										<iframe
+											src={reel.embedUrl}
+											title={reel.title}
+											className="w-[125%] h-[135%] -translate-y-6 border-0 bg-black max-w-none scale-105"
+											allowTransparency={true}
+											allow="encrypted-media"
+										/>
+									</div>
+									<div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
 								</div>
 							);
 						}
