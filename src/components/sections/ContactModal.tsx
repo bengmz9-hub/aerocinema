@@ -175,12 +175,11 @@ export default function ContactModal() {
 												</div>
 												<div>
 													<p className="mb-1 font-sans text-xs font-medium uppercase tracking-wider text-white">
-														Coordinación de espacio aéreo
+														Vuelo 100% legal y seguro
 													</p>
 													<p className="text-xs leading-relaxed text-zinc-400">
-														Analizamos la zona de vuelo, gestionamos permisos
-														CTR y coordinamos con helipuertos o aeropuertos
-														oficiales.
+														Compruebo la normativa de tu zona para volar en
+														regla y sin riesgos para ti o tu negocio.
 													</p>
 												</div>
 											</div>
@@ -190,12 +189,11 @@ export default function ContactModal() {
 												</div>
 												<div>
 													<p className="mb-1 font-sans text-xs font-medium uppercase tracking-wider text-white">
-														Presupuestos transparentes
+														Sin costes ocultos
 													</p>
 													<p className="text-xs leading-relaxed text-zinc-400">
-														Tarifas claras por jornada de filmación, incluyendo
-														seguros de responsabilidad civil aeronáuticos
-														obligatorios.
+														Precio transparente con seguro incluido. Te digo lo
+														que cuesta exactamente antes de empezar.
 													</p>
 												</div>
 											</div>
@@ -273,9 +271,7 @@ export default function ContactModal() {
 														<option value="business">
 															Local / Negocio del barrio
 														</option>
-														<option value="other">
-															Otro tipo de proyecto
-														</option>
+														<option value="other">Otro tipo de proyecto</option>
 													</select>
 													<ChevronDown
 														size={14}
