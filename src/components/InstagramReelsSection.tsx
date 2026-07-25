@@ -38,19 +38,21 @@ interface InstagramReelItem {
 	embedUrl: string;
 	instagramUrl: string;
 	duration: string;
+	isDirectEmbed?: boolean;
 }
 
 const INSTAGRAM_REELS: InstagramReelItem[] = [
 	{
 		id: "reel-01",
-		title: "FPV Coastal Proximity Flight",
+		title: "Jose FPV Reel (DYHZnoKN8mh)",
 		category: "CINEMATIC FPV",
 		thumbnail: "/images/portfolio-paisajes.webp",
-		views: "24.8K",
-		likes: "3.2K",
+		views: "LIVE FEED",
+		likes: "OFICIAL",
 		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/",
-		duration: "0:45",
+		duration: "REEL",
+		isDirectEmbed: true,
 	},
 	{
 		id: "reel-02",
@@ -59,7 +61,7 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		thumbnail: "/images/portfolio-propiedades-1.webp",
 		views: "18.5K",
 		likes: "2.4K",
-		embedUrl: "https://www.instagram.com/reel/C3X9Z1uI_0_/embed",
+		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:30",
 	},
@@ -70,7 +72,7 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		thumbnail: "/images/portfolio-eventos.webp",
 		views: "31.2K",
 		likes: "4.1K",
-		embedUrl: "https://www.instagram.com/reel/C3X9Z1uI_0_/embed",
+		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:58",
 	},
@@ -81,7 +83,7 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		thumbnail: "/images/portfolio-propiedades-2.webp",
 		views: "42.9K",
 		likes: "5.8K",
-		embedUrl: "https://www.instagram.com/reel/C3X9Z1uI_0_/embed",
+		embedUrl: "https://www.instagram.com/reel/DYHZnoKN8mh/embed",
 		instagramUrl: "https://www.instagram.com/jf.drone_visual",
 		duration: "0:38",
 	},
@@ -137,6 +139,23 @@ export function InstagramReelsSection() {
 				{/* ═══════ GRID DE REELS INTERACTIVOS (4 COLUMNAS) ═══════ */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
 					{INSTAGRAM_REELS.map((reel) => {
+						if (reel.isDirectEmbed) {
+							return (
+								<div
+									key={reel.id}
+									className="relative rounded-2xl overflow-hidden border border-white/15 bg-black aspect-[9/16] shadow-2xl specular-card flex flex-col justify-between"
+								>
+									<iframe
+										src={reel.embedUrl}
+										title={reel.title}
+										className="w-full h-full border-0 rounded-2xl bg-black"
+										allowTransparency={true}
+										allow="encrypted-media"
+									/>
+								</div>
+							);
+						}
+
 						const isHovered = hoveredId === reel.id;
 						return (
 							<button
