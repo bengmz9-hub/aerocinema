@@ -21,22 +21,25 @@
 | 7 | **DESIGN.md sincronizado** — fuentes reales (Cinzel, Cormorant, Jakarta, Montserrat) y paleta gold actualizada | `DESIGN.md` |
 | 8 | **Graphify actualizado** — 3030 nodos, 6762 edges, 157 comunidades | `graphify-out/` |
 
+| 9 | **Banner de Cookies (`CookieBanner.tsx`)** — Flotante minimalista en pie de página con tono oscuro/dorado, animación Framer Motion y persistencia localStorage | `CookieBanner.tsx`, `page.tsx` |
+
 ---
 
 ## 2. Decisiones de la Sesión
 
 - **Footer Opción C** (híbrido 3 columnas con jerarquía premium) elegido sobre opciones Yummygum y Object & Archive
 - **Paleta gold unificada** de las bentogrids del DJI Mini 5 Pro (`#dfd0a4`) aplicada a toda la web, reemplazando `amber-XXX`
-- **No tocar email/WhatsApp** hasta que la web esté activa y Jose tenga los datos reales
-- **Servidor local en background** con HMR — cambios en caliente sin recargar
+- **Banner de Cookies minimalista** implementado e integrado con estética oscura/dorada.
+- **Sincronización fluida con Hermes Agent / DeepSeek V4 Pro** compartiendo el mismo workspace local mediante commits de Git.
+- **No tocar email/WhatsApp** hasta que la web esté activa y Jose tenga los datos reales.
 
 ---
 
 ## 3. Próximos 3 Pasos Prioritarios
 
 1. 🎯 **Conectar formulario de contacto a email real** (Resend/SendGrid vía `process.env.EMAIL_API_KEY`)
-2. 🎯 **Número WhatsApp real y enlace funcional** cuando Jose tenga su número
-3. 🎥 **Sustituir placeholders de vídeos y redes** (YouTube/Vimeo por canales reales cuando existan)
+2. 🎯 **Número WhatsApp real y enlace funcional** cuando Jose tenga su número oficial
+3. 🎥 **Sustituir placeholders de vídeos e imágenes** por los reels y trabajos reales de Jose en L'Hospitalet / Barcelona
 
 ---
 
