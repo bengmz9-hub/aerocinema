@@ -50,8 +50,6 @@ export function HeroSection() {
 					className="w-full h-full object-cover opacity-50 filter saturate-[0.95] contrast-[1.05]"
 				>
 					<source src="/hero.webm" type="video/webm" />
-					<source src="/videos/hero.mp4" type="video/mp4" />
-					<source src="/videos/hero.webm" type="video/webm" />
 				</video>
 				{/* Degradado cinematográfico profundo */}
 				<div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-[#050505]/80 z-10" />
