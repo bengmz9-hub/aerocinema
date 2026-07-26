@@ -49,25 +49,7 @@ export default function HomePage() {
 			</div>
 
 			{/* ========== 07. FOOTER ========== */}
-			<footer className="relative border-t border-white/[0.06] pt-16 md:pt-20 pb-8 md:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-montserrat">
-				{/* ── CTA Row (GoCanopy + Buzz inspiration) ── */}
-				<div className="mb-12 md:mb-16 text-center">
-					<h3 className="font-cinzel text-2xl md:text-4xl font-bold text-white uppercase tracking-wide mb-3 [text-wrap:balance]">
-						¿LISTO PARA ELEVAR TU{" "}
-						<span className="text-golden-hour">PROYECTO</span>?
-					</h3>
-					<p className="font-jakarta text-xs md:text-sm text-zinc-400 font-light mb-6 max-w-lg mx-auto">
-						Cuéntame qué necesitas grabar y te respondo el mismo día. Sin
-						vueltas.
-					</p>
-					<a
-						href="#contacto"
-						className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-white text-black font-jakarta text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-neutral-200 transition-colors duration-300 shadow-lg shadow-white/5"
-					>
-						PEDIR PRESUPUESTO →
-					</a>
-				</div>
-
+			<footer className="border-t border-white/[0.06] pt-12 md:pt-16 pb-8 md:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-montserrat">
 				{/* ── Grid Principal ── */}
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 mb-10 md:mb-14">
 					{/* Col 1: Marca */}
@@ -76,9 +58,9 @@ export default function HomePage() {
 							JF.
 							<span className="font-normal text-white/50">DRONEVISION</span>
 						</span>
-						<p className="font-jakarta text-xs text-zinc-400 font-light leading-relaxed">
-							Grabaciones aéreas cinematográficas con dron para inmobiliarias,
-							construcción y negocios locales en L'Hospitalet y Barcelona.
+						<p className="font-jakarta text-xs text-zinc-400 font-light leading-relaxed max-w-xs">
+							Grabaciones aéreas para inmobiliarias, construcción y negocios
+							locales en L'Hospitalet y Barcelona.
 						</p>
 						<div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.3em] text-zinc-600">
 							<span className="w-1 h-1 rounded-full bg-cyan-400" />
@@ -109,7 +91,7 @@ export default function HomePage() {
 						</div>
 					</div>
 
-					{/* Col 3: Contacto + Social */}
+					{/* Col 3: Contacto */}
 					<div className="space-y-4">
 						<span className="font-jakarta text-[10px] tracking-[0.25em] text-zinc-500 uppercase font-semibold block">
 							CONTACTO
