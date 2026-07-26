@@ -44,9 +44,32 @@ const mt = Montserrat({
 export const metadata: Metadata = {
 	title: "JF.DroneVision | Fotografía y Vídeo con Drones",
 	description:
-		"Contenido visual aéreo premium para paisajes, propiedades y eventos.",
+		"Grabaciones con dron para tu negocio o propiedad en L'Hospitalet y Barcelona. Permiso AESA en regla.",
 	icons: {
 		icon: "/favicon.svg",
+	},
+	openGraph: {
+		title: "JF.DroneVision | Fotografía y Vídeo con Drones",
+		description:
+			"Grabaciones con dron para inmobiliarias, construcción y negocios locales en L'Hospitalet y Barcelona.",
+		url: "https://jfdronevision.com",
+		siteName: "JF.DroneVision",
+		images: [
+			{
+				url: "/images/hero-poster.webp",
+				width: 1200,
+				height: 630,
+				alt: "JF.DroneVision - Grabaciones aéreas con dron",
+			},
+		],
+		locale: "es_ES",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "JF.DroneVision | Fotografía y Vídeo con Drones",
+		description:
+			"Grabaciones con dron para tu negocio o propiedad en L'Hospitalet y Barcelona.",
 	},
 };
 
@@ -81,7 +104,6 @@ export default function RootLayout({
 	return (
 		<html lang="es" className={cn("dark", "font-sans", geist.variable)}>
 			<head>
-				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 				<script
 					type="application/ld+json"
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: SEO JSON-LD schema requires dangerouslySetInnerHTML
