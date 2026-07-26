@@ -129,7 +129,7 @@ export function ColorGradingReel() {
 	);
 
 	return (
-		<section className="w-full bg-transparent py-16 md:py-24 px-4 md:px-8 border-t border-white/[0.06] select-none">
+		<section className="w-full bg-transparent py-16 md:py-24 px-4 md:px-8 select-none">
 			<div className="max-w-7xl mx-auto">
 				{/* ═══════ CABECERA TELEMÉTRICA ═══════ */}
 				<div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-6">

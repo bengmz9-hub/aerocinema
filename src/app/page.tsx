@@ -53,7 +53,7 @@ export default function HomePage() {
 			</div>
 
 			{/* ========== 07. FOOTER ========== */}
-			<footer className="border-t border-white/[0.06] pt-12 md:pt-16 pb-8 md:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-jakarta">
+			<footer className="pt-12 md:pt-16 pb-8 md:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-jakarta">
 				{/* ── Grid Principal — 3 columnas con jerarquía premium ── */}
 				<div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-10 md:gap-12 mb-10 md:mb-14">
 					{/* Col 1: Marca */}
