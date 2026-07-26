@@ -4,7 +4,7 @@ import { Award, Layers, Plane, Radar, ShieldCheck } from "lucide-react";
 
 export function AboutMe() {
 	return (
-		<section className="relative w-full bg-transparent py-16 md:py-24 px-4 sm:px-6 lg:px-8 font-montserrat text-white select-none cursor-default z-10 overflow-hidden">
+		<section className="relative w-full bg-transparent py-8 md:py-12 px-4 sm:px-6 lg:px-8 font-montserrat text-white select-none cursor-default z-10 overflow-hidden">
 			<div className="max-w-7xl mx-auto relative z-10">
 				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 					{/* ---------------------------------------------------- */}

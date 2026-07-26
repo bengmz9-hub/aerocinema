@@ -43,8 +43,9 @@ export function Stats() {
 
 	return (
 		<section
-			className="w-full bg-transparent py-16 md:py-24 px-4 md:px-8 relative z-10 overflow-hidden select-none"
-			aria-labelledby="why-us-heading"
+			id="stats"
+			aria-labelledby="stats-heading"
+			className="w-full bg-transparent py-8 md:py-12 px-4 md:px-8 relative z-10 overflow-hidden select-none"
 		>
 			<div className="max-w-7xl mx-auto">
 				{/* Encabezado de la sección */}

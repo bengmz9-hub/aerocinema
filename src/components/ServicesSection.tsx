@@ -167,7 +167,7 @@ export function ServicesSection() {
 		<section
 			id="servicios"
 			aria-labelledby="services-heading"
-			className="relative py-20 md:py-28 bg-transparent text-white overflow-hidden select-none"
+			className="relative py-10 md:py-14 bg-transparent text-white overflow-hidden select-none"
 		>
 			<div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-20">
 				{/* Cabecera Principal */}
