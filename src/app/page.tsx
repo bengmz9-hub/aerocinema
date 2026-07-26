@@ -19,33 +19,27 @@ export default function HomePage() {
 				<InstagramReelsSection />
 			</div>
 
-			{/* LAMP DIVIDER 1: Entre Trabajos Recientes y Servicios */}
-			<LampContainer />
-
 			{/* ========== 04. SERVICIOS ========== */}
-			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20">
+			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20 relative">
+				<LampContainer />
 				<ServicesSection />
 			</div>
 
-			{/* LAMP DIVIDER 2: Entre Servicios y el Dron (DJI Mini 5 Pro) */}
-			<LampContainer />
-
 			{/* ========== 05. TECNOLOGÍA DJI MINI 5 PRO ========== */}
-			<div id="optical" className="scroll-mt-28 md:scroll-mt-36">
+			<div id="optical" className="scroll-mt-28 md:scroll-mt-36 relative">
+				<LampContainer />
 				<DJI5ProSection />
 			</div>
 
-			{/* LAMP DIVIDER 3: Entre el Dron y About Me */}
-			<LampContainer />
-
 			{/* ========== 06. OPERADOR ACREDITADO & STATS ========== */}
-			<div id="operador" className="scroll-mt-16 md:scroll-mt-20">
+			<div id="operador" className="scroll-mt-16 md:scroll-mt-20 relative">
+				<LampContainer />
 				<AboutMe />
 
-				{/* LAMP DIVIDER 4: Entre About Me y las 4 Tarjetas (Stats) */}
-				<LampContainer />
-
-				<Stats />
+				<div className="relative">
+					<LampContainer />
+					<Stats />
+				</div>
 			</div>
 
 			{/* ========== 06. FAQ ========== */}
