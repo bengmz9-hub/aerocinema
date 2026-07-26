@@ -99,7 +99,11 @@ export default function ContactModal() {
 						if (e.target === e.currentTarget) setIsOpen(false);
 					}}
 					onKeyDown={(e) => {
-						if (e.key === "Escape" || (e.target === e.currentTarget && e.key === "Enter")) setIsOpen(false);
+						if (
+							e.key === "Escape" ||
+							(e.target === e.currentTarget && e.key === "Enter")
+						)
+							setIsOpen(false);
 					}}
 				>
 					<div
@@ -125,10 +129,10 @@ export default function ContactModal() {
 						{submitted ? (
 							<div className="flex flex-col items-center justify-center space-y-4 py-16 text-center animate-blur-in">
 								<div className="relative flex items-center justify-center">
-									<span className="absolute inset-0 rounded-full bg-emerald-500/20 animate-ping" />
+									<span className="absolute inset-0 rounded-full bg-[#dfd0a4]/20 animate-ping" />
 									<CheckCircle2
 										size={56}
-										className="relative text-emerald-400"
+										className="relative text-[#dfd0a4]"
 										strokeWidth={1.5}
 									/>
 								</div>

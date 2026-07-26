@@ -142,8 +142,8 @@ export function AboutMe() {
 								</div>
 							</div>
 						</div>
-						<div className="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono">
-							<span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+						<div className="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#dfd0a4]/10 border border-[#dfd0a4]/30 text-[#dfd0a4] text-[10px] font-mono">
+							<span className="w-2 h-2 rounded-full bg-[#dfd0a4] animate-pulse" />
 							<span>VERIFICADO</span>
 						</div>
 					</div>

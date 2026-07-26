@@ -41,3 +41,26 @@
 - **Ruta local:** `/public/brand/`
 - **Logo 2D:** Navbar vectorial SVG `JF.DroneVision`.
 - **Logo 3D / Render:** Modelo extruido 3D en titanio/oro (generación vía Endless Tools).
+
+---
+
+## 🎨 Tokens Visuales Aplicados
+
+Ver `design-inspiration.md` → sección "✅ Tokens y Efectos Aplicados en la Web" para:
+- Paleta gold completa con usos concretos
+- Specular card (borde reflectante)
+- Grano analógico cinematográfico
+- Blur-in reveal animation
+- Golden Hour & Titanium text gradients
+
+---
+
+## ✍️ Tono y Voz (Contenido)
+
+- **Primera persona** — cercano, personal, sin jerga
+- **Directo** — frases cortas, anticipa objeciones antes de que el cliente las formule
+- **Toque local** — referencias a barrios de L'Hospitalet y Barcelona
+- **FAQ:** 6 preguntas clave (precio, permisos+seguro, formato/redes, plazo, interiores FPV, obras)
+- **Colores FAQ:** preguntas `text-gold-300` (`text-lg sm:text-xl`), respuestas `text-zinc-100` (`text-base sm:text-lg`)
+
+Para el texto completo de las FAQs ver `faq-content.md`.

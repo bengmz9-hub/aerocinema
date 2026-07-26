@@ -138,7 +138,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 				{/* Sub-tarjeta Glass-Tag Micro-Bento con LED de estado */}
 				<div className="mt-5 pt-3 border-t border-white/[0.08]">
 					<div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141820]/80 border border-white/10 backdrop-blur-md shadow-lg shadow-black/40 group-hover:border-gold-500/30 transition-colors">
-						<span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
+						<span className="w-1.5 h-1.5 rounded-full bg-[#dfd0a4] animate-pulse shadow-[0_0_6px_rgba(223,208,164,0.8)]" />
 						<span className="font-mono text-[9px] text-zinc-200 tracking-widest uppercase font-medium">
 							{item.badge}
 						</span>

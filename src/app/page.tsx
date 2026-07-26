@@ -5,6 +5,7 @@ import { InstagramReelsSection } from "@/components/InstagramReelsSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { Stats } from "@/components/Stats";
 import ContactSection from "@/components/sections/ContactSection";
+import FAQSection from "@/components/sections/FAQSection";
 
 export default function HomePage() {
 	return (
@@ -43,7 +44,22 @@ export default function HomePage() {
 				<Stats />
 			</div>
 
-			{/* ========== 06. CONTACTO EXPANDIBLE ========== */}
+			{/* Lámpara Horizontal Ambient Accent */}
+			<div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-[#dfd0a4]/40 to-transparent relative my-4">
+				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#dfd0a4]/20 to-transparent blur-sm" />
+			</div>
+
+			{/* ========== 06. FAQ ========== */}
+			<div id="faq" className="scroll-mt-16 md:scroll-mt-24">
+				<FAQSection />
+			</div>
+
+			{/* Lámpara Horizontal Ambient Accent */}
+			<div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-[#dfd0a4]/40 to-transparent relative my-4">
+				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#dfd0a4]/20 to-transparent blur-sm" />
+			</div>
+
+			{/* ========== 07. CONTACTO EXPANDIBLE ========== */}
 			<div id="contacto" className="scroll-mt-16 md:scroll-mt-24">
 				<ContactSection />
 			</div>
@@ -78,6 +94,7 @@ export default function HomePage() {
 								{ label: "Servicios", href: "#servicios" },
 								{ label: "Trabajos Recientes", href: "#portfolio" },
 								{ label: "Sobre Jose", href: "#operador" },
+								{ label: "Preguntas Frecuentes", href: "#faq" },
 								{ label: "Contacto", href: "#contacto" },
 							].map((link) => (
 								<a

@@ -15,7 +15,8 @@ const NAV_ITEMS: NavItem[] = [
 	{ label: "Trabajos", grade: "01", href: "#portfolio" },
 	{ label: "Servicios", grade: "02", href: "#servicios" },
 	{ label: "Quién soy", grade: "03", href: "#operador" },
-	{ label: "Contacto", grade: "04", href: "#contacto" },
+	{ label: "Preguntas", grade: "04", href: "#faq" },
+	{ label: "Contacto", grade: "05", href: "#contacto" },
 ];
 
 /* ──────────────────────────────────────────────
@@ -42,11 +43,11 @@ function WaypointItem({ item }: { item: NavItem }) {
 			transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
 			className="group relative flex items-center gap-2 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-white/60 transition-colors duration-300 hover:text-white"
 		>
-			<span className="font-sans text-[9px] tracking-normal text-cyan-400 opacity-0 scale-75 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
+			<span className="font-sans text-[9px] tracking-normal text-[#dfd0a4] opacity-0 scale-75 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
 				{item.grade}
 			</span>
 			<span>{item.label}</span>
-			<span className="pointer-events-none absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-cyan-400 to-transparent transition-all duration-500 ease-out group-hover:w-full" />
+			<span className="pointer-events-none absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-[#dfd0a4] via-[#dfd0a4]/60 to-transparent transition-all duration-500 ease-out group-hover:w-full" />
 		</motion.a>
 	);
 }

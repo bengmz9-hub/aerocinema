@@ -83,3 +83,85 @@
 |---|---|---|
 | Motion (Framer Motion) | https://motion.dev | Motor principal de animación frontend para React/Next.js |
 | Impeccable Style | https://impeccable.style | Framework de vocabulario de diseño y antipatrones para IA |
+
+---
+
+## ✅ Tokens y Efectos Aplicados en la Web
+
+### Paleta Gold — Token Exacto
+| Token | Hex | Uso |
+|---|---|---|
+| `gold-50` | `#faf6ec` | Fondos muy sutiles |
+| `gold-100` | `#f5edda` | Hover states suaves |
+| `gold-200` | `#f0e6c8` | Texto hover de preguntas FAQ |
+| `gold-300` | `#e8dcb4` | Texto de preguntas FAQ, subtítulos |
+| `gold-400` | `#dfd0a4` | Acento principal — badges, iconos, bordes hover, LED pulsante |
+| `gold-500` | `#c8b88a` | Bordes de cards, fondos de iconos (opacity 10-20%) |
+| `gold-600` | `#b09e6e` | Bordes en hover más intensos |
+
+### Specular Card (Borde Reflectante)
+```
+.specular-card::before {
+  background: linear-gradient(135deg,
+    rgba(255,255,255,0.25) 0%,
+    rgba(223,208,164,0.15) 35%,
+    rgba(255,255,255,0.03) 70%,
+    transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.4;
+}
+```
+Aplicado en: ServiceCard, Stats cards, DJI5ProSection, Navbar (scrolled), Hero tag, InstagramReelCard, FAQ items, ContactSection CTA.
+
+### Grano Analógico Cinematográfico
+```css
+body::after {
+  background-image: url("data:image/svg+xml,%3Csvg ... %3EfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' ... %3E/svg%3E");
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+}
+```
+Añade textura de grano 35mm sobre todo el fondo. También duplicado en HeroSection con opacidad 0.20.
+
+### Blur-In Reveal (Animación de Entrada)
+```css
+@keyframes blurIn {
+  from { opacity: 0; filter: blur(12px); transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; filter: blur(0px);  transform: translateY(0) scale(1); }
+}
+.animate-blur-in { animation: blurIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+```
+Fallback CSS para cuando IntersectionObserver no se activa (alternativa a Framer Motion `whileInView`).
+
+### Golden Hour & Titanium Text Gradients
+- `.text-golden-hour`: `#ffffff → #e2e8f0 → #d4af37 → #b46e2d` (para H1 Hero)
+- `.text-titanium`: `#ffffff → #cbd5e1 → #94a3b8` (para H2 Hero)
+
+---
+
+## ✍️ Tono y Voz — Decisiones de Contenido
+
+- **Primera persona** ("Yo", "me encargo", "te respondo") — cercano y personal
+- **Directo, sin jerga** — frases cortas, vocabulario llano
+- **Sin letra pequeña** — respuestas transparentes que anticipan objeciones
+- **Llamadas a la acción concretas** — "Escríbeme por WhatsApp", "Háblame directamente"
+- **Toque local** — referencias a L'Hospitalet, Barcelona, Can Serra, barrios conocidos
+
+### Estructura de FAQ (6 preguntas)
+1. **Precio** — presupuesto cerrado sin compromiso
+2. **Permisos + Seguro** — operador AESA, cero papeleo para el cliente
+3. **Formato / Redes** — 4K + vertical para Instagram/TikTok + horizontal para portales
+4. **Plazo de entrega** — 24-48h crudo, 3-5 días editado, exprés +50€
+5. **Interiores FPV** — Cinewhoop protegido, planos imposibles
+6. **Obras en construcción** — coordinación con jefe de obra, sin riesgo
+
+### Colores FAQ
+| Elemento | Clase | Color |
+|---|---|---|
+| Pregunta | `text-gold-300` hover `text-gold-200` | Dorado |
+| Respuesta | `text-zinc-100` | Blanco suave (legible) |
+| Tamaño pregunta | `text-lg sm:text-xl` | Grande |
+| Tamaño respuesta | `text-base sm:text-lg` | Medio-grande |

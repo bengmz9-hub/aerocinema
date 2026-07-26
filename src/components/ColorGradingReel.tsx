@@ -180,8 +180,8 @@ export function ColorGradingReel() {
 								className="object-cover object-center saturate-125 contrast-110 pointer-events-none select-none"
 								priority
 							/>
-							<div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/70 border border-emerald-500/40 backdrop-blur-md text-[9px] font-mono uppercase tracking-[0.2em] text-emerald-300 flex items-center gap-1.5 shadow-lg pointer-events-none select-none">
-								<span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+							<div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-black/70 border border-[#dfd0a4]/40 backdrop-blur-md text-[9px] font-mono uppercase tracking-[0.2em] text-[#dfd0a4] flex items-center gap-1.5 shadow-lg pointer-events-none select-none">
+								<span className="w-1.5 h-1.5 rounded-full bg-[#dfd0a4] animate-pulse" />
 								COLOR GRADED (FINAL)
 							</div>
 						</div>
