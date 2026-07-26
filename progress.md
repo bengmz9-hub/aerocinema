@@ -1,6 +1,6 @@
 # Estado del Proyecto — Progress Log (Listo para Nuevo Chat)
 
-**Última actualización:** 2026-07-26
+**Última actualización:** 2026-07-26 (Sprint 3)
 **Estado:** ✅ Servidor local activo. Trabajando en local — sin push/deploy.
 **Regla de Oro Permanente:** 🛑 **STRICTLY LOCAL** — Cero despliegue sin confirmación explícita.
 
@@ -31,6 +31,10 @@
 || 14 | **gpt-researcher + markitdown instalados** — investigación web local + conversión documentos | `pip install` |
 || 15 | **Rust instalado** — dependencia para litellm | `winget install Rustlang.Rustup` |
 || 16 | **Skill local-coding-agents actualizado** — tabla de delegación autónoma | SKILL.md |
+| | 17 | **Code review con qwen2.5-coder:14b** — auditoría local de src/ (0 tokens API) | 11 archivos TSX/TS/CSS |
+| | 18 | **Regenerado .project-map.md** — eliminado ruido de `.agents/` | `.project-map.md` |
+| | 19 | **tsconfig.tsbuildinfo → .gitignore** — build cache ya no trackeado | `.gitignore` |
+| | 20 | **Graphify actualizado** — 3031 nodos, 6763 edges, 158 comunidades | `graphify-out/` |
 
 ---
 
@@ -44,6 +48,8 @@
 - **OpenCode + Ollama como agentes locales** para código y procesamiento mecánico sin pérdida calidad.
 - **Qwen 2.5 Coder 14B** para código, **Gemma 4 12B QAT** para investigación, **LLaVA 13B** para visión.
 - **DeepSeek API siempre** para respuestas, diseño, debugging, decisiones. Solo local si pérdida CERO garantizada.
+- **Flujo diseño automatizado**: popular-web-designs → OpenCode + gemma4:12b-it-qat (research local, 0 tokens). DeepSeek solo diseño final.
+- **Agentes locales por tarea**: gemma4 (diseño/estética), qwen2.5-coder (código), deepseek-r1 (razonamiento), llava (visión).
 
 ---
 
