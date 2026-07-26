@@ -23,10 +23,10 @@ export const LampContainer = ({
 			)}
 		>
 			<div className="relative flex w-full flex-1 items-center justify-center isolate z-0">
-				{/* Cono Izquierdo - Ultra tenue y extra ancho */}
+				{/* Cono Izquierdo - Minimalista, ultra tenue y sutil */}
 				<motion.div
-					initial={{ opacity: 0.05, width: "20rem" }}
-					whileInView={{ opacity: 0.18, width: "38rem" }}
+					initial={{ opacity: 0.01, width: "24rem" }}
+					whileInView={{ opacity: 0.05, width: "42rem" }}
 					transition={{
 						delay: 0.1,
 						duration: 1.0,
@@ -35,13 +35,13 @@ export const LampContainer = ({
 					style={{
 						backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
 					}}
-					className="absolute inset-auto right-1/2 h-20 overflow-visible w-[38rem] bg-gradient-conic from-[#dfd0a4]/30 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
+					className="absolute inset-auto right-1/2 h-12 overflow-visible w-[42rem] bg-gradient-conic from-[#dfd0a4]/10 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
 				/>
 
-				{/* Cono Derecho - Ultra tenue y extra ancho */}
+				{/* Cono Derecho - Minimalista, ultra tenue y sutil */}
 				<motion.div
-					initial={{ opacity: 0.05, width: "20rem" }}
-					whileInView={{ opacity: 0.18, width: "38rem" }}
+					initial={{ opacity: 0.01, width: "24rem" }}
+					whileInView={{ opacity: 0.05, width: "42rem" }}
 					transition={{
 						delay: 0.1,
 						duration: 1.0,
@@ -50,18 +50,15 @@ export const LampContainer = ({
 					style={{
 						backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
 					}}
-					className="absolute inset-auto left-1/2 h-20 w-[38rem] bg-gradient-conic from-transparent via-transparent to-[#dfd0a4]/30 text-white [--conic-position:from_290deg_at_center_top]"
+					className="absolute inset-auto left-1/2 h-12 w-[42rem] bg-gradient-conic from-transparent via-transparent to-[#dfd0a4]/10 text-white [--conic-position:from_290deg_at_center_top]"
 				/>
 
-				{/* Resplandor cenital difuminado ambiental ultra tenue y ancho */}
-				<div className="absolute inset-auto z-20 h-14 w-[32rem] -translate-y-2 rounded-full bg-[#dfd0a4] opacity-05 blur-3xl"></div>
-
-				{/* Haz fino brillante amarillo ultra suave y expandido (#f0e6c8) */}
+				{/* Haz hilo fino dorada casi imperceptible */}
 				<motion.div
-					initial={{ width: "10rem" }}
-					whileInView={{ width: "28rem" }}
+					initial={{ width: "12rem" }}
+					whileInView={{ width: "36rem" }}
 					transition={{ delay: 0.1, duration: 1.0, ease: "easeInOut" }}
-					className="absolute inset-auto z-30 h-[1px] w-[28rem] -translate-y-4 bg-[#f0e6c8]/30 shadow-[0_0_10px_rgba(223,208,164,0.15)]"
+					className="absolute inset-auto z-30 h-[1px] w-[36rem] -translate-y-2 bg-[#dfd0a4]/15"
 				></motion.div>
 			</div>
 
