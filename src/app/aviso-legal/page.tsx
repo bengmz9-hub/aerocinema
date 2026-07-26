@@ -13,8 +13,8 @@ export default function AvisoLegalPage() {
 			<div className="mx-auto max-w-3xl">
 				{/* Cabecera */}
 				<div className="mb-10 border-b border-white/10 pb-6">
-					<div className="flex items-center gap-2 text-[10px] font-mono tracking-[0.25em] text-amber-400/90 uppercase mb-3 font-semibold">
-						<span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+					<div className="flex items-center gap-2 text-[10px] font-mono tracking-[0.25em] text-gold-400/90 uppercase mb-3 font-semibold">
+						<span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
 						<span>Información Legal</span>
 					</div>
 					<h1 className="font-cinzel text-3xl md:text-4xl font-bold text-white uppercase tracking-wide mb-2">

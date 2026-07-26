@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer Mockups — JF.DroneVision</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
+
+  :root {
+    --bg: #050505;
+    --surface: #0f1115;
+    --border: rgba(255,255,255,0.06);
+    --gold: #d4af37;
+    --cyan: #22d3ee;
+    --text-muted: #71717a;
+    --text-dim: #a1a1aa;
+    --text-body: #d4d4d8;
+    --heading-track: 0.15em;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: var(--text-body);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding: 40px 20px;
+  }
+
+  .mockup-section {
+    margin-bottom: 60px;
+  }
+
+  .mockup-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-left: 4px;
+  }
+
+  /* ══════════════════════════════════════
+     COMMON FOOTER BASE
+     ══════════════════════════════════════ */
+  .footer-base {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 48px 32px 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .footer-bottom a { color: var(--text-muted); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--text-dim); }
+
+  .section-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .brand-name span { font-weight: 400; color: rgba(255,255,255,0.5); }
+
+  .brand-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    max-width: 240px;
+    font-weight: 300;
+  }
+
+  .gps-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+  .gps-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--cyan);
+  }
+
+  /* ══════════════════════════════════════
+     OPTION A — Yummygum style (4 cols)
+     ══════════════════════════════════════ */
+  .opt-a .footer-grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+  .opt-a .nav-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 0;
+  }
+  .opt-a .nav-link {
+    display: block;
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 3px 0;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+  .opt-a .nav-link:hover { color: #fff; }
+
+  .opt-a .contact-item {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .opt-a .contact-item a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 300;
+  }
+  .opt-a .contact-item a:hover { color: #fff; }
+
+  .opt-a .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .opt-a .social-link {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+  .opt-a .social-link:hover { color: var(--gold); }
+
+  /* ══════════════════════════════════════
+     OPTION B — Object & Archive (4 cols, editorial)
+     ══════════════════════════════════════ */
+  .opt-b .footer-grid { grid-template-columns: repeat(4, 1fr); }
+  .opt-b .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    color: #fff;
+    font-weight: 700;
+  }
+  .opt-b .nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    list-style: none;
+  }
+  .opt-b .nav-list a {
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+  .opt-b .nav-list a:hover { color: #fff; }
+
+  .opt-b .footer-bottom {
+    justify-content: center;
+    gap: 24px;
+    font-style: italic;
+  }
+
+  /* ══════════════════════════════════════
+     OPTION C — Hybrid DRONES (3 cols, premium)
+     ══════════════════════════════════════ */
+  .opt-c .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .opt-c .section-heading {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.5);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .opt-c .nav-link-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .opt-c .nav-link-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 300;
+    transition: all 0.2s;
+  }
+  .opt-c .nav-link-row:hover { color: #fff; }
+  .opt-c .nav-link-row:hover .nav-chevron { opacity: 1; transform: translateX(2px); }
+  .opt-c .nav-chevron {
+    font-size: 10px;
+    color: var(--gold);
+    opacity: 0;
+    transition: all 0.2s;
+  }
+  .opt-c .info-block {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 2;
+    font-weight: 300;
+  }
+  .opt-c .info-block a {
+    color: var(--text-dim);
+    text-decoration: none;
+  }
+  .opt-c .info-block a:hover { color: #fff; }
+  .opt-c .social-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .opt-c .social-row a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .opt-c .social-row a:hover { color: var(--gold); }
+
+  /* Divider between mockups */
+  .divider {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent);
+  }
+
+  @media (max-width: 768px) {
+    .opt-a .footer-grid,
+    .opt-b .footer-grid,
+    .opt-c .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ OPTION A: Yummygum ═══════════════════ -->
+<div class="mockup-section">
+  <div class="mockup-label">Opción A — Estilo Yummygum (4 columnas, agencia premium)</div>
+
+  <footer class="footer-base opt-a">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <div class="brand-name">JF.<span>DRONEVISION</span></div>
+        <p class="brand-desc">Grabaciones aéreas para inmobiliarias, construcción y negocios locales en L'Hospitalet y Barcelona.</p>
+        <div class="gps-tag"><span class="gps-dot"></span>41.3851°N · 2.1734°E</div>
+      </div>
+
+      <!-- Navigation (split 2 cols) -->
+      <div>
+        <div class="section-heading">NAVEGACIÓN</div>
+        <div class="nav-split">
+          <a href="#servicios" class="nav-link">Servicios</a>
+          <a href="#operador" class="nav-link">Sobre Jose</a>
+          <a href="#portfolio" class="nav-link">Trabajos</a>
+          <a href="#contacto" class="nav-link">Contacto</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="section-heading">CONTACTO</div>
+        <div class="contact-item">
+          <a href="mailto:contacto@jfdronevision.com">contacto@jfdronevision.com</a><br>
+          L'Hospitalet de Llobregat<br>
+          Barcelona
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div>
+        <div class="section-heading">REDES</div>
+        <div class="social-links">
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">YouTube</a>
+          <a href="#" class="social-link">Vimeo</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 JF.DroneVision</span>
+      <a href="/aviso-legal">Aviso Legal</a>
+    </div>
+  </footer>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ OPTION B: Object & Archive ═══════════════════ -->
+<div class="mockup-section">
+  <div class="mockup-label">Opción B — Estilo Object & Archive (4 columnas, editorial elegante)</div>
+
+  <footer class="footer-base opt-b">
+    <div class="footer-grid">
+      <div>
+        <div class="section-heading">SERVICIOS</div>
+        <ul class="nav-list">
+          <li><a href="#servicios">Inmobiliaria</a></li>
+          <li><a href="#servicios">Construcción</a></li>
+          <li><a href="#servicios">Negocios locales</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-heading">MÁS</div>
+        <ul class="nav-list">
+          <li><a href="#portfolio">Trabajos recientes</a></li>
+          <li><a href="#operador">Sobre Jose</a></li>
+          <li><a href="#optical">DJI Mini 5 Pro</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-heading">CONECTA</div>
+        <ul class="nav-list">
+          <li><a href="mailto:contacto@jfdronevision.com">Email</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-heading">INFO</div>
+        <ul class="nav-list">
+          <li>L'Hospitalet</li>
+          <li>Barcelona</li>
+          <li><a href="/aviso-legal">Aviso Legal</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 JF.DroneVision</span>
+      <span>41.3851°N · 2.1734°E</span>
+    </div>
+  </footer>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════ OPTION C: Hybrid DRONES ═══════════════════ -->
+<div class="mockup-section">
+  <div class="mockup-label">Opción C — Híbrido DRONES (3 columnas, mantiene estructura actual con jerarquía premium)</div>
+
+  <footer class="footer-base opt-c">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <div class="brand-name">JF.<span>DRONEVISION</span></div>
+        <p class="brand-desc">Grabaciones aéreas para inmobiliarias, construcción y negocios locales en L'Hospitalet y Barcelona.</p>
+        <div class="gps-tag"><span class="gps-dot"></span>41.3851°N · 2.1734°E</div>
+      </div>
+
+      <!-- Navigation with chevrons -->
+      <div>
+        <div class="section-heading">NAVEGACIÓN</div>
+        <div class="nav-link-group">
+          <a href="#servicios" class="nav-link-row">
+            <span class="nav-chevron">→</span> Servicios
+          </a>
+          <a href="#portfolio" class="nav-link-row">
+            <span class="nav-chevron">→</span> Trabajos Recientes
+          </a>
+          <a href="#operador" class="nav-link-row">
+            <span class="nav-chevron">→</span> Sobre Jose
+          </a>
+          <a href="#contacto" class="nav-link-row">
+            <span class="nav-chevron">→</span> Contacto
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact info — visually distinct from nav -->
+      <div>
+        <div class="section-heading">CONTACTO</div>
+        <div class="info-block">
+          <a href="mailto:contacto@jfdronevision.com">contacto@jfdronevision.com</a><br>
+          L'Hospitalet de Llobregat, Barcelona
+        </div>
+        <div class="social-row">
+          <a href="#">IG</a>
+          <a href="#">YT</a>
+          <a href="#">VM</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 JF.DroneVision. Todos los derechos reservados.</span>
+      <a href="/aviso-legal">Aviso Legal</a>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

@@ -78,8 +78,8 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 				"group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0d10]/90 specular-card select-none cursor-default",
 				"backdrop-blur-xl p-6 md:p-8",
 				"transition-all duration-500 ease-out",
-				"hover:border-amber-500/30 hover:shadow-[0_0_35px_rgba(212,175,55,0.08)]",
-				"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50",
+				"hover:border-gold-500/30 hover:shadow-[0_0_35px_rgba(223,208,164,0.08)]",
+				"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50",
 				"min-h-[420px] transform-gpu",
 			)}
 		>
@@ -103,18 +103,18 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 			/>
 
 			{/* Brackets HUD Esquinas */}
-			<div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/20 group-hover:border-amber-400/60 transition-colors z-20" />
-			<div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-white/20 group-hover:border-amber-400/60 transition-colors z-20" />
-			<div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white/20 group-hover:border-amber-400/60 transition-colors z-20" />
-			<div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/20 group-hover:border-amber-400/60 transition-colors z-20" />
+			<div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/20 group-hover:border-gold-400/60 transition-colors z-20" />
+			<div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-white/20 group-hover:border-gold-400/60 transition-colors z-20" />
+			<div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white/20 group-hover:border-gold-400/60 transition-colors z-20" />
+			<div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/20 group-hover:border-gold-400/60 transition-colors z-20" />
 
 			{/* Top Header: Badge + Index */}
 			<div className="relative z-20 flex items-start justify-between gap-4">
 				<div className="flex items-center gap-2">
-					<div className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400">
+					<div className="p-2 rounded-lg bg-gold-500/10 border border-gold-500/20 text-gold-400">
 						<Icon className="w-5 h-5" strokeWidth={1.5} />
 					</div>
-					<span className="font-mono text-[10px] tracking-[0.2em] text-amber-400/90 uppercase font-semibold">
+					<span className="font-mono text-[10px] tracking-[0.2em] text-gold-400/90 uppercase font-semibold">
 						{item.index}
 					</span>
 				</div>
@@ -124,11 +124,11 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 			<div className="relative z-20 mt-6 flex-1 flex flex-col justify-end">
 				<h3
 					id={`service-${item.id}`}
-					className="font-cormorant text-2xl md:text-3xl font-bold text-white uppercase tracking-wide leading-tight group-hover:text-amber-200 transition-colors"
+					className="font-cormorant text-2xl md:text-3xl font-bold text-white uppercase tracking-wide leading-tight group-hover:text-gold-200 transition-colors"
 				>
 					{item.title}
 				</h3>
-				<p className="font-jakarta text-xs text-amber-300/80 font-medium tracking-wide mt-1 uppercase">
+				<p className="font-jakarta text-xs text-gold-300/80 font-medium tracking-wide mt-1 uppercase">
 					{item.subtitle}
 				</p>
 				<p className="font-jakarta mt-3 text-zinc-300 text-xs md:text-sm font-light leading-relaxed">
@@ -137,7 +137,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 
 				{/* Sub-tarjeta Glass-Tag Micro-Bento con LED de estado */}
 				<div className="mt-5 pt-3 border-t border-white/[0.08]">
-					<div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141820]/80 border border-white/10 backdrop-blur-md shadow-lg shadow-black/40 group-hover:border-amber-500/30 transition-colors">
+					<div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141820]/80 border border-white/10 backdrop-blur-md shadow-lg shadow-black/40 group-hover:border-gold-500/30 transition-colors">
 						<span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
 						<span className="font-mono text-[9px] text-zinc-200 tracking-widest uppercase font-medium">
 							{item.badge}
@@ -174,19 +174,19 @@ export function ServicesSection() {
 					<div>
 						<div className="flex items-center gap-2.5 mb-3">
 							<ShieldCheck
-								className="h-4 w-4 text-amber-400"
+								className="h-4 w-4 text-gold-400"
 								aria-hidden="true"
 							/>
 							<span
 								id="services-heading"
-								className="text-amber-300/80 text-[10px] font-medium tracking-[0.25em] uppercase font-mono"
+								className="text-gold-300/80 text-[10px] font-medium tracking-[0.25em] uppercase font-mono"
 							>
 								SERVICIOS PRINCIPALES — L'HOSPITALET & BARCELONA
 							</span>
 						</div>
 						<h2 className="font-cormorant text-3xl md:text-5xl font-bold tracking-tight text-white uppercase">
 							¿En qué te puedo
-							<span className="text-amber-400 italic"> ayudar</span>?
+							<span className="text-gold-400 italic"> ayudar</span>?
 						</h2>
 					</div>
 					<p className="font-jakarta text-xs md:text-sm text-zinc-400 max-w-md font-light">

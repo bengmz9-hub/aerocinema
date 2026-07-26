@@ -152,7 +152,7 @@ export function ColorGradingReel() {
 							<Camera className="w-3 h-3 text-cyan-400" />
 							{activeItem.codec}
 						</span>
-						<span className="px-3 py-1.5 rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-300 backdrop-blur-md">
+						<span className="px-3 py-1.5 rounded-full border border-gold-500/20 bg-gold-500/10 text-gold-300 backdrop-blur-md">
 							{activeItem.fps}
 						</span>
 						<span className="px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/10 text-cyan-300 backdrop-blur-md">

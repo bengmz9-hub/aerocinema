@@ -7,22 +7,23 @@
 - **Bordes Reflectores:** `.specular-card` (Linear gradient border highlights)
 - **Texto Principal (`--ink-primary`):** `#f3f4f6` (`text-neutral-100` / blanco titanio, contrast ≥4.5:1)
 - **Texto Secundario (`--ink-muted`):** `#9ca3af` (`text-neutral-400` / gris accesible)
-- **Acento Primario (`--brand-accent`):** `.text-golden-hour` (Amber Golden Hour `#d4af37` gradient)
-- **Acento de Navegación:** `#fef3c7` (`text-amber-200`)
+- **Acento Primario (`--brand-accent`):** `gold-400` = `#dfd0a4` (Dorado bentogrid DJI Mini 5 Pro — gradiente `#dfd0a4` > `#f0e6c8` > `#c8b88a`)
+- **Acento Navegación/UI:** `gold-200` (`#f0e6c8`), `gold-300` (`#e8dcb4`), `gold-500` (`#c8b88a`), `gold-600` (`#b09e6e`)
 - **Acento Teledeteción/GPS (`--accent-glow`):** `#22d3ee` (`text-cyan-400` / resplandor cian telemétrico)
+- **Paleta Gold completa en Tailwind 4 (`@theme`):** `gold-50` a `gold-900` definida en `globals.css`
 
 ---
 
 ## ✒️ Jerarquía Tipográfica
 
-- **Display / Titulares H1-H2:** `Outfit` / `Alumni Sans` en caixa alta.
-  - Escalado fluido: `text-[clamp(2.5rem,5vw+1rem,5.5rem)]`
-  - Letter spacing floor: `-0.02em` a `-0.03em`.
-  - `text-wrap: balance`.
-- **Cuerpo de Texto / P:** `Inter` / `Albert Sans`.
-  - Longitud de línea: max `65ch` a `75ch`.
-  - `text-wrap: pretty`.
-- **Métricas & Coordenadas:** `tabular-nums` en números comparativos.
+- **Display / Titulares H1-H2:** `Cinzel` (serif elegante), `Cormorant Garamond` (editorial bold).
+  - Letter spacing: `tracking-wide` / `tracking-tight` según contexto.
+  - `text-wrap: balance` en titulares largos.
+- **Cuerpo / UI:** `Plus Jakarta Sans` / `Montserrat` (sans-serif limpia).
+  - `font-light` para párrafos de lectura, `font-semibold` para labels.
+- **Datos técnicos / Métricas:** `Montserrat` / `mono` con `tabular-nums`.
+  - Coordenadas GPS en `font-mono text-[9px] tracking-[0.3em]`.
+- **Acento decorativo:** `Cinzel` para la marca (`JF.DRONEVISION`).
 
 ---
 

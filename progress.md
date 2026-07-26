@@ -1,43 +1,33 @@
 # Estado del Proyecto — Progress Log (Listo para Nuevo Chat)
 
 **Última actualización:** 2026-07-26
-**Estado:** ✅ GitHub + Vercel sincronizados. Web estable en producción.
-**URL Producción:** [https://drones-kohl.vercel.app](https://drones-kohl.vercel.app)
+**Estado:** ✅ Servidor local activo. Trabajando en local — sin push/deploy.
 **Regla de Oro Permanente:** 🛑 **STRICTLY LOCAL** — Cero despliegue sin confirmación explícita.
 
 ---
 
-## 1. Sesión Actual — Resumen Completo
+## 1. Sesión Actual — Resumen Completo (Sesión 2026-07-26)
 
-**12 hallazgos de auditoría corregidos** + 3 mejoras extra. Todos commiteados y desplegados:
+### Cambios realizados este sprint:
 
-| # | Cambio | Commit |
-|---|---|---|
-| 1 | Favicon SVG con rotor dron dorado | `4d7e862` |
-| 2 | 404 personalizada con radar HUD + brackets | `c8c6abc` → `b1440ee` |
-| 3 | Limpieza sources vídeo huérfanos en Hero | `1fdbb0c` |
-| 4 | Headers de seguridad en next.config.mjs | `ebf282e` |
-| 5 | Fix accesibilidad "puedo ayudar" (espacio) | `7cadaad` |
-| 6 | OG + Twitter Cards + metadataBase | `33d53dd` → `4a4c5d0` |
-| 7 | Cookie banner + página /aviso-legal | `f6949ce` |
-| 8 | robots.txt + sitemap.xml | `f587100` |
-| 9 | Footer rediseñado (grid 3 cols + coordenadas) | `a4e597e` → `0971f22` |
-| 10 | progress.md actualizado | `0971f22` |
-| 11 | design-inspiration.md (36 recursos de diseño) | `15464f5` |
-| 12 | Push a GitHub + Deploy a Vercel | ✅ Final |
-
-**Commits totales:** 14 | **Archivos nuevos:** not-found.tsx, CookieBanner.tsx, aviso-legal/page.tsx, robots.txt, sitemap.xml, design-inspiration.md
+| # | Cambio | Archivos |
+|---|--------|----------|
+| 1 | **Spaciado "en mente ?"** — separación entre texto y signo de interrogación | `ContactSection.tsx` |
+| 2 | **Footer rediseñado Opción C** — 3 columnas con jerarquía premium: headings con borde inferior, chevrones dorados en hover, bottom bar minimal (solo © + Aviso Legal) | `page.tsx` (footer) |
+| 3 | **Paleta Gold unificada (`gold-50` a `gold-900`)** en `@theme` de Tailwind 4 — color principal `#dfd0a4` (dorado bentogrid DJI Mini 5 Pro) | `globals.css` |
+| 4 | **Reemplazo global `amber-XXX` → `gold-XXX`** — 13 archivos actualizados de todas las secciones (Hero, Navbar, 404, servicios, stats, about, reels, contacto, cookie, footer) | 13 archivos .tsx |
+| 5 | **Sombras actualizadas** — todos los `rgba(212,175,55,...)` y `rgba(245,158,11,...)` al nuevo `rgba(223,208,164,...)` | 7 archivos .tsx + globals.css |
+| 6 | **DESIGN.md sincronizado** — fuentes reales (Cinzel, Cormorant, Jakarta, Montserrat) y paleta gold actualizada | `DESIGN.md` |
+| 7 | **Graphify actualizado** — 3029 nodos, 6761 edges, 149 comunidades | `graphify-out/` |
 
 ---
 
 ## 2. Decisiones de la Sesión
 
-- **No añadir sitemap/robots** inicialmente → luego sí se añadieron
-- **No optimizar 10 vídeos** → sin impacto real en rendimiento
-- **Footer sin CTA redundante** → la sección de contacto ya existe arriba
-- **Cookies técnicas únicamente** → sin cookies de tracking
-- **musketeer** = reglas de `.agents/` (consultation-workflow.md + graphify.md)
-- **Progress automático** → al final de cada sesión, actualizar progress.md + commit + push sin preguntar
+- **Footer Opción C** (híbrido 3 columnas con jerarquía premium) elegido sobre opciones Yummygum y Object & Archive
+- **Paleta gold unificada** de las bentogrids del DJI Mini 5 Pro (`#dfd0a4`) aplicada a toda la web, reemplazando `amber-XXX`
+- **No tocar email/WhatsApp** hasta que la web esté activa y Jose tenga los datos reales
+- **Servidor local en background** con HMR — cambios en caliente sin recargar
 
 ---
 
@@ -54,12 +44,14 @@
 ```bash
 # Archivos a cargar primero
 read_file progress.md
-read_file design-inspiration.md
+read_file DESIGN.md
 cargar skill: drones-project-reference
 
 # Reglas activas
-.gemini/config/AGENTS.md (vibecoding lean v1.4.1)
 .agents/AGENTS.md (no pushes sin trigger)
 .agents/rules/consultation-workflow.md (todo = consulta técnica)
 .agents/rules/graphify.md (usar grafo)
+
+# Dev server corriendo en segundo plano
+# Local: http://localhost:3000
 ```

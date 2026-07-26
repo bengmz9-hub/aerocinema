@@ -11,14 +11,14 @@ export default function ContactSection() {
 		<section className="relative mx-auto max-w-7xl border-t border-white/[0.06] px-6 py-20 lg:px-8 text-center select-none">
 			<div className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-6">
 				{/* Tag Superior */}
-				<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] tracking-[0.25em] uppercase">
+				<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 font-mono text-[10px] tracking-[0.25em] uppercase">
 					<MessageSquare className="w-3.5 h-3.5" />
 					<span>CONVERSACIÓN DIRECTA · SIN COMPROMISO</span>
 				</div>
 
 				{/* Título H2 */}
 				<h2 className="font-cormorant text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white uppercase">
-					¿Tienes algo <span className="text-amber-400 italic">en mente</span>?
+					¿Tienes algo <span className="text-gold-400 italic">en mente</span> ?
 				</h2>
 
 				{/* Párrafo explicativo */}
@@ -35,7 +35,7 @@ export default function ContactSection() {
 						href={whatsappUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-amber-500/40 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
+						className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
 					>
 						{/* Definición del Gradiente SVG Verde a Oro */}
 						<svg width="0" height="0" className="absolute" aria-hidden="true">
@@ -71,7 +71,7 @@ export default function ContactSection() {
 								<span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
 							</div>
 							<div className="text-left">
-								<span className="block font-jakarta text-xs font-bold uppercase tracking-[0.15em] text-white group-hover:text-amber-200 transition-colors">
+								<span className="block font-jakarta text-xs font-bold uppercase tracking-[0.15em] text-white group-hover:text-gold-200 transition-colors">
 									Escribir a Jose
 								</span>
 								<span className="block font-mono text-[9px] text-zinc-400 tracking-wider">
@@ -81,7 +81,7 @@ export default function ContactSection() {
 						</div>
 
 						{/* Lado Derecho: Icono de envío o flecha */}
-						<Send className="w-4 h-4 text-zinc-400 group-hover:text-amber-300 group-hover:translate-x-0.5 transition-all ml-2" />
+						<Send className="w-4 h-4 text-zinc-400 group-hover:text-gold-300 group-hover:translate-x-0.5 transition-all ml-2" />
 					</a>
 
 					{/* CTA Secundario Formulario Modal */}

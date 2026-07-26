@@ -40,8 +40,8 @@ export function AboutMe() {
 				<div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
 					{/* Tarjeta Principal (Hero Profile - Ocupa 2 columnas) */}
 					<div className="sm:col-span-2 p-6 rounded-2xl bg-[#0a0c10]/70 border border-white/10 backdrop-blur-xl hover:border-[#dfd0a4]/30 hover:shadow-[0_0_20px_rgba(223,208,164,0.07)] transition-all duration-500 relative overflow-hidden group select-none cursor-default">
-						<div className="flex items-center gap-2 text-xs font-mono mb-2 font-semibold text-amber-300/90 uppercase tracking-wider">
-							<ShieldCheck className="w-4 h-4 text-amber-400" />
+						<div className="flex items-center gap-2 text-xs font-mono mb-2 font-semibold text-gold-300/90 uppercase tracking-wider">
+							<ShieldCheck className="w-4 h-4 text-gold-400" />
 							<span>
 								Piloto de drones certificado AESA · L'Hospitalet de Llobregat
 							</span>
@@ -61,7 +61,7 @@ export function AboutMe() {
 							podemos hablar y te digo sin compromiso si tu proyecto tiene
 							sentido con un dron.
 						</p>
-						<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-mono">
+						<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-mono">
 							<span>AESA / EASA CERTIFIED PILOT OPERATOR</span>
 						</div>
 					</div>

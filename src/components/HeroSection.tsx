@@ -58,9 +58,9 @@ export function HeroSection() {
 			{/* 2. Contenido Editorial */}
 			<div className="relative z-30 max-w-5xl mx-auto px-6 text-center">
 				{/* Tag Técnico */}
-				<div className="inline-flex items-center gap-3 px-4 py-1.5 bg-white/[0.03] border border-amber-500/25 rounded-full mb-6 backdrop-blur-md specular-card">
-					<span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
-					<span className="font-mono text-[9px] tracking-[0.25em] text-amber-200/90 uppercase font-semibold">
+				<div className="inline-flex items-center gap-3 px-4 py-1.5 bg-white/[0.03] border border-gold-500/25 rounded-full mb-6 backdrop-blur-md specular-card">
+					<span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse shadow-[0_0_8px_rgba(223,208,164,0.8)]" />
+					<span className="font-mono text-[9px] tracking-[0.25em] text-gold-200/90 uppercase font-semibold">
 						OPERADOR UAS REGISTRADO AESA {"//"} L'HOSPITALET · BARCELONA
 					</span>
 				</div>

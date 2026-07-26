@@ -11,6 +11,18 @@
 	--font-cormorant: var(--font-cormorant);
 	--font-jakarta: var(--font-jakarta);
 	--color-void-900: #070708; /* Token Vidrio de Noche / Obsidiana Real */
+
+	/* Paleta Gold — Dorado bentogrid DJI Mini 5 Pro (#dfd0a4) */
+	--color-gold-50: #faf6ec;
+	--color-gold-100: #f5edda;
+	--color-gold-200: #f0e6c8;
+	--color-gold-300: #e8dcb4;
+	--color-gold-400: #dfd0a4;
+	--color-gold-500: #c8b88a;
+	--color-gold-600: #b09e6e;
+	--color-gold-700: #988652;
+	--color-gold-800: #806e36;
+	--color-gold-900: #68561a;
 }
 
 /* Forzar reset base limpio de cascada de Tailwind v4 y activar paneo suave */
@@ -233,7 +245,7 @@ body::after {
 	background: linear-gradient(
 		135deg,
 		rgba(255, 255, 255, 0.25) 0%,
-		rgba(212, 175, 55, 0.15) 35%,
+		rgba(223, 208, 164, 0.15) 35%,
 		rgba(255, 255, 255, 0.03) 70%,
 		transparent 100%
 	);

@@ -132,10 +132,10 @@ export default function Navbar() {
 								whileHover={{ scale: 1.03 }}
 								whileTap={{ scale: 0.96 }}
 								transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-								className="group relative overflow-hidden rounded-full border border-amber-500/30 bg-amber-500/10 px-5 py-2 font-sans text-[9px] uppercase tracking-[0.25em] text-amber-200 font-semibold transition-colors duration-300 hover:text-white hover:border-amber-400/60 specular-card"
+								className="group relative overflow-hidden rounded-full border border-gold-500/30 bg-gold-500/10 px-5 py-2 font-sans text-[9px] uppercase tracking-[0.25em] text-gold-200 font-semibold transition-colors duration-300 hover:text-white hover:border-gold-400/60 specular-card"
 							>
 								<span className="relative z-10">Escribir a Jose</span>
-								<span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-amber-600/20 via-cyan-400/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-0" />
+								<span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-gold-600/20 via-cyan-400/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-0" />
 							</motion.a>
 						</div>
 
@@ -211,7 +211,7 @@ export default function Navbar() {
 								? `${120 + NAV_ITEMS.length * 80}ms`
 								: "0ms",
 						}}
-						className={`mt-4 border border-amber-500/30 bg-amber-500/10 px-6 py-4 text-center font-sans text-xs uppercase tracking-[0.28em] text-amber-200 font-semibold rounded-full transition-all duration-500 hover:bg-amber-500/20 hover:border-amber-400/50 ${
+						className={`mt-4 border border-gold-500/30 bg-gold-500/10 px-6 py-4 text-center font-sans text-xs uppercase tracking-[0.28em] text-gold-200 font-semibold rounded-full transition-all duration-500 hover:bg-gold-500/20 hover:border-gold-400/50 ${
 							menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
 						}`}
 					>

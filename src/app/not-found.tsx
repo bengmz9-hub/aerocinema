@@ -19,23 +19,23 @@ export default function NotFound() {
 				<div className="relative w-80 h-80 md:w-[28rem] md:h-[28rem]">
 					{/* Anillos de radar pulsantes */}
 					<div
-						className="absolute inset-0 rounded-full border border-amber-500/10 animate-ping"
+						className="absolute inset-0 rounded-full border border-gold-500/10 animate-ping"
 						style={{ animationDuration: "3s" }}
 					/>
 					<div
-						className="absolute inset-6 rounded-full border border-amber-500/[0.12] animate-ping"
+						className="absolute inset-6 rounded-full border border-gold-500/[0.12] animate-ping"
 						style={{ animationDuration: "3s", animationDelay: "0.6s" }}
 					/>
 					<div
-						className="absolute inset-12 rounded-full border border-amber-500/15 animate-ping"
+						className="absolute inset-12 rounded-full border border-gold-500/15 animate-ping"
 						style={{ animationDuration: "3s", animationDelay: "1.2s" }}
 					/>
 					<div
-						className="absolute inset-[60px] rounded-full border border-amber-500/20 animate-ping"
+						className="absolute inset-[60px] rounded-full border border-gold-500/20 animate-ping"
 						style={{ animationDuration: "3s", animationDelay: "1.8s" }}
 					/>
 					<div
-						className="absolute inset-24 rounded-full border border-amber-500/25 animate-ping"
+						className="absolute inset-24 rounded-full border border-gold-500/25 animate-ping"
 						style={{ animationDuration: "3s", animationDelay: "2.4s" }}
 					/>
 
@@ -66,15 +66,15 @@ export default function NotFound() {
 						<div className="relative w-12 h-12">
 							{/* Anillo exterior */}
 							<div
-								className="absolute inset-0 rounded-full border border-amber-400/40 animate-pulse"
+								className="absolute inset-0 rounded-full border border-gold-400/40 animate-pulse"
 								style={{ animationDuration: "2s" }}
 							/>
 							{/* Líneas de mira */}
-							<div className="absolute top-1/2 left-0 w-full h-px bg-amber-400/80 shadow-[0_0_6px_rgba(212,175,55,0.6)]" />
-							<div className="absolute left-1/2 top-0 h-full w-px bg-amber-400/80 shadow-[0_0_6px_rgba(212,175,55,0.6)]" />
+							<div className="absolute top-1/2 left-0 w-full h-px bg-gold-400/80 shadow-[0_0_6px_rgba(223,208,164,0.6)]" />
+							<div className="absolute left-1/2 top-0 h-full w-px bg-gold-400/80 shadow-[0_0_6px_rgba(223,208,164,0.6)]" />
 							{/* Punto central pulsante */}
 							<div
-								className="absolute top-1/2 left-1/2 w-2.5 h-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-400 shadow-[0_0_16px_rgba(212,175,55,0.9)] animate-pulse"
+								className="absolute top-1/2 left-1/2 w-2.5 h-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-400 shadow-[0_0_16px_rgba(223,208,164,0.9)] animate-pulse"
 								style={{ animationDuration: "1.5s" }}
 							/>
 						</div>
@@ -108,7 +108,7 @@ export default function NotFound() {
 						encontrada
 						{/* Línea de interferencia simulada */}
 						<span
-							className="absolute -inset-x-2 top-1/2 h-px bg-amber-400/30 animate-pulse hidden md:block"
+							className="absolute -inset-x-2 top-1/2 h-px bg-gold-400/30 animate-pulse hidden md:block"
 							style={{ animationDuration: "4s" }}
 						/>
 					</span>
@@ -116,9 +116,9 @@ export default function NotFound() {
 
 				{/* Separador HUD */}
 				<div className="flex items-center justify-center gap-3 mt-5 mb-5">
-					<span className="w-12 h-px bg-amber-500/30" />
-					<span className="w-1 h-1 rounded-full bg-amber-400/60" />
-					<span className="w-12 h-px bg-amber-500/30" />
+					<span className="w-12 h-px bg-gold-500/30" />
+					<span className="w-1 h-1 rounded-full bg-gold-400/60" />
+					<span className="w-12 h-px bg-gold-500/30" />
 				</div>
 
 				{/* Subtítulo */}
@@ -153,10 +153,10 @@ export default function NotFound() {
 			</div>
 
 			{/* Brackets de esquina HUD (como en HeroSection) */}
-			<div className="absolute top-8 left-8 w-6 h-6 border-t border-l border-amber-500/20 pointer-events-none z-30 hidden md:block" />
-			<div className="absolute top-8 right-8 w-6 h-6 border-t border-r border-amber-500/20 pointer-events-none z-30 hidden md:block" />
-			<div className="absolute bottom-8 left-8 w-6 h-6 border-b border-l border-amber-500/20 pointer-events-none z-30 hidden md:block" />
-			<div className="absolute bottom-8 right-8 w-6 h-6 border-b border-r border-amber-500/20 pointer-events-none z-30 hidden md:block" />
+			<div className="absolute top-8 left-8 w-6 h-6 border-t border-l border-gold-500/20 pointer-events-none z-30 hidden md:block" />
+			<div className="absolute top-8 right-8 w-6 h-6 border-t border-r border-gold-500/20 pointer-events-none z-30 hidden md:block" />
+			<div className="absolute bottom-8 left-8 w-6 h-6 border-b border-l border-gold-500/20 pointer-events-none z-30 hidden md:block" />
+			<div className="absolute bottom-8 right-8 w-6 h-6 border-b border-r border-gold-500/20 pointer-events-none z-30 hidden md:block" />
 		</section>
 	);
 }

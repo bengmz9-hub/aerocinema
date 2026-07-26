@@ -73,14 +73,14 @@ export default function ContactModal() {
 				whileTap={{ scale: 0.97 }}
 				transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
 				onClick={() => setIsOpen(true)}
-				className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-amber-500/40 hover:shadow-[0_0_25px_rgba(212,175,55,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
+				className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
 			>
 				<div className="flex items-center gap-3">
-					<div className="flex items-center justify-center p-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400">
+					<div className="flex items-center justify-center p-2 rounded-lg bg-gold-500/10 border border-gold-500/20 text-gold-400">
 						<FileText className="w-5 h-5" />
 					</div>
 					<div className="text-left">
-						<span className="block font-jakarta text-xs font-bold uppercase tracking-[0.15em] text-white group-hover:text-amber-200 transition-colors">
+						<span className="block font-jakarta text-xs font-bold uppercase tracking-[0.15em] text-white group-hover:text-gold-200 transition-colors">
 							Enviar Formulario
 						</span>
 						<span className="block font-mono text-[9px] text-zinc-400 tracking-wider">
@@ -88,7 +88,7 @@ export default function ContactModal() {
 						</span>
 					</div>
 				</div>
-				<ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-amber-300 group-hover:translate-x-0.5 transition-all ml-2" />
+				<ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-gold-300 group-hover:translate-x-0.5 transition-all ml-2" />
 			</motion.button>
 
 			<AnimatePresence>
@@ -116,16 +116,16 @@ export default function ContactModal() {
 							className="relative w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#0a0c10]/95 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.9)] outline-none specular-card sm:p-10 lg:p-16 backdrop-blur-3xl"
 						>
 							{/* Brackets HUD con resplandor ámbar */}
-							<span className="pointer-events-none absolute left-0 top-0 h-4 w-4 border-l border-t border-amber-500/40" />
-							<span className="pointer-events-none absolute right-0 top-0 h-4 w-4 border-r border-t border-amber-500/40" />
-							<span className="pointer-events-none absolute bottom-0 left-0 h-4 w-4 border-b border-l border-amber-500/40" />
-							<span className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b border-r border-amber-500/40" />
+							<span className="pointer-events-none absolute left-0 top-0 h-4 w-4 border-l border-t border-gold-500/40" />
+							<span className="pointer-events-none absolute right-0 top-0 h-4 w-4 border-r border-t border-gold-500/40" />
+							<span className="pointer-events-none absolute bottom-0 left-0 h-4 w-4 border-b border-l border-gold-500/40" />
+							<span className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b border-r border-gold-500/40" />
 
 							<button
 								type="button"
 								onClick={() => setIsOpen(false)}
 								aria-label="Cerrar formulario de contacto"
-								className="absolute right-6 top-6 cursor-pointer border border-white/10 p-2 text-white/60 rounded-full transition-colors hover:border-amber-500/40 hover:text-white hover:bg-white/5"
+								className="absolute right-6 top-6 cursor-pointer border border-white/10 p-2 text-white/60 rounded-full transition-colors hover:border-gold-500/40 hover:text-white hover:bg-white/5"
 							>
 								<X size={18} />
 							</button>
@@ -156,8 +156,8 @@ export default function ContactModal() {
 								<div className="flex flex-col items-start gap-12 text-left lg:flex-row lg:gap-16">
 									{/* Columna izquierda: copy editorial */}
 									<div className="w-full flex-1 space-y-6">
-										<span className="flex items-center gap-2 font-sans text-[9px] uppercase tracking-[0.3em] text-amber-200/80 font-semibold">
-											<span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+										<span className="flex items-center gap-2 font-sans text-[9px] uppercase tracking-[0.3em] text-gold-200/80 font-semibold">
+											<span className="h-1.5 w-1.5 rounded-full bg-gold-400 animate-pulse" />
 											OPERADOR REGISTRADO AESA
 										</span>
 										<h3
@@ -184,7 +184,7 @@ export default function ContactModal() {
 												</div>
 											</div>
 											<div className="flex gap-4">
-												<div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.03] text-amber-400 rounded-lg">
+												<div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.03] text-gold-400 rounded-lg">
 													<DollarSign size={18} />
 												</div>
 												<div>
@@ -199,7 +199,7 @@ export default function ContactModal() {
 											</div>
 										</div>
 										<div className="mt-6 flex items-center gap-4 border-t border-white/[0.08] pt-6">
-											<div className="flex h-10 w-10 items-center justify-center border border-white/10 bg-white/[0.03] text-amber-200/80 rounded-lg">
+											<div className="flex h-10 w-10 items-center justify-center border border-white/10 bg-white/[0.03] text-gold-200/80 rounded-lg">
 												<Mail size={16} />
 											</div>
 											<div>
@@ -300,7 +300,7 @@ export default function ContactModal() {
 												whileHover={{ scale: 1.01 }}
 												whileTap={{ scale: 0.98 }}
 												disabled={isPending}
-												className="h-11 w-full cursor-pointer rounded-md border border-amber-500/40 bg-amber-500/10 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-amber-200 transition-all hover:bg-amber-500/20 hover:border-amber-400/60 disabled:opacity-50 specular-card shadow-lg shadow-amber-500/5"
+												className="h-11 w-full cursor-pointer rounded-md border border-gold-500/40 bg-gold-500/10 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-gold-200 transition-all hover:bg-gold-500/20 hover:border-gold-400/60 disabled:opacity-50 specular-card shadow-lg shadow-gold-500/5"
 											>
 												{isPending ? "Procesando plan..." : "Enviar solicitud"}
 											</motion.button>
