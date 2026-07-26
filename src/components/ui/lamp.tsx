@@ -23,10 +23,10 @@ export const LampContainer = ({
 			)}
 		>
 			<div className="relative flex w-full flex-1 items-center justify-center isolate z-0">
-				{/* Cono Izquierdo - Minimalista, ultra tenue y sutil */}
+				{/* Cono Izquierdo - Proyección sutil hacia abajo */}
 				<motion.div
-					initial={{ opacity: 0.01, width: "24rem" }}
-					whileInView={{ opacity: 0.05, width: "42rem" }}
+					initial={{ opacity: 0.02, width: "24rem" }}
+					whileInView={{ opacity: 0.08, width: "42rem" }}
 					transition={{
 						delay: 0.1,
 						duration: 1.0,
@@ -35,13 +35,13 @@ export const LampContainer = ({
 					style={{
 						backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
 					}}
-					className="absolute inset-auto right-1/2 h-12 overflow-visible w-[42rem] bg-gradient-conic from-[#dfd0a4]/10 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
+					className="absolute inset-auto right-1/2 h-16 overflow-visible w-[42rem] bg-gradient-conic from-[#dfd0a4]/20 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
 				/>
 
-				{/* Cono Derecho - Minimalista, ultra tenue y sutil */}
+				{/* Cono Derecho - Proyección sutil hacia abajo */}
 				<motion.div
-					initial={{ opacity: 0.01, width: "24rem" }}
-					whileInView={{ opacity: 0.05, width: "42rem" }}
+					initial={{ opacity: 0.02, width: "24rem" }}
+					whileInView={{ opacity: 0.08, width: "42rem" }}
 					transition={{
 						delay: 0.1,
 						duration: 1.0,
@@ -50,16 +50,19 @@ export const LampContainer = ({
 					style={{
 						backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
 					}}
-					className="absolute inset-auto left-1/2 h-12 w-[42rem] bg-gradient-conic from-transparent via-transparent to-[#dfd0a4]/10 text-white [--conic-position:from_290deg_at_center_top]"
+					className="absolute inset-auto left-1/2 h-16 w-[42rem] bg-gradient-conic from-transparent via-transparent to-[#dfd0a4]/20 text-white [--conic-position:from_290deg_at_center_top]"
 				/>
 
-				{/* Haz hilo fino dorada casi imperceptible */}
+				{/* Haz fino horizontal superior que marca el límite estricto con la sección de arriba */}
 				<motion.div
 					initial={{ width: "12rem" }}
 					whileInView={{ width: "36rem" }}
 					transition={{ delay: 0.1, duration: 1.0, ease: "easeInOut" }}
-					className="absolute inset-auto z-30 h-[1px] w-[36rem] -translate-y-2 bg-[#dfd0a4]/15"
+					className="absolute inset-auto top-0 z-30 h-[1px] w-[36rem] bg-[#dfd0a4]/20"
 				></motion.div>
+
+				{/* Baño de iluminación sutil que se extiende ÚNICAMENTE hacia la parte superior de la sección inferior */}
+				<div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#dfd0a4]/12 via-[#dfd0a4]/4 to-transparent pointer-events-none" />
 			</div>
 
 			{/* Contenido descendente opcional */}
