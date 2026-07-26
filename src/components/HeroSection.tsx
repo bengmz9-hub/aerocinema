@@ -2,22 +2,11 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import Link from "next/link";
-import { type MouseEvent, useState } from "react";
 import { HeroParticles } from "./ui/HeroParticles";
 
 export function HeroSection() {
-	const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-
-	const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-		const rect = e.currentTarget.getBoundingClientRect();
-		const x = ((e.clientX - rect.left) / rect.width) * 100;
-		const y = ((e.clientY - rect.top) / rect.height) * 100;
-		setMousePos({ x, y });
-	};
-
 	return (
 		<section
-			onMouseMove={handleMouseMove}
 			aria-label="Hero Principal"
 			className="relative w-full h-screen bg-neutral-950 overflow-hidden flex items-center justify-center select-none"
 		>
@@ -31,15 +20,6 @@ export function HeroSection() {
 				}}
 			/>
 
-			{/* 0.1. Lens Spotlight Anamórfico (Seguimiento de cursor) */}
-			<div
-				className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 opacity-60"
-				style={{
-					background: `radial-gradient(600px circle at ${mousePos.x}% ${mousePos.y}%, rgba(212, 175, 55, 0.08), rgba(11, 18, 25, 0.15) 40%, transparent 80%)`,
-				}}
-				aria-hidden="true"
-			/>
-
 			{/* 1. Fondo de Vídeo Cinematográfico Silencioso con Fallback */}
 			<div className="absolute inset-0 z-0">
 				<video
@@ -51,8 +31,9 @@ export function HeroSection() {
 				>
 					<source src="/hero.webm" type="video/webm" />
 				</video>
-				{/* Degradado cinematográfico profundo */}
-				<div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-[#050505]/80 z-10" />
+				{/* Degradado cinematográfico profundo con fundido suave a negro puro en la parte inferior */}
+				<div className="absolute inset-0 bg-gradient-to-b from-[#000000]/70 via-transparent to-[#000000] z-10" />
+				<div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#000000] via-[#000000] to-transparent z-10 pointer-events-none" />
 			</div>
 
 			{/* 2. Contenido Editorial */}

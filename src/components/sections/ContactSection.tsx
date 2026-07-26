@@ -8,7 +8,7 @@ export default function ContactSection() {
 		"https://wa.me/34600000000?text=Hola%20Jose,%20tengo%20un%20proyecto%20en%20mente%20y%20me%20gustar%C3%ADa%20consultarte.";
 
 	return (
-		<section className="relative mx-auto max-w-7xl border-t border-white/[0.06] px-6 py-20 lg:px-8 text-center select-none">
+		<section className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 text-center select-none">
 			<div className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-6">
 				{/* Tag Superior */}
 				<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 font-mono text-[10px] tracking-[0.25em] uppercase">

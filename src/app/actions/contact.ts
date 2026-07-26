@@ -26,7 +26,6 @@ export async function submitContactForm(data: ContactInput) {
 
 		// Modo Fallback / Dev local si no hay API Key configurada
 		if (!resend) {
-
 			await new Promise((resolve) => setTimeout(resolve, 1000));
 			return { success: true };
 		}
