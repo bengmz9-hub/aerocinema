@@ -53,9 +53,16 @@ export const LampContainer = ({
 					className="absolute inset-auto left-1/2 h-16 w-[42rem] bg-gradient-conic from-transparent via-transparent to-[#dfd0a4]/20 text-white [--conic-position:from_290deg_at_center_top]"
 				/>
 
+				{/* Haz fino horizontal superior del foco central */}
+				<motion.div
+					initial={{ width: "12rem" }}
+					whileInView={{ width: "36rem" }}
+					transition={{ delay: 0.1, duration: 1.0, ease: "easeInOut" }}
+					className="absolute inset-auto top-0 z-30 h-[1px] w-[36rem] bg-[#dfd0a4]/30"
+				/>
 
-				{/* Baño de iluminación sutil que se extiende ÚNICAMENTE hacia la parte superior de la sección inferior */}
-				<div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#dfd0a4]/12 via-[#dfd0a4]/4 to-transparent pointer-events-none" />
+				{/* Baño de iluminación sutil centrado únicamente sobre la lámpara */}
+				<div className="absolute top-0 left-1/2 -translate-x-1/2 w-[36rem] h-20 bg-gradient-to-b from-[#dfd0a4]/12 via-[#dfd0a4]/4 to-transparent pointer-events-none" />
 			</div>
 
 			{/* Contenido descendente opcional */}

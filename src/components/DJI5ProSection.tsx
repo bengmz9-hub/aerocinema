@@ -17,7 +17,7 @@ export function DJI5ProSection() {
 			className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white select-none cursor-default"
 		>
 			{/* Encabezado de Sección */}
-			<div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-white/10 pb-6">
+			<div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
 				<div>
 					<div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest mb-2 font-medium bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent">
 						<Sparkles className="w-4 h-4 text-[#dfd0a4] animate-pulse" />

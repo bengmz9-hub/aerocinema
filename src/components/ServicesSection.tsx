@@ -171,7 +171,7 @@ export function ServicesSection() {
 		>
 			<div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-20">
 				{/* Cabecera Principal */}
-				<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/[0.06] pb-8">
+				<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
 					<div>
 						<div className="flex items-center gap-2.5 mb-3">
 							<ShieldCheck
