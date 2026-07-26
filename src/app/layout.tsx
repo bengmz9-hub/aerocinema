@@ -45,6 +45,9 @@ export const metadata: Metadata = {
 	title: "JF.DroneVision | Fotografía y Vídeo con Drones",
 	description:
 		"Contenido visual aéreo premium para paisajes, propiedades y eventos.",
+	icons: {
+		icon: "/favicon.svg",
+	},
 };
 
 const professionalServiceLd = {
@@ -78,6 +81,7 @@ export default function RootLayout({
 	return (
 		<html lang="es" className={cn("dark", "font-sans", geist.variable)}>
 			<head>
+				<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 				<script
 					type="application/ld+json"
 					// biome-ignore lint/security/noDangerouslySetInnerHtml: SEO JSON-LD schema requires dangerouslySetInnerHTML

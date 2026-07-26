@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#f0e6c8"/>
+    </linearGradient>
+  </defs>
+  <!-- Fondo oscuro circular -->
+  <circle cx="32" cy="32" r="30" fill="#0f1115" stroke="url(#g)" stroke-width="2"/>
+  <!-- Rotor superior -->
+  <line x1="32" y1="6" x2="32" y2="22" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="18" y1="14" x2="46" y2="14" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Rotor inferior -->
+  <line x1="32" y1="42" x2="32" y2="58" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="18" y1="50" x2="46" y2="50" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Rotor izquierdo -->
+  <line x1="6" y1="32" x2="22" y2="32" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="14" y1="18" x2="14" y2="46" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Rotor derecho -->
+  <line x1="42" y1="32" x2="58" y2="32" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="50" y1="18" x2="50" y2="46" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Cuerpo central (cámara/lente) -->
+  <circle cx="32" cy="32" r="10" fill="none" stroke="url(#g)" stroke-width="2"/>
+  <circle cx="32" cy="32" r="5" fill="url(#g)"/>
+  <!-- Destello de lente -->
+  <circle cx="30" cy="30" r="2" fill="#fff" opacity="0.6"/>
+</svg>
