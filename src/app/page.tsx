@@ -6,10 +6,11 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { Stats } from "@/components/Stats";
 import ContactSection from "@/components/sections/ContactSection";
 import FAQSection from "@/components/sections/FAQSection";
+import { LampContainer } from "@/components/ui/lamp";
 
 export default function HomePage() {
 	return (
-		<main className="min-h-screen selection:bg-white selection:text-black overflow-x-hidden">
+		<main className="min-h-screen bg-[#000000] selection:bg-white selection:text-black overflow-x-hidden">
 			{/* ========== 01. HERO ========== */}
 			<HeroSection />
 
@@ -18,45 +19,38 @@ export default function HomePage() {
 				<InstagramReelsSection />
 			</div>
 
+			{/* LAMP DIVIDER 1: Entre Trabajos Recientes y Servicios */}
+			<LampContainer />
+
 			{/* ========== 04. SERVICIOS ========== */}
 			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20">
 				<ServicesSection />
 			</div>
 
-			{/* Lámpara Horizontal Ambient Accent */}
-			<div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-[#dfd0a4]/40 to-transparent relative my-4">
-				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#dfd0a4]/20 to-transparent blur-sm" />
-			</div>
+			{/* LAMP DIVIDER 2: Entre Servicios y el Dron (DJI Mini 5 Pro) */}
+			<LampContainer />
 
 			{/* ========== 05. TECNOLOGÍA DJI MINI 5 PRO ========== */}
 			<div id="optical" className="scroll-mt-28 md:scroll-mt-36">
 				<DJI5ProSection />
 			</div>
 
-			{/* Lámpara Horizontal Ambient Accent */}
-			<div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-[#dfd0a4]/40 to-transparent relative my-4">
-				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#dfd0a4]/20 to-transparent blur-sm" />
-			</div>
+			{/* LAMP DIVIDER 3: Entre el Dron y About Me */}
+			<LampContainer />
 
 			{/* ========== 06. OPERADOR ACREDITADO & STATS ========== */}
 			<div id="operador" className="scroll-mt-16 md:scroll-mt-20">
 				<AboutMe />
-				<Stats />
-			</div>
 
-			{/* Lámpara Horizontal Ambient Accent */}
-			<div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-[#dfd0a4]/40 to-transparent relative my-4">
-				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#dfd0a4]/20 to-transparent blur-sm" />
+				{/* LAMP DIVIDER 4: Entre About Me y las 4 Tarjetas (Stats) */}
+				<LampContainer />
+
+				<Stats />
 			</div>
 
 			{/* ========== 06. FAQ ========== */}
 			<div id="faq" className="scroll-mt-16 md:scroll-mt-24">
 				<FAQSection />
-			</div>
-
-			{/* Lámpara Horizontal Ambient Accent */}
-			<div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-[#dfd0a4]/40 to-transparent relative my-4">
-				<div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#dfd0a4]/20 to-transparent blur-sm" />
 			</div>
 
 			{/* ========== 07. CONTACTO EXPANDIBLE ========== */}
