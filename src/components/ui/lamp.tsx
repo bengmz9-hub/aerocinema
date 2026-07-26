@@ -23,10 +23,10 @@ export const LampContainer = ({
 			)}
 		>
 			<div className="relative flex w-full flex-1 items-center justify-center isolate z-0">
-				{/* Cono Izquierdo - Proyección sutil hacia abajo (opacity 0.10) */}
+				{/* Cono Izquierdo - Proyección sutil hacia abajo (opacity 0.09) */}
 				<motion.div
 					initial={{ opacity: 0.03, width: "24rem" }}
-					whileInView={{ opacity: 0.10, width: "42rem" }}
+					whileInView={{ opacity: 0.09, width: "42rem" }}
 					transition={{
 						delay: 0.1,
 						duration: 1.0,
@@ -35,13 +35,13 @@ export const LampContainer = ({
 					style={{
 						backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
 					}}
-					className="absolute inset-auto right-1/2 h-16 overflow-visible w-[42rem] bg-gradient-conic from-[#dfd0a4]/10 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
+					className="absolute inset-auto right-1/2 h-16 overflow-visible w-[42rem] bg-gradient-conic from-[#dfd0a4]/09 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
 				/>
 
-				{/* Cono Derecho - Proyección sutil hacia abajo (opacity 0.10) */}
+				{/* Cono Derecho - Proyección sutil hacia abajo (opacity 0.09) */}
 				<motion.div
 					initial={{ opacity: 0.03, width: "24rem" }}
-					whileInView={{ opacity: 0.10, width: "42rem" }}
+					whileInView={{ opacity: 0.09, width: "42rem" }}
 					transition={{
 						delay: 0.1,
 						duration: 1.0,
@@ -50,7 +50,7 @@ export const LampContainer = ({
 					style={{
 						backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
 					}}
-					className="absolute inset-auto left-1/2 h-16 w-[42rem] bg-gradient-conic from-transparent via-transparent to-[#dfd0a4]/10 text-white [--conic-position:from_290deg_at_center_top]"
+					className="absolute inset-auto left-1/2 h-16 w-[42rem] bg-gradient-conic from-transparent via-transparent to-[#dfd0a4]/09 text-white [--conic-position:from_290deg_at_center_top]"
 				/>
 
 				{/* Haz fino horizontal superior del foco central */}
@@ -58,11 +58,11 @@ export const LampContainer = ({
 					initial={{ width: "12rem" }}
 					whileInView={{ width: "36rem" }}
 					transition={{ delay: 0.1, duration: 1.0, ease: "easeInOut" }}
-					className="absolute inset-auto top-0 z-30 h-[1px] w-[36rem] bg-[#dfd0a4]/20"
+					className="absolute inset-auto top-0 z-30 h-[1px] w-[36rem] bg-[#dfd0a4]/18"
 				/>
 
-				{/* Baño de iluminación sutil centrado únicamente sobre la lámpara (opacity 0.10) */}
-				<div className="absolute top-0 left-1/2 -translate-x-1/2 w-[36rem] h-20 bg-gradient-to-b from-[#dfd0a4]/10 via-[#dfd0a4]/03 to-transparent pointer-events-none" />
+				{/* Baño de iluminación sutil centrado únicamente sobre la lámpara (opacity 0.09) */}
+				<div className="absolute top-0 left-1/2 -translate-x-1/2 w-[36rem] h-20 bg-gradient-to-b from-[#dfd0a4]/09 via-[#dfd0a4]/02 to-transparent pointer-events-none" />
 			</div>
 
 			{/* Contenido descendente opcional */}
