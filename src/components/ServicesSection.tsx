@@ -185,8 +185,8 @@ export function ServicesSection() {
 							</span>
 						</div>
 						<h2 className="font-cormorant text-3xl md:text-5xl font-bold tracking-tight text-white uppercase">
-							¿En qué te puedo{" "}
-							<span className="text-amber-400 italic">ayudar</span>?
+							¿En qué te puedo
+							<span className="text-amber-400 italic"> ayudar</span>?
 						</h2>
 					</div>
 					<p className="font-jakarta text-xs md:text-sm text-zinc-400 max-w-md font-light">
