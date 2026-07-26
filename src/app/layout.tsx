@@ -42,6 +42,7 @@ const mt = Montserrat({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL("https://jfdronevision.com"),
 	title: "JF.DroneVision | Fotografía y Vídeo con Drones",
 	description:
 		"Grabaciones con dron para tu negocio o propiedad en L'Hospitalet y Barcelona. Permiso AESA en regla.",
