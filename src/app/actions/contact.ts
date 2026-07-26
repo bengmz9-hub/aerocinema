@@ -9,9 +9,19 @@ interface ContactInput {
 
 export async function submitContactForm(_data: ContactInput) {
 	try {
-		// Aquí conectarás tu servicio de email (Resend, SendGrid) o tu base de datos
+		// ── CONECTAR AQUÍ EL SERVICIO DE EMAIL ──
+		// Usar process.env.EMAIL_API_KEY — NUNCA hardcodear la key
+		//
+		// Ejemplo con Resend:
+		//   const resend = new Resend(process.env.EMAIL_API_KEY);
+		//   await resend.emails.send({
+		//     from: process.env.EMAIL_FROM ?? "contacto@jfdronevision.com",
+		//     to:   process.env.EMAIL_TO   ?? "jose@jfdronevision.com",
+		//     subject: `Nuevo proyecto: ${_data.type}`,
+		//     text: `Nombre: ${_data.name}\nEmail: ${_data.email}\n\n${_data.details}`,
+		//   });
 
-		// Simular retraso de red en producción
+		// Simular retraso de red
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 
 		return { success: true };

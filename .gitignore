@@ -1,9 +1,19 @@
 node_modules
 .next
 next-env.d.ts
+
+# ── SECRETOS: NUNCA SUBIR ──
+# Cualquier .env (local, produccion, etc) debe quedarse local
 .env
 .env.*
+
+# ── EXCEPCIÓN: plantilla pública ──
+# .env.example es la única que SÍ debe subirse al repo
+!.env.example
+
+# ── ARCHIVOS LOCALES ──
 *.local
+
 graphify-out/
 .vercel
 temp_*
