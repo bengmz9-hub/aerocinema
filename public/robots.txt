@@ -1,0 +1,7 @@
+# robots.txt para JF.DroneVision
+User-agent: *
+Allow: /
+Allow: /aviso-legal
+Disallow: /api/
+Disallow: /_next/
+Sitemap: https://jfdronevision.com/sitemap.xml
