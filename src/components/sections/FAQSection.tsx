@@ -69,7 +69,7 @@ export default function FAQSection() {
 
 	return (
 		<section
-			className="relative mx-auto max-w-7xl border-t border-white/[0.06] px-6 py-20 lg:px-8"
+			className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 select-none"
 			aria-labelledby="faq-heading"
 		>
 			<div className="mx-auto flex max-w-3xl flex-col items-center gap-10">
@@ -119,7 +119,7 @@ export default function FAQSection() {
 									aria-controls={panelId}
 									className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left cursor-pointer select-none group"
 								>
-									<span className="font-jakarta text-lg sm:text-xl font-medium leading-snug text-gold-300 group-hover:text-gold-200 transition-colors pr-2">
+									<span className="font-jakarta text-base sm:text-lg font-medium leading-snug text-gold-300 group-hover:text-gold-200 transition-colors pr-2">
 										{faq.question}
 									</span>
 									<ChevronDown
@@ -145,7 +145,7 @@ export default function FAQSection() {
 										<div className="px-5 pb-5 pt-1">
 											{/* Línea divisoria dorada sutil */}
 											<div className="w-full h-px bg-gradient-to-r from-gold-500/30 via-gold-500/10 to-transparent mb-4" />
-											<p className="font-jakarta text-base sm:text-lg font-light leading-relaxed text-zinc-100">
+											<p className="font-jakarta text-xs sm:text-sm font-light leading-relaxed text-zinc-300">
 												{faq.answer}
 											</p>
 										</div>
