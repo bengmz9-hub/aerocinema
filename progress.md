@@ -6,50 +6,29 @@
 
 ---
 
-## 1. Sesión Actual — Resumen Completo (Sesión 2026-07-26 - Sprint 2)
+## 1. Sesión Actual — Resumen Completo
 
-### Cambios realizados este sprint (sesión anterior):
+### Cambios realizados esta sesión (reparación formulario):
+
 | # | Cambio | Archivos |
 |---|--------|----------|
-|| 1 | **Spaciado "en mente ?"** | `ContactSection.tsx` |
-|| 2 | **Footer rediseñado Opción C** | `page.tsx` |
-|| 3 | **Paleta Gold unificada (`gold-50` a `gold-900`)** | `globals.css` |
-|| 4 | **Reemplazo global `amber-XXX` → `gold-XXX`** | 13 archivos .tsx |
-|| 5 | **Instagram link unificado** | `page.tsx` |
-|| 6 | **Sombras rgba actualizadas** | 7 archivos + globals.css |
-|| 7 | **DESIGN.md sincronizado** | `DESIGN.md` |
-|| 8 | **Graphify actualizado** | `graphify-out/` |
-|| 9 | **CookieBanner.tsx** | `CookieBanner.tsx`, `page.tsx` |
+| 1 | **CSP ampliado** — `'unsafe-eval'` + `connect-src 'self' ws:` en Content-Security-Policy (el CSP restrictivo bloqueaba `eval()` necesario para hidratación React) | `next.config.mjs` |
+| 2 | **ContactModal reescrito sin Framer Motion** — Animaciones CSS nativas (`animate-blur-in`) reemplazan a Framer Motion (que interfería con clicks vía `specular-card::before`) | `ContactModal.tsx` |
+| 3 | **Fix a11y en modal overlay** — `onKeyDown` añadido para cumplir Biome `useKeyWithClickEvents` | `ContactModal.tsx` |
+| 4 | **Diagnóstico y limpieza** — Página `/test` creada y eliminada tras confirmar hidratación React; `force-dynamic` añadido y revertido (no era necesario tras arreglar CSP) | `app/test/`, `app/page.tsx` |
 
-### Cambios de esta sesión (infraestructura local):
-| # | Cambio | Detalle |
-|---|--------|---------|
-|| 10 | **Fix useParams() cast** — runtime check en vez de `as string` | `portfolio/[category]/page.tsx` |
-|| 11 | **CSP headers añadidos** — Content-Security-Policy en next.config.mjs | `next.config.mjs` |
-|| 12 | **OpenCode CLI instalado** — v1.18.5, delegación de código local | `npm i -g opencode-ai` |
-|| 13 | **Ollama + 4 modelos locales** — qwen2.5-coder:14b (código), gemma4:12b-it-qat (research/tex), deepseek-r1:14b (razonamiento), llava:13b (visión) | `ollama pull` |
-|| 14 | **gpt-researcher + markitdown instalados** — investigación web local + conversión documentos | `pip install` |
-|| 15 | **Rust instalado** — dependencia para litellm | `winget install Rustlang.Rustup` |
-|| 16 | **Skill local-coding-agents actualizado** — tabla de delegación autónoma | SKILL.md |
-| | 17 | **Code review con qwen2.5-coder:14b** — auditoría local de src/ (0 tokens API) | 11 archivos TSX/TS/CSS |
-| | 18 | **Regenerado .project-map.md** — eliminado ruido de `.agents/` | `.project-map.md` |
-| | 19 | **tsconfig.tsbuildinfo → .gitignore** — build cache ya no trackeado | `.gitignore` |
-| | 20 | **Graphify actualizado** — 3031 nodos, 6763 edges, 158 comunidades | `graphify-out/` |
+### Archivos modificados:
+- `next.config.mjs` — CSP headers
+- `src/components/sections/ContactModal.tsx` — Sin Framer Motion, animaciones CSS nativas, fix a11y
+- `.project-map.md` — Regenerado automáticamente
 
 ---
 
 ## 2. Decisiones de la Sesión
 
-- **Footer Opción C** (híbrido 3 columnas con jerarquía premium) elegido sobre opciones Yummygum y Object & Archive
-- **Paleta gold unificada** de las bentogrids del DJI Mini 5 Pro (`#dfd0a4`) aplicada a toda la web, reemplazando `amber-XXX`
-- **Banner de Cookies minimalista** implementado e integrado con estética oscura/dorada.
-- **Sync Hermes Agent / DeepSeek V4 Pro** compartiendo workspace local mediante commits Git.
-- **No tocar email/WhatsApp** hasta que web activa y Jose tenga datos reales.
-- **OpenCode + Ollama como agentes locales** para código y procesamiento mecánico sin pérdida calidad.
-- **Qwen 2.5 Coder 14B** para código, **Gemma 4 12B QAT** para investigación, **LLaVA 13B** para visión.
-- **DeepSeek API siempre** para respuestas, diseño, debugging, decisiones. Solo local si pérdida CERO garantizada.
-- **Flujo diseño automatizado**: popular-web-designs → OpenCode + gemma4:12b-it-qat (research local, 0 tokens). DeepSeek solo diseño final.
-- **Agentes locales por tarea**: gemma4 (diseño/estética), qwen2.5-coder (código), deepseek-r1 (razonamiento), llava (visión).
+- **Causa raíz del formulario roto:** CSP bloqueaba `eval()` (necesario para HMR y bundles en dev mode). React no hidrataba ningún componente cliente.
+- **Framer Motion eliminado del modal:** no causaba la rotura principal pero interfería con clicks del tool de testing. Mantener el modal con CSS nativo.
+- **No hacer deploy del formulario:** sigue siendo stub (`submitContactForm` simula 1s y devuelve success). Conexión a email real pendiente para cuando Jose tenga datos.
 
 ---
 
@@ -64,17 +43,10 @@
 ## 4. Para el Nuevo Chat
 
 ```bash
-# Archivos a cargar primero
-read_file progress.md
-read_file DESIGN.md
-cargar skill: drones-project-reference
-cargar skill: local-coding-agents  # ← NUEVO: tabla delegación autónoma
-
 # Reglas activas
 .agents/AGENTS.md (no pushes sin trigger)
 .agents/rules/consultation-workflow.md (todo = consulta técnica)
-.agents/rules/graphify.md (usar grafo)
 
-# Dev server corriendo en segundo plano
-# Local: http://localhost:3000
+# Dev server corriendo
+Local: http://localhost:3000
 ```
