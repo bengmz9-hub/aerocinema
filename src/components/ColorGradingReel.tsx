@@ -140,7 +140,7 @@ export function ColorGradingReel() {
 								COLOR GRADING REEL {"//"} D-LOG M 10-BIT
 							</span>
 						</div>
-							<BlurText
+						<BlurText
 							text="PRODUCCIONES & ETALONAJE DIGITAL"
 							className="font-cinzel-display text-2xl sm:text-3xl md:text-4xl font-bold text-white"
 						/>

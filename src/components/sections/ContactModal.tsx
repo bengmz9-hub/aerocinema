@@ -73,7 +73,7 @@ export default function ContactModal() {
 				whileTap={{ scale: 0.97 }}
 				transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
 				onClick={() => setIsOpen(true)}
-				className="btn-secondary group"
+				className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
 			>
 				<div className="flex items-center gap-3">
 					<div className="flex items-center justify-center p-2 rounded-lg bg-gold-500/10 border border-gold-500/20 text-gold-400">
@@ -162,7 +162,7 @@ export default function ContactModal() {
 										</span>
 										<h3
 											id="contact-modal-title"
-											className="font-cinzel-display text-3xl font-bold leading-tight text-golden-hour sm:text-4xl lg:text-5xl"
+											className="font-cinzel text-3xl font-bold leading-tight tracking-tight text-golden-hour sm:text-4xl lg:text-5xl uppercase"
 										>
 											Cuéntame tu
 											<br />
@@ -170,7 +170,7 @@ export default function ContactModal() {
 										</h3>
 										<div className="space-y-4 pt-4 font-sans text-sm font-light text-white/60">
 											<div className="flex gap-4">
-												<div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.03] text-gold-400 rounded-lg">
+												<div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.03] text-cyan-400 rounded-lg">
 													<Compass size={18} />
 												</div>
 												<div>
@@ -229,7 +229,7 @@ export default function ContactModal() {
 													required
 													type="text"
 													disabled={isPending}
-													className="h-10 w-full rounded-md border border-white/10 bg-white/[0.03] px-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-gold-400/60 focus:ring-1 focus:ring-gold-400/30 focus:outline-none transition-all duration-300"
+													className="h-10 w-full rounded-md border border-white/10 bg-white/[0.03] px-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-cyan-400/60 focus:ring-1 focus:ring-cyan-400/30 focus:outline-none transition-all duration-300"
 												/>
 											</div>
 											<div>
@@ -245,7 +245,7 @@ export default function ContactModal() {
 													required
 													type="email"
 													disabled={isPending}
-													className="h-10 w-full rounded-md border border-white/10 bg-white/[0.03] px-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-gold-400/60 focus:ring-1 focus:ring-gold-400/30 focus:outline-none transition-all duration-300"
+													className="h-10 w-full rounded-md border border-white/10 bg-white/[0.03] px-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-cyan-400/60 focus:ring-1 focus:ring-cyan-400/30 focus:outline-none transition-all duration-300"
 												/>
 											</div>
 											<div>
@@ -260,7 +260,7 @@ export default function ContactModal() {
 														id="type"
 														name="type"
 														disabled={isPending}
-														className="h-10 w-full cursor-pointer rounded-md appearance-none border border-white/10 bg-[#0f1115] px-4 pr-10 font-sans text-xs text-white focus:border-gold-400/60 focus:outline-none transition-all duration-300"
+														className="h-10 w-full cursor-pointer rounded-md appearance-none border border-white/10 bg-[#0f1115] px-4 pr-10 font-sans text-xs text-white focus:border-cyan-400/60 focus:outline-none transition-all duration-300"
 													>
 														<option value="real-estate">
 															Piso / Propiedad inmobiliaria
@@ -292,7 +292,7 @@ export default function ContactModal() {
 													rows={3}
 													disabled={isPending}
 													placeholder="Descríbenos brevemente la localización y el objetivo de la filmación..."
-													className="w-full resize-none rounded-md border border-white/10 bg-white/[0.03] p-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-gold-400/60 focus:ring-1 focus:ring-gold-400/30 focus:outline-none transition-all duration-300"
+													className="w-full resize-none rounded-md border border-white/10 bg-white/[0.03] p-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-cyan-400/60 focus:ring-1 focus:ring-cyan-400/30 focus:outline-none transition-all duration-300"
 												/>
 											</div>
 											<motion.button
@@ -300,7 +300,7 @@ export default function ContactModal() {
 												whileHover={{ scale: 1.01 }}
 												whileTap={{ scale: 0.98 }}
 												disabled={isPending}
-												className="btn-primary w-full"
+												className="h-11 w-full cursor-pointer rounded-md border border-gold-500/40 bg-gold-500/10 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-gold-200 transition-all hover:bg-gold-500/20 hover:border-gold-400/60 disabled:opacity-50 specular-card shadow-lg shadow-gold-500/5"
 											>
 												{isPending ? "Procesando plan..." : "Enviar solicitud"}
 											</motion.button>

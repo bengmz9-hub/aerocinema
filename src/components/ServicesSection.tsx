@@ -6,35 +6,15 @@ import {
 	useReducedMotion,
 	useSpring,
 	useTransform,
-	type Variants,
 } from "framer-motion";
 import { ArrowUpRight, type LucideIcon, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { type ServiceItem, servicesItems } from "@/data/servicesData";
-import { cn } from "@/lib/utils";
 
-const containerVariants: Variants = {
-	hidden: { opacity: 0 },
-	visible: {
-		opacity: 1,
-		transition: { staggerChildren: 0.1 },
-	},
-};
-
-const itemVariants: Variants = {
-	hidden: { opacity: 0, y: 16 },
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: { duration: 0.45, ease: "easeOut" },
-	},
-};
-
-function ServiceCard({ item }: { item: ServiceItem }) {
+function ServiceCard({ item, index }: { item: ServiceItem; index: number }) {
 	const prefersReducedMotion = useReducedMotion();
 	const Icon: LucideIcon = item.icon;
 
-	// 3D Motion Tilt Springs
 	const x = useMotionValue(0);
 	const y = useMotionValue(0);
 	const mouseXSpring = useSpring(x, { stiffness: 300, damping: 20 });
@@ -61,29 +41,21 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 
 	return (
 		<motion.article
-			variants={itemVariants}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
 			style={{
 				rotateX: prefersReducedMotion ? 0 : rotateX,
 				rotateY: prefersReducedMotion ? 0 : rotateY,
 				transformStyle: "preserve-3d",
+				animationDelay: `${index * 120}ms`,
 			}}
 			whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
 			transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-			role="listitem"
 			tabIndex={0}
 			aria-labelledby={`service-${item.id}`}
-			className={cn(
-				"group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0d10]/90 specular-card select-none cursor-default",
-				"backdrop-blur-xl p-6 md:p-8",
-				"transition-all duration-500 ease-out",
-				"hover:border-gold-500/30 hover:shadow-[0_0_35px_rgba(223,208,164,0.08)]",
-				"focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50",
-				"min-h-[420px] transform-gpu",
-			)}
+			className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0d10]/90 specular-card select-none cursor-default backdrop-blur-xl p-6 md:p-8 transition-all duration-500 ease-out hover:border-gold-500/30 hover:shadow-[0_0_35px_rgba(223,208,164,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500/50 min-h-[420px] transform-gpu animate-blur-in"
 		>
-			{/* 📹 REPRODUCTOR VÍDEO DE FONDO */}
+			{/* Video de fondo */}
 			<div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none overflow-hidden rounded-2xl">
 				<video
 					src={item.videoUrl}
@@ -96,19 +68,19 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 				/>
 			</div>
 
-			{/* 🖤 DEGRADADO CINEMÁTICO */}
+			{/* Degradado cinematico */}
 			<div
 				className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-[#08090b]/80 to-[#08090b]/40 z-10 pointer-events-none"
 				aria-hidden="true"
 			/>
 
-			{/* Brackets HUD Esquinas */}
+			{/* HUD corners */}
 			<div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/20 group-hover:border-gold-400/60 transition-colors z-20" />
 			<div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-white/20 group-hover:border-gold-400/60 transition-colors z-20" />
 			<div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white/20 group-hover:border-gold-400/60 transition-colors z-20" />
 			<div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/20 group-hover:border-gold-400/60 transition-colors z-20" />
 
-			{/* Top Header: Badge + Index */}
+			{/* Header */}
 			<div className="relative z-20 flex items-start justify-between gap-4">
 				<div className="flex items-center gap-2">
 					<div className="p-2 rounded-lg bg-gold-500/10 border border-gold-500/20 text-gold-400">
@@ -120,7 +92,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 				</div>
 			</div>
 
-			{/* Middle Content */}
+			{/* Content */}
 			<div className="relative z-20 mt-6 flex-1 flex flex-col justify-end">
 				<h3
 					id={`service-${item.id}`}
@@ -135,7 +107,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 					{item.description}
 				</p>
 
-				{/* Sub-tarjeta Glass-Tag Micro-Bento con LED de estado */}
+				{/* Badge */}
 				<div className="mt-5 pt-3 border-t border-white/[0.08]">
 					<div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#141820]/80 border border-white/10 backdrop-blur-md shadow-lg shadow-black/40 group-hover:border-gold-500/30 transition-colors">
 						<span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
@@ -146,7 +118,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 				</div>
 			</div>
 
-			{/* Bottom CTA Button */}
+			{/* CTA */}
 			<div className="relative z-20 mt-6">
 				<Link href={item.ctaHref} className="btn-secondary group/btn">
 					<span>{item.ctaText}</span>
@@ -158,15 +130,12 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 }
 
 export function ServicesSection() {
-	const prefersReducedMotion = useReducedMotion();
-
 	return (
 		<section
-			className="relative w-full bg-transparent pt-16 pb-16 md:pt-24 md:pb-24 border-t border-white/[0.06] overflow-hidden select-none cursor-default"
+			className="relative w-full bg-transparent pt-16 pb-16 md:pt-24 md:pb-24 border-t border-white/[0.06] overflow-hidden"
 			aria-labelledby="services-heading"
 		>
 			<div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-				{/* Cabecera Principal */}
 				<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/[0.06] pb-8">
 					<div>
 						<div className="flex items-center gap-2.5 mb-3">
@@ -192,19 +161,11 @@ export function ServicesSection() {
 					</p>
 				</div>
 
-				{/* Grid de 3 Columnas */}
-				<motion.div
-					variants={prefersReducedMotion ? undefined : containerVariants}
-					initial="hidden"
-					whileInView="visible"
-					viewport={{ once: true, margin: "-50px" }}
-					className="grid grid-cols-1 md:grid-cols-3 gap-6"
-					role="list"
-				>
-					{servicesItems.map((item) => (
-						<ServiceCard key={item.id} item={item} />
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+					{servicesItems.map((item, index) => (
+						<ServiceCard key={item.id} item={item} index={index} />
 					))}
-				</motion.div>
+				</div>
 			</div>
 		</section>
 	);
