@@ -9,7 +9,7 @@ import { cn } from "../../../lib/utils";
 
 export default function PortfolioCategory() {
 	const params = useParams();
-	const category = params?.category as string;
+	const category = typeof params?.category === "string" ? params.category : "";
 	const items = category ? portfolioData[category] : [];
 
 	if (!items || items.length === 0) {
