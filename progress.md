@@ -16,9 +16,10 @@
 | 2 | **Footer rediseñado Opción C** — 3 columnas con jerarquía premium: headings con borde inferior, chevrones dorados en hover, bottom bar minimal (solo © + Aviso Legal) | `page.tsx` (footer) |
 | 3 | **Paleta Gold unificada (`gold-50` a `gold-900`)** en `@theme` de Tailwind 4 — color principal `#dfd0a4` (dorado bentogrid DJI Mini 5 Pro) | `globals.css` |
 | 4 | **Reemplazo global `amber-XXX` → `gold-XXX`** — 13 archivos actualizados de todas las secciones (Hero, Navbar, 404, servicios, stats, about, reels, contacto, cookie, footer) | 13 archivos .tsx |
-| 5 | **Sombras actualizadas** — todos los `rgba(212,175,55,...)` y `rgba(245,158,11,...)` al nuevo `rgba(223,208,164,...)` | 7 archivos .tsx + globals.css |
-| 6 | **DESIGN.md sincronizado** — fuentes reales (Cinzel, Cormorant, Jakarta, Montserrat) y paleta gold actualizada | `DESIGN.md` |
-| 7 | **Graphify actualizado** — 3029 nodos, 6761 edges, 149 comunidades | `graphify-out/` |
+| 5 | **Instagram icon + link unificado** — SVG icon + "ESCRIBIR A JOSE" en un solo link a Instagram | `page.tsx` (footer) |
+| 6 | **Sombras actualizadas** — todos los `rgba(212,175,55,...)` y `rgba(245,158,11,...)` al nuevo `rgba(223,208,164,...)` | 7 archivos .tsx + globals.css |
+| 7 | **DESIGN.md sincronizado** — fuentes reales (Cinzel, Cormorant, Jakarta, Montserrat) y paleta gold actualizada | `DESIGN.md` |
+| 8 | **Graphify actualizado** — 3030 nodos, 6762 edges, 157 comunidades | `graphify-out/` |
 
 ---
 
