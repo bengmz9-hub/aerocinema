@@ -1,48 +1,32 @@
-# Estado del Proyecto — Progress Log (Listo para Nuevo Chat)
+# Progress Summary — Antigravity Session
 
-**Última actualización:** 2026-07-26 (Sprint 4)
-**Estado:** ✅ Servidor local activo (`http://localhost:3000`). Trabajando en local — sin push/deploy.
-**Regla de Oro Permanente:** 🛑 **STRICTLY LOCAL** — Cero despliegue sin confirmación explícita.
+## Estado Actual y Cambios Realizados
 
----
+1. **Eliminación de Franjas y Bordes de Separación**:
+   - Confinado el haz y degradado de `LampContainer` (`src/components/ui/lamp.tsx`) al contenedor central (`w-[36rem]`), eliminando franjas `inset-x-0` de 100vw que cruzaban de lado a lado la pantalla.
+   - Eliminados los bordes divisores (`border-t` / `border-b`) de cabeceras en `DJI5ProSection.tsx`, `ServicesSection.tsx`, `ColorGradingReel.tsx` y `page.tsx`.
 
-## 1. Sesión Actual — Resumen Completo
+2. **Ajustes Finos de Iluminación y Tipografía**:
+   - Ajustada la intensidad de proyección de las *lamps* al **0.09 (9%)** de opacidad para una ambientación dorada sutil sin saturación.
+   - Reducidos 2 puntos de tamaño de fuente en `FAQSection.tsx` (títulos a `text-base sm:text-lg` y respuestas a `text-xs sm:text-sm`).
 
-### Cambios realizados en esta sesión:
-
-| # | Cambio | Archivos / Componentes |
-|---|--------|------------------------|
-| 1 | **Esmeralda → Dorado (#dfd0a4)** | `Navbar.tsx`, `ContactModal.tsx`, `ServicesSection.tsx`, `AboutMe.tsx`, `ColorGradingReel.tsx`, `ContactSection.tsx` |
-| 2 | **Limpieza de Código Muerto** | Eliminado archivo huérfano `src/components/ui/StarBorder.tsx` |
-| 3 | **Configuración OpenCode & DeepSeek API** | Integrada API Key de DeepSeek (`deepseek-chat`) en `opencode.jsonc` |
-| 4 | **Optimización VRAM (RTX 4090)** | Detenidas instancias duplicadas de Ollama; liberados 18.5 GB de VRAM (bajada a 1.9 GB) |
-| 5 | **Instalación y Configuración Aider** | Instalado `aider-chat 0.86.2` para flujo local con Ollama |
-| 6 | **Regla 6 Permanente en AGENTS.md** | Delegación prioritaria de tareas a Hermes Agent con DeepSeek API (Flash / Pro v4) |
-
----
-
-## 2. Decisiones de la Sesión
-
-- **Delegación Principal:** Se usará **Hermes Agent con DeepSeek API** (DeepSeek V4 Flash para cambios rápidos / DeepSeek V4 Pro para razonamiento complejo).
-- **Control por Antigravity:** Antigravity orquestará las órdenes hacia Hermes via CLI (`hermes chat -q "..."`) en segundo plano.
-- **Formulario y Enlaces:** Formulario de contacto en `src/app/actions/contact.ts` y botón de WhatsApp listos a la espera de datos reales de Jose.
+3. **Commits Locales Guardados Atómicamente**:
+   - `b1ae7a5`: `fix(ui): eliminar lineas horizontales divisorias conservando unicamente las lamps`
+   - `bb3df3a`: `fix(ui): focalizar haz y brillo de lamps al contenedor central sin bordes o bandas horizontales de lado a lado`
+   - `cc2f0ad`: `style(lamp): ajustar intensidad del degradado hacia abajo al 8%`
+   - `7e7ab34`: `style(lamp): elevar la intensidad de la iluminacion de las lamps al 18%`
+   - `0a1f815`: `style(lamp): ajustar la iluminacion de las lamps exactamente al 11%`
+   - `ebc54d8`: `style(lamp): ajustar la iluminacion de las lamps al 7%`
+   - `1e92acc`: `style(lamp): establecer opacidad de la iluminacion de las lamps a 0.15`
+   - `ff56092`: `style(lamp): establecer opacidad de la iluminacion de las lamps exactamente a 0.10`
+   - `94f0547`: `style(lamp): establecer opacidad de la iluminacion de las lamps a 0.09`
+   - `8df3467`: `style(faq): reducir 2 puntos las fuentes de los titulos y descripciones de las preguntas frecuentes`
 
 ---
 
-## 3. Próximos 3 Pasos Prioritarios
+## Estado Final
+- `progress.md` actualizado.
+- Base de conocimiento Graphify actualizada (`graphify update .`).
+- Cambios subidos a GitHub (`git push`).
+- Despliegue completado en Vercel (`vercel --prod`).
 
-1. 🎯 **Revisión estética global en dorado** y refinamiento de secciones del landing page en `http://localhost:3000`.
-2. 📱 **Número WhatsApp real y enlace funcional** cuando Jose tenga el número oficial.
-3. 🎥 **Sustituir placeholders de vídeos e imágenes** por los reels y trabajos de Jose en Barcelona / L'Hospitalet.
-
----
-
-## 4. Para el Nuevo Chat
-
-```bash
-# Reglas activas
-.agents/AGENTS.md (Regla 6: Delegación preferente a Hermes + DeepSeek API)
-
-# Dev server corriendo
-Local: http://localhost:3000
-```
