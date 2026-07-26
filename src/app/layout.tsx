@@ -7,6 +7,7 @@ import {
 	Plus_Jakarta_Sans,
 } from "next/font/google";
 import "./globals.css";
+import CookieBanner from "@/components/CookieBanner";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { cn } from "@/lib/utils";
@@ -119,6 +120,7 @@ export default function RootLayout({
 				<Navbar />
 				{children}
 				<WhatsAppButton />
+				<CookieBanner />
 			</body>
 		</html>
 	);
