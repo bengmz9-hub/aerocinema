@@ -165,10 +165,11 @@ export function ServicesSection() {
 
 	return (
 		<section
-			className="relative w-full bg-transparent pt-16 pb-16 md:pt-24 md:pb-24 border-t border-white/[0.06] overflow-hidden select-none cursor-default"
+			id="servicios"
 			aria-labelledby="services-heading"
+			className="relative py-20 md:py-28 bg-transparent text-white overflow-hidden select-none"
 		>
-			<div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-20">
 				{/* Cabecera Principal */}
 				<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-white/[0.06] pb-8">
 					<div>

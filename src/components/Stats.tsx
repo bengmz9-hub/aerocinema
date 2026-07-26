@@ -43,7 +43,7 @@ export function Stats() {
 
 	return (
 		<section
-			className="w-full bg-transparent py-16 md:py-20 px-4 md:px-8 border-t border-white/[0.06] relative z-10"
+			className="w-full bg-transparent py-16 md:py-24 px-4 md:px-8 relative z-10 overflow-hidden select-none"
 			aria-labelledby="why-us-heading"
 		>
 			<div className="max-w-7xl mx-auto">
