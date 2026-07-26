@@ -17,7 +17,7 @@ export default function ContactSection() {
 				</div>
 
 				{/* Título H2 */}
-				<h2 className="font-cormorant text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white uppercase">
+				<h2 className="font-cinzel-display text-3xl sm:text-5xl font-bold leading-none text-white">
 					¿Tienes algo <span className="text-gold-400 italic">en mente</span> ?
 				</h2>
 
@@ -35,7 +35,7 @@ export default function ContactSection() {
 						href={whatsappUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
+						className="btn-secondary group w-full sm:w-auto min-w-[260px]"
 					>
 						{/* Definición del Gradiente SVG Verde a Oro */}
 						<svg width="0" height="0" className="absolute" aria-hidden="true">

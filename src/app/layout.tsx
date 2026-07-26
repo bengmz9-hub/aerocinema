@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import {
 	Cinzel,
 	Cormorant_Garamond,
-	Geist,
-	Montserrat,
 	Plus_Jakarta_Sans,
 } from "next/font/google";
 import "./globals.css";
@@ -11,8 +9,6 @@ import CookieBanner from "@/components/CookieBanner";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const cinzel = Cinzel({
 	subsets: ["latin"],
@@ -32,13 +28,6 @@ const jakarta = Plus_Jakarta_Sans({
 	subsets: ["latin"],
 	variable: "--font-jakarta",
 	weight: ["300", "400", "500", "600"],
-	display: "swap",
-});
-
-const mt = Montserrat({
-	subsets: ["latin"],
-	variable: "--font-montserrat",
-	weight: ["300", "400"],
 	display: "swap",
 });
 
@@ -104,7 +93,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="es" className={cn("dark", "font-sans", geist.variable)}>
+		<html lang="es" className={cn("dark", "font-sans")}>
 			<head>
 				<script
 					type="application/ld+json"
@@ -115,7 +104,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${cinzel.variable} ${cormorant.variable} ${jakarta.variable} ${mt.variable} font-sans antialiased`}
+				className={`${cinzel.variable} ${cormorant.variable} ${jakarta.variable} font-sans antialiased`}
 			>
 				<Navbar />
 				{children}

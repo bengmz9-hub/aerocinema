@@ -65,8 +65,8 @@ export function HeroSection() {
 					</span>
 				</div>
 
-				{/* Título Principal H1 Persuasivo (Opción C: Cormorant Garamond) */}
-				<h1 className="font-cormorant text-[clamp(2.8rem,6vw+1rem,6rem)] font-bold tracking-tight text-golden-hour leading-[1.02] uppercase drop-shadow-2xl [text-wrap:balance]">
+				{/* Título Principal H1 Persuasivo (Cinzel Display) */}
+				<h1 className="font-cinzel-hero text-[clamp(2.8rem,6vw+1rem,6rem)] font-bold text-golden-hour leading-[1.02] drop-shadow-2xl [text-wrap:balance]">
 					JF.DroneVision
 				</h1>
 				<h2 className="text-titanium font-cormorant text-[clamp(1.3rem,2.8vw+0.5rem,2.4rem)] mt-2 uppercase tracking-widest font-semibold italic [text-wrap:balance]">
@@ -92,7 +92,7 @@ export function HeroSection() {
 					>
 						<Link
 							href="#contacto"
-							className="block w-full sm:w-auto text-center px-9 py-3.5 bg-white text-black font-semibold text-[10px] tracking-[0.25em] uppercase rounded-sm hover:bg-neutral-200 transition-colors duration-300 cursor-pointer shadow-lg shadow-white/5"
+							className="btn-primary w-full sm:w-auto text-center"
 						>
 							PEDIR PRESUPUESTO
 						</Link>
@@ -106,7 +106,7 @@ export function HeroSection() {
 					>
 						<Link
 							href="#portfolio"
-							className="group flex items-center justify-center gap-2 w-full sm:w-auto text-center px-9 py-3.5 bg-transparent text-white border border-white/20 font-semibold text-[10px] tracking-[0.25em] uppercase rounded-sm hover:bg-white/10 transition-colors duration-300 cursor-pointer backdrop-blur-mdSpecular specular-card"
+							className="btn-secondary group w-full sm:w-auto text-center"
 						>
 							<Play className="w-3 h-3 fill-current group-hover:scale-110 transition-transform" />
 							VER TRABAJOS

@@ -49,7 +49,7 @@ export default function HomePage() {
 			</div>
 
 			{/* ========== 07. FOOTER ========== */}
-			<footer className="border-t border-white/[0.06] pt-12 md:pt-16 pb-8 md:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-jakarta">
+			<footer className="border-t border-white/[0.06] pt-12 md:pt-16 pb-8 md:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 				{/* ── Grid Principal — 3 columnas con jerarquía premium ── */}
 				<div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-10 md:gap-12 mb-10 md:mb-14">
 					{/* Col 1: Marca */}
@@ -70,7 +70,7 @@ export default function HomePage() {
 
 					{/* Col 2: Navegación — con chevrones dorados al hover */}
 					<div>
-						<span className="font-montserrat text-[11px] tracking-[0.2em] text-white/50 uppercase font-semibold block pb-2.5 mb-3.5 border-b border-white/[0.06]">
+						<span className="text-[11px] tracking-[0.2em] text-white/50 uppercase font-semibold block pb-2.5 mb-3.5 border-b border-white/[0.06]">
 							NAVEGACIÓN
 						</span>
 						<div className="flex flex-col gap-0.5">
@@ -96,7 +96,7 @@ export default function HomePage() {
 
 					{/* Col 3: Contacto — visualmente distinto a la navegación */}
 					<div>
-						<span className="font-montserrat text-[11px] tracking-[0.2em] text-white/50 uppercase font-semibold block pb-2.5 mb-3.5 border-b border-white/[0.06]">
+						<span className="text-[11px] tracking-[0.2em] text-white/50 uppercase font-semibold block pb-2.5 mb-3.5 border-b border-white/[0.06]">
 							CONTACTO
 						</span>
 						<div className="space-y-2 text-xs text-zinc-500 font-light leading-relaxed">
@@ -115,7 +115,7 @@ export default function HomePage() {
 								href="https://www.instagram.com/jf.drone_visual"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="group inline-flex items-center gap-2 font-montserrat text-[10px] uppercase tracking-[0.2em] text-zinc-500 hover:text-gold-300 transition-colors font-semibold"
+								className="group inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-zinc-500 hover:text-gold-300 transition-colors font-semibold"
 							>
 								<svg
 									viewBox="0 0 24 24"

@@ -45,16 +45,13 @@ export default function CookieBanner() {
 
 						{/* Acciones */}
 						<div className="flex items-center gap-3 shrink-0">
-							<Link
-								href="/aviso-legal"
-								className="font-jakarta text-[10px] tracking-wider text-zinc-500 hover:text-gold-300 transition-colors uppercase font-medium"
-							>
+							<Link href="/aviso-legal" className="btn-ghost">
 								MÁS INFO
 							</Link>
 							<button
 								type="button"
 								onClick={handleAccept}
-								className="px-5 py-2 rounded-lg bg-gold-500 hover:bg-gold-400 text-zinc-950 font-jakarta text-[11px] font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer active:scale-95"
+								className="btn-primary btn-sm"
 							>
 								Aceptar
 							</button>

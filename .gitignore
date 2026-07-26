@@ -21,3 +21,6 @@ temp_*
 
 # ── CACHÉ DE COMPILACIÓN ──
 tsconfig.tsbuildinfo
+
+# Python
+__pycache__/

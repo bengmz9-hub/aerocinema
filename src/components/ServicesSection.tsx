@@ -148,10 +148,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 
 			{/* Bottom CTA Button */}
 			<div className="relative z-20 mt-6">
-				<Link
-					href={item.ctaHref}
-					className="group/btn flex items-center justify-between w-full px-5 py-3 rounded-lg bg-white/5 hover:bg-white text-white hover:text-black border border-white/10 hover:border-white font-jakarta text-xs font-semibold uppercase tracking-wider transition-all duration-300 cursor-pointer"
-				>
+				<Link href={item.ctaHref} className="btn-secondary group/btn">
 					<span>{item.ctaText}</span>
 					<ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover/btn:text-black group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
 				</Link>
@@ -184,7 +181,7 @@ export function ServicesSection() {
 								SERVICIOS PRINCIPALES — L'HOSPITALET & BARCELONA
 							</span>
 						</div>
-						<h2 className="font-cormorant text-3xl md:text-5xl font-bold tracking-tight text-white uppercase">
+						<h2 className="font-cinzel-display text-3xl md:text-5xl font-bold text-white">
 							¿En qué te puedo
 							<span className="text-gold-400 italic"> ayudar</span>?
 						</h2>

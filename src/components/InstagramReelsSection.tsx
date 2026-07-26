@@ -215,7 +215,7 @@ export function InstagramReelsSection() {
 							PRODUCCIONES REALES — @JF.DRONE_VISUAL
 						</span>
 					</div>
-					<h2 className="font-cormorant text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white uppercase mb-2">
+					<h2 className="font-cinzel-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
 						TRABAJOS RECIENTES
 					</h2>
 					<p className="font-jakarta text-xs md:text-sm text-zinc-400 font-light">
@@ -236,7 +236,7 @@ export function InstagramReelsSection() {
 						href="https://www.instagram.com/jf.drone_visual"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/15 bg-white/5 text-white font-sans text-xs uppercase tracking-[0.25em] font-semibold transition-all duration-300 hover:bg-white/10 hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.2)] specular-card"
+						className="btn-secondary group"
 					>
 						<InstagramIcon className="w-4 h-4 text-gold-400" />
 						<span>Ver más rodajes en @jf.drone_visual</span>

@@ -4,7 +4,7 @@ import { Award, Layers, Plane, Radar, ShieldCheck } from "lucide-react";
 
 export function AboutMe() {
 	return (
-		<section className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white select-none cursor-default z-10">
+		<section className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden text-white select-none cursor-default z-10">
 			{/* Grid Principal: Vídeo Recorte + BentoGrid Traslúcido (Equivalente al Mini 5 Pro) */}
 			<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 				{/* ---------------------------------------------------- */}

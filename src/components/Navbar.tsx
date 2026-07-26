@@ -29,7 +29,7 @@ function ReticleLogo() {
 			<div className="absolute h-px w-4 bg-white/50" />
 			<div className="absolute h-4 w-px bg-white/50" />
 			<div className="absolute h-1 w-1 rounded-full bg-cyan-400" />
-			<div className="absolute h-5 w-5 rounded-full border border-cyan-400/0 transition-all duration-500 group-hover:h-7 group-hover:w-7 group-hover:border-cyan-400/30" />
+			<div className="absolute h-5 w-5 rounded-full border border-gold-400/0 transition-all duration-500 group-hover:h-7 group-hover:w-7 group-hover:border-gold-400/30" />
 		</div>
 	);
 }
@@ -42,11 +42,11 @@ function WaypointItem({ item }: { item: NavItem }) {
 			transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
 			className="group relative flex items-center gap-2 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-white/60 transition-colors duration-300 hover:text-white"
 		>
-			<span className="font-sans text-[9px] tracking-normal text-cyan-400 opacity-0 scale-75 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
+			<span className="font-sans text-[9px] tracking-normal text-gold-400 opacity-0 scale-75 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
 				{item.grade}
 			</span>
 			<span>{item.label}</span>
-			<span className="pointer-events-none absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-cyan-400 to-transparent transition-all duration-500 ease-out group-hover:w-full" />
+			<span className="pointer-events-none absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-gold-400 to-transparent transition-all duration-500 ease-out group-hover:w-full" />
 		</motion.a>
 	);
 }
@@ -132,10 +132,10 @@ export default function Navbar() {
 								whileHover={{ scale: 1.03 }}
 								whileTap={{ scale: 0.96 }}
 								transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-								className="group relative overflow-hidden rounded-full border border-gold-500/30 bg-gold-500/10 px-5 py-2 font-sans text-[9px] uppercase tracking-[0.25em] text-gold-200 font-semibold transition-colors duration-300 hover:text-white hover:border-gold-400/60 specular-card"
+								className="btn-secondary group btn-sm"
 							>
 								<span className="relative z-10">Escribir a Jose</span>
-								<span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-gold-600/20 via-cyan-400/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-0" />
+								<span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-gold-600/20 via-gold-400/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-0" />
 							</motion.a>
 						</div>
 
@@ -196,7 +196,7 @@ export default function Navbar() {
 									: "translate-y-4 opacity-0"
 							}`}
 						>
-							<span className="font-sans text-[10px] tracking-[0.3em] text-white/30 group-hover:text-cyan-400 transition-colors">
+							<span className="font-sans text-[10px] tracking-[0.3em] text-white/30 group-hover:text-gold-400 transition-colors">
 								{item.grade}
 							</span>
 							{item.label}
@@ -211,7 +211,7 @@ export default function Navbar() {
 								? `${120 + NAV_ITEMS.length * 80}ms`
 								: "0ms",
 						}}
-						className={`mt-4 border border-gold-500/30 bg-gold-500/10 px-6 py-4 text-center font-sans text-xs uppercase tracking-[0.28em] text-gold-200 font-semibold rounded-full transition-all duration-500 hover:bg-gold-500/20 hover:border-gold-400/50 ${
+						className={`btn-secondary btn-md mt-4 ${
 							menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
 						}`}
 					>
@@ -222,7 +222,7 @@ export default function Navbar() {
 				{/* Footer telemétrico */}
 				<div className="mt-auto flex items-center justify-between border-t border-white/10 p-6">
 					<div className="flex items-center gap-2 font-sans text-[10px] uppercase tracking-[0.3em] text-white/45">
-						<Radio className="h-3 w-3 text-cyan-400/70" strokeWidth={1.5} />
+						<Radio className="h-3 w-3 text-gold-400/70" strokeWidth={1.5} />
 						41.3851°N · 2.1734°E
 					</div>
 					<span className="font-sans text-[8px] uppercase tracking-[0.5em] text-white/15">

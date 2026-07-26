@@ -14,16 +14,31 @@
 
 ---
 
-## ✒️ Jerarquía Tipográfica
+## ✒️ Jerarquía Tipográfica (v2.0 — 3 fuentes con roles nítidos)
 
-- **Display / Titulares H1-H2:** `Cinzel` (serif elegante), `Cormorant Garamond` (editorial bold).
-  - Letter spacing: `tracking-wide` / `tracking-tight` según contexto.
-  - `text-wrap: balance` en titulares largos.
-- **Cuerpo / UI:** `Plus Jakarta Sans` / `Montserrat` (sans-serif limpia).
-  - `font-light` para párrafos de lectura, `font-semibold` para labels.
-- **Datos técnicos / Métricas:** `Montserrat` / `mono` con `tabular-nums`.
-  - Coordenadas GPS en `font-mono text-[9px] tracking-[0.3em]`.
-- **Acento decorativo:** `Cinzel` para la marca (`JF.DRONEVISION`).
+### Fuentes activas
+
+| Jerarquía | Fuente | Roles | Pesos cargados |
+|-----------|--------|-------|----------------|
+| 🥇 **Display** | `Cinzel` | H1, H2 principales, marca `JF.DRONEVISION`. Serif elegante y única | 400, 700 |
+| 🥈 **Editorial** | `Cormorant Garamond` | Subtítulos H2, H3, itálicas decorativas, highlights editoriales | 400, 500, 600, 700 |
+| 🥉 **Funcional** | `Plus Jakarta Sans` | Body, UI, nav, botones, labels, tags, datos técnicos — TODO lo no-display | 300, 400, 500, 600 |
+
+> ❌ **Eliminadas:** Montserrat (absorbida por Jakarta), Geist (no se usaba)
+
+### Reglas de uso
+
+- **Cinzel (Display):** Siempre `uppercase`, siempre con **negative letter-spacing**:
+  - `56–72px` → `tracking-[-0.03em]`
+  - `36–56px` → `tracking-[-0.02em]`
+  - `24–36px` → `tracking-[-0.01em]`
+  - `<24px` → `tracking-normal`
+  - `text-wrap: balance` en titulares largos
+- **Cormorant (Editorial):** Solo para H3, subtítulos H2, itálicas doradas decorativas.
+  - La itálica de Cormorant es su superpoder — úsala para el acento gold (`text-gold-400 italic`)
+- **Jakarta (Funcional):** `font-light` para párrafos de lectura, `font-semibold` para labels/CTAs.
+  - Coordenadas GPS en `font-mono text-[9px] tracking-[0.3em]`
+  - `tabular-nums` para datos técnicos
 
 ---
 

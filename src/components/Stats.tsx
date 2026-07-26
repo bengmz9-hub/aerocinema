@@ -55,7 +55,7 @@ export function Stats() {
 					>
 						¿POR QUÉ TRABAJAR CON JF.DRONEVISION?
 					</span>
-					<h2 className="font-cormorant text-2xl md:text-4xl font-bold text-white uppercase tracking-wide">
+					<h2 className="font-cinzel-display text-2xl md:text-4xl font-bold text-white">
 						Garantías claras,{" "}
 						<span className="text-gold-400 italic">sin sorpresas</span>
 					</h2>

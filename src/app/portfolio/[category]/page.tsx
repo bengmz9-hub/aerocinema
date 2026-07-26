@@ -124,7 +124,7 @@ function VideoCard({ video }: { video: VideoItem }) {
 						</div>
 						<h3 className="font-cinzel text-base text-white">{video.title}</h3>
 					</div>
-					<p className="text-xs text-zinc-400 line-clamp-1 font-montserrat">
+					<p className="text-xs text-zinc-400 line-clamp-1 font-jakarta">
 						{video.description}
 					</p>
 				</div>
