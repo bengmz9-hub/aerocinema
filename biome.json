@@ -7,7 +7,13 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["src/**/*", "scripts/**/*", "biome.json", "package.json"]
+		"includes": [
+			"src/**/*",
+			"scripts/**/*",
+			"biome.json",
+			"package.json",
+			"!!**/.worktrees"
+		]
 	},
 	"formatter": {
 		"enabled": true,

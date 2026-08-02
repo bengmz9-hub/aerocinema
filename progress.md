@@ -30,3 +30,25 @@
 - Cambios subidos a GitHub (`git push`).
 - Despliegue completado en Vercel (`vercel --prod`).
 
+---
+
+## Sesión 2026-07-31 (charla) — Infraestructura de conocimiento
+
+### Graphify: grafo reducido a la app (ahorro de tokens)
+- El grafo estaba dominado al 90% por `.agents/skills/impeccable` (2.757 de 3.064 nodos; el toolkit NO toca el runtime: 1 sola arista inferida ContactModal→handleKeyDown).
+- Creado `.graphifyignore` excluyendo `.agents/skills/impeccable/`.
+- Regenerado: `graphify extract . --force --code-only` + `graphify cluster-only . --no-label` (0 tokens, sin LLM).
+- Resultado: **248 nodos, 282 aristas, 17 comunidades**, `built_at_commit` = HEAD actual. Reporte: 43 KB → 5,3 KB. Queries ~0,3 s.
+- PITFALL: el backup de graphify-out DENTRO del repo lo escanea el extractor (3,4K nodos fantasma). Backup del grafo completo movido a `C:\Users\rgs84\graphify-out.bak-DRONES-20260731` (fuera del repo).
+- Rutina: `graphify query "..."`; tras tocar código `graphify update .`. Detalle completo en skill Hermes `graphify`.
+
+### Memoria Hermes + vault
+- Memoria de Hermes: 98% → 52% (1.163 chars, 6 entradas). Límite bajado a 1500 (`hermes config set memory.memory_char_limit 1500`, perfil charla).
+- Vault reestructurado (patrón OKF/LLM Wiki): `index.md` (mapa maestro) + notas temáticas `modelos-locales.md`, `hermes-setup.md`, `drones-infra.md`. Registro por fecha intacto.
+- `DRONES-codebase.md` (2,5 MB, dump repomix) movido fuera del vault y del repo → `C:\Users\rgs84\dumps\`.
+
+### Pendiente
+- Primera prueba real de MoA en tarea compleja.
+- Seguimiento de delegation-routing en perfil default.
+
+

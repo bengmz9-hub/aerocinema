@@ -38,7 +38,7 @@ export const servicesItems: ServiceItem[] = [
 		badge: "INSPECCIÓN · ANTES/DESPUÉS · DOCUMENTACIÓN",
 		ctaText: "Hablar con Jose",
 		ctaHref: "#contacto",
-		videoUrl: "/videos/fotografia.webm",
+		videoUrl: "/videos/mapeo.webm",
 	},
 	{
 		id: "negocios",

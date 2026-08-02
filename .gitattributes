@@ -1,1 +1,11 @@
 graphify-out/graph.json merge=graphify
+# EOL fijo LF para fuentes (Biome 2.5.4 rechaza CRLF; autocrlf=true lo deja en CRLF)
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.html text eol=lf

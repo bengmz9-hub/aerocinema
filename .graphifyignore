@@ -1,0 +1,3 @@
+# Excluir la skill impeccable del grafo: es tooling del agente,
+# no runtime de la app (2.700+ nodos de ruido en cada lectura)
+.agents/skills/impeccable/

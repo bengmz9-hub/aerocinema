@@ -1,6 +1,6 @@
 # Design Inspiration — Búnker de Recursos de JF.DroneVision
 
-Última actualización: 2026-07-26
+Última actualización: 2026-07-31
 
 ---
 
@@ -58,6 +58,7 @@
 | Typographic Posters | https://typographicposters.com | Composición tipográfica artística y cartelismo suizo |
 | OGFolio | https://ogfolio.com | Galería de tarjetas Open Graph |
 | Flyerwrk | https://flyerwrk.com | Estudio de texturas analógicas, grano y estética brutalista |
+| Motion Sites | https://motionsites.ai | Galería de webs con animaciones de scroll y movimiento destacadas |
 
 ### Prototipado & Variación
 | Recurso | URL | Notas |

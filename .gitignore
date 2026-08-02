@@ -21,3 +21,11 @@ temp_*
 
 # ── CACHÉ DE COMPILACIÓN ──
 tsconfig.tsbuildinfo
+__pycache__/
+*.pyc
+
+# ── WORKTREES LOCALES ──
+.worktrees/
+
+# ── DUMPS DE AUDITORÍA (el informe .md SÍ se sube) ──
+lighthouse-*.json
