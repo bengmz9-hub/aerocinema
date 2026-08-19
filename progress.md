@@ -21,13 +21,18 @@
    - Sincronizado el tipo seleccionado con el `<select>` del modal de formulario (`ContactModal`).
    - Semántica y accesibilidad 100% compliant con Biome (`<fieldset>`, `<legend className="sr-only">`, `aria-pressed`).
 
-5. **Commits Locales Guardados Atómicamente**:
+5. **Rediseño del Botón Flotante de WhatsApp (`WhatsAppButton.tsx`)**:
+   - Móvil: Cápsula fija inferior centrada con safe-area (`bottom-[calc(env(safe-area-inset-bottom)+1rem)]`), estética cinemática dark/gold (`#12141a/85`, `backdrop-blur-2xl`), LED esmeralda pulsante (`animate-ping`) y texto "WhatsApp Directo".
+   - Escritorio: Botón flotante inferior derecho (`bottom-6 right-6`), estilo Apple Pro, micro-hover y texto "Contactar por WhatsApp".
+
+6. **Commits Locales Guardados Atómicamente**:
    - `9ee2192`: `docs(rules): actualizar regla de delegacion de hermes para deepseek v4 flash y qwen 3.7 flash`
    - `37f6995`: `perf(video): optimizar lazy loading de videos cambiando preload a none bajo el fold`
    - `526643b`: `feat(portfolio): anadir filtrado dinamico por categorias con estilo cinematico en InstagramReelsSection`
    - `174220c`: `docs(rules): fijar franjas horarias exactas de picos y off-peak para conmutacion DeepSeek/Qwen`
    - `c860080`: `feat(contact): anadir selector rapido de tipo de proyecto con briefing automatico en WhatsApp`
    - `17e4ed4`: `feat(contact): anadir tarjeta de preview interactivo de WhatsApp y sincronizar con ContactModal`
+   - `a73a01e`: `feat(ui): redisenar boton flotante de WhatsApp a capsula cinematica para movil y desktop`
 
 ---
 
