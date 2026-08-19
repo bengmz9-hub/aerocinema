@@ -22,7 +22,7 @@
    - Semántica y accesibilidad 100% compliant con Biome (`<fieldset>`, `<legend className="sr-only">`, `aria-pressed`).
 
 5. **Rediseño del Botón Flotante de WhatsApp (`WhatsAppButton.tsx`)**:
-   - Móvil: Cápsula fija inferior centrada con safe-area (`bottom-[calc(env(safe-area-inset-bottom)+1rem)]`), estética cinemática dark/gold (`#12141a/85`, `backdrop-blur-2xl`), LED esmeralda pulsante (`animate-ping`) y texto "WhatsApp Directo".
+   - Móvil: Reubicado a la esquina inferior derecha (`right-4 bottom-[calc(env(safe-area-inset-bottom)+1rem)]`) en formato botón circular compacto (48px / `h-12 w-12`) con solo icono WhatsApp y micro-LED de disponibilidad verde, despejando completamente el centro de la pantalla.
    - Escritorio: Botón flotante inferior derecho (`bottom-6 right-6`), estilo Apple Pro, micro-hover y texto "Contactar por WhatsApp".
 
 6. **Commits Locales Guardados Atómicamente**:
@@ -33,6 +33,7 @@
    - `c860080`: `feat(contact): anadir selector rapido de tipo de proyecto con briefing automatico en WhatsApp`
    - `17e4ed4`: `feat(contact): anadir tarjeta de preview interactivo de WhatsApp y sincronizar con ContactModal`
    - `a73a01e`: `feat(ui): redisenar boton flotante de WhatsApp a capsula cinematica para movil y desktop`
+   - `c24fb6a`: `feat(ui): hacer boton flotante de WhatsApp discreto y compacto en esquina inferior derecha en movil`
 
 ---
 
