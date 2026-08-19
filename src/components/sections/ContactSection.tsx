@@ -30,6 +30,14 @@ const PROJECT_TYPES = [
 const DEFAULT_MESSAGE =
 	"Hola Jose, tengo un proyecto en mente y me gustaría consultarte.";
 
+// Mapea el label de cada chip del selector al value del select de tipo en ContactModal
+const LABEL_TO_TYPE_VALUE: Record<string, string> = {
+	Inmobiliaria: "real-estate",
+	Eventos: "other",
+	"Inspección & Obras": "inspection",
+	"Cine & Publicidad": "other",
+};
+
 export default function ContactSection() {
 	const [selectedType, setSelectedType] = useState<string>("Inmobiliaria");
 	const selectedMessage =
@@ -74,6 +82,16 @@ export default function ContactSection() {
 						);
 					})}
 				</fieldset>
+
+				{/* Vista previa del mensaje que se enviará por WhatsApp */}
+				<div className="mt-4 w-full max-w-xl rounded-2xl border border-gold-500/20 bg-[#12141a]/60 backdrop-blur-2xl px-4 py-3 sm:px-5 sm:py-4 text-left shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]">
+					<p className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-gold-300/90 font-bold mb-1">
+						Mensaje preparado para WhatsApp
+					</p>
+					<p className="font-jakarta text-[11px] sm:text-xs text-zinc-300 leading-relaxed">
+						{selectedMessage}
+					</p>
+				</div>
 
 				{/* Grid de 2 Bento Cards Rectangulares (WhatsApp izquierda, Formulario derecha) */}
 				<div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-xl">
@@ -134,7 +152,7 @@ export default function ContactSection() {
 					</a>
 
 					{/* CTA Secundario Formulario Modal — Bento Rectangular Estilo Apple Pro */}
-					<ContactModal />
+					<ContactModal defaultType={LABEL_TO_TYPE_VALUE[selectedType]} />
 				</div>
 			</div>
 		</section>

@@ -4,16 +4,22 @@ import { CheckCircle2, ChevronDown, FileText, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { submitContactForm } from "@/app/actions/contact";
 
-export default function ContactModal() {
+export default function ContactModal({
+	defaultType = "real-estate",
+}: {
+	defaultType?: string;
+}) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const [isPending, setIsPending] = useState(false);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null);
+	const [formType, setFormType] = useState(defaultType);
 	const dialogRef = useRef<HTMLDivElement>(null);
 	const triggerRef = useRef<HTMLButtonElement>(null);
 
 	useEffect(() => {
 		if (!isOpen) return;
+		setFormType(defaultType);
 		function handleKeyDown(e: KeyboardEvent) {
 			if (e.key === "Escape") setIsOpen(false);
 		}
@@ -23,7 +29,7 @@ export default function ContactModal() {
 			document.removeEventListener("keydown", handleKeyDown);
 			triggerRef.current?.focus();
 		};
-	}, [isOpen]);
+	}, [isOpen, defaultType]);
 
 	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
@@ -218,6 +224,8 @@ export default function ContactModal() {
 											<select
 												id="type"
 												name="type"
+												value={formType}
+												onChange={(e) => setFormType(e.target.value)}
 												disabled={isPending}
 												className="h-10 md:h-11 w-full cursor-pointer rounded-xl appearance-none border border-white/10 bg-[#0f1115] px-3.5 pr-10 font-jakarta text-xs md:text-sm text-white focus:border-gold-400/60 focus:outline-none transition-all duration-300"
 											>
