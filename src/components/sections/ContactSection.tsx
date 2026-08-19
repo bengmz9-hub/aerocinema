@@ -1,10 +1,41 @@
 "use client";
 
+import { useState } from "react";
+
 import ContactModal from "./ContactModal";
 
+const PROJECT_TYPES = [
+	{
+		label: "Inmobiliaria",
+		message:
+			"Hola Jose, me interesa presupuesto para filmación aérea de una propiedad/inmueble.",
+	},
+	{
+		label: "Eventos",
+		message:
+			"Hola Jose, me interesa presupuesto para cobertura aérea de un evento.",
+	},
+	{
+		label: "Inspección & Obras",
+		message:
+			"Hola Jose, me interesa presupuesto para inspección técnica / seguimiento de obra con dron.",
+	},
+	{
+		label: "Cine & Publicidad",
+		message:
+			"Hola Jose, tengo un rodaje audiovisual/publicidad y necesito planos aéreos con dron.",
+	},
+] as const;
+
+const DEFAULT_MESSAGE =
+	"Hola Jose, tengo un proyecto en mente y me gustaría consultarte.";
+
 export default function ContactSection() {
-	const whatsappUrl =
-		"https://wa.me/34600000000?text=Hola%20Jose,%20tengo%20un%20proyecto%20en%20mente%20y%20me%20gustar%C3%ADa%20consultarte.";
+	const [selectedType, setSelectedType] = useState<string>("Inmobiliaria");
+	const selectedMessage =
+		PROJECT_TYPES.find((t) => t.label === selectedType)?.message ??
+		DEFAULT_MESSAGE;
+	const whatsappUrl = `https://wa.me/34600000000?text=${encodeURIComponent(selectedMessage)}`;
 
 	return (
 		<section className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-8 pb-12 md:py-20 lg:px-8 text-center select-none">
@@ -21,8 +52,31 @@ export default function ContactSection() {
 					que puede hacer el dron por ti.
 				</p>
 
+				{/* Selector rápido de tipo de proyecto — Chips estilo Apple */}
+				<fieldset className="mt-6 flex flex-wrap items-center justify-center gap-2 w-full max-w-xl border-0 p-0 m-0">
+					<legend className="sr-only">Tipo de proyecto</legend>
+					{PROJECT_TYPES.map((type) => {
+						const isActive = selectedType === type.label;
+						return (
+							<button
+								key={type.label}
+								type="button"
+								aria-pressed={isActive}
+								onClick={() => setSelectedType(type.label)}
+								className={`rounded-full border px-3.5 py-1.5 font-jakarta text-[10.5px] sm:text-xs font-medium tracking-wide transition-all duration-300 cursor-pointer backdrop-blur-xl select-none ${
+									isActive
+										? "border-gold-400/60 bg-gold-500/10 text-gold-200 shadow-[0_0_18px_rgba(223,208,164,0.15),inset_0_1px_1px_rgba(255,255,255,0.08)]"
+										: "border-white/[0.12] bg-[#12141a]/60 text-zinc-400 hover:border-gold-500/30 hover:text-zinc-200"
+								}`}
+							>
+								{type.label}
+							</button>
+						);
+					})}
+				</fieldset>
+
 				{/* Grid de 2 Bento Cards Rectangulares (WhatsApp izquierda, Formulario derecha) */}
-				<div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-xl">
+				<div className="grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-xl">
 					{/* CTA Principal WhatsApp — Bento Rectangular Estilo Apple Pro */}
 					<a
 						href={whatsappUrl}
