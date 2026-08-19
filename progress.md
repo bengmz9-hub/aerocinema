@@ -15,9 +15,10 @@
    - Implementada barra de filtros interactiva con pills cinemáticas (`TODOS`, `URBANO`, `COMERCIO`, `PAISAJE`, `CONSTRUCCIÓN`).
    - Filtrado en tiempo real sin recarga de página y respetando la paleta oscura con acentos dorados (`gold-400/500`).
 
-4. **Selector Rápido de Presupuesto en Contacto (ContactSection)**:
+4. **Selector Rápido de Presupuesto & Preview Dinámica (ContactSection & ContactModal)**:
    - Implementado grupo de chips/pills interactivos (`Inmobiliaria`, `Eventos`, `Inspección & Obras`, `Cine & Publicidad`) sobre las bento cards de contacto.
-   - Enlace a WhatsApp reactivo que inyecta automáticamente el briefing exacto según la opción activa.
+   - Añadida tarjeta de vista previa visual que muestra en tiempo real el mensaje formateado para WhatsApp según la opción elegida.
+   - Sincronizado el tipo seleccionado con el `<select>` del modal de formulario (`ContactModal`).
    - Semántica y accesibilidad 100% compliant con Biome (`<fieldset>`, `<legend className="sr-only">`, `aria-pressed`).
 
 5. **Commits Locales Guardados Atómicamente**:
@@ -26,6 +27,7 @@
    - `526643b`: `feat(portfolio): anadir filtrado dinamico por categorias con estilo cinematico en InstagramReelsSection`
    - `174220c`: `docs(rules): fijar franjas horarias exactas de picos y off-peak para conmutacion DeepSeek/Qwen`
    - `c860080`: `feat(contact): anadir selector rapido de tipo de proyecto con briefing automatico en WhatsApp`
+   - `17e4ed4`: `feat(contact): anadir tarjeta de preview interactivo de WhatsApp y sincronizar con ContactModal`
 
 ---
 
