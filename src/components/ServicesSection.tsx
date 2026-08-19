@@ -170,27 +170,22 @@ export function ServicesSection() {
 			className="relative py-10 md:py-14 bg-transparent text-white overflow-hidden select-none"
 		>
 			<div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 z-20">
-				{/* Cabecera Principal */}
-				<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-					<div>
-						<div className="flex items-center gap-2.5 mb-3">
-							<ShieldCheck
-								className="h-4 w-4 text-gold-400"
-								aria-hidden="true"
-							/>
-							<span
-								id="services-heading"
-								className="text-gold-300/80 text-[10px] font-medium tracking-[0.25em] uppercase font-mono"
-							>
-								SERVICIOS PRINCIPALES — L'HOSPITALET & BARCELONA
-							</span>
-						</div>
-						<h2 className="font-cormorant text-3xl md:text-5xl font-bold tracking-tight text-white uppercase">
-							¿En qué te puedo
-							<span className="text-gold-400 italic"> ayudar</span>?
-						</h2>
+				{/* Cabecera Principal (Centrada) */}
+				<div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12">
+					<div className="flex items-center justify-center gap-2.5 mb-3">
+						<ShieldCheck className="h-4 w-4 text-gold-400" aria-hidden="true" />
+						<span
+							id="services-heading"
+							className="text-gold-300/80 text-[10px] font-medium tracking-[0.25em] uppercase font-mono"
+						>
+							SERVICIOS PRINCIPALES — L'HOSPITALET & BARCELONA
+						</span>
 					</div>
-					<p className="font-jakarta text-xs md:text-sm text-zinc-400 max-w-md font-light">
+					<h2 className="font-cormorant text-3xl md:text-5xl font-bold tracking-tight text-white uppercase mb-3">
+						¿En qué te puedo
+						<span className="text-gold-400 italic"> ayudar</span>?
+					</h2>
+					<p className="font-jakarta text-xs md:text-sm text-zinc-400 max-w-lg font-light leading-relaxed">
 						Soluciones directas de grabación aérea para mostrar tu inmueble,
 						empresa o negocio con permisos de vuelo AESA en regla.
 					</p>

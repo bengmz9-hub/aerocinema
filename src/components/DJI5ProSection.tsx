@@ -14,20 +14,18 @@ export function DJI5ProSection() {
 			id="optical"
 			className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white select-none cursor-default"
 		>
-			{/* Encabezado de Sección */}
-			<div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-				<div>
-					<div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest mb-2 font-medium bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent">
-						<Sparkles className="w-4 h-4 text-[#dfd0a4] animate-pulse" />
-						<span>Tecnología de Vuelo & Óptica Cinematográfica</span>
-					</div>
-					<h2 className="text-3xl md:text-5xl font-cinzel font-bold text-white tracking-wide">
-						{MINI_5_PRO_DATA.title}
-					</h2>
-					<p className="text-zinc-400 text-sm md:text-base mt-2 max-w-xl">
-						{MINI_5_PRO_DATA.tagline}
-					</p>
+			{/* Encabezado de Sección (Centrado) */}
+			<div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
+				<div className="flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-widest mb-2 font-medium bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent">
+					<Sparkles className="w-4 h-4 text-[#dfd0a4] animate-pulse" />
+					<span>Tecnología de Vuelo &amp; Óptica Cinematográfica</span>
 				</div>
+				<h2 className="text-3xl md:text-5xl font-cinzel font-bold text-white tracking-wide mb-2">
+					{MINI_5_PRO_DATA.title}
+				</h2>
+				<p className="text-zinc-400 text-sm md:text-base max-w-xl font-light">
+					{MINI_5_PRO_DATA.tagline}
+				</p>
 			</div>
 
 			{/* Grid Principal: Vídeo Recorte + BentoGrid Traslúcido con Hover Glow Sutil */}

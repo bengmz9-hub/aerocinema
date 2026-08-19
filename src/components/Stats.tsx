@@ -47,18 +47,21 @@ export function Stats() {
 			className="w-full bg-transparent py-8 md:py-12 px-4 md:px-8 relative z-10 overflow-hidden select-none"
 		>
 			<div className="max-w-7xl mx-auto">
-				{/* Encabezado de la sección */}
-				<div className="mb-10 text-center md:text-left">
+				{/* Encabezado de la sección (Centrado) */}
+				<div className="mb-10 flex flex-col items-center text-center max-w-2xl mx-auto">
 					<span
 						id="why-us-heading"
 						className="font-mono text-[10px] tracking-[0.25em] text-gold-400/90 uppercase font-semibold block mb-2"
 					>
 						¿POR QUÉ TRABAJAR CON JF.DRONEVISION?
 					</span>
-					<h2 className="font-cormorant text-2xl md:text-4xl font-bold text-white uppercase tracking-wide">
+					<h2 className="font-cormorant text-2xl md:text-4xl font-bold text-white uppercase tracking-wide mb-2">
 						Garantías claras,{" "}
 						<span className="text-gold-400 italic">sin sorpresas</span>
 					</h2>
+					<p className="font-jakarta text-xs md:text-sm text-zinc-400 font-light">
+						Compromiso técnico, normativo y de entrega en cada vuelo.
+					</p>
 				</div>
 
 				{/* Grid de 4 tarjetas de valor */}

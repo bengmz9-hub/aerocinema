@@ -216,19 +216,20 @@ export function InstagramReelsSection() {
 	return (
 		<section className="w-full bg-transparent pt-2 pb-8 md:py-12 px-4 md:px-8 relative overflow-hidden select-none">
 			<div className="max-w-7xl mx-auto">
-				{/* ═══════ CABECERA TELEMÉTRICA DE TRABAJOS RECIENTES ═══════ */}
-				<div className="mb-6 md:mb-14">
-					<div className="flex items-center gap-3 mb-1.5 md:mb-2">
+				{/* ═══════ CABECERA TELEMÉTRICA DE TRABAJOS RECIENTES (CENTRADA) ═══════ */}
+				<div className="mb-6 md:mb-14 flex flex-col items-center text-center">
+					<div className="flex items-center justify-center gap-3 mb-1.5 md:mb-2">
 						<span className="w-6 md:w-8 h-px bg-gold-500/60" />
 						<span className="text-gold-400 text-[9px] md:text-[10px] font-mono tracking-[0.25em] md:tracking-[0.3em] uppercase flex items-center gap-2">
 							<InstagramIcon className="w-3 h-3 md:w-3.5 md:h-3.5 text-gold-400" />
 							PRODUCCIONES REALES — @JF.DRONE_VISUAL
 						</span>
+						<span className="w-6 md:w-8 h-px bg-gold-500/60" />
 					</div>
 					<h2 className="font-cormorant text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white uppercase mb-2">
 						TRABAJOS RECIENTES
 					</h2>
-					<p className="font-jakarta text-xs md:text-sm text-zinc-400 font-light">
+					<p className="font-jakarta text-xs md:text-sm text-zinc-400 max-w-xl font-light">
 						Rodajes reales en la zona metropolitana de Barcelona y L'Hospitalet
 					</p>
 				</div>
