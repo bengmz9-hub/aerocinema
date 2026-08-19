@@ -2,7 +2,10 @@
 
 Proyecto: web portfolio en Next.js/TypeScript en `C:\Users\rgs84\DRONES`. Cambios visuales: respetar `DESIGN.md` y `design-inspiration.md` de la raíz.
 
-1. **HERMES DELEGATION FIRST (OBLIGATORIO)**: Toda tarea, cambio de código o refactorización DEBE delegarse primero vía `hermes chat -q "..."` (`run_command`). **Prioridad absoluta:** usar **DeepSeek Flash v4 (última versión) en horario OFF-PEAK**; fuera de OFF-PEAK o ante indisponibilidad, usar **Qwen 3.7 Flash (Alibaba API Key)**. PROHIBIDO editar código directamente sin ejecutar antes en Hermes CLI con estos modelos. El prompt de delegación debe ser SELF-CONTAINED: incluir rutas, estado actual y el criterio de aceptación (qué cuenta como "hecho") — Hermes arranca sesión limpia, sin contexto del proyecto.
+1. **HERMES DELEGATION FIRST (OBLIGATORIO)**: Toda tarea, cambio de código o refactorización DEBE delegarse primero vía `hermes chat -q "..."` (`run_command`).
+   - **Prioridad 1 (OFF-PEAK - Mitad de precio):** Usar **DeepSeek Flash v4 (`deepseek-v4-flash`)** en todo horario off-peak (en hora española UTC+2: **12:00 a 03:00** y **06:00 a 08:00**).
+   - **Prioridad 2 (PICOS o indisponibilidad):** Conmutar automáticamente a **Qwen 3.7 Flash (`qwen3.7-flash` / Alibaba API Key)** durante las franjas pico (en hora española: **03:00 a 06:00** y **08:00 a 12:00**).
+   - PROHIBIDO editar código directamente sin ejecutar antes en Hermes CLI con estos modelos. El prompt de delegación debe ser SELF-CONTAINED: incluir rutas, estado actual y criterio de aceptación.
 2. **LOCAL ONLY & NO AUTO PUSH**: Prohibido `git push`, `vercel` o despliegues. Solo permitido si el usuario escribe exactamente: *"Ejecuta push de fin de sesión"*.
 3. **NO EDICIÓN EN FEEDBACK/OPINIÓN**: Ante consultas/análisis, dar opciones (A/B/C). PROHIBIDO editar código sin confirmación explícita.
 4. **NO FAKEAR DELEGACIÓN + VERIFICAR**: Si Hermes/OpenCode falla o requiere CLI interactivo, reportar estado o prompt. PROHIBIDO simular trabajo editando archivos localmente. Tras cada delegación, VERIFICAR el resultado (git diff, build, tests) contra el criterio de aceptación antes de reportar — no asumir que Hermes lo hizo bien.
