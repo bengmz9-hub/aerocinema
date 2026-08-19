@@ -19,22 +19,22 @@ OLLAMA_URL = "http://localhost:11434/api/chat"
 LLAMA_URL = "http://localhost:8081/v1/chat/completions"
 OLLAMA_BIN = r"C:\Users\rgs84\AppData\Local\Programs\Ollama\ollama.exe"
 
-# Paths for auto-launching llama-server (Qwen 3.6 35B A3B MoE)
+# Paths for auto-launching llama-server (Ornith-1.0-35B, finetune agentic de Qwen3.6-35B-A3B)
 LLAMA_SERVER = r"C:\Users\rgs84\llama-models\llama-cuda\llama-server.exe"
-LLAMA_MODEL = r"C:\Users\rgs84\llama-models\Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf"
+LLAMA_MODEL = r"C:\Users\rgs84\llama-models\ornith-1.0-35b-Q4_K_M.gguf"
 
 # Track spawned processes for cleanup
 _spawned = {"ollama": None, "llama": None}
 
 # Configuracion de modelos
 MODELS = {
-    "moe":    {"model": "Qwen3.6-35B-A3B-UD-Q4_K_XL", "num_ctx": 65536, "label": "35B MoE ~94 tok/s SWE-bench 73.4%",
+    "moe":    {"model": "Ornith-1.0-35B", "num_ctx": 131072, "label": "Ornith-1.0-35B (35B MoE agentic) ~55-85 tok/s",
                "url": LLAMA_URL, "backend": "llama"},
-    "code":   {"model": "qwen2.5-coder:14b",         "num_ctx": 32768,  "label": "14B code 65 tok/s (fallback)"},
-    "codex":  {"model": "qwen2.5-coder:14b",         "num_ctx": 65536,  "label": "14B code sesion larga (fallback)"},
-    "text":   {"model": "gemma4:12b-it-qat",         "num_ctx": 65536,  "label": "12B copy/texto general"},
+    "code":   {"model": "gemma4:26b-a4b-it-qat",       "num_ctx": 32768,  "label": "26B code plan B (manual)"},
+    "codex":  {"model": "gemma4:26b-a4b-it-qat",       "num_ctx": 65536,  "label": "26B code sesion larga (manual)"},
+    "text":   {"model": "gemma4:26b-a4b-it-qat",     "num_ctx": 65536,  "label": "26B-A4B copy/texto (MoE QAT)"},
     "reason": {"model": "deepseek-r1:14b",            "num_ctx": 32768,  "label": "14B debug/razonamiento"},
-    "vision": {"model": "qwen3-vl:8b",                  "num_ctx": 4096,   "label": "8B vision/imagenes"},
+    "vision": {"model": "qwen3-vl:8b",             "num_ctx": 16384,  "label": "8B vision (infografias/IG)"},
 }
 
 def detect_model(task, files, image):
@@ -117,7 +117,7 @@ def ensure_llama_server():
     _spawned["llama"] = subprocess.Popen(
         [LLAMA_SERVER, "-m", LLAMA_MODEL,
          "--host", "127.0.0.1", "--port", "8081",
-         "-ngl", "9999", "-ncmoe", "6", "-c", "65536",
+         "-ngl", "9999", "-ncmoe", "6", "-c", "131072",
          "-b", "2048", "-ub", "1024",
          "-ctk", "f16", "-ctv", "f16", "--no-mmap",
          "-t", "8", "-tb", "16"],

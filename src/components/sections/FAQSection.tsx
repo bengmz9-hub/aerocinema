@@ -69,10 +69,10 @@ export default function FAQSection() {
 
 	return (
 		<section
-			className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 select-none"
+			className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-8 pb-4 md:py-20 lg:px-8 select-none"
 			aria-labelledby="faq-heading"
 		>
-			<div className="mx-auto flex max-w-3xl flex-col items-center gap-10">
+			<div className="mx-auto flex max-w-3xl flex-col items-center gap-6 md:gap-10">
 				{/* ── Encabezado ── */}
 				<div className="flex flex-col items-center gap-4 text-center">
 					{/* Tag */}
@@ -97,8 +97,8 @@ export default function FAQSection() {
 					</p>
 				</div>
 
-				{/* ── Acordeón ── */}
-				<ul className="w-full space-y-3">
+				{/* ── Acordeón Estilo Apple Bento ── */}
+				<ul className="w-full space-y-2.5 md:space-y-3">
 					{faqs.map((faq) => {
 						const isOpen = openId === faq.id;
 						const panelId = `faq-panel-${faq.id}`;
@@ -107,8 +107,15 @@ export default function FAQSection() {
 						return (
 							<li
 								key={faq.id}
-								className="rounded-xl border border-white/[0.06] bg-[#0f1115]/80 backdrop-blur-sm overflow-hidden transition-all duration-300"
+								className={`group relative rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] overflow-hidden transition-all duration-500 ${
+									isOpen
+										? "border-gold-500/40 bg-[#151821]/80 shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.08)]"
+										: "border-white/[0.1] hover:border-gold-500/30 hover:bg-[#151821]/70"
+								}`}
 							>
+								{/* Luz cenital difusa estilo Apple */}
+								<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+
 								{/* ── Pregunta (botón toggle) ── */}
 								<button
 									id={buttonId}
@@ -117,17 +124,19 @@ export default function FAQSection() {
 									onKeyDown={(e) => handleKeyDown(e, faq.id)}
 									aria-expanded={isOpen}
 									aria-controls={panelId}
-									className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left cursor-pointer select-none group"
+									className="relative z-10 w-full flex items-center justify-between gap-3 px-4 py-3.5 md:px-5 md:py-4.5 text-left cursor-pointer select-none"
 								>
-									<span className="font-jakarta text-base sm:text-lg font-medium leading-snug text-gold-300 group-hover:text-gold-200 transition-colors pr-2">
+									<span className="font-jakarta text-[15px] md:text-lg font-semibold leading-snug text-gold-300 group-hover:text-gold-200 transition-colors pr-2">
 										{faq.question}
 									</span>
-									<ChevronDown
-										className={`w-5 h-5 flex-shrink-0 text-gold-400 transition-transform duration-300 ease-out ${
-											isOpen ? "rotate-180" : "rotate-0"
-										}`}
-										aria-hidden="true"
-									/>
+									<div className="p-1 md:p-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 shrink-0">
+										<ChevronDown
+											className={`w-4 h-4 md:w-4.5 md:h-4.5 text-gold-400 transition-transform duration-300 ease-out ${
+												isOpen ? "rotate-180 text-gold-300" : "rotate-0"
+											}`}
+											aria-hidden="true"
+										/>
+									</div>
 								</button>
 
 								{/* ── Respuesta (panel colapsable) ── */}
@@ -142,10 +151,10 @@ export default function FAQSection() {
 								>
 									{/* Contenedor interno con overflow hidden para colapsar correctamente */}
 									<div className="overflow-hidden">
-										<div className="px-5 pb-5 pt-1">
+										<div className="relative z-10 px-4 pb-4 pt-0 md:px-5 md:pb-5">
 											{/* Línea divisoria dorada sutil */}
-											<div className="w-full h-px bg-gradient-to-r from-gold-500/30 via-gold-500/10 to-transparent mb-4" />
-											<p className="font-jakarta text-xs sm:text-sm font-light leading-relaxed text-zinc-300">
+											<div className="w-full h-px bg-gradient-to-r from-gold-500/30 via-gold-500/10 to-transparent mb-2.5 md:mb-3" />
+											<p className="font-jakarta text-[12px] md:text-sm font-semibold leading-relaxed text-zinc-200">
 												{faq.answer}
 											</p>
 										</div>
@@ -155,17 +164,6 @@ export default function FAQSection() {
 						);
 					})}
 				</ul>
-
-				{/* ── CTA inferior ── */}
-				<p className="font-jakarta text-xs text-zinc-500 text-center">
-					¿No encuentras tu duda?{" "}
-					<a
-						href="#contacto"
-						className="text-gold-400 hover:text-gold-300 underline underline-offset-4 transition-colors"
-					>
-						Háblame directamente
-					</a>
-				</p>
 			</div>
 		</section>
 	);

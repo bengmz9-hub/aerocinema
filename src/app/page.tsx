@@ -1,16 +1,18 @@
+import Link from "next/link";
 import { AboutMe } from "@/components/AboutMe";
 import { DJI5ProSection } from "@/components/DJI5ProSection";
 import { HeroSection } from "@/components/HeroSection";
 import { InstagramReelsSection } from "@/components/InstagramReelsSection";
+import { ScrollRestorer } from "@/components/ScrollRestorer";
 import { ServicesSection } from "@/components/ServicesSection";
 import { Stats } from "@/components/Stats";
 import ContactSection from "@/components/sections/ContactSection";
 import FAQSection from "@/components/sections/FAQSection";
-import { LampContainer } from "@/components/ui/lamp";
 
 export default function HomePage() {
 	return (
 		<main className="min-h-screen bg-[#000000] selection:bg-white selection:text-black overflow-x-hidden">
+			<ScrollRestorer />
 			{/* ========== 01. HERO ========== */}
 			<HeroSection />
 
@@ -20,26 +22,19 @@ export default function HomePage() {
 			</div>
 
 			{/* ========== 04. SERVICIOS ========== */}
-			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20 relative">
-				<LampContainer />
+			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20">
 				<ServicesSection />
 			</div>
 
 			{/* ========== 05. TECNOLOGÍA DJI MINI 5 PRO ========== */}
-			<div id="optical" className="scroll-mt-28 md:scroll-mt-36 relative">
-				<LampContainer />
+			<div id="optical" className="scroll-mt-28 md:scroll-mt-36">
 				<DJI5ProSection />
 			</div>
 
 			{/* ========== 06. OPERADOR ACREDITADO & STATS ========== */}
-			<div id="operador" className="scroll-mt-16 md:scroll-mt-20 relative">
-				<LampContainer />
+			<div id="operador" className="scroll-mt-16 md:scroll-mt-20">
 				<AboutMe />
-
-				<div className="relative">
-					<LampContainer />
-					<Stats />
-				</div>
+				<Stats />
 			</div>
 
 			{/* ========== 06. FAQ ========== */}
@@ -52,107 +47,226 @@ export default function HomePage() {
 				<ContactSection />
 			</div>
 
-			{/* ========== 07. FOOTER ========== */}
-			<footer className="pt-12 md:pt-16 pb-8 md:pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-jakarta">
-				{/* ── Grid Principal — 3 columnas con jerarquía premium ── */}
-				<div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr] gap-10 md:gap-12 mb-10 md:mb-14">
-					{/* Col 1: Marca */}
-					<div className="space-y-4">
-						<span className="font-cinzel text-lg font-bold tracking-[0.18em] text-white block">
-							JF.
-							<span className="font-normal text-white/50">DRONEVISION</span>
-						</span>
-						<p className="text-xs text-zinc-400 font-light leading-relaxed max-w-xs">
-							Grabaciones aéreas para inmobiliarias, construcción y negocios
-							locales en L'Hospitalet y Barcelona.
-						</p>
-						<div className="inline-flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.3em] text-zinc-600">
-							<span className="w-1 h-1 rounded-full bg-cyan-400" />
-							41.3851°N · 2.1734°E
-						</div>
-					</div>
+			{/* ========== 07. FOOTER OFICIAL ESTILO APPLE (APPLE.COM UI SPEC) ========== */}
+			<footer className="w-full bg-[#000000] text-[#a1a1a6] font-jakarta border-t border-[#1d1d1f] pt-8 pb-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto select-none text-[12px] leading-normal">
+				{/* ── 1. NOTAS AL PIE EDITORIALES (Estilo Apple Footnotes) ── */}
+				<div className="space-y-2.5 pb-6 border-b border-[#1d1d1f] text-[11px] leading-relaxed text-[#86868b]">
+					<p>
+						1. Operaciones de vuelo bajo normativa europea EASA y estatal AESA.
+						Operador registrado con seguro de responsabilidad civil aeronáutico
+						en vigor para filmación urbana e inmobiliaria.
+					</p>
+					<p>
+						2. Entregas en resolución nativa 4K UHD con perfil de color 10-bit
+						D-Log M. Consulta disponibilidad y autorización de espacio aéreo
+						según localización geográfica.
+					</p>
+				</div>
 
-					{/* Col 2: Navegación — con chevrones dorados al hover */}
-					<div>
-						<span className="font-montserrat text-[11px] tracking-[0.2em] text-white/50 uppercase font-semibold block pb-2.5 mb-3.5 border-b border-white/[0.06]">
-							NAVEGACIÓN
-						</span>
-						<div className="flex flex-col gap-0.5">
-							{[
-								{ label: "Servicios", href: "#servicios" },
-								{ label: "Trabajos Recientes", href: "#portfolio" },
-								{ label: "Sobre Jose", href: "#operador" },
-								{ label: "Preguntas Frecuentes", href: "#faq" },
-								{ label: "Contacto", href: "#contacto" },
-							].map((link) => (
+				{/* ── 2. BREADCRUMB MINIMALISTA APPLE ── */}
+				<div className="flex items-center gap-2 py-4 text-[12px] text-[#a1a1a6]">
+					<span className="font-cinzel text-xs font-bold text-white tracking-widest uppercase">
+						JF.DRONEVISION
+					</span>
+					<span>›</span>
+					<span className="text-[#86868b]">Barcelona &amp; L'Hospitalet</span>
+				</div>
+
+				{/* ── 3. COLUMNAS DE NAVEGACIÓN (Apple Directory Columns) ── */}
+				<div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 border-b border-[#1d1d1f]">
+					{/* Col 1: Servicios */}
+					<div className="space-y-2.5">
+						<h3 className="text-[11px] font-semibold tracking-wider text-[#f5f5f7] uppercase font-mono">
+							Servicios
+						</h3>
+						<ul className="space-y-2">
+							<li>
 								<a
-									key={link.href}
-									href={link.href}
-									className="group flex items-center gap-2 py-1 text-xs text-zinc-400 hover:text-white transition-colors font-light w-fit"
+									href="#servicios"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
 								>
-									<span className="text-[10px] text-gold-400/0 group-hover:text-gold-400/80 transition-all duration-200 group-hover:translate-x-0.5">
-										→
-									</span>
-									{link.label}
+									Filmación Inmobiliaria
 								</a>
-							))}
-						</div>
+							</li>
+							<li>
+								<a
+									href="#servicios"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Inspección de Obras
+								</a>
+							</li>
+							<li>
+								<a
+									href="#servicios"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Negocios &amp; Terrazas
+								</a>
+							</li>
+							<li>
+								<a
+									href="#servicios"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Color Grading &amp; Edición
+								</a>
+							</li>
+						</ul>
 					</div>
 
-					{/* Col 3: Contacto — visualmente distinto a la navegación */}
-					<div>
-						<span className="font-montserrat text-[11px] tracking-[0.2em] text-white/50 uppercase font-semibold block pb-2.5 mb-3.5 border-b border-white/[0.06]">
-							CONTACTO
-						</span>
-						<div className="space-y-2 text-xs text-zinc-500 font-light leading-relaxed">
-							<p>
+					{/* Col 2: Tecnología */}
+					<div className="space-y-2.5">
+						<h3 className="text-[11px] font-semibold tracking-wider text-[#f5f5f7] uppercase font-mono">
+							Tecnología
+						</h3>
+						<ul className="space-y-2">
+							<li>
+								<a
+									href="#optical"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									DJI Mini 5 Pro
+								</a>
+							</li>
+							<li>
+								<a
+									href="#optical"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Sensor CMOS 1/1.3″
+								</a>
+							</li>
+							<li>
+								<a
+									href="#optical"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									D-Log M 10-Bit
+								</a>
+							</li>
+							<li>
+								<a
+									href="#optical"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Clase C0 (&lt;249g)
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					{/* Col 3: Sobre Jose */}
+					<div className="space-y-2.5">
+						<h3 className="text-[11px] font-semibold tracking-wider text-[#f5f5f7] uppercase font-mono">
+							Operador
+						</h3>
+						<ul className="space-y-2">
+							<li>
+								<a
+									href="#operador"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Certificación AESA
+								</a>
+							</li>
+							<li>
+								<a
+									href="#operador"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Seguro Aeronáutico
+								</a>
+							</li>
+							<li>
+								<a
+									href="#portfolio"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Portfolio de Trabajos
+								</a>
+							</li>
+							<li>
+								<a
+									href="#faq"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Preguntas Frecuentes
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					{/* Col 4: Contacto */}
+					<div className="space-y-2.5">
+						<h3 className="text-[11px] font-semibold tracking-wider text-[#f5f5f7] uppercase font-mono">
+							Contacto
+						</h3>
+						<ul className="space-y-2">
+							<li>
+								<a
+									href="#contacto"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Pedir Presupuesto
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://wa.me/34600000000"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									WhatsApp Directo
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://www.instagram.com/jf.drone_visual"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
+								>
+									Instagram (@jf.drone_visual)
+								</a>
+							</li>
+							<li>
 								<a
 									href="mailto:contacto@jfdronevision.com"
-									className="text-zinc-400 hover:text-white transition-colors"
+									className="text-[#a1a1a6] hover:text-white transition-colors"
 								>
 									contacto@jfdronevision.com
 								</a>
-							</p>
-							<p>L'Hospitalet de Llobregat, Barcelona</p>
-						</div>
-						<div className="flex items-center gap-5 pt-3">
-							<a
-								href="https://www.instagram.com/jf.drone_visual"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="group inline-flex items-center gap-2 font-montserrat text-[10px] uppercase tracking-[0.2em] text-zinc-500 hover:text-gold-300 transition-colors font-semibold"
-							>
-								<svg
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									strokeWidth="1.5"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									className="w-4 h-4"
-									aria-hidden="true"
-								>
-									<rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-									<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-									<line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-								</svg>
-								<span className="group-hover:translate-x-0.5 transition-transform duration-200">
-									ESCRIBIR A JOSE
-								</span>
-							</a>
-						</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 
-				{/* ── Bottom Bar — minimal ── */}
-				<div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-white/[0.06] text-[10px] text-zinc-600 font-mono tracking-wider">
-					<p>&copy; 2026 JF.DroneVision</p>
-					<a
-						href="/aviso-legal"
-						className="hover:text-zinc-400 transition-colors"
-					>
-						Aviso Legal
-					</a>
+				{/* ── 4. LÍNEA INFERIOR DE COPYRIGHT & LEGAL (Apple.com Sub-footer) ── */}
+				<div className="pt-6 flex flex-col md:flex-row md:items-center justify-between gap-3 text-[11px] text-[#86868b]">
+					<div>
+						Copyright © {new Date().getFullYear()} JF.DroneVision. Todos los
+						derechos reservados.
+					</div>
+
+					<div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+						<Link
+							href="/aviso-legal"
+							className="text-[#a1a1a6] hover:text-white transition-colors cursor-pointer"
+						>
+							Aviso Legal
+						</Link>
+						<span>|</span>
+						<Link
+							href="/aviso-legal"
+							className="text-[#a1a1a6] hover:text-white transition-colors cursor-pointer"
+						>
+							Política de Privacidad
+						</Link>
+						<span>|</span>
+						<span className="text-[#a1a1a6]">España</span>
+					</div>
 				</div>
 			</footer>
 		</main>

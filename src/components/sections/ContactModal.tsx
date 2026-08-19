@@ -1,15 +1,6 @@
 "use client";
 
-import {
-	ArrowUpRight,
-	CheckCircle2,
-	ChevronDown,
-	Compass,
-	DollarSign,
-	FileText,
-	Mail,
-	X,
-} from "lucide-react";
+import { CheckCircle2, ChevronDown, FileText, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { submitContactForm } from "@/app/actions/contact";
 
@@ -17,6 +8,7 @@ export default function ContactModal() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const [isPending, setIsPending] = useState(false);
+	const [errorMessage, setErrorMessage] = useState<string | null>(null);
 	const dialogRef = useRef<HTMLDivElement>(null);
 	const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -36,6 +28,7 @@ export default function ContactModal() {
 	async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		setIsPending(true);
+		setErrorMessage(null);
 		const formData = new FormData(e.currentTarget);
 		const payload = {
 			name: formData.get("name") as string,
@@ -52,7 +45,10 @@ export default function ContactModal() {
 				setSubmitted(false);
 			}, 2500);
 		} else {
-			alert("Hubo un problema al enviar tu solicitud. Inténtalo de nuevo.");
+			setErrorMessage(
+				result.error ||
+					"Hubo un problema al enviar tu solicitud. Inténtalo de nuevo.",
+			);
 		}
 	}
 
@@ -65,27 +61,32 @@ export default function ContactModal() {
 
 	return (
 		<>
-			{/* Botón trigger del modal */}
+			{/* Botón trigger del modal — Bento Rectangular Estilo Apple Pro Centrado */}
 			<button
 				type="button"
 				ref={triggerRef}
 				onClick={() => setIsOpen(true)}
-				className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
+				className="group relative flex flex-col justify-between p-3.5 sm:p-5 rounded-[16px] md:rounded-2xl border border-white/[0.12] bg-[#12141a]/60 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-gold-500/40 hover:bg-[#151821]/80 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.1)] transition-all duration-300 cursor-pointer overflow-hidden w-full"
 			>
-				<div className="flex items-center gap-3">
-					<div className="flex items-center justify-center p-2 rounded-lg bg-gold-500/10 border border-gold-500/20 text-gold-400">
+				{/* Luz cenital difusa estilo Apple */}
+				<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent opacity-70" />
+
+				{/* Cabecera con Icono Centrado */}
+				<div className="relative z-10 flex flex-col items-center justify-center mb-2.5 w-full">
+					<div className="flex items-center justify-center p-2.5 rounded-xl bg-gold-500/10 border border-gold-500/20 text-gold-400">
 						<FileText className="w-5 h-5" />
 					</div>
-					<div className="text-left">
-						<span className="block font-jakarta text-xs font-bold uppercase tracking-[0.15em] text-white group-hover:text-gold-200 transition-colors">
-							Enviar Formulario
-						</span>
-						<span className="block font-mono text-[9px] text-zinc-400 tracking-wider">
-							Si prefieres email
-						</span>
-					</div>
 				</div>
-				<ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:text-gold-300 group-hover:translate-x-0.5 transition-all ml-2" />
+
+				{/* Texto y Badge Centrados */}
+				<div className="relative z-10 text-center flex flex-col items-center w-full">
+					<span className="block font-jakarta text-[11.5px] sm:text-xs font-bold uppercase tracking-wider text-white group-hover:text-gold-200 transition-colors">
+						Enviar Formulario
+					</span>
+					<span className="block font-mono text-[8.5px] sm:text-[9px] text-zinc-400 tracking-wider mt-0.5">
+						Si prefieres email
+					</span>
+				</div>
 			</button>
 
 			{/* Modal dialog — animado con CSS transitions en vez de Framer Motion */}
@@ -94,7 +95,7 @@ export default function ContactModal() {
 					role="dialog"
 					aria-modal="true"
 					aria-labelledby="contact-modal-title"
-					className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-2xl"
+					className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-3 sm:p-4 backdrop-blur-2xl overflow-y-auto"
 					onClick={(e) => {
 						if (e.target === e.currentTarget) setIsOpen(false);
 					}}
@@ -109,109 +110,70 @@ export default function ContactModal() {
 					<div
 						ref={dialogRef}
 						tabIndex={-1}
-						className="relative w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-[#0a0c10]/95 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.9)] outline-none specular-card sm:p-10 lg:p-16 backdrop-blur-3xl animate-blur-in"
+						className="relative w-full max-w-lg md:max-w-2xl my-auto max-h-[92vh] overflow-y-auto rounded-[24px] md:rounded-[32px] border border-white/[0.12] bg-[#12141a]/85 p-5 sm:p-8 md:p-10 shadow-[0_25px_80px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.1)] outline-none backdrop-blur-3xl animate-blur-in scrollbar-thin text-center select-none"
 					>
-						{/* Brackets HUD con resplandor ámbar */}
-						<span className="pointer-events-none absolute left-0 top-0 h-4 w-4 border-l border-t border-gold-500/40" />
-						<span className="pointer-events-none absolute right-0 top-0 h-4 w-4 border-r border-t border-gold-500/40" />
-						<span className="pointer-events-none absolute bottom-0 left-0 h-4 w-4 border-b border-l border-gold-500/40" />
-						<span className="pointer-events-none absolute bottom-0 right-0 h-4 w-4 border-b border-r border-gold-500/40" />
+						{/* Luz cenital difusa estilo Apple */}
+						<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent opacity-80" />
 
+						{/* Botón de cierre iOS Pill */}
 						<button
 							type="button"
 							onClick={() => setIsOpen(false)}
 							aria-label="Cerrar formulario de contacto"
-							className="absolute right-6 top-6 cursor-pointer border border-white/10 p-2 text-white/60 rounded-full transition-colors hover:border-gold-500/40 hover:text-white hover:bg-white/5"
+							className="absolute top-4 right-4 md:top-6 md:right-6 z-30 cursor-pointer border border-white/10 bg-white/5 p-2 text-zinc-400 hover:text-white rounded-full transition-all hover:bg-white/10 active:scale-95"
 						>
 							<X size={18} />
 						</button>
 
 						{submitted ? (
-							<div className="flex flex-col items-center justify-center space-y-4 py-16 text-center animate-blur-in">
+							<div className="flex flex-col items-center justify-center space-y-4 py-12 text-center animate-blur-in">
 								<div className="relative flex items-center justify-center">
 									<span className="absolute inset-0 rounded-full bg-[#dfd0a4]/20 animate-ping" />
 									<CheckCircle2
-										size={56}
+										size={52}
 										className="relative text-[#dfd0a4]"
 										strokeWidth={1.5}
 									/>
 								</div>
-								<h3 className="font-cinzel text-2xl uppercase tracking-widest text-white">
-									Plan de vuelo solicitado
+								<h3 className="font-cormorant text-2xl uppercase tracking-wider text-white font-bold">
+									Solicitud enviada
 								</h3>
-								<p className="max-w-sm font-sans text-sm font-light text-white/60">
-									Coordinación operativa activada. Te responderemos en menos de
-									24h.
+								<p className="max-w-xs font-jakarta text-xs font-semibold text-zinc-300">
+									Plan recibido. Te responderemos por email en menos de 24h.
 								</p>
 							</div>
 						) : (
-							<div className="flex flex-col items-start gap-12 text-left lg:flex-row lg:gap-16">
-								{/* Columna izquierda: copy editorial */}
-								<div className="w-full flex-1 space-y-6">
-									<span className="flex items-center gap-2 font-sans text-[9px] uppercase tracking-[0.3em] text-gold-200/80 font-semibold">
+							<div className="flex flex-col items-center text-center space-y-5 md:space-y-6">
+								{/* Cabecera Centrada */}
+								<div className="space-y-2 pt-2">
+									<div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 font-mono text-[8.5px] md:text-[9.5px] tracking-[0.25em] uppercase font-bold">
 										<span className="h-1.5 w-1.5 rounded-full bg-gold-400 animate-pulse" />
-										OPERADOR REGISTRADO AESA
-									</span>
+										OPERADOR AESA · CONTACTO DIRECTO
+									</div>
 									<h3
 										id="contact-modal-title"
-										className="font-cinzel text-3xl font-bold leading-tight tracking-tight text-golden-hour sm:text-4xl lg:text-5xl uppercase"
+										className="font-cormorant text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide text-white uppercase"
 									>
-										Cuéntame tu
-										<br />
-										proyecto
+										Cuéntame tu{" "}
+										<span className="text-gold-400 italic">proyecto</span>
 									</h3>
-									<div className="space-y-4 pt-4 font-sans text-sm font-light text-white/60">
-										<div className="flex gap-4">
-											<div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.03] text-cyan-400 rounded-lg">
-												<Compass size={18} />
-											</div>
-											<div>
-												<p className="mb-1 font-sans text-xs font-medium uppercase tracking-wider text-white">
-													Vuelo 100% legal y seguro
-												</p>
-												<p className="text-xs leading-relaxed text-zinc-400">
-													Compruebo la normativa de tu zona para volar en regla
-													y sin riesgos para ti o tu negocio.
-												</p>
-											</div>
-										</div>
-										<div className="flex gap-4">
-											<div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/10 bg-white/[0.03] text-gold-400 rounded-lg">
-												<DollarSign size={18} />
-											</div>
-											<div>
-												<p className="mb-1 font-sans text-xs font-medium uppercase tracking-wider text-white">
-													Sin costes ocultos
-												</p>
-												<p className="text-xs leading-relaxed text-zinc-400">
-													Precio transparente con seguro incluido. Te digo lo
-													que cuesta exactamente antes de empezar.
-												</p>
-											</div>
-										</div>
-									</div>
-									<div className="mt-6 flex items-center gap-4 border-t border-white/[0.08] pt-6">
-										<div className="flex h-10 w-10 items-center justify-center border border-white/10 bg-white/[0.03] text-gold-200/80 rounded-lg">
-											<Mail size={16} />
-										</div>
-										<div>
-											<p className="font-sans text-[10px] uppercase tracking-wider text-zinc-400">
-												Correo directo
-											</p>
-											<p className="font-mono text-xs text-white">
-												contacto@jfdronevision.com
-											</p>
-										</div>
-									</div>
+									<p className="font-jakarta text-[11px] sm:text-xs md:text-sm text-zinc-300 font-semibold max-w-md mx-auto leading-relaxed">
+										Dinos qué necesitas y te enviamos presupuesto cerrado sin
+										compromiso.
+									</p>
 								</div>
 
-								{/* Columna derecha: formulario */}
-								<div className="w-full flex-1">
-									<form onSubmit={handleSubmit} className="space-y-5">
+								{/* Formulario Estilo Apple Frosted */}
+								<form
+									onSubmit={handleSubmit}
+									className="w-full space-y-3.5 md:space-y-4 text-left"
+								>
+									{/* Fila 1 en desktop: Nombre y Email lado a lado */}
+									<div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 md:gap-4">
 										<div>
 											<label
 												htmlFor="name"
-												className="mb-2 block font-sans text-[9px] uppercase tracking-[0.2em] text-zinc-400"
+												className="mb-1 block font-mono text-[8.5px] md:text-[9px] uppercase tracking-wider text-gold-300/90 font-bold"
 											>
 												Nombre completo *
 											</label>
@@ -221,13 +183,15 @@ export default function ContactModal() {
 												required
 												type="text"
 												disabled={isPending}
-												className="h-10 w-full rounded-md border border-white/10 bg-white/[0.03] px-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-cyan-400/60 focus:ring-1 focus:ring-cyan-400/30 focus:outline-none transition-all duration-300"
+												placeholder="Tu nombre o empresa"
+												className="h-10 md:h-11 w-full rounded-xl border border-white/10 bg-black/40 px-3.5 font-jakarta text-xs md:text-sm text-white placeholder:text-zinc-500 focus:border-gold-400/60 focus:ring-1 focus:ring-gold-400/30 focus:outline-none transition-all duration-300"
 											/>
 										</div>
+
 										<div>
 											<label
 												htmlFor="email"
-												className="mb-2 block font-sans text-[9px] uppercase tracking-[0.2em] text-zinc-400"
+												className="mb-1 block font-mono text-[8.5px] md:text-[9px] uppercase tracking-wider text-gold-300/90 font-bold"
 											>
 												Email de contacto *
 											</label>
@@ -237,65 +201,103 @@ export default function ContactModal() {
 												required
 												type="email"
 												disabled={isPending}
-												className="h-10 w-full rounded-md border border-white/10 bg-white/[0.03] px-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-cyan-400/60 focus:ring-1 focus:ring-cyan-400/30 focus:outline-none transition-all duration-300"
+												placeholder="tucorreo@ejemplo.com"
+												className="h-10 md:h-11 w-full rounded-xl border border-white/10 bg-black/40 px-3.5 font-jakarta text-xs md:text-sm text-white placeholder:text-zinc-500 focus:border-gold-400/60 focus:ring-1 focus:ring-gold-400/30 focus:outline-none transition-all duration-300"
 											/>
 										</div>
-										<div>
-											<label
-												htmlFor="type"
-												className="mb-2 block font-sans text-[9px] uppercase tracking-[0.2em] text-zinc-400"
-											>
-												Tipo de operación
-											</label>
-											<div className="relative">
-												<select
-													id="type"
-													name="type"
-													disabled={isPending}
-													className="h-10 w-full cursor-pointer rounded-md appearance-none border border-white/10 bg-[#0f1115] px-4 pr-10 font-sans text-xs text-white focus:border-cyan-400/60 focus:outline-none transition-all duration-300"
-												>
-													<option value="real-estate">
-														Piso / Propiedad inmobiliaria
-													</option>
-													<option value="inspection">
-														Obra / Fachada / Inspección
-													</option>
-													<option value="business">
-														Local / Negocio del barrio
-													</option>
-													<option value="other">Otro tipo de proyecto</option>
-												</select>
-												<ChevronDown
-													size={14}
-													className="pointer-events-none absolute right-3 top-3 text-white/40"
-												/>
-											</div>
-										</div>
-										<div>
-											<label
-												htmlFor="details"
-												className="mb-2 block font-sans text-[9px] uppercase tracking-[0.2em] text-zinc-400"
-											>
-												Detalles del proyecto
-											</label>
-											<textarea
-												id="details"
-												name="details"
-												rows={3}
-												disabled={isPending}
-												placeholder="Descríbenos brevemente la localización y el objetivo de la filmación..."
-												className="w-full resize-none rounded-md border border-white/10 bg-white/[0.03] p-4 font-sans text-xs text-white placeholder:text-zinc-600 focus:border-cyan-400/60 focus:ring-1 focus:ring-cyan-400/30 focus:outline-none transition-all duration-300"
-											/>
-										</div>
-										<button
-											type="submit"
-											disabled={isPending}
-											className="h-11 w-full cursor-pointer rounded-md border border-gold-500/40 bg-gold-500/10 font-sans text-xs font-semibold uppercase tracking-[0.25em] text-gold-200 transition-all hover:bg-gold-500/20 hover:border-gold-400/60 disabled:opacity-50 specular-card shadow-lg shadow-gold-500/5"
+									</div>
+
+									<div>
+										<label
+											htmlFor="type"
+											className="mb-1 block font-mono text-[8.5px] md:text-[9px] uppercase tracking-wider text-gold-300/90 font-bold"
 										>
-											{isPending ? "Procesando plan..." : "Enviar solicitud"}
-										</button>
-									</form>
-								</div>
+											Tipo de grabación
+										</label>
+										<div className="relative">
+											<select
+												id="type"
+												name="type"
+												disabled={isPending}
+												className="h-10 md:h-11 w-full cursor-pointer rounded-xl appearance-none border border-white/10 bg-[#0f1115] px-3.5 pr-10 font-jakarta text-xs md:text-sm text-white focus:border-gold-400/60 focus:outline-none transition-all duration-300"
+											>
+												<option value="real-estate">
+													Inmobiliaria / Piso / Finca
+												</option>
+												<option value="inspection">
+													Inspección técnica / Obra / Fachada
+												</option>
+												<option value="business">
+													Hostelería / Negocio local
+												</option>
+												<option value="other">Otro tipo de rodaje</option>
+											</select>
+											<ChevronDown
+												size={14}
+												className="pointer-events-none absolute right-3.5 top-3.5 md:top-4 text-zinc-400"
+											/>
+										</div>
+									</div>
+
+									<div>
+										<label
+											htmlFor="details"
+											className="mb-1 block font-mono text-[8.5px] md:text-[9px] uppercase tracking-wider text-gold-300/90 font-bold"
+										>
+											Detalles del proyecto
+										</label>
+										<textarea
+											id="details"
+											name="details"
+											rows={3}
+											disabled={isPending}
+											placeholder="Ubicación aproximada, fechas o características del vuelo..."
+											className="w-full resize-none rounded-xl border border-white/10 bg-black/40 p-3 md:p-3.5 font-jakarta text-xs md:text-sm text-white placeholder:text-zinc-500 focus:border-gold-400/60 focus:ring-1 focus:ring-gold-400/30 focus:outline-none transition-all duration-300"
+										/>
+									</div>
+
+									{/* Checkbox RGPD Consentimiento Explícito */}
+									<div className="flex items-start gap-2.5 pt-1">
+										<input
+											id="privacy-consent"
+											name="privacyConsent"
+											type="checkbox"
+											required
+											disabled={isPending}
+											className="mt-0.5 h-4 w-4 rounded border-white/20 bg-black/40 text-gold-500 focus:ring-gold-400/30 focus:ring-offset-0 cursor-pointer"
+										/>
+										<label
+											htmlFor="privacy-consent"
+											className="font-jakarta text-[10.5px] text-zinc-400 leading-tight select-none cursor-pointer"
+										>
+											He leído y acepto la{" "}
+											<a
+												href="/aviso-legal"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-gold-300 underline underline-offset-2 hover:text-white"
+											>
+												política de privacidad
+											</a>{" "}
+											para recibir respuesta a mi consulta.
+										</label>
+									</div>
+
+									{/* Mensaje de Error Inline Estilo Apple (Sin alert()) */}
+									{errorMessage && (
+										<div className="rounded-xl border border-red-500/30 bg-red-500/10 p-3 text-center text-xs font-jakarta text-red-300">
+											{errorMessage}
+										</div>
+									)}
+
+									<button
+										type="submit"
+										disabled={isPending}
+										className="h-11 md:h-12 w-full cursor-pointer rounded-xl border border-gold-500/30 bg-gradient-to-r from-gold-500/20 via-gold-500/10 to-gold-500/20 font-jakarta text-xs md:text-sm font-bold uppercase tracking-wider text-gold-200 transition-all hover:bg-gold-500/25 hover:border-gold-400/50 active:scale-[0.98] disabled:opacity-50 shadow-lg shadow-gold-500/5 mt-1"
+									>
+										{isPending ? "Enviando solicitud..." : "Enviar consulta"}
+									</button>
+								</form>
 							</div>
 						)}
 					</div>

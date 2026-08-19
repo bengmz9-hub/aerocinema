@@ -22,7 +22,8 @@ export function HeroParticles() {
 		const ctx = canvas.getContext("2d");
 		if (!ctx) return;
 
-		let animationFrameId: number;
+		let animationFrameId: number | null = null;
+		let isVisible = true;
 		const containerWidth =
 			canvas.parentElement?.clientWidth || window.innerWidth;
 		const containerHeight =
@@ -44,7 +45,7 @@ export function HeroParticles() {
 			height = h;
 		};
 
-		window.addEventListener("resize", handleResize);
+		window.addEventListener("resize", handleResize, { passive: true });
 
 		// Crear conjunto de partículas cinemáticas (polvo atmosférico + waypoints aéreos)
 		const particleCount = Math.min(Math.floor((width * height) / 20000), 45);
@@ -61,6 +62,7 @@ export function HeroParticles() {
 		let pulseTimer = 0;
 
 		const render = () => {
+			if (!isVisible) return;
 			ctx.clearRect(0, 0, width, height);
 			pulseTimer += 0.015;
 
@@ -84,19 +86,29 @@ export function HeroParticles() {
 				ctx.beginPath();
 				ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
 				ctx.fillStyle = `rgba(212, 175, 55, ${currentOpacity})`;
-				ctx.shadowBlur = 8;
-				ctx.shadowColor = "rgba(212, 175, 55, 0.4)";
 				ctx.fill();
 			}
 
 			animationFrameId = requestAnimationFrame(render);
 		};
 
+		const observer = new IntersectionObserver(([entry]) => {
+			isVisible = entry.isIntersecting;
+			if (isVisible) {
+				if (!animationFrameId) render();
+			} else if (animationFrameId) {
+				cancelAnimationFrame(animationFrameId);
+				animationFrameId = null;
+			}
+		});
+		observer.observe(canvas);
+
 		render();
 
 		return () => {
+			observer.disconnect();
 			window.removeEventListener("resize", handleResize);
-			cancelAnimationFrame(animationFrameId);
+			if (animationFrameId) cancelAnimationFrame(animationFrameId);
 		};
 	}, []);
 

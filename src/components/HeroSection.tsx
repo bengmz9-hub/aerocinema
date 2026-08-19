@@ -8,17 +8,10 @@ export function HeroSection() {
 	return (
 		<section
 			aria-label="Hero Principal"
-			className="relative w-full h-screen bg-neutral-950 overflow-hidden flex items-center justify-center select-none"
+			className="relative w-full min-h-[90vh] md:h-screen bg-neutral-950 overflow-hidden flex items-center justify-center select-none py-16 md:py-0"
 		>
 			{/* Partículas cinemáticas de ambiente */}
 			<HeroParticles />
-			{/* 0. Capa de Grano Analógico y Ruido Cinematográfico (Flyerwrk / Grainient Supply) */}
-			<div
-				className="pointer-events-none absolute inset-0 z-20 opacity-20 mix-blend-overlay"
-				style={{
-					backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-				}}
-			/>
 
 			{/* 1. Fondo de Vídeo Cinematográfico Silencioso con Fallback */}
 			<div className="absolute inset-0 z-0">
@@ -27,13 +20,16 @@ export function HeroSection() {
 					loop
 					muted
 					playsInline
+					poster="/images/hero-poster.webp"
+					aria-label="Vídeo aéreo cinematográfico de presentación de JF.DroneVision en Barcelona y L'Hospitalet"
+					title="Filmación aérea con dron en Barcelona y L'Hospitalet"
 					className="w-full h-full object-cover opacity-50 filter saturate-[0.95] contrast-[1.05]"
 				>
 					<source src="/hero.webm" type="video/webm" />
 				</video>
 				{/* Degradado cinematográfico profundo con fundido suave a negro puro en la parte inferior */}
 				<div className="absolute inset-0 bg-gradient-to-b from-[#000000]/70 via-transparent to-[#000000] z-10" />
-				<div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#000000] via-[#000000] to-transparent z-10 pointer-events-none" />
+				<div className="absolute bottom-0 left-0 right-0 h-28 md:h-64 bg-gradient-to-t from-[#000000] via-[#000000] to-transparent z-10 pointer-events-none" />
 			</div>
 
 			{/* 2. Contenido Editorial */}

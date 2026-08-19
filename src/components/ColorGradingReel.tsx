@@ -165,11 +165,25 @@ export function ColorGradingReel() {
 				<div className="relative w-full rounded-2xl overflow-hidden border border-white/15 bg-zinc-950 shadow-2xl group">
 					<div
 						ref={containerRef}
+						role="slider"
+						tabIndex={0}
+						aria-label="Comparativa de etalonaje de color: D-Log RAW frente a Graded 4K"
+						aria-valuenow={Math.round(sliderPos)}
+						aria-valuemin={0}
+						aria-valuemax={100}
+						onKeyDown={(e) => {
+							if (e.key === "ArrowLeft") {
+								e.preventDefault();
+								setSliderPos((prev) => Math.max(0, prev - 5));
+							} else if (e.key === "ArrowRight") {
+								e.preventDefault();
+								setSliderPos((prev) => Math.min(100, prev + 5));
+							}
+						}}
 						onPointerDown={handlePointerDown}
 						onPointerMove={handlePointerMove}
 						onPointerUp={handlePointerUp}
-						onPointerCancel={handlePointerUp}
-						className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] cursor-ew-resize overflow-hidden touch-none select-none"
+						className="relative h-[260px] xs:h-[320px] sm:h-[400px] md:h-[500px] w-full overflow-hidden cursor-ew-resize select-none touch-none focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
 					>
 						{/* Lado Derecho: Imagen Graduada (Color Final Cinematográfico) */}
 						<div className="absolute inset-0 w-full h-full pointer-events-none select-none">

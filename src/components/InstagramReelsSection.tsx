@@ -2,7 +2,7 @@
 
 import { Heart, Play } from "lucide-react";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -89,31 +89,41 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 function ReelCard({ reel }: { reel: InstagramReelItem }) {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const videoRef = useRef<HTMLVideoElement>(null);
+	const cardRef = useRef<HTMLAnchorElement>(null);
 
-	const handleMouseEnter = () => {
-		setIsPlaying(true);
-		if (videoRef.current) {
-			videoRef.current.play().catch(() => {});
-		}
-	};
+	useEffect(() => {
+		const video = videoRef.current;
+		const card = cardRef.current;
+		if (!video || !card) return;
 
-	const handleMouseLeave = () => {
-		setIsPlaying(false);
-		if (videoRef.current) {
-			videoRef.current.pause();
-			videoRef.current.currentTime = 0;
-		}
-	};
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					setIsPlaying(true);
+					video.play().catch(() => {});
+				} else {
+					setIsPlaying(false);
+					video.pause();
+				}
+			},
+			{ threshold: 0.25 },
+		);
+
+		observer.observe(card);
+
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
 
 	return (
 		<a
+			ref={cardRef}
 			href={reel.instagramUrl}
 			target="_blank"
 			rel="noopener noreferrer"
-			onMouseEnter={handleMouseEnter}
-			onMouseLeave={handleMouseLeave}
 			className={cn(
-				"group relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/80 aspect-[9/16] transition-all duration-500 flex flex-col justify-between p-4 outline-none specular-card text-left cursor-pointer",
+				"group relative w-full h-[380px] sm:h-auto sm:aspect-[9/16] rounded-[18px] md:rounded-2xl overflow-hidden border border-white/10 bg-zinc-950/80 transition-all duration-500 flex flex-col justify-between p-4 outline-none specular-card text-left cursor-pointer",
 				"hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.15)] hover:scale-[1.02]",
 			)}
 		>
@@ -137,7 +147,7 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 				muted
 				loop
 				playsInline
-				preload="auto"
+				preload="metadata"
 				className={cn(
 					"absolute inset-0 w-full h-full object-cover transition-all duration-500 pointer-events-none select-none",
 					reel.thumbnail
@@ -155,11 +165,11 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 
 			{/* Parte Superior: Badge Instagram & Duración */}
 			<div className="relative z-10 flex items-center justify-between w-full pointer-events-none">
-				<span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[8px] tracking-[0.2em] text-gold-300 uppercase flex items-center gap-1.5">
-					<InstagramIcon className="w-3 h-3 text-gold-400" />
+				<span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[7.5px] md:text-[8px] tracking-[0.2em] text-gold-300 uppercase flex items-center gap-1.5">
+					<InstagramIcon className="w-2.5 h-2.5 md:w-3 md:h-3 text-gold-400" />
 					REEL
 				</span>
-				<span className="px-2.5 py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[8px] tracking-wider text-zinc-300">
+				<span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[7.5px] md:text-[8px] tracking-wider text-zinc-300">
 					{reel.duration}
 				</span>
 			</div>
@@ -168,26 +178,26 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 			<div className="relative z-10 my-auto flex items-center justify-center pointer-events-none">
 				<div
 					className={cn(
-						"w-12 h-12 rounded-full bg-gold-500/80 border border-gold-400 text-white flex items-center justify-center shadow-[0_0_20px_rgba(223,208,164,0.5)] transition-all duration-300",
+						"w-10 h-10 md:w-12 md:h-12 rounded-full bg-gold-500/80 border border-gold-400 text-white flex items-center justify-center shadow-[0_0_20px_rgba(223,208,164,0.5)] transition-all duration-300",
 						isPlaying
 							? "scale-0 opacity-0"
 							: "scale-100 opacity-90 group-hover:scale-110",
 					)}
 				>
-					<Play className="w-5 h-5 fill-white translate-x-0.5" />
+					<Play className="w-4 h-4 md:w-5 md:h-5 fill-white translate-x-0.5" />
 				</div>
 			</div>
 
 			{/* Parte Inferior: Metadata & Métricas de Instagram */}
-			<div className="relative z-10 flex flex-col gap-2 pointer-events-none">
-				<span className="font-mono text-[9px] uppercase tracking-[0.25em] text-gold-400 font-medium">
+			<div className="relative z-10 flex flex-col gap-1 md:gap-2 pointer-events-none">
+				<span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-gold-400 font-medium">
 					[ {reel.category} ]
 				</span>
-				<h3 className="font-cinzel font-bold text-base text-white uppercase leading-snug line-clamp-2">
+				<h3 className="font-cinzel font-bold text-[13px] md:text-base text-white uppercase leading-snug line-clamp-2">
 					{reel.title}
 				</h3>
 
-				<div className="flex items-center justify-between pt-2 border-t border-white/10 font-mono text-[9px] text-zinc-400">
+				<div className="flex items-center justify-between pt-1.5 md:pt-2 border-t border-white/10 font-mono text-[8px] md:text-[9px] text-zinc-400">
 					<span className="flex items-center gap-1">
 						<Play className="w-2.5 h-2.5 text-zinc-400 fill-zinc-400" />
 						{reel.views}
@@ -204,14 +214,14 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 
 export function InstagramReelsSection() {
 	return (
-		<section className="w-full bg-transparent py-8 md:py-12 px-4 md:px-8 relative overflow-hidden select-none">
+		<section className="w-full bg-transparent pt-2 pb-8 md:py-12 px-4 md:px-8 relative overflow-hidden select-none">
 			<div className="max-w-7xl mx-auto">
 				{/* ═══════ CABECERA TELEMÉTRICA DE TRABAJOS RECIENTES ═══════ */}
-				<div className="mb-10 md:mb-14">
-					<div className="flex items-center gap-3 mb-2">
-						<span className="w-8 h-px bg-gold-500/60" />
-						<span className="text-gold-400 text-[10px] font-mono tracking-[0.3em] uppercase flex items-center gap-2">
-							<InstagramIcon className="w-3.5 h-3.5 text-gold-400" />
+				<div className="mb-6 md:mb-14">
+					<div className="flex items-center gap-3 mb-1.5 md:mb-2">
+						<span className="w-6 md:w-8 h-px bg-gold-500/60" />
+						<span className="text-gold-400 text-[9px] md:text-[10px] font-mono tracking-[0.25em] md:tracking-[0.3em] uppercase flex items-center gap-2">
+							<InstagramIcon className="w-3 h-3 md:w-3.5 md:h-3.5 text-gold-400" />
 							PRODUCCIONES REALES — @JF.DRONE_VISUAL
 						</span>
 					</div>
@@ -230,16 +240,26 @@ export function InstagramReelsSection() {
 					))}
 				</div>
 
-				{/* ═══════ FOOTER CTA INSTAGRAM ═══════ */}
-				<div className="mt-10 md:mt-14 text-center">
+				{/* ═══════ FOOTER CTA INSTAGRAM (Apple Pill Style) ═══════ */}
+				<div className="mt-8 md:mt-14 flex justify-center">
 					<a
 						href="https://www.instagram.com/jf.drone_visual"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full border border-white/15 bg-white/5 text-white font-sans text-xs uppercase tracking-[0.25em] font-semibold transition-all duration-300 hover:bg-white/10 hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.2)] specular-card"
+						className="group relative inline-flex items-center gap-2.5 px-5 py-2.5 md:px-7 md:py-3 rounded-full border border-white/[0.12] bg-[#12141a]/70 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] text-white transition-all duration-300 hover:border-gold-500/40 hover:bg-[#151821]/90 hover:shadow-[0_15px_35px_rgba(0,0,0,0.6),0_0_20px_rgba(223,208,164,0.15)] active:scale-95"
 					>
-						<InstagramIcon className="w-4 h-4 text-gold-400" />
-						<span>Ver más rodajes en @jf.drone_visual</span>
+						<div className="p-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400">
+							<InstagramIcon className="w-3.5 h-3.5 text-gold-400" />
+						</div>
+						<span className="font-mono text-[10.5px] md:text-xs text-zinc-200 font-semibold tracking-wider">
+							Ver más rodajes en{" "}
+							<strong className="text-gold-300 font-bold">
+								@jf.drone_visual
+							</strong>
+						</span>
+						<span className="font-mono text-zinc-500 group-hover:text-gold-400 text-xs transition-colors">
+							↗
+						</span>
 					</a>
 				</div>
 			</div>

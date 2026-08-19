@@ -1,6 +1,5 @@
 "use client";
 
-import { MessageSquare, Send } from "lucide-react";
 import ContactModal from "./ContactModal";
 
 export default function ContactSection() {
@@ -8,14 +7,8 @@ export default function ContactSection() {
 		"https://wa.me/34600000000?text=Hola%20Jose,%20tengo%20un%20proyecto%20en%20mente%20y%20me%20gustar%C3%ADa%20consultarte.";
 
 	return (
-		<section className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 text-center select-none">
-			<div className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-6">
-				{/* Tag Superior */}
-				<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 font-mono text-[10px] tracking-[0.25em] uppercase">
-					<MessageSquare className="w-3.5 h-3.5" />
-					<span>CONVERSACIÓN DIRECTA · SIN COMPROMISO</span>
-				</div>
-
+		<section className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-8 pb-12 md:py-20 lg:px-8 text-center select-none">
+			<div className="mx-auto flex max-w-2xl flex-col items-center justify-center gap-4 md:gap-6">
 				{/* Título H2 */}
 				<h2 className="font-cormorant text-3xl sm:text-5xl font-bold leading-none tracking-tight text-white uppercase">
 					¿Tienes algo <span className="text-gold-400 italic">en mente</span> ?
@@ -28,15 +21,18 @@ export default function ContactSection() {
 					que puede hacer el dron por ti.
 				</p>
 
-				{/* Botones CTA Principales */}
-				<div className="mt-6 flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-					{/* CTA Principal WhatsApp — Estilo Specular Card Hermanado */}
+				{/* Grid de 2 Bento Cards Rectangulares (WhatsApp izquierda, Formulario derecha) */}
+				<div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-xl">
+					{/* CTA Principal WhatsApp — Bento Rectangular Estilo Apple Pro */}
 					<a
 						href={whatsappUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group relative inline-flex items-center justify-between gap-4 px-6 py-3.5 h-[58px] rounded-xl border border-white/10 bg-[#0f1115]/90 backdrop-blur-md hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.08)] specular-card transition-all duration-300 cursor-pointer w-full sm:w-auto min-w-[260px]"
+						className="group relative flex flex-col justify-between p-3.5 sm:p-5 rounded-[16px] md:rounded-2xl border border-white/[0.12] bg-[#12141a]/60 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-gold-500/40 hover:bg-[#151821]/80 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.1)] transition-all duration-300 cursor-pointer overflow-hidden text-left"
 					>
+						{/* Luz cenital difusa estilo Apple */}
+						<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent opacity-70" />
+
 						{/* Definición del Gradiente SVG Verde a Oro */}
 						<svg width="0" height="0" className="absolute" aria-hidden="true">
 							<defs>
@@ -53,9 +49,9 @@ export default function ContactSection() {
 							</defs>
 						</svg>
 
-						{/* Lado Izquierdo: Icono WhatsApp SVG con gradiente + LED pulsante */}
-						<div className="flex items-center gap-3">
-							<div className="relative flex items-center justify-center p-2 rounded-lg bg-[#dfd0a4]/10 border border-[#dfd0a4]/20">
+						{/* Cabecera con Icono Centrado + LED */}
+						<div className="relative z-10 flex flex-col items-center justify-center mb-2.5">
+							<div className="relative flex items-center justify-center p-2.5 rounded-xl bg-gold-500/10 border border-gold-500/20">
 								<svg
 									className="w-5 h-5"
 									viewBox="0 0 24 24"
@@ -70,21 +66,20 @@ export default function ContactSection() {
 								</svg>
 								<span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-[#dfd0a4] animate-pulse shadow-[0_0_6px_rgba(223,208,164,0.8)]" />
 							</div>
-							<div className="text-left">
-								<span className="block font-jakarta text-xs font-bold uppercase tracking-[0.15em] text-white group-hover:text-gold-200 transition-colors">
-									Escribir a Jose
-								</span>
-								<span className="block font-mono text-[9px] text-zinc-400 tracking-wider">
-									Suele responder en minutos
-								</span>
-							</div>
 						</div>
 
-						{/* Lado Derecho: Icono de envío o flecha */}
-						<Send className="w-4 h-4 text-zinc-400 group-hover:text-gold-300 group-hover:translate-x-0.5 transition-all ml-2" />
+						{/* Texto y Badge Centrados */}
+						<div className="relative z-10 text-center flex flex-col items-center">
+							<span className="block font-jakarta text-[11.5px] sm:text-xs font-bold uppercase tracking-wider text-white group-hover:text-gold-200 transition-colors">
+								Escribir a Jose
+							</span>
+							<span className="block font-mono text-[8.5px] sm:text-[9px] text-zinc-400 tracking-wider mt-0.5">
+								Respuesta en minutos
+							</span>
+						</div>
 					</a>
 
-					{/* CTA Secundario Formulario Modal */}
+					{/* CTA Secundario Formulario Modal — Bento Rectangular Estilo Apple Pro */}
 					<ContactModal />
 				</div>
 			</div>
