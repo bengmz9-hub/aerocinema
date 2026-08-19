@@ -11,9 +11,14 @@
    - Verificada la presencia de Schema JSON-LD `LocalBusiness` / `ProfessionalService` en `layout.tsx`.
    - Modificada la regla de delegación en `.agents/AGENTS.md` para especificar DeepSeek Flash v4 en off-peak y Qwen 3.7 / Alibaba API.
 
-3. **Commits Locales Guardados Atómicamente**:
+3. **Filtrado Dinámico de Portfolio (InstagramReelsSection)**:
+   - Implementada barra de filtros interactiva con pills cinemáticas (`TODOS`, `URBANO`, `COMERCIO`, `PAISAJE`, `CONSTRUCCIÓN`).
+   - Filtrado en tiempo real sin recarga de página y respetando la paleta oscura con acentos dorados (`gold-400/500`).
+
+4. **Commits Locales Guardados Atómicamente**:
    - `9ee2192`: `docs(rules): actualizar regla de delegacion de hermes para deepseek v4 flash y qwen 3.7 flash`
    - `37f6995`: `perf(video): optimizar lazy loading de videos cambiando preload a none bajo el fold`
+   - `526643b`: `feat(portfolio): anadir filtrado dinamico por categorias con estilo cinematico en InstagramReelsSection`
 
 ---
 
