@@ -19,6 +19,7 @@
    - `9ee2192`: `docs(rules): actualizar regla de delegacion de hermes para deepseek v4 flash y qwen 3.7 flash`
    - `37f6995`: `perf(video): optimizar lazy loading de videos cambiando preload a none bajo el fold`
    - `526643b`: `feat(portfolio): anadir filtrado dinamico por categorias con estilo cinematico en InstagramReelsSection`
+   - `174220c`: `docs(rules): fijar franjas horarias exactas de picos y off-peak para conmutacion DeepSeek/Qwen`
 
 ---
 
