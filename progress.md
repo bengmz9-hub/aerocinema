@@ -15,11 +15,17 @@
    - Implementada barra de filtros interactiva con pills cinemáticas (`TODOS`, `URBANO`, `COMERCIO`, `PAISAJE`, `CONSTRUCCIÓN`).
    - Filtrado en tiempo real sin recarga de página y respetando la paleta oscura con acentos dorados (`gold-400/500`).
 
-4. **Commits Locales Guardados Atómicamente**:
+4. **Selector Rápido de Presupuesto en Contacto (ContactSection)**:
+   - Implementado grupo de chips/pills interactivos (`Inmobiliaria`, `Eventos`, `Inspección & Obras`, `Cine & Publicidad`) sobre las bento cards de contacto.
+   - Enlace a WhatsApp reactivo que inyecta automáticamente el briefing exacto según la opción activa.
+   - Semántica y accesibilidad 100% compliant con Biome (`<fieldset>`, `<legend className="sr-only">`, `aria-pressed`).
+
+5. **Commits Locales Guardados Atómicamente**:
    - `9ee2192`: `docs(rules): actualizar regla de delegacion de hermes para deepseek v4 flash y qwen 3.7 flash`
    - `37f6995`: `perf(video): optimizar lazy loading de videos cambiando preload a none bajo el fold`
    - `526643b`: `feat(portfolio): anadir filtrado dinamico por categorias con estilo cinematico en InstagramReelsSection`
    - `174220c`: `docs(rules): fijar franjas horarias exactas de picos y off-peak para conmutacion DeepSeek/Qwen`
+   - `c860080`: `feat(contact): anadir selector rapido de tipo de proyecto con briefing automatico en WhatsApp`
 
 ---
 
