@@ -86,6 +86,24 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 	},
 ];
 
+// Mapeo de categorías para el filtro
+const CATEGORY_MAP: Record<string, string> = {
+	"VUELO URBANO": "URBANO",
+	"HOSTELERÍA & COMERCIO": "COMERCIO",
+	"ENTORNO & PAISAJE": "PAISAJE",
+	"CONSTRUCCIÓN & REFORMAS": "CONSTRUCCIÓN",
+};
+
+// Categorías disponibles para el filtro
+const FILTER_CATEGORIES = [
+	"TODOS",
+	"URBANO",
+	"COMERCIO",
+	"PAISAJE",
+	"CONSTRUCCIÓN",
+] as const;
+type FilterCategory = (typeof FILTER_CATEGORIES)[number];
+
 function ReelCard({ reel }: { reel: InstagramReelItem }) {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const videoRef = useRef<HTMLVideoElement>(null);
@@ -213,6 +231,17 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 }
 
 export function InstagramReelsSection() {
+	const [activeCategory, setActiveCategory] = useState<FilterCategory>("TODOS");
+
+	// Filtrar los reels según la categoría seleccionada
+	const filteredReels =
+		activeCategory === "TODOS"
+			? INSTAGRAM_REELS
+			: INSTAGRAM_REELS.filter((reel) => {
+					const mappedCategory = CATEGORY_MAP[reel.category] || reel.category;
+					return mappedCategory === activeCategory;
+				});
+
 	return (
 		<section className="w-full bg-transparent pt-2 pb-8 md:py-12 px-4 md:px-8 relative overflow-hidden select-none">
 			<div className="max-w-7xl mx-auto">
@@ -234,9 +263,29 @@ export function InstagramReelsSection() {
 					</p>
 				</div>
 
+				{/* ═══════ BARRA DE FILTROS CINEMÁTICA ═══════ */}
+				<div className="mb-6 md:mb-10 flex flex-wrap justify-center gap-2 md:gap-3">
+					{FILTER_CATEGORIES.map((category) => (
+						<button
+							type="button"
+							key={category}
+							onClick={() => setActiveCategory(category)}
+							className={cn(
+								"px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm font-mono tracking-wider transition-all duration-300",
+								"border border-white/10 backdrop-blur-md bg-black/30 text-zinc-300 hover:bg-gold-500/10 hover:border-gold-500/30",
+								activeCategory === category
+									? "bg-gold-500/20 border-gold-500/40 text-gold-300 font-semibold"
+									: "",
+							)}
+						>
+							{category}
+						</button>
+					))}
+				</div>
+
 				{/* ═══════ GRID DE REELS INTERACTIVOS HOVER-TO-PLAY (4 COLUMNAS) ═══════ */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-					{INSTAGRAM_REELS.map((reel) => (
+					{filteredReels.map((reel) => (
 						<ReelCard key={reel.id} reel={reel} />
 					))}
 				</div>
