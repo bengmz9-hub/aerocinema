@@ -40,7 +40,7 @@ export function DJI5ProSection() {
 							muted
 							loop
 							playsInline
-							preload="metadata"
+							preload="none"
 							className="w-full h-full object-cover rounded-[16px] transition-transform duration-700 ease-out group-hover:scale-105"
 						>
 							<source

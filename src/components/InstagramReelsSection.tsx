@@ -147,7 +147,7 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 				muted
 				loop
 				playsInline
-				preload="metadata"
+				preload="none"
 				className={cn(
 					"absolute inset-0 w-full h-full object-cover transition-all duration-500 pointer-events-none select-none",
 					reel.thumbnail

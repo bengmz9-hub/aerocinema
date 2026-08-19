@@ -91,7 +91,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 					loop
 					muted
 					playsInline
-					preload="metadata"
+					preload="none"
 					className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out filter saturate-[0.9]"
 				/>
 			</div>
