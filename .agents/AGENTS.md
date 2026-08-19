@@ -2,10 +2,12 @@
 
 Proyecto: web portfolio en Next.js/TypeScript en `C:\Users\rgs84\DRONES`. Cambios visuales: respetar `DESIGN.md` y `design-inspiration.md` de la raíz.
 
-1. **HERMES DELEGATION FIRST (OBLIGATORIO)**: Toda tarea, cambio de código o refactorización DEBE delegarse primero vía `hermes chat -q "..."` (`run_command`).
-   - **Prioridad 1 (OFF-PEAK - Mitad de precio):** Usar **DeepSeek Flash v4 (`deepseek-v4-flash`)** en todo horario off-peak (en hora española UTC+2: **12:00 a 03:00** y **06:00 a 08:00**).
-   - **Prioridad 2 (PICOS o indisponibilidad):** Conmutar automáticamente a **Qwen 3.7 Flash (`qwen3.7-flash` / Alibaba API Key)** durante las franjas pico (en hora española: **03:00 a 06:00** y **08:00 a 12:00**).
-   - PROHIBIDO editar código directamente sin ejecutar antes en Hermes CLI con estos modelos. El prompt de delegación debe ser SELF-CONTAINED: incluir rutas, estado actual y criterio de aceptación.
+1. **DELEGACIÓN INTELIGENTE (HERMES / GEMINI FLASH)**:
+   - **Tareas Ligeras / Simples:** Resolver DIRECTAMENTE con **Gemini 3.7 Flash (Low)** dentro de Antigravity (ediciones puntuales de 1-2 archivos, cambios de estilo, copy, tweaks menores). Prohibido gastar saldo de APIs externas en tareas triviales.
+   - **Trabajo Agéntico / Complejo o Ahorro de Tokens:** Delegar vía `hermes chat -q "..."` (`run_command`) cuando la tarea requiera refactors multi-archivo, lógica agéntica pesada, o cuando quede poco uso/tokens en la sesión de Antigravity:
+     * **Prioridad 1 (OFF-PEAK - Mitad de precio):** Usar **DeepSeek Flash v4 (`deepseek-v4-flash`)** siempre en horario off-peak (hora española UTC+2: **12:00 a 03:00** y **06:00 a 08:00**).
+     * **Prioridad 2 (PICOS o Límite de Gemini):** Conmutar automáticamente a **Qwen 3.7 Flash (`qwen3.7-flash` / Alibaba API Key)** en franjas pico (hora española: **03:00 a 06:00** y **08:00 a 12:00**) o si DeepSeek no está disponible.
+   - El prompt de delegación debe ser SELF-CONTAINED: incluir rutas, estado actual y criterio de aceptación.
 2. **LOCAL ONLY & NO AUTO PUSH**: Prohibido `git push`, `vercel` o despliegues. Solo permitido si el usuario escribe exactamente: *"Ejecuta push de fin de sesión"*.
 3. **NO EDICIÓN EN FEEDBACK/OPINIÓN**: Ante consultas/análisis, dar opciones (A/B/C). PROHIBIDO editar código sin confirmación explícita.
 4. **NO FAKEAR DELEGACIÓN + VERIFICAR**: Si Hermes/OpenCode falla o requiere CLI interactivo, reportar estado o prompt. PROHIBIDO simular trabajo editando archivos localmente. Tras cada delegación, VERIFICAR el resultado (git diff, build, tests) contra el criterio de aceptación antes de reportar — no asumir que Hermes lo hizo bien.
