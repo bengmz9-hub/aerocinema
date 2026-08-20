@@ -28,7 +28,11 @@
 6. **Reversión del Visor de Color Grading**:
    - Sección `#etalonaje` retirada de `src/app/page.tsx` para mantener la estructura limpia y enfocada deseada. Enlace del footer restaurado a `#servicios`.
 
-7. **Commits Locales Guardados Atómicamente**:
+7. **Limpieza de Código Muerto y Assets Huérfanos**:
+   - Eliminado el archivo huérfano `src/components/ColorGradingReel.tsx` y las 5 imágenes asociadas en `public/images/accordion-*.webp`.
+   - Árbol de componentes y assets 100% limpio sin dependencias residuales.
+
+8. **Commits Locales Guardados Atómicamente**:
    - `9ee2192`: `docs(rules): actualizar regla de delegacion de hermes para deepseek v4 flash y qwen 3.7 flash`
    - `37f6995`: `perf(video): optimizar lazy loading de videos cambiando preload a none bajo el fold`
    - `526643b`: `feat(portfolio): anadir filtrado dinamico por categorias con estilo cinematico en InstagramReelsSection`
@@ -40,6 +44,7 @@
    - `a86f839`: `docs(rules): actualizar criterio de delegacion inteligente (Gemini Low para tareas ligeras vs Hermes DeepSeek/Alibaba)`
    - `1646b79`: `fix(ui): asegurar posicionamiento flotante fixed z-50 en esquina inferior derecha para movil y desktop`
    - `c04cd4f`: `revert: retirar seccion de color grading de page.tsx y restaurar enlace de footer`
+   - `727e48f`: `chore(cleanup): eliminar componente huerfano ColorGradingReel e imagenes asociadas`
 
 ---
 
