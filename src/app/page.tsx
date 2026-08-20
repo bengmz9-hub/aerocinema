@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AboutMe } from "@/components/AboutMe";
+import { ColorGradingReel } from "@/components/ColorGradingReel";
 import { DJI5ProSection } from "@/components/DJI5ProSection";
 import { HeroSection } from "@/components/HeroSection";
 import { InstagramReelsSection } from "@/components/InstagramReelsSection";
@@ -24,6 +25,11 @@ export default function HomePage() {
 			{/* ========== 04. SERVICIOS ========== */}
 			<div id="servicios" className="scroll-mt-16 md:scroll-mt-20">
 				<ServicesSection />
+			</div>
+
+			{/* ========== 04b. ETALONAJE / COLOR GRADING INTERACTIVO ========== */}
+			<div id="etalonaje" className="scroll-mt-16 md:scroll-mt-20">
+				<ColorGradingReel />
 			</div>
 
 			{/* ========== 05. TECNOLOGÍA DJI MINI 5 PRO ========== */}
@@ -106,7 +112,7 @@ export default function HomePage() {
 							</li>
 							<li>
 								<a
-									href="#servicios"
+									href="#etalonaje"
 									className="text-[#a1a1a6] hover:text-white transition-colors"
 								>
 									Color Grading &amp; Edición
