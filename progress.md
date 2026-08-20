@@ -25,7 +25,12 @@
    - Móvil: Reubicado a la esquina inferior derecha (`right-4 bottom-[calc(env(safe-area-inset-bottom)+1rem)]`) en formato botón circular compacto (48px / `h-12 w-12`) con solo icono WhatsApp y micro-LED de disponibilidad verde, despejando completamente el centro de la pantalla.
    - Escritorio: Botón flotante inferior derecho (`bottom-6 right-6`), estilo Apple Pro, micro-hover y texto "Contactar por WhatsApp".
 
-6. **Commits Locales Guardados Atómicamente**:
+6. **Visor Interactivo de Color Grading (`ColorGradingReel.tsx` & `page.tsx`)**:
+   - Integrada la sección `#etalonaje` en la landing tras Servicios con visor comparativo interactivo antes/después (D-Log neutro vs 10-bit etalonado).
+   - Armonizada la paleta visual al dorado y ámbar corporativo (`gold-400`, `gold-500`, `#dfd0a4`, `amber-300`).
+   - Carrete cinemático de clips 35mm seleccionables con respuesta táctil y ratón ultrafluida (PointerEvents con captura y prevención de scroll involuntario).
+
+7. **Commits Locales Guardados Atómicamente**:
    - `9ee2192`: `docs(rules): actualizar regla de delegacion de hermes para deepseek v4 flash y qwen 3.7 flash`
    - `37f6995`: `perf(video): optimizar lazy loading de videos cambiando preload a none bajo el fold`
    - `526643b`: `feat(portfolio): anadir filtrado dinamico por categorias con estilo cinematico en InstagramReelsSection`
@@ -36,6 +41,7 @@
    - `c24fb6a`: `feat(ui): hacer boton flotante de WhatsApp discreto y compacto en esquina inferior derecha en movil`
    - `a86f839`: `docs(rules): actualizar criterio de delegacion inteligente (Gemini Low para tareas ligeras vs Hermes DeepSeek/Alibaba)`
    - `1646b79`: `fix(ui): asegurar posicionamiento flotante fixed z-50 en esquina inferior derecha para movil y desktop`
+   - `1458b82`: `feat(ui): integrar visor interactivo de Color Grading con paleta dorada y antes/despues en tiempo real`
 
 ---
 
