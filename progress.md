@@ -35,6 +35,7 @@
    - `a73a01e`: `feat(ui): redisenar boton flotante de WhatsApp a capsula cinematica para movil y desktop`
    - `c24fb6a`: `feat(ui): hacer boton flotante de WhatsApp discreto y compacto en esquina inferior derecha en movil`
    - `a86f839`: `docs(rules): actualizar criterio de delegacion inteligente (Gemini Low para tareas ligeras vs Hermes DeepSeek/Alibaba)`
+   - `1646b79`: `fix(ui): asegurar posicionamiento flotante fixed z-50 en esquina inferior derecha para movil y desktop`
 
 ---
 
