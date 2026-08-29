@@ -17,3 +17,7 @@ Proyecto: portfolio Next.js/TS en `C:\Users\rgs84\DRONES`. Respetar `DESIGN.md` 
 8. **RESEARCH & REUSE**: Buscar antes de crear: (1) GitHub search, (2) docs oficiales, (3) web. Priorizar OSS sobre reinventar.
 9. **CONTRATO DE DELEGACIÓN**: La respuesta final ES el deliverable. Verificar siempre el resultado de Hermes antes de responder; prohibido fire-and-forget.
 10. **REINICIO DEV SERVER POST-CAMBIOS**: Tras cambios verificados, reiniciar `npm run dev` y dar URLs: PC (`http://localhost:3000`) y Móvil (`http://<IP>:3000`).
+11. **DIETA DE TOKENS & RAG NOTEBOOKLM**:
+    - **Consultas de Negocio/Docs:** Prohibido volcar PDFs o guías largas al chat; consultar a `notebooklm` MCP (`chat_ask` en el cuaderno `JF.DroneVision`).
+    - **Serialización Densa:** Usar TSV/TOON en listas de datos en lugar de JSON inflado (-75% tokens).
+    - **Patrón Sándwich:** Repetir restricciones críticas al final del prompt para evitar el sesgo de recencia.
