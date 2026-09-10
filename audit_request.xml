@@ -1,0 +1,65 @@
+<audit_request>
+  <context>
+    <project_name>DRONES</project_name>
+    <path>c:\Users\rgs84\DRONES</path>
+    <stack>Next.js 14+ | App Router | TypeScript | Tailwind CSS | npm</stack>
+    <description>Portfolio web personal con Next.js.</description>
+    <objective>Auditoría read-only para detectar código muerto, redundante o innecesario (bloat), sin alterar el comportamiento actual.</objective>
+    <exclude>node_modules, .next, dist, build, .git, *.lock, public/fonts</exclude>
+  </context>
+
+  <permissions>
+    <allowed>Comandos SOLO de lectura y análisis: ls, cat, grep, rg, git log/diff/status, npx knip, npx ts-prune, npx depcheck, npx madge --circular, npx eslint, npx tsc --noEmit, npm run build (si es necesario para medir bundle).</allowed>
+    <forbidden>NO editar, crear, mover ni borrar archivos. NO npm install/uninstall. NO git commit/checkout/reset. NO tocar .env.</forbidden>
+  </permissions>
+
+  <scope>
+    <item>Componentes, hooks, utils y tipos nunca importados.</item>
+    <item>Imports y variables sin usar.</item>
+    <item>Exports sin consumidor.</item>
+    <item>Dependencias declaradas en package.json y no usadas.</item>
+    <item>Assets huérfanos en /public.</item>
+    <item>CSS muerto / clases Tailwind no aplicadas.</item>
+    <item>Componentes o lógica duplicada (candidatos a unificar).</item>
+    <item>Rutas API o páginas sin enlazar desde ningún sitio.</item>
+    <item>Dependencias circulares.</item>
+  </scope>
+
+  <false_positive_traps>
+    <trap>Convenciones de Next.js NO se importan y NO son código muerto: page.tsx, layout.tsx, template.tsx, loading.tsx, error.tsx, not-found.tsx, route.ts, middleware.ts, sitemap.ts, robots.ts, opengraph-image.tsx, generateMetadata, generateStaticParams, default exports de app/.</trap>
+    <trap>Imports dinámicos: next/dynamic, import(), require() condicional.</trap>
+    <trap>Referencias por string o por nombre de archivo.</trap>
+    <trap>Clases Tailwind construidas por concatenación o mapa de variantes — parecen no usadas y sí lo están.</trap>
+    <trap>Assets de /public referenciados desde CSS, metadata o strings.</trap>
+    <trap>Tipos e interfaces usados solo como genéricos o en declaraciones.</trap>
+    <trap>Código que parece redundante pero cumple función: a11y (aria, sr-only), SEO, error boundaries, fallbacks de hidratación, polyfills.</trap>
+  </false_positive_traps>
+
+  <evidence_rules>
+    <rule>Cada hallazgo debe incluir ruta:línea y el comando exacto de búsqueda que demuestra 0 referencias.</rule>
+    <rule>Prohibido afirmar sin verificar. Si hay duda, va a "Requiere verificación humana", no a "Seguro".</rule>
+    <rule>Prohibido inventar archivos, rutas o dependencias. Si no se pudo leer algo, decirlo.</rule>
+    <rule>Reportar también los falsos positivos que las herramientas marcaron y tú descartaste, con el motivo.</rule>
+  </evidence_rules>
+
+  <output_format>
+    <structure>
+      1. Resumen ejecutivo: nº de hallazgos, KB estimados eliminables, nivel de riesgo global.
+      2. Tabla de hallazgos ordenada por impacto (KB / líneas), NO alfabética.
+         Columnas: Archivo | Líneas | Tipo | Riesgo | Impacto | Evidencia | Motivo.
+      3. Bloque SEGURO — eliminación sin efecto posible.
+      4. Bloque VERIFICAR — probablemente muerto, requiere confirmación manual. Indicar cómo confirmarlo.
+      5. Bloque RIESGO — no tocar sin decisión humana. Explicar el porqué.
+      6. Plan de ejecución por lotes: cada lote con archivos, orden y comando de validación (npx tsc --noEmit && npm run build).
+      7. Descartados: lo que parecía bloat y no lo es.
+      8. Limitaciones: qué no se pudo analizar y por qué.
+    </structure>
+    <format>Markdown limpio. Sin relleno, sin elogios, sin repetir el enunciado.</format>
+  </output_format>
+
+  <constraints>
+    <constraint>Funcionalidad actual intacta. Ante la duda, no eliminar.</constraint>
+    <constraint>Refactors de arquitectura fuera de alcance salvo que se mencionen como nota breve.</constraint>
+    <constraint>Si el repo es grande, priorizar por impacto y declarar qué quedó sin cubrir.</constraint>
+  </constraints>
+</audit_request>
