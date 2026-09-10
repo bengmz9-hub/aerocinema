@@ -2,7 +2,7 @@
 <!-- Single Source of Truth para retomar el proyecto tras una pausa -->
 
 ## Ultima Accion Completada
-* Mitigación de artefactos visuales, saneamiento de GPU compositing y unificación del fondo del Bento Grid del dron a obsidiana profunda (`#0a0c10/90`). Build de producción verificado.
+* Paridad estética 100% alcanzada entre el Bento Grid del Dron (`DJI5ProSection.tsx`) y `AboutMe.tsx` (mismos fondos `bg-[#12141a]/60`, bordes, `backdrop-blur-2xl` y micro-hovers). Build y linter en verde.
 
 ## Siguiente Paso Inmediato
 * Validación visual por el usuario o ejecución de push de fin de sesión y despliegue en Vercel cuando se ordene explícitamente.
