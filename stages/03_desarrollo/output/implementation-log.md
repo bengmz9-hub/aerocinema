@@ -95,5 +95,5 @@
 - **GPU Compositing (`globals.css`)**: Retirado `mix-blend-mode: overlay` y `z-index: 9999` de `body::after` (causante de manchas grises y parches de desincronización sobre `backdrop-filter`).
 - **Limpieza de Doble Sombra/Borde**: Eliminadas las sombras internas `inset 0 1px 1px` y gradientes `to-black/30` residuales en las tarjetas de `DJI5ProSection.tsx`, `AboutMe.tsx` y `ContactSection.tsx`.
 - **Eliminación de Conflicto de Máscara (`ServicesSection.tsx`)**: Suprimida la clase `.specular-card` en las tarjetas de servicios para evitar solapamiento de máscara `mask-composite: exclude` con el borde nativo y el resplandor radial.
-- **Obsidiana Profunda en Bento del Dron (`DJI5ProSection.tsx`)**: Sustituido el fondo grisáceo azulado `bg-[#12141a]/60` por obsidiana profunda `bg-[#0a0c10]/90`, eliminando el aspecto translúcido deslavado y unificando el estilo con el resto de la web.
+- **Clonación de Estilo en Bento del Dron (`DJI5ProSection.tsx`)**: Calcado exactamente el sistema de clases de `AboutMe.tsx` (fondo `bg-[#12141a]/60`, bordes `border-white/[0.12]` y `border-white/[0.1]`, `backdrop-blur-2xl`, sombras y `hover:bg-[#151821]/70`), logrando una paridad estética y lumínica al 100% entre ambas secciones.
 - **Formateo y Validación**: Biome linter y `next build` en verde al 100%.
