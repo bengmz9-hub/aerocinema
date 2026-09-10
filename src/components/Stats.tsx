@@ -71,7 +71,7 @@ export function Stats() {
 						return (
 							<div
 								key={item.id}
-								className="group relative px-3 py-2.5 md:p-6 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] flex flex-col justify-between transition-all duration-500 hover:border-gold-500/35 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.08)] select-none cursor-default overflow-hidden"
+								className="group relative px-3 py-2.5 md:p-6 rounded-[14px] md:rounded-2xl bg-[#12141a] border border-white/[0.1] shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] flex flex-col justify-between transition-all duration-500 hover:border-gold-500/35 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.08)] select-none cursor-default overflow-hidden"
 							>
 								{/* Luz cenital difusa estilo Apple */}
 								<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />

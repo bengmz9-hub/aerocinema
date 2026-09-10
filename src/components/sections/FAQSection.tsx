@@ -3,52 +3,7 @@
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { type KeyboardEvent, useCallback, useState } from "react";
 
-// --- Preguntas frecuentes reales sobre servicios FPV con dron en Barcelona ---
-
-interface FAQItem {
-	id: string;
-	question: string;
-	answer: string;
-}
-
-const faqs: FAQItem[] = [
-	{
-		id: "precios",
-		question: "¿Cuánto cuesta una grabación con dron?",
-		answer:
-			"Cada proyecto es diferente — no es lo mismo grabar un piso de 60 m² que inspeccionar una fachada completa. Lo que sí te aseguro es que te doy un presupuesto cerrado en la primera consulta, sin compromiso y sin sorpresas. Escríbeme por WhatsApp, cuéntame qué necesitas y te respondo en el día con un precio ajustado a tu caso.",
-	},
-	{
-		id: "permisos-y-seguro",
-		question: "¿Hace falta algún permiso? ¿Tenéis seguro?",
-		answer:
-			"No, de eso me encargo yo. Soy operador registrado en AESA con seguro de responsabilidad civil y todos los permisos en regla. Tú solo tienes que abrirme la puerta; del resto — planificación de vuelo, coordinación si hace falta — me encargo yo. En más de 100 horas de vuelo, cero incidentes.",
-	},
-	{
-		id: "formato-entrega",
-		question: "¿En qué formato me entregáis el vídeo? ¿Vale para Instagram?",
-		answer:
-			"Grabo en 4K a 60 fps con perfil de color profesional. La entrega incluye: el metraje original sin editar + una versión ya montada y corregida en color. Además, edito el vídeo en formato vertical (9:16) listo para Instagram Reels y TikTok, y en horizontal para webs y portales como Idealista. Todo por enlace privado, sin caducidad.",
-	},
-	{
-		id: "tiempo-entrega",
-		question: "¿Cuánto tardas en entregar el material?",
-		answer:
-			"El material original lo tienes en 24-48 horas. La versión editada y montada, en 3-5 días laborables. ¿Tienes prisa porque la propiedad sale al mercado mañana? Tengo opción exprés: mismo día por +50 €, y te mando un avance por WhatsApp desde la misma sesión.",
-	},
-	{
-		id: "interiores-fpv",
-		question: "¿Grabáis también dentro de casas o locales?",
-		answer:
-			"Sí, con un dron Cinewhoop protegido (anillos en las hélices) que no golpea nada. La diferencia con un dron convencional es enorme: puedo grabar planos imposibles — entrar por puertas, subir escaleras, pasar de la terraza al salón en un solo plano continuo. Es la misma técnica que usan Zara Home o los videógrafos de lujo inmobiliario. Para espacios muy reducidos, lo valoramos en la visita previa.",
-	},
-	{
-		id: "obras-activas",
-		question: "¿Podéis grabar en obras en construcción?",
-		answer:
-			"Sí, es una de las aplicaciones más útiles del dron. Coordino con el jefe de obra para volar en momentos seguros, me mantengo a distancia de personal y maquinaria. El resultado es un documento visual del avance que no se consigue de otra forma.",
-	},
-];
+import { FAQS } from "@/data/faqs";
 
 export default function FAQSection() {
 	const [openId, setOpenId] = useState<string | null>(null);
@@ -99,7 +54,7 @@ export default function FAQSection() {
 
 				{/* ── Acordeón Estilo Apple Bento ── */}
 				<ul className="w-full space-y-2.5 md:space-y-3">
-					{faqs.map((faq) => {
+					{FAQS.map((faq) => {
 						const isOpen = openId === faq.id;
 						const panelId = `faq-panel-${faq.id}`;
 						const buttonId = `faq-button-${faq.id}`;

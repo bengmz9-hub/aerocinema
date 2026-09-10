@@ -1,7 +1,6 @@
 "use client";
 
 import { Heart, Play } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -31,7 +30,6 @@ interface InstagramReelItem {
 	id: string;
 	title: string;
 	category: string;
-	thumbnail: string;
 	videoUrl: string;
 	views: string;
 	likes: string;
@@ -44,7 +42,6 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		id: "reel-01",
 		title: "EXTERIOR URBANO · L'HOSPITALET",
 		category: "VUELO URBANO",
-		thumbnail: "",
 		videoUrl: "/videos/filmacion.webm",
 		views: "@jf.drone_visual",
 		likes: "OFICIAL",
@@ -55,7 +52,6 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		id: "reel-02",
 		title: "TERRAZA COMERCIAL · BARCELONA",
 		category: "HOSTELERÍA & COMERCIO",
-		thumbnail: "",
 		videoUrl: "/videos/inmobiliaria.webm",
 		views: "@jf.drone_visual",
 		likes: "OFICIAL",
@@ -66,7 +62,6 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		id: "reel-03",
 		title: "VISTA AÉREA · ZONA COSTERA",
 		category: "ENTORNO & PAISAJE",
-		thumbnail: "",
 		videoUrl: "/videos/eventos.webm",
 		views: "@jf.drone_visual",
 		likes: "OFICIAL",
@@ -77,8 +72,7 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 		id: "reel-04",
 		title: "INSPECCIÓN DE FACHADA · EXTERIORES",
 		category: "CONSTRUCCIÓN & REFORMAS",
-		thumbnail: "",
-		videoUrl: "/videos/jose-reveal.webm",
+		videoUrl: "/videos/inspeccion-fachada.webm",
 		views: "@jf.drone_visual",
 		likes: "OFICIAL",
 		instagramUrl: "https://www.instagram.com/reel/DXUkMajDW5g/",
@@ -86,23 +80,7 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 	},
 ];
 
-// Mapeo de categorías para el filtro
-const CATEGORY_MAP: Record<string, string> = {
-	"VUELO URBANO": "URBANO",
-	"HOSTELERÍA & COMERCIO": "COMERCIO",
-	"ENTORNO & PAISAJE": "PAISAJE",
-	"CONSTRUCCIÓN & REFORMAS": "CONSTRUCCIÓN",
-};
 
-// Categorías disponibles para el filtro
-const FILTER_CATEGORIES = [
-	"TODOS",
-	"URBANO",
-	"COMERCIO",
-	"PAISAJE",
-	"CONSTRUCCIÓN",
-] as const;
-type FilterCategory = (typeof FILTER_CATEGORIES)[number];
 
 function ReelCard({ reel }: { reel: InstagramReelItem }) {
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -145,19 +123,6 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 				"hover:border-gold-500/40 hover:shadow-[0_0_25px_rgba(223,208,164,0.15)] hover:scale-[1.02]",
 			)}
 		>
-			{/* Imagen de Fondo (Poster) si existe */}
-			{reel.thumbnail ? (
-				<Image
-					src={reel.thumbnail}
-					alt={reel.title}
-					fill
-					className={cn(
-						"object-cover object-center transition-opacity duration-500 pointer-events-none select-none",
-						isPlaying ? "opacity-0" : "opacity-100",
-					)}
-				/>
-			) : null}
-
 			{/* Vídeo Silencioso Autoejecutable en Hover */}
 			<video
 				ref={videoRef}
@@ -168,13 +133,9 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 				preload="none"
 				className={cn(
 					"absolute inset-0 w-full h-full object-cover transition-all duration-500 pointer-events-none select-none",
-					reel.thumbnail
-						? isPlaying
-							? "opacity-100 scale-105"
-							: "opacity-0 scale-100"
-						: isPlaying
-							? "opacity-100 scale-105"
-							: "opacity-100 scale-100",
+					isPlaying
+						? "opacity-100 scale-105"
+						: "opacity-100 scale-100",
 				)}
 			/>
 
@@ -231,16 +192,7 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 }
 
 export function InstagramReelsSection() {
-	const [activeCategory, setActiveCategory] = useState<FilterCategory>("TODOS");
 
-	// Filtrar los reels según la categoría seleccionada
-	const filteredReels =
-		activeCategory === "TODOS"
-			? INSTAGRAM_REELS
-			: INSTAGRAM_REELS.filter((reel) => {
-					const mappedCategory = CATEGORY_MAP[reel.category] || reel.category;
-					return mappedCategory === activeCategory;
-				});
 
 	return (
 		<section className="w-full bg-transparent pt-2 pb-8 md:py-12 px-4 md:px-8 relative z-10 overflow-hidden select-none">
@@ -263,29 +215,9 @@ export function InstagramReelsSection() {
 					</p>
 				</div>
 
-				{/* ═══════ BARRA DE FILTROS CINEMÁTICA ═══════ */}
-				<div className="mb-6 md:mb-10 flex flex-wrap justify-center gap-2 md:gap-3">
-					{FILTER_CATEGORIES.map((category) => (
-						<button
-							type="button"
-							key={category}
-							onClick={() => setActiveCategory(category)}
-							className={cn(
-								"px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-sm font-mono tracking-wider transition-all duration-300",
-								"border border-white/10 backdrop-blur-md bg-black/30 text-zinc-300 hover:bg-gold-500/10 hover:border-gold-500/30",
-								activeCategory === category
-									? "bg-gold-500/20 border-gold-500/40 text-gold-300 font-semibold"
-									: "",
-							)}
-						>
-							{category}
-						</button>
-					))}
-				</div>
-
 				{/* ═══════ GRID DE REELS INTERACTIVOS HOVER-TO-PLAY (4 COLUMNAS) ═══════ */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-					{filteredReels.map((reel) => (
+					{INSTAGRAM_REELS.map((reel) => (
 						<ReelCard key={reel.id} reel={reel} />
 					))}
 				</div>

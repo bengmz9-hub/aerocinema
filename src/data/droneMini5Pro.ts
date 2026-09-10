@@ -5,7 +5,7 @@ interface DroneComponent {
 	offset: { x: number; y: number; scale: number };
 }
 
-export interface DroneSpecs {
+interface DroneSpecs {
 	title: string;
 	tagline: string;
 	weight: string;

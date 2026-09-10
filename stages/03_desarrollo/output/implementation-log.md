@@ -102,3 +102,16 @@
 - **Estandarizacion Tipografica Global**: Se purgaron fuentes desalineadas (font-sans residuales) y se implemento una jerarquia estricta en toda la web: H1/H2 y titulos de Bento en ont-cormorant, parrafos y textos de lectura en ont-jakarta, y etiquetas/metadatos en ont-mono. Escalado de textos pequenos (	ext-[8px]) a tamanos legibles. 
 - **Descontaminacion Visual**: Eliminadas todas las clases de animacion residuales tipo nimate-pulse y nimate-ping de la web para dejar un diseno completamente estatico y elegante. 
 - **Despliegue ICM y Seguridad**: Auto-inicializada la arquitectura ICM nativamente. Purgados archivos basura (drones.db, local_agent.py, __pycache__) y oculta la ruta local de PC en dversarial_gate.py migrando a uso seguro de .env. Push remoto exitoso bajo *Conventional Commits*. 
+
+## Sesion 10/09/2026 - Limpieza Lotes 1-6 + Fix Glitch Visual
+- Eliminados componentes muertos: BlurText.tsx, useIsMobile.ts, ScrollRestorer.tsx.
+- Limpieza de 20 archivos multimedia huerfanos public/images y public/videos.
+- Eliminada ruta fantasma /portfolio/[category], videos.ts, y referencias en sitemap.xml y robots.txt.
+- Desinstalado tw-animate-css y depurado globals.css (variables shadcn muertas).
+- Unificadas URLs de WhatsApp y FAQs compartidas con JSON-LD SEO.
+- Renombrado clip jose-reveal.webm a inspeccion-fachada.webm y desacoplado de AboutMe.
+- Eliminada barra de filtros de categorias en InstagramReelsSection.
+- Fix de composicion GPU y fondo gris: reemplazado oklch(0.145) por #000000 en body/tokens y eliminados backdrop-blur innecesarios sobre fondo negro solido en AboutMe y Stats.
+
+### Pendiente Prioritario para Siguiente Sesión:
+- **Erradicar dobles fondos y capas residuales en el Body**: Identificar y limpiar cualquier contenedor intermedio o sección que mantenga opacidades relativas, gradientes de fondo residuales o capas fijas/absolutas provocando dobles fondos al navegar con el raton.

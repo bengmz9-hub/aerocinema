@@ -1,0 +1,15 @@
+<audit_request>
+  <context>
+    <project_name>DRONES</project_name>
+    <description>Portfolio Next.js/TS in c:\Users\rgs84\DRONES.</description>
+    <objective>Perform a minimalist, read-only code audit of the website to identify and suggest removal of unused, redundant, or unnecessary code (bloat).</objective>
+  </context>
+  
+  <instructions>
+    <instruction_1>READ ONLY ENFORCEMENT: Do NOT modify any files. Do NOT delete anything. Do NOT execute destructive commands.</instruction_1>
+    <instruction_2>Analyze the codebase to find dead code, unused components, unnecessary imports, and bloated logic.</instruction_2>
+    <instruction_3>Focus on maintaining the EXACT current functionality of the web app. Nothing must break.</instruction_3>
+    <instruction_4>Return a detailed summary of the findings, including which files contain unnecessary code, what lines or blocks to remove, and why.</instruction_4>
+    <instruction_5>Format the output as a clean markdown report.</instruction_5>
+  </instructions>
+</audit_request>

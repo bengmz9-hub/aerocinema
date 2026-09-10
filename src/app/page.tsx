@@ -3,17 +3,15 @@ import { AboutMe } from "@/components/AboutMe";
 import { DJI5ProSection } from "@/components/DJI5ProSection";
 import { HeroSection } from "@/components/HeroSection";
 import { InstagramReelsSection } from "@/components/InstagramReelsSection";
-import { ScrollRestorer } from "@/components/ScrollRestorer";
 import { ServicesSection } from "@/components/ServicesSection";
 import { Stats } from "@/components/Stats";
 import ContactSection from "@/components/sections/ContactSection";
 import FAQSection from "@/components/sections/FAQSection";
 import { CONTACT_PHONE } from "@/lib/config";
-
+import { getWhatsAppLink } from "@/lib/whatsapp";
 export default function HomePage() {
 	return (
 		<main className="min-h-screen bg-[#000000] selection:bg-white selection:text-black overflow-x-hidden">
-			<ScrollRestorer />
 			{/* ========== 01. HERO ========== */}
 			<HeroSection />
 
@@ -216,7 +214,7 @@ export default function HomePage() {
 							</li>
 							<li>
 								<a
-									href={`https://wa.me/${CONTACT_PHONE}`}
+									href={getWhatsAppLink(CONTACT_PHONE)}
 									target="_blank"
 									rel="noopener noreferrer"
 									className="text-[#a1a1a6] hover:text-white transition-colors"

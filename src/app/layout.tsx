@@ -10,7 +10,7 @@ import MobileIsland from "@/components/MobileIsland";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { CONTACT_PHONE_FORMATTED } from "@/lib/config";
-
+import { FAQS } from "@/data/faqs";
 const cormorant = Cormorant_Garamond({
 	subsets: ["latin"],
 	variable: "--font-cormorant",
@@ -133,32 +133,14 @@ const structuredDataLd = {
 		{
 			"@type": "FAQPage",
 			"@id": "https://jfdronevision.com/#faq",
-			mainEntity: [
-				{
-					"@type": "Question",
-					name: "¿Cuánto cuesta una grabación con dron en Barcelona o L'Hospitalet?",
-					acceptedAnswer: {
-						"@type": "Answer",
-						text: "Ofrecemos presupuestos cerrados según las características de cada proyecto (inmobiliaria, fachadas o negocios locales) en la primera consulta y sin compromiso.",
-					},
+			mainEntity: FAQS.map((faq) => ({
+				"@type": "Question",
+				name: faq.question,
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: faq.answer,
 				},
-				{
-					"@type": "Question",
-					name: "¿Se necesitan permisos para volar un dron en zona urbana?",
-					acceptedAnswer: {
-						"@type": "Answer",
-						text: "JF.DroneVision es operador registrado en AESA con seguro de responsabilidad civil en regla. Nos encargamos de toda la gestión y coordinación del vuelo urbano en Barcelona y área metropolitana.",
-					},
-				},
-				{
-					"@type": "Question",
-					name: "¿En qué formato y plazo se entrega el material en vídeo?",
-					acceptedAnswer: {
-						"@type": "Answer",
-						text: "Entregamos metraje en 4K UHD 60fps con perfil D-Log M, listo en 24-48 horas para brutos y 3-5 días para edición profesional vertical (Reels/TikTok) u horizontal.",
-					},
-				},
-			],
+			})),
 		},
 	],
 };
@@ -184,7 +166,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${cormorant.variable} ${jakarta.variable} ${mono.variable} font-sans antialiased`}
+				className={`${cormorant.variable} ${jakarta.variable} ${mono.variable} font-sans antialiased bg-black text-white`}
 			>
 				<Navbar />
 				{children}

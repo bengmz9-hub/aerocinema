@@ -4,18 +4,7 @@
     <loc>https://jfdronevision.com/</loc>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://jfdronevision.com/portfolio/paisajes</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jfdronevision.com/portfolio/propiedades</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jfdronevision.com/portfolio/eventos</loc>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://jfdronevision.com/aviso-legal</loc>
     <priority>0.3</priority>

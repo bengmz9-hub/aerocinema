@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CONTACT_PHONE } from "@/lib/config";
+import { getWhatsAppLink } from "@/lib/whatsapp";
 import ContactModal from "./ContactModal";
 
 const PROJECT_TYPES = [
@@ -43,7 +44,7 @@ export default function ContactSection() {
 	const selectedMessage =
 		PROJECT_TYPES.find((t) => t.label === selectedType)?.message ??
 		DEFAULT_MESSAGE;
-	const whatsappUrl = `https://wa.me/${CONTACT_PHONE}?text=${encodeURIComponent(selectedMessage)}`;
+	const whatsappUrl = getWhatsAppLink(CONTACT_PHONE, selectedMessage);
 
 	return (
 		<section className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-8 pb-12 md:py-20 lg:px-8 text-center select-none z-10">

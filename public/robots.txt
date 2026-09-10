@@ -2,6 +2,5 @@
 User-agent: *
 Allow: /
 Allow: /aviso-legal
-Allow: /portfolio/
 Disallow: /api/
 Sitemap: https://jfdronevision.com/sitemap.xml
