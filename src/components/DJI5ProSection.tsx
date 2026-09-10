@@ -84,19 +84,19 @@ export function DJI5ProSection() {
 					{/* Tarjeta 2: Categoría y Peso */}
 					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 						<div className="relative z-10">
-							<div className="flex items-center justify-between md:justify-start gap-1 mb-1 md:mb-2">
-								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4]/90 tracking-wider">
+							<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
+								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
 									<ShieldCheck className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#dfd0a4]" />
 									<span>CATEGORÍA ABIERTA</span>
 								</div>
-								<span className="md:hidden text-[13px] font-bold text-white tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
+								<span className="md:hidden text-[11px] font-bold text-white group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
 									249 g
 								</span>
 							</div>
-							<div className="hidden md:block text-2xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors">
+							<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
 								249 g
 							</div>
-							<p className="text-zinc-400 text-[10.5px] md:text-xs leading-tight">
+							<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
 								Sin necesidad de licencias A1/A3. Apto para operaciones urbanas.
 							</p>
 						</div>
@@ -105,19 +105,19 @@ export function DJI5ProSection() {
 					{/* Tarjeta 3: Autonomía */}
 					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 						<div className="relative z-10">
-							<div className="flex items-center justify-between md:justify-start gap-1 mb-1 md:mb-2">
-								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4]/90 tracking-wider">
+							<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
+								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
 									<BatteryCharging className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#dfd0a4]" />
 									<span>AUTONOMÍA</span>
 								</div>
-								<span className="md:hidden text-[13px] font-bold text-white tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
+								<span className="md:hidden text-[11px] font-bold text-white group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
 									31 min
 								</span>
 							</div>
-							<div className="hidden md:block text-2xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors">
+							<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
 								31 min
 							</div>
-							<p className="text-zinc-400 text-[10.5px] md:text-xs leading-tight">
+							<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
 								Velocidad máx. {MINI_5_PRO_DATA.maxSpeed}.
 							</p>
 						</div>
@@ -126,19 +126,19 @@ export function DJI5ProSection() {
 					{/* Tarjeta 4: Alcance O4 */}
 					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 						<div className="relative z-10">
-							<div className="flex items-center justify-between md:justify-start gap-1 mb-1 md:mb-2">
-								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4]/90 tracking-wider">
+							<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
+								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
 									<Wifi className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#dfd0a4]" />
 									<span>ALCANCE O4</span>
 								</div>
-								<span className="md:hidden text-[13px] font-bold text-white tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
+								<span className="md:hidden text-[11px] font-bold text-white group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
 									15 km
 								</span>
 							</div>
-							<div className="hidden md:block text-2xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors">
+							<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
 								15 km
 							</div>
-							<p className="text-zinc-400 text-[10.5px] md:text-xs leading-tight">
+							<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
 								Transmisión FHD 1080p 60fps.
 							</p>
 						</div>
