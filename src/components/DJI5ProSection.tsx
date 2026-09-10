@@ -10,9 +10,7 @@ import { MINI_5_PRO_DATA } from "@/data/droneMini5Pro";
 
 export function DJI5ProSection() {
 	return (
-		<section
-			className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-jakarta text-white select-none cursor-default"
-		>
+		<section className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-jakarta text-white select-none cursor-default">
 			{/* Encabezado de Sección (Centrado) */}
 			<div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
 				<div className="flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-widest mb-2 font-medium bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent">
