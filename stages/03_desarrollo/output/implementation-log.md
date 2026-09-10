@@ -90,3 +90,10 @@
   - Restaurada la maqueta original Bento Grid del dron (`DJI5ProSection.tsx`).
   - Restaurados los Reels originales sin preloads ni pósters para asegurar la reproducción estilo GIF automática on-scroll.
   - Fotograma de la fachada extraído puramente del `.webm` para evitar el falso póster del operador.
+
+### 3. Mitigación de Artefactos Visuales & Sombras Sucias (Opción A)
+- **GPU Compositing (`globals.css`)**: Retirado `mix-blend-mode: overlay` y `z-index: 9999` de `body::after` (causante de manchas grises y parches de desincronización sobre `backdrop-filter`).
+- **Limpieza de Doble Sombra/Borde**: Eliminadas las sombras internas `inset 0 1px 1px` y gradientes `to-black/30` residuales en las tarjetas de `DJI5ProSection.tsx`, `AboutMe.tsx` y `ContactSection.tsx`.
+- **Eliminación de Conflicto de Máscara (`ServicesSection.tsx`)**: Suprimida la clase `.specular-card` en las tarjetas de servicios para evitar solapamiento de máscara `mask-composite: exclude` con el borde nativo y el resplandor radial.
+- **Obsidiana Profunda en Bento del Dron (`DJI5ProSection.tsx`)**: Sustituido el fondo grisáceo azulado `bg-[#12141a]/60` por obsidiana profunda `bg-[#0a0c10]/90`, eliminando el aspecto translúcido deslavado y unificando el estilo con el resto de la web.
+- **Formateo y Validación**: Biome linter y `next build` en verde al 100%.

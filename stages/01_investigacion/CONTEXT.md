@@ -32,6 +32,6 @@ Recopilacion de requisitos, benchmark, transcripciones y estado del arte.
 ---
 
 ## Criterios de Aceptacion (DoD)
-- [ ] Entregable generado exclusivamente dentro de `output/`.
-- [ ] Verificado sin errores sintacticos ni dependencias faltantes.
-- [ ] Validado estrictamente contra el contrato o especificacion del stage previo.
+- [x] Entregable generado exclusivamente dentro de `output/` (`findings.md`).
+- [x] Verificado sin errores sintacticos ni dependencias faltantes.
+- [x] Validado estrictamente contra el contrato o especificacion del stage previo.

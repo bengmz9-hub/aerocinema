@@ -30,7 +30,7 @@ export function DJI5ProSection() {
 				{/* ---------------------------------------------------- */}
 				{/* PANEL IZQUIERDO: VÍDEO MARCO TRASLÚCIDO APPLE PRO (Md: 5 cols) */}
 				{/* ---------------------------------------------------- */}
-				<div className="md:col-span-5 relative group rounded-[22px] overflow-hidden border border-white/[0.12] bg-[#12141a]/60 p-2.5 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/35 select-none cursor-default">
+				<div className="md:col-span-5 relative group rounded-[22px] overflow-hidden border border-white/[0.12] bg-[#12141a]/60 p-2.5 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/35 select-none cursor-default">
 					<div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-black/90 flex items-center justify-center">
 						<video
 							autoPlay
@@ -62,8 +62,7 @@ export function DJI5ProSection() {
 				{/* ---------------------------------------------------- */}
 				<div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
 					{/* Tarjeta 1: Hero Spec */}
-					<div className="sm:col-span-3 p-5 md:p-6 rounded-[20px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.12] backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.45),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:border-[#dfd0a4]/35 transition-all duration-500 relative overflow-hidden group select-none cursor-default">
-						<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.04] via-transparent to-black/30 opacity-80" />
+					<div className="sm:col-span-3 p-6 rounded-[22px] bg-[#12141a]/60 border border-white/[0.12] backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-[#dfd0a4]/35 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] transition-all duration-500 relative overflow-hidden group select-none cursor-default">
 						<div className="relative z-10">
 							<div className="flex items-center gap-2 text-[10.5px] md:text-xs font-mono mb-1.5 md:mb-2 font-semibold bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent">
 								<Camera className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#dfd0a4]" />
@@ -83,8 +82,7 @@ export function DJI5ProSection() {
 					</div>
 
 					{/* Tarjeta 2: Categoría y Peso */}
-					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
-						<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 						<div className="relative z-10">
 							<div className="flex items-center justify-between md:justify-start gap-1 mb-1 md:mb-2">
 								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4]/90 tracking-wider">
@@ -105,8 +103,7 @@ export function DJI5ProSection() {
 					</div>
 
 					{/* Tarjeta 3: Autonomía */}
-					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
-						<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 						<div className="relative z-10">
 							<div className="flex items-center justify-between md:justify-start gap-1 mb-1 md:mb-2">
 								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4]/90 tracking-wider">
@@ -127,8 +124,7 @@ export function DJI5ProSection() {
 					</div>
 
 					{/* Tarjeta 4: Alcance O4 */}
-					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
-						<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+					<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 						<div className="relative z-10">
 							<div className="flex items-center justify-between md:justify-start gap-1 mb-1 md:mb-2">
 								<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4]/90 tracking-wider">
@@ -149,8 +145,7 @@ export function DJI5ProSection() {
 					</div>
 
 					{/* Tarjeta 5: Detección IA 360° */}
-					<div className="sm:col-span-3 px-3.5 py-2 md:p-4 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 transition-all duration-500 flex items-center justify-between gap-3 md:gap-4 select-none cursor-default relative overflow-hidden">
-						<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+					<div className="sm:col-span-3 px-3.5 py-2 md:p-4 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 transition-all duration-500 flex items-center justify-between gap-3 md:gap-4 select-none cursor-default relative overflow-hidden">
 						<div className="relative z-10 flex items-center gap-2.5 md:gap-3">
 							<Eye className="w-3.5 h-3.5 md:w-5 md:h-5 text-[#dfd0a4] shrink-0" />
 							<div>

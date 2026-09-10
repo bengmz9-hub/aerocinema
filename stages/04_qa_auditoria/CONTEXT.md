@@ -39,8 +39,8 @@ Auditoria de seguridad, verificacion de calidad y documentacion final.
 ---
 
 ## Criterios de Aceptacion (DoD)
-- [ ] Entregable generado exclusivamente dentro de `output/`.
-- [ ] Verificado sin errores sintacticos ni dependencias faltantes.
-- [ ] Validado estrictamente contra el contrato o especificacion del stage previo.
-- [ ] Anti-Slop Check: Sin parámetros opcionales injustificados añadidos por comodidad.
-- [ ] Code Judo Check: Verificado que no se añadieron wrappers o abstracciones innecesarias.
+- [x] Entregable generado exclusivamente dentro de `output/` (`audit_report.md`).
+- [x] Verificado sin errores sintacticos ni dependencias faltantes (`next build` OK).
+- [x] Validado estrictamente contra el contrato o especificacion del stage previo (`specs.md`).
+- [x] Anti-Slop Check: Sin parámetros opcionales injustificados añadidos por comodidad.
+- [x] Code Judo Check: Verificado que no se añadieron wrappers o abstracciones innecesarias.

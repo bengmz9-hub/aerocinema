@@ -8,7 +8,7 @@ export function AboutMe() {
 					{/* ---------------------------------------------------- */}
 					{/* PANEL IZQUIERDO: VÍDEO MARCO TRASLÚCIDO APPLE PRO (Md: 5 cols) */}
 					{/* ---------------------------------------------------- */}
-					<div className="md:col-span-5 relative group rounded-[22px] overflow-hidden border border-white/[0.12] bg-[#12141a]/60 p-2.5 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/35 select-none cursor-default">
+					<div className="md:col-span-5 relative group rounded-[22px] overflow-hidden border border-white/[0.12] bg-[#12141a]/60 p-2.5 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/35 select-none cursor-default">
 						<div className="relative aspect-[4/5] md:aspect-auto h-full w-full rounded-xl overflow-hidden bg-black/90 flex items-center justify-center">
 							<video
 								autoPlay
@@ -39,10 +39,7 @@ export function AboutMe() {
 					{/* ---------------------------------------------------- */}
 					<div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
 						{/* Tarjeta Principal (Hero Profile - Ocupa 2 columnas) */}
-						<div className="sm:col-span-2 p-6 rounded-[22px] bg-[#12141a]/60 border border-white/[0.12] backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:border-[#dfd0a4]/35 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_30px_rgba(223,208,164,0.08)] transition-all duration-500 relative overflow-hidden group select-none cursor-default">
-							{/* Gradiente de iluminación de superficie estilo Apple */}
-							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.04] via-transparent to-black/30 opacity-80" />
-
+						<div className="sm:col-span-2 p-6 rounded-[22px] bg-[#12141a]/60 border border-white/[0.12] backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-[#dfd0a4]/35 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)] transition-all duration-500 relative overflow-hidden group select-none cursor-default">
 							<div className="relative z-10">
 								<div className="flex items-center gap-2 text-[11px] font-mono mb-2.5 font-semibold text-gold-300/90 uppercase tracking-wider">
 									<ShieldCheck className="w-3.5 h-3.5 text-gold-400" />
@@ -75,8 +72,7 @@ export function AboutMe() {
 						</div>
 
 						{/* Tarjeta 1: Seguro de Responsabilidad Activo */}
-						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
-							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 							<div className="relative z-10">
 								<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
 									<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
@@ -98,8 +94,7 @@ export function AboutMe() {
 						</div>
 
 						{/* Tarjeta 2: Piloto Oficial AESA */}
-						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
-							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 							<div className="relative z-10">
 								<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
 									<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
@@ -121,8 +116,7 @@ export function AboutMe() {
 						</div>
 
 						{/* Tarjeta 3: Vuelo Urbano 100% Legal */}
-						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
-							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 							<div className="relative z-10">
 								<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
 									<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
@@ -144,8 +138,7 @@ export function AboutMe() {
 						</div>
 
 						{/* Tarjeta 4: Coordinación de Permisos */}
-						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
-							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 							<div className="relative z-10">
 								<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
 									<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
@@ -167,8 +160,7 @@ export function AboutMe() {
 						</div>
 
 						{/* Tarjeta 5: Estado de Operaciones */}
-						<div className="sm:col-span-2 px-3.5 py-2 md:p-4 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 transition-all duration-500 flex items-center justify-between gap-3 md:gap-4 select-none cursor-default relative overflow-hidden">
-							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
+						<div className="sm:col-span-2 px-3.5 py-2 md:p-4 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 transition-all duration-500 flex items-center justify-between gap-3 md:gap-4 select-none cursor-default relative overflow-hidden">
 							<div className="relative z-10 flex items-center gap-2 md:gap-3">
 								<Radar className="w-3.5 h-3.5 md:w-5 md:h-5 text-[#dfd0a4] animate-spin-slow shrink-0" />
 								<div>

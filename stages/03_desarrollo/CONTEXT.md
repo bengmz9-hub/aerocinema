@@ -32,6 +32,6 @@ Implementacion del codigo fuente y cobertura de pruebas.
 ---
 
 ## Criterios de Aceptacion (DoD)
-- [ ] Entregable generado exclusivamente dentro de `output/`.
-- [ ] Verificado sin errores sintacticos ni dependencias faltantes.
-- [ ] Validado estrictamente contra el contrato o especificacion del stage previo.
+- [x] Entregable generado exclusivamente dentro de `output/` (`implementation-log.md` y build de producción verificado).
+- [x] Verificado sin errores sintacticos ni dependencias faltantes (`next build` y `biome check .` en verde).
+- [x] Validado estrictamente contra el contrato o especificacion del stage previo (`specs.md`).

@@ -50,6 +50,6 @@ Ante incertidumbre en UI/UX, animaciones complejas o integración de APIs descon
 ---
 
 ## Criterios de Aceptacion (DoD)
-- [ ] Entregable generado exclusivamente dentro de `output/`.
-- [ ] Verificado sin errores sintacticos ni dependencias faltantes.
-- [ ] Validado estrictamente contra el contrato o especificacion del stage previo.
+- [x] Entregable generado exclusivamente dentro de `output/` (`specs.md`).
+- [x] Verificado sin errores sintacticos ni dependencias faltantes.
+- [x] Validado estrictamente contra el contrato o especificacion del stage previo.

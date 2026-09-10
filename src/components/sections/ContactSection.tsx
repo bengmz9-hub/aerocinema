@@ -84,7 +84,7 @@ export default function ContactSection() {
 				</fieldset>
 
 				{/* Vista previa del mensaje que se enviará por WhatsApp */}
-				<div className="mt-4 w-full max-w-xl rounded-2xl border border-gold-500/20 bg-[#12141a]/60 backdrop-blur-2xl px-4 py-3 sm:px-5 sm:py-4 text-left shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]">
+				<div className="mt-4 w-full max-w-xl rounded-2xl border border-gold-500/20 bg-[#12141a]/60 backdrop-blur-2xl px-4 py-3 sm:px-5 sm:py-4 text-left shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
 					<p className="font-mono text-[8.5px] sm:text-[9px] uppercase tracking-[0.2em] text-gold-300/90 font-bold mb-1">
 						Mensaje preparado para WhatsApp
 					</p>
@@ -100,11 +100,8 @@ export default function ContactSection() {
 						href={whatsappUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group relative flex flex-col justify-between p-3.5 sm:p-5 rounded-[16px] md:rounded-2xl border border-white/[0.12] bg-[#12141a]/60 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-gold-500/40 hover:bg-[#151821]/80 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.1)] transition-all duration-300 cursor-pointer overflow-hidden text-left"
+						className="group relative flex flex-col justify-between p-3.5 sm:p-5 rounded-[16px] md:rounded-2xl border border-white/[0.12] bg-[#12141a]/60 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:border-gold-500/40 hover:bg-[#151821]/80 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.1)] transition-all duration-300 cursor-pointer overflow-hidden text-left"
 					>
-						{/* Luz cenital difusa estilo Apple */}
-						<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent opacity-70" />
-
 						{/* Definición del Gradiente SVG Verde a Oro */}
 						<svg width="0" height="0" className="absolute" aria-hidden="true">
 							<defs>

@@ -48,3 +48,29 @@ El experto en diseño UI/UX ha trazado un plan para pasar de una "buena plantill
 1. **Fase A (Supervivencia):** Arreglar el bucle de cookies, el formulario bloqueante y el agujero negro de los leads perdidos. Sustituir el número de teléfono.
 2. **Fase B (Conversión):** Diseñar e inyectar la *Calculadora Táctil de Vuelo* y la *Isla Dinámica Móvil*.
 3. **Fase C (Alta Costura):** Romper el diseño clónico de los Bento Grids y pulir la arquitectura tipográfica.
+
+---
+
+## 4. ✅ Verificación QA Post-Intervención (Fase A/B Selectiva)
+
+| Ítem Auditado | Diagnóstico Inicial | Estado Actual | Verificación Técnica |
+| :--- | :--- | :---: | :--- |
+| **Bucle CookieBanner** | Key mismatch (`cookies-accepted` vs `cookies-consent`) | ✅ Resuelto | Key unificada a `cookies-consent`. Estado persiste entre recargas. |
+| **Leads silenciosos** | Fake `{ success: true }` ante fallo de API Resend | ✅ Resuelto | `contact.ts` arroja error descriptivo real; `replyTo` inyectado. |
+| **Bloqueo UI Modal** | Sin bloque `try/catch/finally` ante error de red | ✅ Resuelto | `ContactModal.tsx` protegido con `try/catch/finally` restaurando botón. |
+| **Teléfono Centralizado** | Hardcoded `34600000000` en múltiples componentes | ✅ Resuelto | Extraído a `src/lib/config.ts` (`CONTACT_PHONE`) como única fuente de verdad. |
+| **Isla Dinámica Móvil** | Menú inalcanzable con pulgar en pantallas grandes | ✅ Resuelto | `MobileIsland.tsx` flotante abajo (WhatsApp, Showreel, Contacto) sin colisión. |
+| **Copy Confianza Legal** | Jerga burocrática aeronáutica densa en `AboutMe` | ✅ Resuelto | Sustituido por *"Vuelo Urbano 100% Legal"* y sellos comerciales claros. |
+| **Tipografía Consolidada**| Conflicto entre 4 familias tipográficas | ✅ Resuelto | `Montserrat` removida; balance estricto *Garamond* (editorial) + *Jakarta* (UI). |
+| **Integridad Multimedia** | Falsos pósters o decodificadores duplicados | ✅ Resuelto | Bento Grid y Reels originales preservados con reproducción limpia on-scroll. |
+
+---
+
+## 5. 📦 Walkthrough de Entrega & Health Check
+
+* **Compilación Next.js 15**: `next build` completado sin advertencias ni errores (5 rutas generadas limpiamente).
+* **Calidad de Código**: Biome Linter `biome check .` 100% en verde (33/33 archivos auditados).
+* **Anti-Slop & Code Judo**: Cero wrappers residuales, cero props opcionales injustificadas, bundle JS First Load optimizado (177 kB total en home).
+* **Servidor Local Activo**:
+  - PC / Localhost: `http://localhost:3000`
+  - Red Local / Móvil: `http://192.168.1.36:3000`

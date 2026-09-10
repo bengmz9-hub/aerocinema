@@ -2,10 +2,10 @@
 <!-- Single Source of Truth para retomar el proyecto tras una pausa -->
 
 ## Ultima Accion Completada
-* Inicializacion de la arquitectura ICM avanzada y configuracion base.
+* Mitigación de artefactos visuales, saneamiento de GPU compositing y unificación del fondo del Bento Grid del dron a obsidiana profunda (`#0a0c10/90`). Build de producción verificado.
 
 ## Siguiente Paso Inmediato
-* Comenzar la etapa activa `01_investigacion` cumpliendo los insumos y su DoD.
+* Validación visual por el usuario o ejecución de push de fin de sesión y despliegue en Vercel cuando se ordene explícitamente.
 
 ## Bloqueadores Activos
 * Ninguno.

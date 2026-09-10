@@ -5,7 +5,7 @@ Mantener este archivo bajo 100 lineas. No colocar especificaciones de codigo aqu
 -->
 
 ## Estado Operativo
-* **Stage Activo:** `01_investigacion`
+* **Stage Activo:** `04_qa_auditoria`
 * **Fecha de Inicio:** 2026-09-10
 * **Ultima Actualizacion:** 2026-09-10
 
@@ -28,10 +28,10 @@ Mantener este archivo bajo 100 lineas. No colocar especificaciones de codigo aqu
 
 | Stage | Condicion de Entrada | Entregable Esperado (`output/`) | Estado |
 | :--- | :--- | :--- | :---: |
-| **01_investigacion** | Inicio del proyecto | `findings.md con fuentes y requerimientos validados` | En curso |
-| **02_arquitectura** | `01_investigacion` completado | `specs.md con diagramas y decisiones de diseno` | Pendiente |
-| **03_desarrollo** | `02_arquitectura` completado | `Codigo ejecutable verificado y tests pasando` | Pendiente |
-| **04_qa_auditoria** | `03_desarrollo` completado | `audit_report.md y walkthrough final` | Pendiente |
+| **01_investigacion** | Inicio del proyecto | `findings.md con fuentes y requerimientos validados` | Hecho |
+| **02_arquitectura** | `01_investigacion` completado | `specs.md con diagramas y decisiones de diseno` | Hecho |
+| **03_desarrollo** | `02_arquitectura` completado | `Codigo ejecutable verificado y tests pasando` | Hecho |
+| **04_qa_auditoria** | `03_desarrollo` completado | `audit_report.md y walkthrough final` | Hecho |
 
 ---
 
