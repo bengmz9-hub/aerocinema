@@ -1,0 +1,2 @@
+export const CONTACT_PHONE = "34600000000";
+export const CONTACT_PHONE_FORMATTED = "+34 600 000 000";

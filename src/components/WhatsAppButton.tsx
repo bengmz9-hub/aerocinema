@@ -1,3 +1,4 @@
+import { CONTACT_PHONE } from "@/lib/config";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 
 interface WhatsAppButtonProps {
@@ -6,7 +7,7 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({
-	phoneNumber = "34600000000",
+	phoneNumber = CONTACT_PHONE,
 	message = "Hola Jose, me gustaría solicitar información sobre un servicio de grabación FPV.",
 }: WhatsAppButtonProps) {
 	const href = getWhatsAppLink(phoneNumber, message);
@@ -17,7 +18,7 @@ export default function WhatsAppButton({
 			target="_blank"
 			rel="noopener noreferrer"
 			aria-label="Contactar por WhatsApp (abre en nueva pestaña)"
-			className="fixed z-50 bottom-6 right-4 md:bottom-6 md:right-6 flex items-center justify-center gap-2.5 bg-[#12141a]/90 backdrop-blur-2xl border border-white/20 text-white h-12 w-12 md:h-auto md:w-auto md:px-4 md:py-3 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.6),0_0_20px_rgba(223,208,164,0.2)] hover:border-gold-500/40 hover:scale-105 active:scale-95 transition-all duration-300 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
+			className="fixed z-50 bottom-6 right-6 hidden md:flex items-center justify-center gap-2.5 bg-[#12141a]/90 backdrop-blur-2xl border border-white/20 text-white px-4 py-3 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.6),0_0_20px_rgba(223,208,164,0.2)] hover:border-gold-500/40 hover:scale-105 active:scale-95 transition-[transform,border-color,box-shadow] duration-200 ease-out group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400"
 		>
 			<div className="relative flex items-center justify-center">
 				<svg

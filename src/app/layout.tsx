@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
 import {
-	Cinzel,
 	Cormorant_Garamond,
-	Montserrat,
+	JetBrains_Mono,
 	Plus_Jakarta_Sans,
 } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
+import MobileIsland from "@/components/MobileIsland";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
-
-const cinzel = Cinzel({
-	subsets: ["latin"],
-	variable: "--font-cinzel",
-	weight: ["400", "700"],
-	display: "swap",
-});
+import { CONTACT_PHONE_FORMATTED } from "@/lib/config";
 
 const cormorant = Cormorant_Garamond({
 	subsets: ["latin"],
@@ -27,14 +21,14 @@ const cormorant = Cormorant_Garamond({
 const jakarta = Plus_Jakarta_Sans({
 	subsets: ["latin"],
 	variable: "--font-jakarta",
-	weight: ["300", "400", "500", "600"],
+	weight: ["300", "400", "500", "600", "700"],
 	display: "swap",
 });
 
-const mt = Montserrat({
+const mono = JetBrains_Mono({
 	subsets: ["latin"],
-	variable: "--font-montserrat",
-	weight: ["300", "400"],
+	variable: "--font-mono",
+	weight: ["400", "500", "600", "700"],
 	display: "swap",
 });
 
@@ -94,7 +88,7 @@ const structuredDataLd = {
 			description:
 				"Servicios profesionales de filmación aérea, fotografía y vídeo con drones para inmobiliarias, inspección de fachadas y negocios locales en L'Hospitalet y Barcelona. Operador registrado AESA.",
 			url: "https://jfdronevision.com",
-			telephone: "+34600000000",
+			telephone: CONTACT_PHONE_FORMATTED,
 			email: "contacto@jfdronevision.com",
 			sameAs: ["https://www.instagram.com/jf.drone_visual"],
 			logo: "https://jfdronevision.com/favicon.svg",
@@ -190,10 +184,11 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${cinzel.variable} ${cormorant.variable} ${jakarta.variable} ${mt.variable} font-sans antialiased`}
+				className={`${cormorant.variable} ${jakarta.variable} ${mono.variable} font-sans antialiased`}
 			>
 				<Navbar />
 				{children}
+				<MobileIsland />
 				<WhatsAppButton />
 				<CookieBanner />
 			</body>

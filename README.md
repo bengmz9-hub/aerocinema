@@ -39,7 +39,7 @@ Requires Node 18.17+ (Next.js 15). Environment variables: `RESEND_API_KEY` (cont
 - `src/components` — UI sections and shadcn components
 - `scripts/generate-map.js` — project map generator
 - `graphify-out/` — codebase knowledge graph data
-- `progress.md` — session progress log
+- `stages/03_desarrollo/output/implementation-log.md` — session progress log
 
 ## License
 

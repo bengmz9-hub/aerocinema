@@ -75,4 +75,18 @@
 - Primera prueba real de MoA en tarea compleja.
 - Seguimiento de delegation-routing en perfil default.
 
+## Sesión 2026-09-10 — Auditoría ICM (Fase A/B selectiva)
 
+### 1. Estabilización Core (Supervivencia)
+- **CookieBanner**: Unificada clave de localStorage a `cookies-consent` (bucle de recargas arreglado).
+- **Contact Action**: Eliminado el `fake success` si no hay API Key de Resend. Añadido `replyTo` del cliente y bloque `try/catch/finally` en el Modal.
+- **Single Source of Truth**: Extraído el número de teléfono quemado a `src/lib/config.ts` (`CONTACT_PHONE`).
+
+### 2. Pulido Estético & Cero Fricción (Mobile First)
+- **Isla Dinámica**: Añadido `MobileIsland.tsx` anclado abajo (WhatsApp, Showreel, Contacto) exclusivo para vista móvil. Ocultado el botón flotante viejo en móvil para evitar colapso táctil.
+- **Confianza Legal**: Modificado `AboutMe.tsx` para cambiar jerga aeronáutica por copy comercial ("Vuelo Urbano 100% Legal").
+- **Tipografía Consolidada**: Removida `Montserrat` para limpiar la identidad visual.
+- **Rollbacks Expresos (A petición)**: 
+  - Restaurada la maqueta original Bento Grid del dron (`DJI5ProSection.tsx`).
+  - Restaurados los Reels originales sin preloads ni pósters para asegurar la reproducción estilo GIF automática on-scroll.
+  - Fotograma de la fachada extraído puramente del `.webm` para evitar el falso póster del operador.

@@ -6,10 +6,15 @@
 @source "..";
 
 @theme {
-	--font-sans: var(--font-jakarta), var(--font-montserrat);
-	--font-cinzel: var(--font-cinzel);
-	--font-cormorant: var(--font-cormorant);
-	--font-jakarta: var(--font-jakarta);
+	--font-sans:
+		var(--font-jakarta), system-ui, -apple-system, BlinkMacSystemFont,
+		"Segoe UI", Roboto, sans-serif;
+	--font-cormorant: var(--font-cormorant), Georgia, serif;
+	--font-cinzel: var(--font-cormorant), Georgia, serif;
+	--font-jakarta: var(--font-jakarta), system-ui, sans-serif;
+	--font-mono:
+		var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		monospace;
 	--color-void-900: #070708; /* Token Vidrio de Noche / Obsidiana Real */
 
 	/* Paleta Gold — Dorado bentogrid DJI Mini 5 Pro (#dfd0a4) */
@@ -65,8 +70,9 @@ body::after {
 }
 
 @theme inline {
-	--font-heading: var(--font-sans);
+	--font-heading: var(--font-cormorant);
 	--font-sans: var(--font-sans);
+	--font-mono: var(--font-mono);
 	--color-sidebar-ring: var(--sidebar-ring);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -212,7 +218,11 @@ body::after {
 /* 2. Specular Border Highlights (Lente Reflectora) */
 .specular-card {
 	position: relative;
-	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+	transition:
+		transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+		opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+		border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+		box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 	user-select: none;
 	cursor: default;
 }

@@ -8,7 +8,7 @@ export default function CookieBanner() {
 	const [visible, setVisible] = useState(false);
 
 	useEffect(() => {
-		const accepted = localStorage.getItem("cookies-accepted");
+		const accepted = localStorage.getItem("cookies-consent");
 		if (!accepted) {
 			// Pequeño retardo para que la animación ocurra tras el render
 			const timer = setTimeout(() => setVisible(true), 500);
@@ -27,13 +27,14 @@ export default function CookieBanner() {
 	};
 
 	return (
-		<AnimatePresence>
+		<AnimatePresence initial={false}>
 			{visible && (
 				<motion.div
 					initial={{ y: 40, opacity: 0 }}
 					animate={{ y: 0, opacity: 1 }}
 					exit={{ y: 40, opacity: 0 }}
 					transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+					style={{ willChange: "transform, opacity" }}
 					className="fixed bottom-0 inset-x-0 z-50 p-3 md:p-4 pointer-events-none"
 					role="region"
 					aria-label="Aviso de cookies"

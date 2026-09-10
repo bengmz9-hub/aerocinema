@@ -15,7 +15,9 @@ criterio explicito).
 - Solo revisa diffs de codigo: .ts .tsx .js .jsx .css .json (no docs)
 - Fail-OPEN si la API no responde: avisa y deja pasar (un fallo de red no
   debe bloquear un push legitimo; el hook global ya cubre secrets+build).
-- Los criterios de diseno viven en DESIGN.md / design-inspiration.md.
+- Contexto
+    - El proyecto es una landing page de drones profesionales (Next.js, Tailwind v4, framer-motion).
+    - Los criterios de diseno viven en DESIGN.md / stages/01_investigacion/output/design-inspiration.md.
 
 Uso:
   python scripts/adversarial_gate.py [--range ORIGIN..HEAD] [--max-chars 12000]

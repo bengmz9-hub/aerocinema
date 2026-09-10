@@ -1,6 +1,6 @@
 # DRONES — Deployment, Delegación & Entorno (Antigravity)
 
-Proyecto: portfolio Next.js/TS en `C:\Users\rgs84\DRONES`. Respetar `DESIGN.md` y `design-inspiration.md`.
+Proyecto: portfolio Next.js/TS en `C:\Users\rgs84\DRONES`. Respetar `DESIGN.md` y `stages/01_investigacion/output/design-inspiration.md`.
 
 1. **DELEGACIÓN INTELIGENTE (HERMES / GEMINI FLASH)**:
    - **Tareas Simples (1-2 archivos, copy, estilos):** Directo con **Gemini 3.7 Flash (Low)** en Antigravity. Prohibido gastar saldo API en tareas triviales.
@@ -12,7 +12,7 @@ Proyecto: portfolio Next.js/TS en `C:\Users\rgs84\DRONES`. Respetar `DESIGN.md` 
 3. **NO EDICIÓN EN FEEDBACK/OPINIÓN**: Dar opciones A/B/C. Prohibido editar código sin confirmación.
 4. **NO FAKEAR DELEGACIÓN + VERIFICAR**: Si Hermes falla, reportar error/prompt. Prohibido simular trabajo. Verificar siempre con `git diff` y build.
 5. **CERO TOKEN WASTE EN BACKGROUND**: Silenciar background/timers. No ejecutar herramientas sin petición explícita.
-6. **ALERT CONTEXT ROT (12-15 TURNOS)**: Al llegar a 12-15 turnos, actualizar `progress.md` e instruir apertura de chat limpio.
+6. **ALERT CONTEXT ROT (12-15 TURNOS)**: Al llegar a 12-15 turnos, actualizar `stages/03_desarrollo/output/implementation-log.md` e instruir apertura de chat limpio.
 7. **SKILLS DE PROCESO**: Aplicar bajo demanda: `spec-driven`, `context-engineering`, `doubt-driven`, `incremental-implementation`.
 8. **RESEARCH & REUSE**: Buscar antes de crear: (1) GitHub search, (2) docs oficiales, (3) web. Priorizar OSS sobre reinventar.
 9. **CONTRATO DE DELEGACIÓN**: La respuesta final ES el deliverable. Verificar siempre el resultado de Hermes antes de responder; prohibido fire-and-forget.

@@ -2,6 +2,7 @@
 
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { CONTACT_PHONE_FORMATTED } from "@/lib/config";
 
 export default function AvisoLegalPage() {
 	const handleBack = () => {
@@ -77,6 +78,10 @@ export default function AvisoLegalPage() {
 							<p>
 								<span className="text-[#6e6e73]">EMAIL DIRECTO:</span>{" "}
 								contacto@jfdronevision.com
+							</p>
+							<p>
+								<span className="text-[#6e6e73]">TELÉFONO / WHATSAPP:</span>{" "}
+								{CONTACT_PHONE_FORMATTED}
 							</p>
 							<p>
 								<span className="text-[#6e6e73]">REGISTRO AERONÁUTICO:</span>{" "}

@@ -2,10 +2,9 @@
 
 import {
 	motion,
+	useMotionTemplate,
 	useMotionValue,
 	useReducedMotion,
-	useSpring,
-	useTransform,
 	type Variants,
 } from "framer-motion";
 import { ArrowUpRight, type LucideIcon, ShieldCheck } from "lucide-react";
@@ -34,41 +33,23 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 	const prefersReducedMotion = useReducedMotion();
 	const Icon: LucideIcon = item.icon;
 
-	// 3D Motion Tilt Springs
-	const x = useMotionValue(0);
-	const y = useMotionValue(0);
-	const mouseXSpring = useSpring(x, { stiffness: 300, damping: 20 });
-	const mouseYSpring = useSpring(y, { stiffness: 300, damping: 20 });
-
-	const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["4deg", "-4deg"]);
-	const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-4deg", "4deg"]);
+	// Coordenadas relativas para resplandor radial especular (Flat Card)
+	const mouseX = useMotionValue(0);
+	const mouseY = useMotionValue(0);
 
 	const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
 		if (prefersReducedMotion) return;
 		const rect = e.currentTarget.getBoundingClientRect();
-		const width = rect.width;
-		const height = rect.height;
-		const mouseX = e.clientX - rect.left;
-		const mouseY = e.clientY - rect.top;
-		x.set(mouseX / width - 0.5);
-		y.set(mouseY / height - 0.5);
+		mouseX.set(e.clientX - rect.left);
+		mouseY.set(e.clientY - rect.top);
 	};
 
-	const handleMouseLeave = () => {
-		x.set(0);
-		y.set(0);
-	};
+	const backgroundGlow = useMotionTemplate`radial-gradient(350px circle at ${mouseX}px ${mouseY}px, rgba(223, 208, 164, 0.14), transparent 80%)`;
 
 	return (
 		<motion.article
 			variants={itemVariants}
 			onMouseMove={handleMouseMove}
-			onMouseLeave={handleMouseLeave}
-			style={{
-				rotateX: prefersReducedMotion ? 0 : rotateX,
-				rotateY: prefersReducedMotion ? 0 : rotateY,
-				transformStyle: "preserve-3d",
-			}}
 			whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}
 			transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
 			role="listitem"
@@ -83,10 +64,18 @@ function ServiceCard({ item }: { item: ServiceItem }) {
 				"min-h-[340px] md:min-h-[420px] transform-gpu",
 			)}
 		>
+			{/* ✨ RESPLANDOR RADIAL ESPECULAR (Seguidor de ratón plano) */}
+			<motion.div
+				className="pointer-events-none absolute -inset-px rounded-[18px] md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+				style={{ background: backgroundGlow }}
+				aria-hidden="true"
+			/>
+
 			{/* 📹 REPRODUCTOR VÍDEO DE FONDO */}
-			<div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none overflow-hidden rounded-[18px] md:rounded-2xl">
+			<div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none overflow-hidden">
 				<video
 					src={item.videoUrl}
+					poster={item.videoUrl.replace(/\.webm$/i, ".webp")}
 					autoPlay
 					loop
 					muted
@@ -197,6 +186,7 @@ export function ServicesSection() {
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true, margin: "-50px" }}
+					style={{ willChange: "opacity" }}
 					className="grid grid-cols-1 md:grid-cols-3 gap-6"
 					role="list"
 				>

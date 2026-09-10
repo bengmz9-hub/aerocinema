@@ -11,8 +11,7 @@ import { MINI_5_PRO_DATA } from "@/data/droneMini5Pro";
 export function DJI5ProSection() {
 	return (
 		<section
-			id="optical"
-			className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-montserrat text-white select-none cursor-default"
+			className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-jakarta text-white select-none cursor-default"
 		>
 			{/* Encabezado de Sección (Centrado) */}
 			<div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
@@ -34,14 +33,16 @@ export function DJI5ProSection() {
 				{/* PANEL IZQUIERDO: VÍDEO MARCO TRASLÚCIDO APPLE PRO (Md: 5 cols) */}
 				{/* ---------------------------------------------------- */}
 				<div className="md:col-span-5 relative group rounded-[22px] overflow-hidden border border-white/[0.12] bg-[#12141a]/60 p-2.5 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/35 select-none cursor-default">
-					<div className="relative aspect-[4/3] w-full rounded-[16px] overflow-hidden bg-black/90 flex items-center justify-center">
+					<div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-black/90 flex items-center justify-center">
 						<video
 							autoPlay
 							muted
 							loop
 							playsInline
 							preload="none"
-							className="w-full h-full object-cover rounded-[16px] transition-transform duration-700 ease-out group-hover:scale-105"
+							poster="/videos/dji_mini_5_pro_flow.webp"
+							style={{ willChange: "transform" }}
+							className="w-full h-full object-cover rounded-xl transition-transform duration-700 ease-out group-hover:scale-105"
 						>
 							<source
 								src="/videos/dji_mini_5_pro_flow.webm"

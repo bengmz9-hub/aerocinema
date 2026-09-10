@@ -8,6 +8,7 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { Stats } from "@/components/Stats";
 import ContactSection from "@/components/sections/ContactSection";
 import FAQSection from "@/components/sections/FAQSection";
+import { CONTACT_PHONE } from "@/lib/config";
 
 export default function HomePage() {
 	return (
@@ -17,8 +18,10 @@ export default function HomePage() {
 			<HeroSection />
 
 			{/* ========== 03. INSTAGRAM REELS LIVE FEED (@JF.DRONE_VISUAL) ========== */}
-			<div id="portfolio" className="scroll-mt-16 md:scroll-mt-24">
-				<InstagramReelsSection />
+			<div id="reels" className="scroll-mt-16 md:scroll-mt-24">
+				<div id="portfolio">
+					<InstagramReelsSection />
+				</div>
 			</div>
 
 			{/* ========== 04. SERVICIOS ========== */}
@@ -208,12 +211,12 @@ export default function HomePage() {
 									href="#contacto"
 									className="text-[#a1a1a6] hover:text-white transition-colors"
 								>
-									Pedir Presupuesto
+									Iniciar Proyecto
 								</a>
 							</li>
 							<li>
 								<a
-									href="https://wa.me/34600000000"
+									href={`https://wa.me/${CONTACT_PHONE}`}
 									target="_blank"
 									rel="noopener noreferrer"
 									className="text-[#a1a1a6] hover:text-white transition-colors"

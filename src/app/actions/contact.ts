@@ -23,10 +23,10 @@ function escapeHtml(str: string): string {
 		.replace(/'/g, "&#039;");
 }
 
-export async function submitContactForm(data: ContactInput) {
+export async function submitContactForm(payload: ContactInput) {
 	try {
 		// Validar campos obligatorios básicos
-		if (!data.name || !data.email) {
+		if (!payload.name || !payload.email) {
 			return {
 				success: false,
 				error: "El nombre y el correo electrónico son obligatorios.",
@@ -35,7 +35,7 @@ export async function submitContactForm(data: ContactInput) {
 
 		// Validar formato de email básico
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-		if (!emailRegex.test(data.email.trim())) {
+		if (!emailRegex.test(payload.email.trim())) {
 			return {
 				success: false,
 				error: "Por favor, introduce un correo electrónico válido.",
@@ -43,19 +43,27 @@ export async function submitContactForm(data: ContactInput) {
 		}
 
 		// Sanitizar entradas para prevenir inyecciones HTML
-		const safeName = escapeHtml(data.name.slice(0, 100).trim());
-		const safeEmail = escapeHtml(data.email.slice(0, 100).trim());
+		const safeName = escapeHtml(payload.name.slice(0, 100).trim());
+		const safeEmail = escapeHtml(payload.email.slice(0, 100).trim());
 		const safeType = escapeHtml(
-			(data.type || "Contacto general").slice(0, 80).trim(),
+			(payload.type || "Contacto general").slice(0, 80).trim(),
 		);
 		const safeDetails = escapeHtml(
-			(data.details || "Sin detalles adicionales").slice(0, 1500).trim(),
+			(payload.details || "Sin detalles adicionales").slice(0, 1500).trim(),
 		);
 
-		// Modo Fallback / Dev local si no hay API Key configurada
+		// Eliminar fake success si no hay API Key configurada
 		if (!resend) {
-			await new Promise((resolve) => setTimeout(resolve, 800));
-			return { success: true };
+			console.error("Falta RESEND_API_KEY en las variables de entorno.");
+			if (process.env.NODE_ENV === "production") {
+				throw new Error(
+					"El servicio de correo no está configurado en el servidor (falta RESEND_API_KEY).",
+				);
+			}
+			return {
+				success: false,
+				error: "Error de configuración: falta RESEND_API_KEY en el servidor.",
+			};
 		}
 
 		// Enviar correo real vía Resend
@@ -65,6 +73,7 @@ export async function submitContactForm(data: ContactInput) {
 		const response = await resend.emails.send({
 			from: fromEmail,
 			to: toEmail,
+			replyTo: payload.email,
 			subject: `[NUEVO PROYECTO] ${safeType} - ${safeName}`,
 			html: `
 				<h2>Solicitud de contacto desde JF.DroneVision</h2>
@@ -87,6 +96,9 @@ export async function submitContactForm(data: ContactInput) {
 		return { success: true };
 	} catch (error) {
 		console.error("Error procesando solicitud de contacto:", error);
+		if (process.env.NODE_ENV === "production") {
+			throw error;
+		}
 		return {
 			success: false,
 			error: "Error en el servidor al procesar la solicitud.",

@@ -2,21 +2,23 @@ import { Award, Layers, Plane, Radar, ShieldCheck } from "lucide-react";
 
 export function AboutMe() {
 	return (
-		<section className="relative w-full bg-transparent py-8 md:py-12 px-4 sm:px-6 lg:px-8 font-montserrat text-white select-none cursor-default z-10 overflow-hidden">
+		<section className="relative w-full bg-transparent py-8 md:py-12 px-4 sm:px-6 lg:px-8 font-sans text-white select-none cursor-default z-10 overflow-hidden">
 			<div className="max-w-7xl mx-auto relative z-10">
 				<div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
 					{/* ---------------------------------------------------- */}
 					{/* PANEL IZQUIERDO: VÍDEO MARCO TRASLÚCIDO APPLE PRO (Md: 5 cols) */}
 					{/* ---------------------------------------------------- */}
 					<div className="md:col-span-5 relative group rounded-[22px] overflow-hidden border border-white/[0.12] bg-[#12141a]/60 p-2.5 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col justify-center transition-all duration-500 hover:border-[#dfd0a4]/35 select-none cursor-default">
-						<div className="relative aspect-[4/5] md:aspect-auto h-full w-full rounded-[16px] overflow-hidden bg-black/90 flex items-center justify-center">
+						<div className="relative aspect-[4/5] md:aspect-auto h-full w-full rounded-xl overflow-hidden bg-black/90 flex items-center justify-center">
 							<video
 								autoPlay
 								muted
 								loop
 								playsInline
-								preload="metadata"
-								className="w-full h-full object-cover rounded-[16px] transition-transform duration-700 ease-out group-hover:scale-105"
+								preload="none"
+								poster="/videos/jose-reveal.webp"
+								style={{ willChange: "transform" }}
+								className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
 							>
 								<source src="/videos/jose-reveal.mp4" type="video/mp4" />
 								Tu navegador no soporta la reproducción de video HTML5.
@@ -24,10 +26,10 @@ export function AboutMe() {
 
 							{/* Overlay de telemetría sobrio */}
 							<div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/80 border border-white/10 text-[10px] font-mono text-[#dfd0a4]/90 backdrop-blur-md shadow-sm">
-								UAV_OP_POV ● 24FPS
+								PILOT_OP_POV ● 24FPS
 							</div>
-							<div className="absolute bottom-3 right-3 z-10 px-2.5 py-1 rounded-md bg-black/80 border border-white/10 text-[10px] font-mono text-zinc-400 backdrop-blur-md shadow-sm">
-								REC {"//"} AESA CERT
+							<div className="absolute bottom-3 right-3 z-10 px-2.5 py-1 rounded-md bg-black/80 border border-white/10 text-[10px] font-mono text-zinc-300 backdrop-blur-md shadow-sm">
+								VUELO SEGURO {"//"} AESA CERT
 							</div>
 						</div>
 					</div>
@@ -52,108 +54,114 @@ export function AboutMe() {
 								<h2 className="text-2xl md:text-3xl font-cormorant font-bold text-white tracking-wide uppercase mb-3">
 									JOSE ANTONIO
 								</h2>
-								<p className="text-zinc-300 font-jakarta text-xs md:text-sm font-light leading-relaxed mb-3">
+								<p className="text-zinc-300 font-sans text-xs md:text-sm font-light leading-relaxed mb-3">
 									Vivo en Can Serra y conozco bien la zona metropolitana de
-									Barcelona. Opero con permiso oficial de la Agencia Estatal de
-									Seguridad Aérea, lo que significa que cada vuelo es 100% legal
-									y sin sorpresas.
+									Barcelona. Opero bajo la normativa oficial de la Agencia
+									Estatal de Seguridad Aérea, garantizando que cada rodaje sea
+									100% legal, seguro y con todas las autorizaciones en regla.
 								</p>
-								<p className="text-zinc-300 font-jakarta text-xs md:text-sm font-light leading-relaxed mb-4">
-									Si tienes un piso en venta en Hospitalet, una obra en marcha
-									en Barcelona o un bar con terraza que quieres mostrar en
-									redes, podemos hablar y te digo sin compromiso si tu proyecto
-									tiene sentido con un dron.
+								<p className="text-zinc-300 font-sans text-xs md:text-sm font-light leading-relaxed mb-4">
+									Si tienes un inmueble en venta en Hospitalet, una obra en
+									Barcelona o un negocio que quieres potenciar en redes con
+									calidad cinematográfica, te asesoro con total honestidad sobre
+									la viabilidad de tu proyecto.
 								</p>
 								<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/25 text-gold-300 text-[11px] font-mono shadow-sm">
-									<span>AESA / EASA CERTIFIED PILOT OPERATOR</span>
+									<span>
+										VUELO URBANO AUTORIZADO · SEGURO ACTIVO · PILOTO AESA
+									</span>
 								</div>
 							</div>
 						</div>
 
-						{/* Tarjeta 1: Operador UAS */}
+						{/* Tarjeta 1: Seguro de Responsabilidad Activo */}
 						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
 							<div className="relative z-10">
 								<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
 									<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
 										<ShieldCheck className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#dfd0a4]" />
-										<span>REGISTRO AESA</span>
+										<span>PROTECCIÓN LEGAL</span>
 									</div>
-									<span className="md:hidden text-[12px] font-bold text-white tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
-										OP-UAS-ES
+									<span className="md:hidden text-[11px] font-bold text-white group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
+										Seguro Activo
 									</span>
 								</div>
-								<div className="hidden md:block text-xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono">
-									OP-UAS-ES
+								<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+									Seguro de Responsabilidad Activo
 								</div>
 								<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
-									Operador de drones registrado oficialmente ante AESA.
+									Póliza aeronáutica de responsabilidad civil con cobertura
+									total ante cualquier imprevisto.
 								</p>
 							</div>
 						</div>
 
-						{/* Tarjeta 2: Piloto Certificado */}
+						{/* Tarjeta 2: Piloto Oficial AESA */}
 						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
 							<div className="relative z-10">
 								<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
 									<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
 										<Award className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#dfd0a4]" />
-										<span>PILOTO ACREDITADO</span>
+										<span>PILOTO TITULADO</span>
 									</div>
-									<span className="md:hidden text-[12px] font-bold text-white tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
-										PIL-AESA
+									<span className="md:hidden text-[11px] font-bold text-white group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
+										Operador AESA
 									</span>
 								</div>
-								<div className="hidden md:block text-xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono">
-									PIL-AESA
+								<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+									Operador Oficial Registrado
 								</div>
 								<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
-									Acreditación profesional de piloto de drones UAS.
+									Acreditación oficial AESA y europea para vuelos comerciales y
+									audiovisuales.
 								</p>
 							</div>
 						</div>
 
-						{/* Tarjeta 3: Categoría A1/A3 & A2 */}
+						{/* Tarjeta 3: Vuelo Urbano 100% Legal */}
 						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
 							<div className="relative z-10">
 								<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
 									<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
 										<Plane className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#dfd0a4]" />
-										<span>CATEGORÍAS</span>
+										<span>MARCO URBANO</span>
 									</div>
-									<span className="md:hidden text-[12px] font-bold text-white tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
-										CAT-A1/A2/A3
+									<span className="md:hidden text-[11px] font-bold text-white group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
+										Urbano Legal
 									</span>
 								</div>
-								<div className="hidden md:block text-xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono">
-									EASA CAT-A1/A2/A3
+								<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+									Vuelo Urbano 100% Legal
 								</div>
 								<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
-									Habilitación en vuelos urbanos y proximidad a personas.
+									Habilitación autorizada para rodar en calles, fachadas y zonas
+									pobladas sin riesgo de sanciones.
 								</p>
 							</div>
 						</div>
 
-						{/* Tarjeta 4: STS-01 Escenarios Estándar */}
+						{/* Tarjeta 4: Coordinación de Permisos */}
 						<div className="px-3.5 py-2.5 md:p-5 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-[#dfd0a4]/30 hover:bg-[#151821]/70 transition-all duration-500 group select-none cursor-default relative overflow-hidden flex flex-col justify-center">
 							<div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent opacity-60" />
 							<div className="relative z-10">
 								<div className="flex items-center justify-between md:justify-start gap-1.5 mb-1 md:mb-2">
 									<div className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-mono text-[#dfd0a4] font-bold tracking-wider">
 										<Layers className="w-3 h-3 md:w-3.5 md:h-3.5 text-[#dfd0a4]" />
-										<span>ESCENARIOS STS</span>
+										<span>GESTIÓN AÉREA</span>
 									</div>
-									<span className="md:hidden text-[12px] font-bold text-white tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
-										EASA-STS-01
+									<span className="md:hidden text-[11px] font-bold text-white group-hover:text-[#f0e6c8] transition-colors font-mono tracking-tight">
+										Coordinado
 									</span>
 								</div>
-								<div className="hidden md:block text-xl font-bold text-white mb-1 tabular-nums group-hover:text-[#f0e6c8] transition-colors font-mono">
-									EASA-STS-01
+								<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+									Permisos &amp; ENAIRE
 								</div>
 								<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
-									Capacidad operativa en riesgo controlado.
+									Coordinación directa de espacio aéreo con autoridades y
+									aeropuertos para filmaciones sin contratiempos.
 								</p>
 							</div>
 						</div>
@@ -165,11 +173,11 @@ export function AboutMe() {
 								<Radar className="w-3.5 h-3.5 md:w-5 md:h-5 text-[#dfd0a4] animate-spin-slow shrink-0" />
 								<div>
 									<div className="text-[10px] md:text-xs font-mono bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent font-bold uppercase tracking-wider">
-										ESTADO AERONÁUTICO ACTIVO ● PERMISO EN REGLA
+										ESTADO OPERATIVO ● VUELO 100% LEGAL &amp; ASEGURADO
 									</div>
 									<div className="text-[10.5px] md:text-xs text-zinc-200 font-semibold">
-										Conformidad con normativas de seguridad europea y espacio
-										aéreo controlado.
+										Total conformidad con las normativas europea y estatal para
+										máxima tranquilidad de tu cliente.
 									</div>
 								</div>
 							</div>

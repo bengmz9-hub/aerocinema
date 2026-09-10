@@ -88,9 +88,11 @@ function ReticleLogo() {
 function WaypointItem({ item }: { item: NavItem }) {
 	return (
 		<motion.a
+			initial={false}
 			href={`/${item.href}`}
 			whileTap={{ scale: 0.96 }}
 			transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+			style={{ willChange: "transform" }}
 			className="group relative flex items-center gap-2 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-white/60 transition-colors duration-300 hover:text-white"
 		>
 			<span className="font-sans text-[9px] tracking-normal text-[#dfd0a4] opacity-0 scale-75 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100">
@@ -203,10 +205,12 @@ export default function Navbar() {
 							</div>
 
 							<motion.a
+								initial={false}
 								href="/#contacto"
 								whileHover={{ scale: 1.03 }}
 								whileTap={{ scale: 0.96 }}
 								transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+								style={{ willChange: "transform" }}
 								className="group relative overflow-hidden rounded-full border border-gold-500/30 bg-gold-500/10 px-5 py-2 font-sans text-[9px] uppercase tracking-[0.25em] text-gold-200 font-semibold transition-colors duration-300 hover:text-white hover:border-gold-400/60 specular-card"
 							>
 								<span className="relative z-10">Escribir a Jose</span>
@@ -216,8 +220,10 @@ export default function Navbar() {
 
 						{/* Botón trigger menú móvil (44px touch target) */}
 						<motion.button
+							initial={false}
 							type="button"
-							whileTap={{ scale: 0.92 }}
+							whileTap={{ scale: 0.96 }}
+							style={{ willChange: "transform" }}
 							onClick={() => setMenuOpen(!menuOpen)}
 							aria-label={
 								menuOpen
@@ -243,7 +249,7 @@ export default function Navbar() {
 			</header>
 
 			{/* ═══════ OPCIÓN 3: APPLE CINEMATIC SLIDE-DOWN DRAWER (CUPERTINO HUD) ═══════ */}
-			<AnimatePresence>
+			<AnimatePresence initial={false}>
 				{menuOpen && (
 					<div
 						id="mobile-nav-drawer"
@@ -255,6 +261,7 @@ export default function Navbar() {
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+							style={{ willChange: "opacity" }}
 							onClick={() => setMenuOpen(false)}
 							className="absolute inset-0 bg-black/70 backdrop-blur-md"
 						/>
@@ -265,6 +272,7 @@ export default function Navbar() {
 							animate={{ opacity: 1, y: 0, scale: 1 }}
 							exit={{ opacity: 0, y: -20, scale: 0.96 }}
 							transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+							style={{ willChange: "transform, opacity" }}
 							className="relative mx-3 mt-3 sm:mx-6 sm:mt-5 max-h-[92dvh] flex flex-col rounded-[28px] border border-white/12 bg-[#070708]/95 backdrop-blur-2xl shadow-[0_25px_70px_rgba(0,0,0,0.9),0_0_1px_1px_rgba(255,255,255,0.08)] specular-card overflow-hidden z-10"
 						>
 							{/* Indicador superior estilo iOS Grab Bar */}

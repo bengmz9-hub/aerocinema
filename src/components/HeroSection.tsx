@@ -20,7 +20,8 @@ export function HeroSection() {
 					loop
 					muted
 					playsInline
-					poster="/images/hero-poster.webp"
+					preload="metadata"
+					poster="/hero.webp"
 					aria-label="Vídeo aéreo cinematográfico de presentación de JF.DroneVision en Barcelona y L'Hospitalet"
 					title="Filmación aérea con dron en Barcelona y L'Hospitalet"
 					className="w-full h-full object-cover opacity-50 filter saturate-[0.95] contrast-[1.05]"
@@ -62,28 +63,32 @@ export function HeroSection() {
 				{/* Botones con micro-interacciones táctiles scale 0.97 (Emil Kowalski Rules) */}
 				<div className="mt-9 flex flex-col sm:flex-row gap-4 justify-center items-center">
 					<motion.div
+						initial={false}
 						whileHover={{ scale: 1.02 }}
 						whileTap={{ scale: 0.97 }}
 						transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+						style={{ willChange: "transform" }}
 						className="w-full sm:w-auto"
 					>
 						<Link
 							href="#contacto"
-							className="block w-full sm:w-auto text-center px-9 py-3.5 bg-white text-black font-semibold text-[10px] tracking-[0.25em] uppercase rounded-sm hover:bg-neutral-200 transition-colors duration-300 cursor-pointer shadow-lg shadow-white/5"
+							className="block w-full sm:w-auto text-center px-9 py-3.5 bg-white text-black font-semibold text-[10px] tracking-[0.25em] uppercase rounded-full hover:bg-neutral-200 transition-colors duration-300 cursor-pointer shadow-lg shadow-white/5"
 						>
 							PEDIR PRESUPUESTO
 						</Link>
 					</motion.div>
 
 					<motion.div
+						initial={false}
 						whileHover={{ scale: 1.02 }}
 						whileTap={{ scale: 0.97 }}
 						transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+						style={{ willChange: "transform" }}
 						className="w-full sm:w-auto"
 					>
 						<Link
 							href="#portfolio"
-							className="group flex items-center justify-center gap-2 w-full sm:w-auto text-center px-9 py-3.5 bg-transparent text-white border border-white/20 font-semibold text-[10px] tracking-[0.25em] uppercase rounded-sm hover:bg-white/10 transition-colors duration-300 cursor-pointer backdrop-blur-mdSpecular specular-card"
+							className="group flex items-center justify-center gap-2 w-full sm:w-auto text-center px-9 py-3.5 bg-transparent text-white border border-white/20 font-semibold text-[10px] tracking-[0.25em] uppercase rounded-full hover:bg-white/10 transition-colors duration-300 cursor-pointer backdrop-blur-md specular-card"
 						>
 							<Play className="w-3 h-3 fill-current group-hover:scale-110 transition-transform" />
 							VER TRABAJOS
