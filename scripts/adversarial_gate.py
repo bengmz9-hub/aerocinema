@@ -32,8 +32,8 @@ import urllib.request
 
 DEEPSEEK_URL = "https://api.deepseek.com/chat/completions"
 DEEPSEEK_MODEL = "deepseek-v4-flash"
-ENV_PATH = os.path.join(REPO, ".env")
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ENV_PATH = os.path.join(REPO, ".env")
 
 VERIFIER_SYS = (
     "Eres el VERIFICADOR de un pre-gate de push de un portfolio Next.js/TypeScript "
