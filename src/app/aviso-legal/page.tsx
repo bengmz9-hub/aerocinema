@@ -17,7 +17,7 @@ export default function AvisoLegalPage() {
 		}
 	};
 	return (
-		<main className="min-h-screen bg-[#000000] pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8 text-[#86868b] font-jakarta select-none">
+		<main className="min-h-screen pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8 text-[#86868b] font-jakarta select-none">
 			<div className="mx-auto max-w-3xl">
 				{/* ── Breadcrumb y Botón Volver Atrás (Apple Style) ── */}
 				<div className="flex items-center justify-between pb-6 mb-8 border-b border-[#1d1d1f]">
