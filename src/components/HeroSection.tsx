@@ -54,10 +54,12 @@ export function HeroSection() {
 				{/* Subtítulo (Plus Jakarta Sans) */}
 				<p className="mt-6 font-jakarta font-light text-neutral-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed tracking-wide [text-wrap:pretty]">
 					Imágenes aéreas reales para inmobiliarias, empresas de construcción y
-					negocios locales en{" "}
-					<strong className="text-white font-medium">L'Hospitalet</strong> y{" "}
-					<strong className="text-white font-medium">Barcelona</strong>. Sin
-					complicaciones, con permiso AESA en regla.
+					negocios en{" "}
+					<strong className="text-white font-medium">
+						todo el territorio español
+					</strong>
+					, sin complicaciones. Con titulación oficial de{" "}
+					<strong className="text-white font-medium">AESA</strong>.
 				</p>
 
 				{/* Botones con micro-interacciones táctiles scale 0.97 (Emil Kowalski Rules) */}
