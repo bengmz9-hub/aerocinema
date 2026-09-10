@@ -195,7 +195,7 @@ export default function ContactModal({
 											<div>
 												<label
 													htmlFor="name"
-												className="mb-1.5 block font-mono text-[10px] md:text-xs uppercase tracking-wider text-gold-300/90 font-bold"
+													className="mb-1.5 block font-mono text-[10px] md:text-xs uppercase tracking-wider text-gold-300/90 font-bold"
 												>
 													Nombre completo *
 												</label>
@@ -213,7 +213,7 @@ export default function ContactModal({
 											<div>
 												<label
 													htmlFor="email"
-												className="mb-1.5 block font-mono text-[10px] md:text-xs uppercase tracking-wider text-gold-300/90 font-bold"
+													className="mb-1.5 block font-mono text-[10px] md:text-xs uppercase tracking-wider text-gold-300/90 font-bold"
 												>
 													Email de contacto *
 												</label>
