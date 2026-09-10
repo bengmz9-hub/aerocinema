@@ -2,7 +2,7 @@ import { Award, Layers, Plane, Radar, ShieldCheck } from "lucide-react";
 
 export function AboutMe() {
 	return (
-		<section className="relative w-full bg-transparent py-8 md:py-12 px-4 sm:px-6 lg:px-8 font-sans text-white select-none cursor-default z-10 overflow-hidden">
+		<section className="relative w-full bg-transparent py-8 md:py-12 px-4 sm:px-6 lg:px-8 font-jakarta text-white select-none cursor-default z-10 overflow-hidden">
 			<div className="max-w-7xl mx-auto relative z-10">
 				<div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
 					{/* ---------------------------------------------------- */}
@@ -51,13 +51,13 @@ export function AboutMe() {
 								<h2 className="text-2xl md:text-3xl font-cormorant font-bold text-white tracking-wide uppercase mb-3">
 									JOSE ANTONIO
 								</h2>
-								<p className="text-zinc-300 font-sans text-xs md:text-sm font-light leading-relaxed mb-3">
+								<p className="text-zinc-300 font-jakarta text-sm md:text-base font-light leading-relaxed mb-3">
 									Vivo en Can Serra y conozco bien la zona metropolitana de
 									Barcelona. Opero bajo la normativa oficial de la Agencia
 									Estatal de Seguridad Aérea, garantizando que cada rodaje sea
 									100% legal, seguro y con todas las autorizaciones en regla.
 								</p>
-								<p className="text-zinc-300 font-sans text-xs md:text-sm font-light leading-relaxed mb-4">
+								<p className="text-zinc-300 font-jakarta text-sm md:text-base font-light leading-relaxed mb-4">
 									Si tienes un inmueble en venta en Hospitalet, una obra en
 									Barcelona o un negocio que quieres potenciar en redes con
 									calidad cinematográfica, te asesoro con total honestidad sobre
@@ -83,10 +83,10 @@ export function AboutMe() {
 										Seguro Activo
 									</span>
 								</div>
-								<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+								<div className="hidden md:block text-lg lg:text-xl font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-cormorant uppercase tracking-wide">
 									Seguro de Responsabilidad Activo
 								</div>
-								<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
+								<p className="text-zinc-200 font-semibold text-xs md:text-sm leading-tight">
 									Póliza aeronáutica de responsabilidad civil con cobertura
 									total ante cualquier imprevisto.
 								</p>
@@ -105,10 +105,10 @@ export function AboutMe() {
 										Operador AESA
 									</span>
 								</div>
-								<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+								<div className="hidden md:block text-lg lg:text-xl font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-cormorant uppercase tracking-wide">
 									Operador Oficial Registrado
 								</div>
-								<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
+								<p className="text-zinc-200 font-semibold text-xs md:text-sm leading-tight">
 									Acreditación oficial AESA y europea para vuelos comerciales y
 									audiovisuales.
 								</p>
@@ -127,10 +127,10 @@ export function AboutMe() {
 										Urbano Legal
 									</span>
 								</div>
-								<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+								<div className="hidden md:block text-lg lg:text-xl font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-cormorant uppercase tracking-wide">
 									Vuelo Urbano 100% Legal
 								</div>
-								<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
+								<p className="text-zinc-200 font-semibold text-xs md:text-sm leading-tight">
 									Habilitación autorizada para rodar en calles, fachadas y zonas
 									pobladas sin riesgo de sanciones.
 								</p>
@@ -149,10 +149,10 @@ export function AboutMe() {
 										Coordinado
 									</span>
 								</div>
-								<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+								<div className="hidden md:block text-lg lg:text-xl font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-cormorant uppercase tracking-wide">
 									Permisos &amp; ENAIRE
 								</div>
-								<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
+								<p className="text-zinc-200 font-semibold text-xs md:text-sm leading-tight">
 									Coordinación directa de espacio aéreo con autoridades y
 									aeropuertos para filmaciones sin contratiempos.
 								</p>
@@ -162,19 +162,19 @@ export function AboutMe() {
 						{/* Tarjeta 5: Estado de Operaciones */}
 						<div className="sm:col-span-2 px-3.5 py-2 md:p-4 rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border border-white/[0.1] backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:border-[#dfd0a4]/30 transition-all duration-500 flex items-center justify-between gap-3 md:gap-4 select-none cursor-default relative overflow-hidden">
 							<div className="relative z-10 flex items-center gap-2 md:gap-3">
-								<Radar className="w-3.5 h-3.5 md:w-5 md:h-5 text-[#dfd0a4] animate-spin-slow shrink-0" />
+								<Radar className="w-3.5 h-3.5 md:w-5 md:h-5 text-[#dfd0a4] shrink-0" />
 								<div>
-									<div className="text-[10px] md:text-xs font-mono bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent font-bold uppercase tracking-wider">
+									<div className="text-[11px] md:text-[13px] font-mono bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent font-bold uppercase tracking-wider">
 										ESTADO OPERATIVO ● VUELO 100% LEGAL &amp; ASEGURADO
 									</div>
-									<div className="text-[10.5px] md:text-xs text-zinc-200 font-semibold">
+									<div className="text-xs md:text-sm text-zinc-200 font-semibold mt-0.5">
 										Total conformidad con las normativas europea y estatal para
 										máxima tranquilidad de tu cliente.
 									</div>
 								</div>
 							</div>
 							<div className="relative z-10 shrink-0 flex items-center gap-1 md:gap-1.5 px-2.5 py-0.5 md:px-3 md:py-1 rounded-full bg-[#dfd0a4]/10 border border-[#dfd0a4]/30 text-[#dfd0a4] text-[9px] md:text-[10px] font-mono">
-								<span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#dfd0a4] animate-pulse" />
+								<span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#dfd0a4] opacity-80" />
 								<span>VERIFICADO</span>
 							</div>
 						</div>

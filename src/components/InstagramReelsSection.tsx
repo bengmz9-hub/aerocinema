@@ -183,11 +183,11 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 
 			{/* Parte Superior: Badge Instagram & Duración */}
 			<div className="relative z-10 flex items-center justify-between w-full pointer-events-none">
-				<span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[7.5px] md:text-[8px] tracking-[0.2em] text-gold-300 uppercase flex items-center gap-1.5">
+				<span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[9px] md:text-[10px] tracking-[0.2em] text-gold-300 uppercase flex items-center gap-1.5">
 					<InstagramIcon className="w-2.5 h-2.5 md:w-3 md:h-3 text-gold-400" />
 					REEL
 				</span>
-				<span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[7.5px] md:text-[8px] tracking-wider text-zinc-300">
+				<span className="px-2 py-0.5 md:px-2.5 md:py-1 rounded-full bg-black/60 border border-white/15 backdrop-blur-md font-mono text-[9px] md:text-[10px] tracking-wider text-zinc-300">
 					{reel.duration}
 				</span>
 			</div>
@@ -208,14 +208,14 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 
 			{/* Parte Inferior: Metadata & Métricas de Instagram */}
 			<div className="relative z-10 flex flex-col gap-1 md:gap-2 pointer-events-none">
-				<span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-gold-400 font-medium">
+				<span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-gold-400 font-medium">
 					[ {reel.category} ]
 				</span>
-				<h3 className="font-cinzel font-bold text-[13px] md:text-base text-white uppercase leading-snug line-clamp-2">
+				<h3 className="font-cormorant font-bold text-[15px] md:text-lg text-white uppercase leading-snug line-clamp-2">
 					{reel.title}
 				</h3>
 
-				<div className="flex items-center justify-between pt-1.5 md:pt-2 border-t border-white/10 font-mono text-[8px] md:text-[9px] text-zinc-400">
+				<div className="flex items-center justify-between pt-1.5 md:pt-2 border-t border-white/10 font-mono text-[9px] md:text-[10px] text-zinc-400">
 					<span className="flex items-center gap-1">
 						<Play className="w-2.5 h-2.5 text-zinc-400 fill-zinc-400" />
 						{reel.views}
@@ -243,7 +243,7 @@ export function InstagramReelsSection() {
 				});
 
 	return (
-		<section className="w-full bg-transparent pt-2 pb-8 md:py-12 px-4 md:px-8 relative overflow-hidden select-none">
+		<section className="w-full bg-transparent pt-2 pb-8 md:py-12 px-4 md:px-8 relative z-10 overflow-hidden select-none">
 			<div className="max-w-7xl mx-auto">
 				{/* ═══════ CABECERA TELEMÉTRICA DE TRABAJOS RECIENTES (CENTRADA) ═══════ */}
 				<div className="mb-6 md:mb-14 flex flex-col items-center text-center">

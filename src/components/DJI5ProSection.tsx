@@ -10,14 +10,15 @@ import { MINI_5_PRO_DATA } from "@/data/droneMini5Pro";
 
 export function DJI5ProSection() {
 	return (
-		<section className="relative py-8 md:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden font-jakarta text-white select-none cursor-default">
-			{/* Encabezado de Sección (Centrado) */}
-			<div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
+		<section className="relative w-full bg-transparent py-8 md:py-12 px-4 sm:px-6 lg:px-8 font-jakarta text-white select-none cursor-default z-10 overflow-hidden">
+			<div className="max-w-7xl mx-auto relative z-10">
+				{/* Encabezado de Sección (Centrado) */}
+				<div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
 				<div className="flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-widest mb-2 font-medium bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent">
-					<Sparkles className="w-4 h-4 text-[#dfd0a4] animate-pulse" />
+					<Sparkles className="w-4 h-4 text-[#dfd0a4]" />
 					<span>Tecnología de Vuelo &amp; Óptica Cinematográfica</span>
 				</div>
-				<h2 className="text-3xl md:text-5xl font-cinzel font-bold text-white tracking-wide mb-2">
+				<h2 className="text-3xl md:text-5xl font-cormorant font-bold text-white tracking-wide mb-2 uppercase">
 					{MINI_5_PRO_DATA.title}
 				</h2>
 				<p className="text-zinc-400 text-sm md:text-base max-w-xl font-light">
@@ -68,10 +69,10 @@ export function DJI5ProSection() {
 								<Camera className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#dfd0a4]" />
 								<span>CÁMARA & RESOLUCIÓN DE VÍDEO</span>
 							</div>
-							<h3 className="text-xl md:text-2xl font-bold text-white mb-1 tracking-tight">
+							<h3 className="font-cormorant text-2xl md:text-3xl font-bold text-white uppercase tracking-wide mb-1">
 								4K HDR a 60 fps
 							</h3>
-							<p className="text-zinc-400 text-[11.5px] md:text-xs leading-relaxed mb-2.5 md:mb-3">
+							<p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-2.5 md:mb-3">
 								Sensor {MINI_5_PRO_DATA.sensor} · Perfil{" "}
 								{MINI_5_PRO_DATA.colorProfile} · 1080p a 120 fps
 							</p>
@@ -93,10 +94,10 @@ export function DJI5ProSection() {
 									249 g
 								</span>
 							</div>
-							<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+							<div className="hidden md:block text-lg lg:text-xl font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-cormorant uppercase tracking-wide">
 								249 g
 							</div>
-							<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
+							<p className="text-zinc-200 font-semibold text-xs md:text-sm leading-tight">
 								Sin necesidad de licencias A1/A3. Apto para operaciones urbanas.
 							</p>
 						</div>
@@ -114,10 +115,10 @@ export function DJI5ProSection() {
 									31 min
 								</span>
 							</div>
-							<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+							<div className="hidden md:block text-lg lg:text-xl font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-cormorant uppercase tracking-wide">
 								31 min
 							</div>
-							<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
+							<p className="text-zinc-200 font-semibold text-xs md:text-sm leading-tight">
 								Velocidad máx. {MINI_5_PRO_DATA.maxSpeed}.
 							</p>
 						</div>
@@ -135,10 +136,10 @@ export function DJI5ProSection() {
 									15 km
 								</span>
 							</div>
-							<div className="hidden md:block text-base lg:text-lg font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-sans">
+							<div className="hidden md:block text-lg lg:text-xl font-bold text-white mb-1 group-hover:text-[#f0e6c8] transition-colors font-cormorant uppercase tracking-wide">
 								15 km
 							</div>
-							<p className="text-zinc-200 font-semibold text-[10.5px] md:text-xs leading-tight">
+							<p className="text-zinc-200 font-semibold text-xs md:text-sm leading-tight">
 								Transmisión FHD 1080p 60fps.
 							</p>
 						</div>
@@ -152,7 +153,7 @@ export function DJI5ProSection() {
 								<div className="text-[10px] md:text-xs font-mono bg-gradient-to-r from-[#dfd0a4] via-[#f0e6c8] to-[#c8b88a] bg-clip-text text-transparent font-medium uppercase tracking-wider">
 									SENSORES IA 360° · APAS 5.0
 								</div>
-								<div className="text-[10.5px] md:text-xs text-zinc-300">
+								<div className="text-xs md:text-sm text-zinc-300">
 									Detección omnidireccional inteligente de obstáculos en vuelo
 									urbano y naturaleza.
 								</div>
@@ -160,6 +161,7 @@ export function DJI5ProSection() {
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</section>
 	);

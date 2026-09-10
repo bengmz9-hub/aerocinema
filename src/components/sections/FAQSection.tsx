@@ -69,7 +69,7 @@ export default function FAQSection() {
 
 	return (
 		<section
-			className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-8 pb-4 md:py-20 lg:px-8 select-none"
+			className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-8 pb-4 md:py-20 lg:px-8 select-none z-10"
 			aria-labelledby="faq-heading"
 		>
 			<div className="mx-auto flex max-w-3xl flex-col items-center gap-6 md:gap-10">

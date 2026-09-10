@@ -93,10 +93,10 @@ export default function ContactModal({
 
 				{/* Texto y Badge Centrados */}
 				<div className="relative z-10 text-center flex flex-col items-center w-full">
-					<span className="block font-jakarta text-[11.5px] sm:text-xs font-bold uppercase tracking-wider text-white group-hover:text-gold-200 transition-colors">
+					<span className="block font-cormorant text-lg sm:text-xl font-bold uppercase tracking-wide text-white group-hover:text-gold-200 transition-colors">
 						Enviar Formulario
 					</span>
-					<span className="block font-mono text-[8.5px] sm:text-[9px] text-zinc-400 tracking-wider mt-0.5">
+					<span className="block font-mono text-[10px] md:text-xs text-zinc-400 tracking-wider mt-1">
 						Si prefieres email
 					</span>
 				</div>
@@ -150,7 +150,7 @@ export default function ContactModal({
 							{submitted ? (
 								<div className="flex flex-col items-center justify-center space-y-4 py-12 text-center animate-blur-in">
 									<div className="relative flex items-center justify-center">
-										<span className="absolute inset-0 rounded-full bg-[#dfd0a4]/20 animate-ping" />
+										<span className="absolute inset-0 rounded-full bg-[#dfd0a4]/20 opacity-50" />
 										<CheckCircle2
 											size={52}
 											className="relative text-[#dfd0a4]"
@@ -169,7 +169,7 @@ export default function ContactModal({
 									{/* Cabecera Centrada */}
 									<div className="space-y-2 pt-2">
 										<div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 font-mono text-[8.5px] md:text-[9.5px] tracking-[0.25em] uppercase font-bold">
-											<span className="h-1.5 w-1.5 rounded-full bg-gold-400 animate-pulse" />
+											<span className="h-1.5 w-1.5 rounded-full bg-gold-400 opacity-80" />
 											OPERADOR AESA · CONTACTO DIRECTO
 										</div>
 										<h3
@@ -195,7 +195,7 @@ export default function ContactModal({
 											<div>
 												<label
 													htmlFor="name"
-													className="mb-1 block font-mono text-[8.5px] md:text-[9px] uppercase tracking-wider text-gold-300/90 font-bold"
+												className="mb-1.5 block font-mono text-[10px] md:text-xs uppercase tracking-wider text-gold-300/90 font-bold"
 												>
 													Nombre completo *
 												</label>
@@ -213,7 +213,7 @@ export default function ContactModal({
 											<div>
 												<label
 													htmlFor="email"
-													className="mb-1 block font-mono text-[8.5px] md:text-[9px] uppercase tracking-wider text-gold-300/90 font-bold"
+												className="mb-1.5 block font-mono text-[10px] md:text-xs uppercase tracking-wider text-gold-300/90 font-bold"
 												>
 													Email de contacto *
 												</label>
@@ -232,7 +232,7 @@ export default function ContactModal({
 										<div>
 											<label
 												htmlFor="type"
-												className="mb-1 block font-mono text-[8.5px] md:text-[9px] uppercase tracking-wider text-gold-300/90 font-bold"
+												className="mb-1.5 block font-mono text-[10px] md:text-xs uppercase tracking-wider text-gold-300/90 font-bold"
 											>
 												Tipo de grabación
 											</label>
@@ -266,7 +266,7 @@ export default function ContactModal({
 										<div>
 											<label
 												htmlFor="details"
-												className="mb-1 block font-mono text-[8.5px] md:text-[9px] uppercase tracking-wider text-gold-300/90 font-bold"
+												className="mb-1.5 block font-mono text-[10px] md:text-xs uppercase tracking-wider text-gold-300/90 font-bold"
 											>
 												Detalles del proyecto
 											</label>

@@ -59,7 +59,7 @@ export function Stats() {
 						Garantías claras,{" "}
 						<span className="text-gold-400 italic">sin sorpresas</span>
 					</h2>
-					<p className="font-jakarta text-xs md:text-sm text-zinc-400 font-light">
+					<p className="font-jakarta text-sm md:text-base text-zinc-400 font-light">
 						Compromiso técnico, normativo y de entrega en cada vuelo.
 					</p>
 				</div>
@@ -103,7 +103,7 @@ export function Stats() {
 									<h3 className="font-cormorant text-base md:text-xl font-bold text-white uppercase tracking-wide mb-1 md:mb-2 group-hover:text-gold-200 transition-colors">
 										{item.title}
 									</h3>
-									<p className="font-jakarta text-[10.5px] md:text-xs text-zinc-200 font-semibold leading-snug md:leading-relaxed">
+									<p className="font-jakarta text-xs md:text-sm text-zinc-200 font-semibold leading-snug md:leading-relaxed">
 										{item.description}
 									</p>
 								</div>
