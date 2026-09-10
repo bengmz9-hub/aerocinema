@@ -11,7 +11,7 @@ import { CONTACT_PHONE } from "@/lib/config";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 export default function HomePage() {
 	return (
-		<main className="min-h-screen bg-[#000000] selection:bg-white selection:text-black overflow-x-hidden">
+		<main className="min-h-screen selection:bg-white selection:text-black overflow-x-hidden">
 			{/* ========== 01. HERO ========== */}
 			<HeroSection />
 
@@ -49,7 +49,7 @@ export default function HomePage() {
 			</div>
 
 			{/* ========== 07. FOOTER OFICIAL ESTILO APPLE (APPLE.COM UI SPEC) ========== */}
-			<footer className="w-full bg-[#000000] text-[#a1a1a6] font-jakarta border-t border-[#1d1d1f] pt-8 pb-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto select-none text-[12px] leading-normal">
+			<footer className="w-full text-[#a1a1a6] font-jakarta border-t border-[#1d1d1f] pt-8 pb-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto select-none text-[12px] leading-normal">
 				{/* ── 1. NOTAS AL PIE EDITORIALES (Estilo Apple Footnotes) ── */}
 				<div className="space-y-2.5 pb-6 border-b border-[#1d1d1f] text-[11px] leading-relaxed text-[#86868b]">
 					<p>

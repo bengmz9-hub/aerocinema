@@ -62,9 +62,9 @@ export default function FAQSection() {
 						return (
 							<li
 								key={faq.id}
-								className={`group relative rounded-[14px] md:rounded-2xl bg-[#12141a]/60 border backdrop-blur-2xl shadow-[0_8px_20px_rgba(0,0,0,0.35),inset_0_1px_1px_rgba(255,255,255,0.08)] overflow-hidden transition-all duration-500 ${
+								className={`group relative rounded-[14px] md:rounded-2xl bg-[#12141a] border shadow-[0_8px_20px_rgba(0,0,0,0.35)] overflow-hidden transition-all duration-500 ${
 									isOpen
-										? "border-gold-500/40 bg-[#151821]/80 shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.08)]"
+										? "border-gold-500/40 bg-[#151821] shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.08)]"
 										: "border-white/[0.1] hover:border-gold-500/30 hover:bg-[#151821]/70"
 								}`}
 							>

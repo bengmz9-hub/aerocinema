@@ -9,8 +9,9 @@ import CookieBanner from "@/components/CookieBanner";
 import MobileIsland from "@/components/MobileIsland";
 import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { CONTACT_PHONE_FORMATTED } from "@/lib/config";
 import { FAQS } from "@/data/faqs";
+import { CONTACT_PHONE_FORMATTED } from "@/lib/config";
+
 const cormorant = Cormorant_Garamond({
 	subsets: ["latin"],
 	variable: "--font-cormorant",

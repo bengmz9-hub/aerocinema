@@ -80,8 +80,6 @@ const INSTAGRAM_REELS: InstagramReelItem[] = [
 	},
 ];
 
-
-
 function ReelCard({ reel }: { reel: InstagramReelItem }) {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const videoRef = useRef<HTMLVideoElement>(null);
@@ -133,9 +131,7 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 				preload="none"
 				className={cn(
 					"absolute inset-0 w-full h-full object-cover transition-all duration-500 pointer-events-none select-none",
-					isPlaying
-						? "opacity-100 scale-105"
-						: "opacity-100 scale-100",
+					isPlaying ? "opacity-100 scale-105" : "opacity-100 scale-100",
 				)}
 			/>
 
@@ -192,8 +188,6 @@ function ReelCard({ reel }: { reel: InstagramReelItem }) {
 }
 
 export function InstagramReelsSection() {
-
-
 	return (
 		<section className="w-full bg-transparent pt-2 pb-8 md:py-12 px-4 md:px-8 relative z-10 overflow-hidden select-none">
 			<div className="max-w-7xl mx-auto">
@@ -228,7 +222,7 @@ export function InstagramReelsSection() {
 						href="https://www.instagram.com/jf.drone_visual"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group relative inline-flex items-center gap-2.5 px-5 py-2.5 md:px-7 md:py-3 rounded-full border border-white/[0.12] bg-[#12141a]/70 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] text-white transition-all duration-300 hover:border-gold-500/40 hover:bg-[#151821]/90 hover:shadow-[0_15px_35px_rgba(0,0,0,0.6),0_0_20px_rgba(223,208,164,0.15)] active:scale-95"
+						className="group relative inline-flex items-center gap-2.5 px-5 py-2.5 md:px-7 md:py-3 rounded-full border border-white/[0.12] bg-[#12141a] shadow-[0_10px_30px_rgba(0,0,0,0.4)] text-white transition-all duration-300 hover:border-gold-500/40 hover:bg-[#151821] hover:shadow-[0_15px_35px_rgba(0,0,0,0.6),0_0_20px_rgba(223,208,164,0.15)] active:scale-95"
 					>
 						<div className="p-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400">
 							<InstagramIcon className="w-3.5 h-3.5 text-gold-400" />

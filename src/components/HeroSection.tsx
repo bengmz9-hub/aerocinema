@@ -8,7 +8,7 @@ export function HeroSection() {
 	return (
 		<section
 			aria-label="Hero Principal"
-			className="relative w-full min-h-[90vh] md:h-screen bg-neutral-950 overflow-hidden flex items-center justify-center select-none py-16 md:py-0"
+			className="relative w-full min-h-[90vh] md:h-screen bg-black overflow-hidden flex items-center justify-center select-none py-16 md:py-0"
 		>
 			{/* Partículas cinemáticas de ambiente */}
 			<HeroParticles />

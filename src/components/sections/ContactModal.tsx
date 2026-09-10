@@ -82,7 +82,7 @@ export default function ContactModal({
 				type="button"
 				ref={triggerRef}
 				onClick={() => setIsOpen(true)}
-				className="group relative flex flex-col justify-between p-3.5 sm:p-5 rounded-[16px] md:rounded-2xl border border-white/[0.12] bg-[#12141a]/60 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:border-gold-500/40 hover:bg-[#151821]/80 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.1)] transition-all duration-300 cursor-pointer overflow-hidden w-full"
+				className="group relative flex flex-col justify-between p-3.5 sm:p-5 rounded-[16px] md:rounded-2xl border border-white/[0.12] bg-[#12141a] shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:border-gold-500/40 hover:bg-[#151821] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.1)] transition-all duration-300 cursor-pointer overflow-hidden w-full"
 			>
 				{/* Cabecera con Icono Centrado */}
 				<div className="relative z-10 flex flex-col items-center justify-center mb-2.5 w-full">

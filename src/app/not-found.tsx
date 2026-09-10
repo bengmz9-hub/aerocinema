@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function NotFound() {
 	return (
-		<section className="relative w-full min-h-[calc(100vh-88px)] bg-neutral-950 overflow-hidden flex items-center justify-center select-none">
+		<section className="relative w-full min-h-[calc(100vh-88px)] bg-black overflow-hidden flex items-center justify-center select-none">
 			{/* Grano analógico */}
 			<div
 				className="pointer-events-none absolute inset-0 z-10 opacity-[0.02] mix-blend-overlay"

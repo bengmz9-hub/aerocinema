@@ -74,8 +74,8 @@ export default function ContactSection() {
 								onClick={() => setSelectedType(type.label)}
 								className={`rounded-full border px-4 py-2 font-jakarta text-xs md:text-sm font-medium tracking-wide transition-all duration-300 cursor-pointer backdrop-blur-xl select-none ${
 									isActive
-										? "border-gold-400/60 bg-gold-500/10 text-gold-200 shadow-[0_0_18px_rgba(223,208,164,0.15),inset_0_1px_1px_rgba(255,255,255,0.08)]"
-										: "border-white/[0.12] bg-[#12141a]/60 text-zinc-400 hover:border-gold-500/30 hover:text-zinc-200"
+										? "border-gold-400/60 bg-gold-500/10 text-gold-200 shadow-[0_0_18px_rgba(223,208,164,0.15)]"
+										: "border-white/[0.12] bg-[#12141a] text-zinc-400 hover:border-gold-500/30 hover:text-zinc-200"
 								}`}
 							>
 								{type.label}
@@ -85,7 +85,7 @@ export default function ContactSection() {
 				</fieldset>
 
 				{/* Vista previa del mensaje que se enviará por WhatsApp */}
-				<div className="mt-5 w-full max-w-xl rounded-2xl border border-gold-500/20 bg-[#12141a]/60 backdrop-blur-2xl px-5 py-4 md:px-6 md:py-5 text-left shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+				<div className="mt-5 w-full max-w-xl rounded-2xl border border-gold-500/20 bg-[#12141a] px-5 py-4 md:px-6 md:py-5 text-left shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
 					<p className="font-mono text-[10px] md:text-xs uppercase tracking-[0.2em] text-gold-300/90 font-bold mb-2">
 						Mensaje preparado para WhatsApp
 					</p>
@@ -101,7 +101,7 @@ export default function ContactSection() {
 						href={whatsappUrl}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group relative flex flex-col justify-between p-3.5 sm:p-5 rounded-[16px] md:rounded-2xl border border-white/[0.12] bg-[#12141a]/60 backdrop-blur-2xl shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:border-gold-500/40 hover:bg-[#151821]/80 hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.1)] transition-all duration-300 cursor-pointer overflow-hidden text-left"
+						className="group relative flex flex-col justify-between p-3.5 sm:p-5 rounded-[16px] md:rounded-2xl border border-white/[0.12] bg-[#12141a] shadow-[0_10px_30px_rgba(0,0,0,0.4)] hover:border-gold-500/40 hover:bg-[#151821] hover:shadow-[0_15px_35px_rgba(0,0,0,0.5),0_0_20px_rgba(223,208,164,0.1)] transition-all duration-300 cursor-pointer overflow-hidden text-left"
 					>
 						{/* Definición del Gradiente SVG Verde a Oro */}
 						<svg width="0" height="0" className="absolute" aria-hidden="true">
